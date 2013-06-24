@@ -32,12 +32,12 @@ div {
 
 .videoobject {
 	position: absolute;
-    z-index: 1 !important;
+    
 }
 
 .topobject {
     position: absolute;
-    z-index: 5;
+    z-index: 15;
 }
 
 .hidden {

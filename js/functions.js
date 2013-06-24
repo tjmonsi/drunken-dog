@@ -15,12 +15,17 @@ function onYouTubePlayerReady(playerId) {
 	//setInterval(updatePlayerInfo, 250);
 	UI.videoAssets[idnum].player.addEventListener("onError", "onPlayerError");
 	UI.videoAssets[idnum].player.cueVideoById(data);
-	UI.videoAssets[idnum].player.setPlaybackQuality("small");
-	try {
-		UI.videoAssets[idnum].player.playVideo();
-	} catch(e){
-		console.log(e);	
-	}
+	UI.videoAssets[idnum].player.setPlaybackQuality("large");
+	UI.videoAssets[idnum].loaded=true;
+	UI.videoAssets[idnum].play();
+	UI.videoAssets[idnum].pause();	
+
+	checkAllVideo();
+	//try {
+	//	UI.videoAssets[idnum].player.playVideo();
+	//} catch(e){
+	//	console.log(e);	
+	//}
 	//UI.videoAssets[idnum].play();
     //UI.video.player = document.getElementById("videoobject");
     // This causes the updatePlayerInfo function to be called every 250ms to
@@ -36,6 +41,21 @@ function onYouTubePlayerReady(playerId) {
     //UI.video.pause();
 	//console.log("this is called");
 	//console.log(playerId);
+	
+}
+
+function checkAllVideo() {
+	var flag=true
+	for (var i=0; i<UI.videoAssets.length; i++) {
+		if (UI.videoAssets[i].loaded==false) 	{
+			flag=false;	
+		}		
+	}
+	if (flag && (UI.videoAssets.length==UI.videoset.length)) {
+		UI.init2();	
+		setInterval(updatePlayerInfo, 250);
+		//console.log("error");
+	}
 }
 
 function onPlayerError(errorCode) {
@@ -43,13 +63,13 @@ function onPlayerError(errorCode) {
 }
 
 function updatePlayerInfo(){
+	//console.log("updatePlayerInfo");
     for (var i=0; i<UI.videoAssets.length; i++) {
-		try {
-			UI.videoAssets[i].on_playing();
-		} catch(e) {
-			
+		if (UI.videoAssets[i].playerflag){		
+			UI.videoAssets[i].on_playing();		
 		}
 	}
+	
 	
 }
 

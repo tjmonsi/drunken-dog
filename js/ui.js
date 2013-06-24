@@ -22,14 +22,15 @@ var UI = {
 		
 		UI.videoAssets = new Array();
 		
-		for (var i=0; i<1; i++) {
+		for (var i=0; i<UI.videoset.length; i++) {
 			UI.videoAssets[i] = new VideoObject(UI.videoset[i], UI.board.element, i);	
 			//console.log(UI.videoset[i]);
 		}
 		
-		UI.videoAssets[0].unhide();
-		
-
-		UI.videoAssets[0].play();
-    }
+    },
+	
+	init2: function() {
+		UI.videoAssets[0].on_show();
+		UI.videoAssets[0].play();	
+	}
 }

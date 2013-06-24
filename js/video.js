@@ -27,29 +27,49 @@ var VideoObject = function(data, parent, idnum) {
 
     this.element = $("object#"+data.video);
 	this.player = document.getElementById(data.video);
-	console.log(this.player);
+	
+	//this.player.addEventListener("onError", "onPlayerError");
+	//this.player.cueVideoById(data.video);
+	//this.player.setPlaybackQuality("large");
+	//console.log(this.player);
 	//this.player = element;
     //console.log(this.element.css('top'));
     //this.element.css("left","0px");
 
+	this.playerflag=false;
     this.top = $("div#top"+data.video);
-	
-	this.hide();
+	this.loaded=false;
+	this.on_back();
     //this.element.click($.proxy(UI.board.on_click, UI.board))
 }
 
 VideoObject.prototype = {
     on_playing: function() {
 		try {
-			if (UI.video.player.getPlayerState()==1) {
+			if (this.player.getPlayerState()==1) {
 				this.checkposition();
 			}
 		} catch(e){
 			//console.log(e);
 		}
     },
+	
+	on_show: function() {
+		this.element.css('z-index', 10);
+	},
+	
+	on_back: function() {
+		this.element.css('z-index', "-1");
+		console.log("onback called");
+	},
 
     play: function() {
+		if (this.loaded){
+			this.player.playVideo();
+			this.playerflag=true;
+		} else {
+			console.log("not loaded");	
+		}
         //this.player.playVideo();
 		//UI.playflag = true;
         
@@ -57,6 +77,7 @@ VideoObject.prototype = {
 
     pause: function() {
         this.player.pauseVideo();
+		this.playerflag=false;
 		//UI.playflag=false;
         
     },
@@ -83,14 +104,25 @@ VideoObject.prototype = {
 	},
 
     checkposition: function() {
-		//if (this.player.getCurrentTime()<this.data.start) {
 
-			//this.seek(this.data.start);	
+		if (this.player.getCurrentTime()<this.data.start) {
+			if (this.idnum==0){
+				this.seek(this.data.start);	
+			} else {
+				this.seekpause(this.data.start);	
+			}
 
-//		}
-		//if (this.player.getCurrentTime()>this.data.end){
-		//	this.pause();	
-		//}
+		}
+		if (this.player.getCurrentTime()>this.data.end){
+			if (this.idnum==UI.videoAssets.length-1){
+				this.pause();	
+			} else {
+				this.pause();
+				this.on_back();
+				UI.videoAssets[this.idnum+1].on_show();	
+				UI.videoAssets[this.idnum+1].seek(UI.videoAssets[this.idnum+1].data.start);
+			}
+		}
 		//if (this.player
         /*for (var i= UI.objects.length-1; i>=0; i--){
 
