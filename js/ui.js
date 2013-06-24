@@ -16,8 +16,20 @@ var UI = {
         UI.root = $("div#root");
 
         UI.board = new Board(UI.root);
+		
+		//UI.playflag = false;
+		
+		
+		UI.videoAssets = new Array();
+		
+		for (var i=0; i<1; i++) {
+			UI.videoAssets[i] = new VideoObject(UI.videoset[i], UI.board.element, i);	
+			//console.log(UI.videoset[i]);
+		}
+		
+		UI.videoAssets[0].unhide();
+		
 
-
-
+		UI.videoAssets[0].play();
     }
 }

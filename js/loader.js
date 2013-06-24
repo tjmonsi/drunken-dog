@@ -14,7 +14,7 @@ var Loader = {
             UI.commentset = $.parseJSON(Loader.load_file("data/comment.json")).chunk   ;
             UI.basic = $.parseJSON(Loader.load_file("data/basic.json")).data;
             //UI.transcript = $.parseJSON(Loader.load_file("data/transcript.json")).transcript;
-            UI.init()
+            UI.init();
         } catch (e) {
             console.log(e);
         }

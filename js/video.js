@@ -9,43 +9,56 @@
  *  Video Object
  */
 
-var VideoObject = function(data, parent) {
+var VideoObject = function(data, parent, idnum) {
 
     this.data = data;
+	this.idnum = idnum;
     this.player=null;
-    var element = create_element("object", data.video, ["videoobject"], {"type":"application/x-shockwave-flash", "data":"http://www.youtube.com/apiplayer?controls=0&enablejsapi=1&rel=0&showinfo=0&autohide=1&playerapiid=player1&version=3&autoplay=1", "width":1280, "height":720, "style":"top: 0px; left: 0px"})
+    var element = create_element("object", data.video, ["videoobject"], {"type":"application/x-shockwave-flash", "data":"http://www.youtube.com/apiplayer?controls=0&enablejsapi=1&rel=0&showinfo=0&autohide=1&playerapiid="+data.video+idnum+"&version=3&autoplay=1", "width":data.width, "height":data.height, "style":"top: "+data.x+"px; left: "+data.y+"px"})
     var param = create_element("param", null, null, {"name":"allowScriptAccess", "value":"always"})
+	var param2 = create_element("param", null, null, {"name":"wmode", "value":"opaque"})
     var invisibleboard = create_element("div", "top"+data.video, ["topobject"], {"style": "width:1280px; height:720px"});
 
     element.appendChild(param);
+    element.appendChild(param2);
 
     parent.append(invisibleboard);
     parent.append(element);
 
     this.element = $("object#"+data.video);
-
+	this.player = document.getElementById(data.video);
+	console.log(this.player);
+	//this.player = element;
     //console.log(this.element.css('top'));
     //this.element.css("left","0px");
 
     this.top = $("div#top"+data.video);
+	
+	this.hide();
     //this.element.click($.proxy(UI.board.on_click, UI.board))
 }
 
 VideoObject.prototype = {
     on_playing: function() {
-        if (UI.video.player.getPlayerState()==1) {
-            this.checkposition();
-        }
+		try {
+			if (UI.video.player.getPlayerState()==1) {
+				this.checkposition();
+			}
+		} catch(e){
+			//console.log(e);
+		}
     },
 
     play: function() {
-        this.player.playVideo();
-        $(".object").addClass('invisible');
+        //this.player.playVideo();
+		//UI.playflag = true;
+        
     },
 
     pause: function() {
         this.player.pauseVideo();
-        $(".object").removeClass('invisible partialinvisible');
+		//UI.playflag=false;
+        
     },
 
     seek: function(seconds) {
@@ -53,9 +66,33 @@ VideoObject.prototype = {
         this.player.seekTo(seconds, false);
         this.play();
     },
+	
+	seekpause: function(seconds) {
+		this.seek(seconds);
+		this.pause();	
+	},
+	
+	hide: function(){
+		this.element.addClass("hidden");
+		this.top.addClass("hidden");
+	},
+	
+	unhide: function() {
+		this.element.removeClass("hidden");
+		this.top.removeClass("hidden");
+	},
 
     checkposition: function() {
-        for (var i= UI.objects.length-1; i>=0; i--){
+		//if (this.player.getCurrentTime()<this.data.start) {
+
+			//this.seek(this.data.start);	
+
+//		}
+		//if (this.player.getCurrentTime()>this.data.end){
+		//	this.pause();	
+		//}
+		//if (this.player
+        /*for (var i= UI.objects.length-1; i>=0; i--){
 
             if (UI.objects[i]!=null) {
                 if(UI.objects[i].time <= this.player.getCurrentTime()) {
@@ -68,7 +105,7 @@ VideoObject.prototype = {
             }
         }
 
-        console.log("newState");
+        console.log("newState");*/
     }
 
 

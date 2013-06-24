@@ -8,18 +8,34 @@
 "use strict";
 
 function onYouTubePlayerReady(playerId) {
-    UI.video.player = document.getElementById("videoobject");
+	var idnum = parseInt(playerId.slice(-1));
+	var data = playerId.substring(0, playerId.length-1);
+	//console.log(player);
+	
+	//setInterval(updatePlayerInfo, 250);
+	UI.videoAssets[idnum].player.addEventListener("onError", "onPlayerError");
+	UI.videoAssets[idnum].player.cueVideoById(data);
+	UI.videoAssets[idnum].player.setPlaybackQuality("small");
+	try {
+		UI.videoAssets[idnum].player.playVideo();
+	} catch(e){
+		console.log(e);	
+	}
+	//UI.videoAssets[idnum].play();
+    //UI.video.player = document.getElementById("videoobject");
     // This causes the updatePlayerInfo function to be called every 250ms to
     // get fresh data from the player
-    setInterval(updatePlayerInfo, 250);
+    //setInterval(updatePlayerInfo, 250);
     //updatePlayerInfo()
-    UI.video.player.addEventListener("onError", "onPlayerError");
+    //UI.video.player.addEventListener("onError", "onPlayerError");
 
     //Load an initial video into the player
-    UI.video.player.cueVideoById(UI.data[UI.data.length-1].video);
-    UI.video.player.setPlaybackQuality("large");
-    UI.video.play();
-    UI.video.pause();
+    //UI.video.player.cueVideoById(UI.data[UI.data.length-1].video);
+    //UI.video.player.setPlaybackQuality("large");
+    //UI.video.play();
+    //UI.video.pause();
+	//console.log("this is called");
+	//console.log(playerId);
 }
 
 function onPlayerError(errorCode) {
@@ -27,7 +43,14 @@ function onPlayerError(errorCode) {
 }
 
 function updatePlayerInfo(){
-    UI.video.on_playing();
+    for (var i=0; i<UI.videoAssets.length; i++) {
+		try {
+			UI.videoAssets[i].on_playing();
+		} catch(e) {
+			
+		}
+	}
+	
 }
 
 
