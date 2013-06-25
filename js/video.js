@@ -112,11 +112,27 @@ VideoObject.prototype = {
     checkposition: function() {
 
 		if (this.player.getCurrentTime()<this.data.start) {
-			this.seekpause(this.data.start);	
+			this.seekpause(this.data.start);
+            this.on_back();
 		}
 		else if (this.player.getCurrentTime()>this.data.end){
 			this.pause();	
-			this.on_back();
+
+            if (!this.data.sub){
+                this.on_back();
+                var res = this.timeline.gettime();
+                console.log(res) ;
+                UI.videoAssets[res.idnum].on_show();
+                UI.videoAssets[res.idnum].seek(res.time);
+                /*for (var i=0; i<UI.mainVideo.length; i++){
+                    if (UI.mainVideo[i].data.video==this.data.next){
+
+                        UI.mainVideo[i].on_show();
+                        UI.mainVideo[i].seek(this.timeline);
+                        break;
+                    }
+                }*/
+            }
 		}
         else {
             var timer = this.player.getCurrentTime()-this.data.start;

@@ -24,6 +24,8 @@ var UI = {
 
 		UI.mainVideo = new Array();
 		UI.subVideo = new Array();
+
+        UI.timelineset = {};
 		
 		var mainVideoCounter=0;
 		var subVideoCounter=0;
@@ -40,6 +42,9 @@ var UI = {
 		}
 		
 		UI.mainTimeLine = new Timeline(UI.mainVideo, "mainTimeLine", UI.root);
+
+        UI.timelineset[UI.mainTimeLine.timelinename]=UI.mainTimeLine;
+        console.log(UI.timelineset)
 
         for (var i=0; i<UI.mainVideo.length; i++){
             UI.mainVideo[i].setTimeLine(UI.mainTimeLine);
