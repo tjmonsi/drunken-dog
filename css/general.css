@@ -24,7 +24,7 @@ div {
     background-color: black;
     position: absolute;
     top: 0px;
-    bottom: 0px;
+    bottom: 10px;
     left: 100px;
     right: 100px;
     overflow: auto;
@@ -38,6 +38,25 @@ div {
 .topobject {
     position: absolute;
     z-index: 15;
+}
+
+.timeline {
+	height: 10px;
+	background-color: black;	
+}
+
+.scrubber {
+	height: 10px;
+	width: 10px;
+	background-color: grey;	
+	position: absolute;
+}
+
+#mainTimeLine {
+	position: absolute;	
+	bottom: 0px;
+	left: 100px;
+	right: 100px;
 }
 
 .hidden {

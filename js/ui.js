@@ -22,16 +22,29 @@ var UI = {
 		
 		UI.videoAssets = new Array();
 
+		UI.mainVideo = new Array();
+		UI.subVideo = new Array();
 		
+		var mainVideoCounter=0;
+		var subVideoCounter=0;
 		for (var i=0; i<UI.videoset.length; i++) {
 			UI.videoAssets[i] = new VideoObject(UI.videoset[i], UI.board.element, i);	
 			//console.log(UI.videoset[i]);
+			if (!UI.videoset[i].sub){
+				UI.mainVideo[mainVideoCounter]=UI.videoAssets[i];
+				mainVideoCounter++;	
+			} else {
+				UI.subVideo[subVideoCounter]=UI.videoAssets[i];
+				subVideoCounter++;	
+			}
 		}
+		
+		UI.mainTimeLine = new Timeline(UI.mainVideo, "mainTimeLine", UI.root);
 		
     },
 	
 	init2: function() {
 		UI.videoAssets[0].on_show();
-		UI.videoAssets[0].play();	
+		UI.videoAssets[0].seek(UI.videoAssets[0].data.start);	
 	}
 }
