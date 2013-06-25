@@ -106,22 +106,11 @@ VideoObject.prototype = {
     checkposition: function() {
 
 		if (this.player.getCurrentTime()<this.data.start) {
-			if (this.idnum==0){
-				this.seek(this.data.start);	
-			} else {
-				this.seekpause(this.data.start);	
-			}
-
+			this.seekpause(this.data.start);	
 		}
 		if (this.player.getCurrentTime()>this.data.end){
-			if (this.idnum==UI.videoAssets.length-1){
-				this.pause();	
-			} else {
-				this.pause();
-				this.on_back();
-				UI.videoAssets[this.idnum+1].on_show();	
-				UI.videoAssets[this.idnum+1].seek(UI.videoAssets[this.idnum+1].data.start);
-			}
+			this.pause();	
+			this.on_back();
 		}
 		//if (this.player
         /*for (var i= UI.objects.length-1; i>=0; i--){

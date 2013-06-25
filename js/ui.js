@@ -21,6 +21,7 @@ var UI = {
 		
 		
 		UI.videoAssets = new Array();
+
 		
 		for (var i=0; i<UI.videoset.length; i++) {
 			UI.videoAssets[i] = new VideoObject(UI.videoset[i], UI.board.element, i);	
