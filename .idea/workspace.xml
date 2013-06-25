@@ -7,11 +7,12 @@
     <file path="/index.html" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372059667490" ignored="false" />
     <file path="/video.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1371802815505" ignored="false" />
     <file path="/comment.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1371803140175" ignored="false" />
-    <file path="/ui.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040524540" ignored="false" />
+    <file path="/ui.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372140730544" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
     <file path="/Dummy.txt" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372057926825" ignored="false" />
-    <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372060063220" ignored="false" />
+    <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372140936722" ignored="false" />
+    <file path="/timeline.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372141021613" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,7 @@
       <file leaf-file-name="ui.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="8" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
+            <state line="44" column="65" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#159#0" expanded="false" />
               </folding>
@@ -45,7 +46,16 @@
       <file leaf-file-name="video.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/video.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="22" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0">
+            <state line="124" column="41" selection-start="3232" selection-end="3232" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timeline.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/timeline.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="60" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.6831229">
               <folding />
             </state>
           </provider>
@@ -63,16 +73,25 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="90" selection-start="593" selection-end="593" vertical-scroll-proportion="-9.807693">
+            <state line="17" column="90" selection-start="746" selection-end="746" vertical-scroll-proportion="-9.807693">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="4" selection-start="574" selection-end="574" vertical-scroll-proportion="0.35132033">
+            <state line="23" column="30" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="general.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/general.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="27" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,15 +133,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/functions.js" />
         <option value="$PROJECT_DIR$/data/video.json" />
         <option value="$PROJECT_DIR$/data/comment.json" />
         <option value="$PROJECT_DIR$/js/board.js" />
         <option value="$PROJECT_DIR$/data/basic.json" />
         <option value="$PROJECT_DIR$/js/loader.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/functions.js" />
         <option value="$PROJECT_DIR$/js/ui.js" />
         <option value="$PROJECT_DIR$/js/video.js" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/timeline.js" />
       </list>
     </option>
   </component>
@@ -187,6 +207,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,15 +372,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="8" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#159#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/board.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="4" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
@@ -391,9 +430,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/video.js">
+    <entry file="file://$PROJECT_DIR$/js/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="22" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0">
+        <state line="17" column="4" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="90" selection-start="746" selection-end="746" vertical-scroll-proportion="-9.807693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="27" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -405,32 +458,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/board.js">
+    <entry file="file://$PROJECT_DIR$/js/functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+        <state line="23" column="30" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
+        <state line="44" column="65" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#159#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="90" selection-start="593" selection-end="593" vertical-scroll-proportion="-9.807693">
+        <state line="124" column="41" selection-start="3232" selection-end="3232" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/functions.js">
+    <entry file="file://$PROJECT_DIR$/js/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="574" selection-end="574" vertical-scroll-proportion="0.35132033">
+        <state line="44" column="60" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.6831229">
           <folding />
         </state>
       </provider>

@@ -40,6 +40,10 @@ var UI = {
 		}
 		
 		UI.mainTimeLine = new Timeline(UI.mainVideo, "mainTimeLine", UI.root);
+
+        for (var i=0; i<UI.mainVideo.length; i++){
+            UI.mainVideo[i].setTimeLine(UI.mainTimeLine);
+        }
 		
     },
 	

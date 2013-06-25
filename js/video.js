@@ -27,6 +27,8 @@ var VideoObject = function(data, parent, idnum) {
 
     this.element = $("object#"+data.video);
 	this.player = document.getElementById(data.video);
+
+    this.timeline = null;
 	
 	//this.player.addEventListener("onError", "onPlayerError");
 	//this.player.cueVideoById(data.video);
@@ -103,15 +105,26 @@ VideoObject.prototype = {
 		this.top.removeClass("hidden");
 	},
 
+    setTimeLine: function(timeline){
+        this.timeline=timeline;
+    },
+
     checkposition: function() {
 
 		if (this.player.getCurrentTime()<this.data.start) {
 			this.seekpause(this.data.start);	
 		}
-		if (this.player.getCurrentTime()>this.data.end){
+		else if (this.player.getCurrentTime()>this.data.end){
 			this.pause();	
 			this.on_back();
 		}
+        else {
+            var timer = this.player.getCurrentTime()-this.data.start;
+            //console.log(this.timeline);
+
+            this.timeline.updatepos(this.idnum, timer);
+
+        }
 		//if (this.player
         /*for (var i= UI.objects.length-1; i>=0; i--){
 
