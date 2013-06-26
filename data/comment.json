@@ -8,6 +8,7 @@
         "vote_count":0,
         "answered":true,
         "comment_answer":1,
+        "main_comment":-1,
         "reply_to":-1,
         "tag_time":0,
         "time_length":5,
