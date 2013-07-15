@@ -20,6 +20,8 @@ function onYouTubePlayerReady(playerId) {
 	UI.videoAssets[idnum].seekpause(UI.videoAssets[idnum].data.start);
 	//console.log(UI.videoAssets[idnum].data.start);
 	checkAllVideo();
+
+	
 	//try {
 	//	UI.videoAssets[idnum].player.playVideo();
 	//} catch(e){
