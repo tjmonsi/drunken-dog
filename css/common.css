@@ -1,105 +1,51 @@
-body, html{
-	background-color: #93939c;
-	height: 100%;
-    overflow: hidden;
-    font-family: "Arial";
-    font-size: 12px;
+.left {
+	float: left !important;
 }
 
-#toolbar{
-	width: 100%;
-	height: 100px;
-	background-color: #1c1c1e;
-	display: block;
-	margin: 0 auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	text-align: center;
+.right {
+	float: right !important;
 }
 
-.toolbar_set {
-	float: left;
-	padding:10px;
-	border-right: 1px solid white;
-	border-bottom: 1px solid white;
-	border-top: 1px solid white;
-	height: 80px;
+.hidden {
+	display: none !important;
 }
 
-#Assets {
-	position: relative;
+// Buttons
+
+.button {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px 10px;
+    -webkit-border-radius: 5px;
 }
 
-#AssetBar{
-	float: left;
-	clear: left;
-	padding-left:10px;
-	padding-bottom:10px;
-	padding-right:25px;
-	//border-right: 1px solid white;
-	//border-bottom: 1px solid white;
-	background-color: #3c3c45;
-	width: 240px;
+.button.black {
+	color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px 10px;
+    font-weight: bold;
+    margin: 7px;
+    -webkit-border-radius: 5px;
+    background-image: -webkit-gradient(linear, left top, left bottom, 
+        from(#7d828c),
+        color-stop(0.5, #303749), 
+        color-stop(0.5, #121a2e), 
+        to(#121a2e));
+    border: solid 1px rgba(79, 79, 79, 0.75);
 }
 
-#Asset_List {
-	float: left;
-	clear: left;
-	padding:10px;
-	padding-right:25px;
-	border-top:1px solid white;
-	border-right: 1px solid white;
-	border-bottom: 1px solid white;
-	background-color: #3c3c45;
-    overflow: auto;
-	width: 240px;
+.button.black:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, 
+        from(#4286f5), 
+        color-stop(0.5, #4286f5),
+        color-stop(0.5, #194fdb),
+        to(#194fdb));
 }
 
 
-label{
-	display:inline-block;
-	color:#ffffff;
-	font-family:Helvetica;
-	font-size:18px;
-	font-weight:normal;
-	padding:9px 15px;
-	text-decoration:none;	
-}
-
-p{
-	display:block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:normal;
-	text-decoration:none;	
-	text-align:center;	
-	margin: auto;
-}
-
-.videoList{
-	border-top: 1px solid white;
-	padding-bottom:19px;
-	position: inherit;
-}
-
-video{
-	width: 240px;
-	height: 180px;
-}
-
-#workArea{
-	text-align: center;
-	color: black;
-	//margin: 10px 10px 10px 290px;
-	display: block;
-	position: absolute;
-	left: 270px;
-	right: 0px;
-	top: 120px;
-	bottom: 0px;
-}
-
+/* Setup by Martee */
 
 .tool1Button {	
 	-moz-box-shadow:inset 0px -3px 7px 0px #85f74d;
