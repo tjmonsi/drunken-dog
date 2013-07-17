@@ -15,7 +15,7 @@ function onYouTubePlayerReady(playerId) {
 	//setInterval(updatePlayerInfo, 250);
 	UI.videoAssets[idnum].player.addEventListener("onError", "onPlayerError");
 	UI.videoAssets[idnum].player.cueVideoById(data);
-	UI.videoAssets[idnum].player.setPlaybackQuality("large");
+	UI.videoAssets[idnum].player.setPlaybackQuality("default");
 	UI.videoAssets[idnum].loaded=true;
 	UI.videoAssets[idnum].seekpause(UI.videoAssets[idnum].data.start);
 	//console.log(UI.videoAssets[idnum].data.start);

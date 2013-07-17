@@ -4,9 +4,27 @@ body, html{
     overflow: hidden;
     font-family: "Arial";
     font-size: 12px;
+    color: #ffffff;
 }
 
-label{
+.pad20 {
+	padding: 20px;
+}
+
+.pad10 {
+	padding: 10px;
+}
+
+.mar20 {
+	margin: 20px;
+}
+
+.mar10 {
+	margin: 10px;
+}
+
+
+/*label{
 	display:inline-block;
 	color:#ffffff;
 	font-family:Helvetica;
@@ -36,4 +54,4 @@ p{
 video{
 	width: 240px;
 	height: 180px;
-}
+}*/

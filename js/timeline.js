@@ -116,6 +116,7 @@ Timeline.prototype = {
         this.scrubber.css({"left": posx});
 
     },
+    
     scrubber_fx: {
         axis: 'x',
         containment: 'parent',
