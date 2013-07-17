@@ -1,0 +1,39 @@
+body, html{
+	background-color: #93939c;
+	height: 100%;
+    overflow: hidden;
+    font-family: "Arial";
+    font-size: 12px;
+}
+
+label{
+	display:inline-block;
+	color:#ffffff;
+	font-family:Helvetica;
+	font-size:18px;
+	font-weight:normal;
+	padding:9px 15px;
+	text-decoration:none;	
+}
+
+p{
+	display:block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:normal;
+	text-decoration:none;	
+	text-align:center;	
+	margin: auto;
+}
+
+.videoList{
+	border-top: 1px solid white;
+	padding-bottom:19px;
+	position: inherit;
+}
+
+video{
+	width: 240px;
+	height: 180px;
+}
