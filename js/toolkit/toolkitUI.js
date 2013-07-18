@@ -65,13 +65,40 @@ var new_Asset_Object = function (parent, data, id) {
 	this.videoplayer = new video_Player(this.element, this.data, random_id, 240);
 	Data.videoplayers[this.videoplayer.id]=this.videoplayer;
 
+	this.data_viewer = save_element(this.element, "div", id+'_data_view', ['new_asset_object_data']);
+	this.data_viewer.append(this.data.title)
+
+	this.data_viewer.append(br());
+
+	this.add_to_asset = save_element(this.data_viewer, 'a', id+'_add_to_asset', ['ui-icon', 'ui-icon-plusthick'], {'href':'#', 'title':'Add to Asset'});
+	this.add_to_asset.append('Add to Asset');
+
+	/*<a href="images/high_tatras4.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+    <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>*/
+
+    this.add_to_asset.click($.proxy(this.on_click, this));
+
+    this.element.draggable(this.object_draggable);
+
 	this.init();
 
 }
 
 new_Asset_Object.prototype = {
+	on_click: function(e) {
+
+	},
+
 	init: function() {
 
+	},
+
+	object_draggable: {
+		cancel: 'object, a.ui-icon',
+		revert: 'invalid',
+		helper: 'clone',
+		cursor: 'move',
+		zIndex: 100000
 	},
 
 	destroy: function() {
@@ -112,7 +139,7 @@ var new_Asset_Window = function (parent) {
 new_Asset_Window.prototype = {
 	init: function(){
 		this.list_index=1;
-		this.load_page=6;
+		this.load_page=4;
 		Control.call_youtube_list(this.list_index, this.load_page);
 		//console.log(this.data);
 	},
@@ -137,6 +164,7 @@ new_Asset_Window.prototype = {
 	window_drag: {
 		containment: 'parent',
 		handle: null,
+		cursor: 'move',
 		start: function(){
 			//console.log(UI.new_asset_window.handler.selector)
 		},
@@ -205,6 +233,7 @@ var asset_Bar_UI = function(parent) {
 	this.add_asset = new button_UI(this.asset_bar_top_view.cview, "Add", "add_asset", Control.call_new_asset_window)
 	this.add_asset.element.addClass("right");
 
+	this.element.droppable(this.droppable_area)
 	//this.add_asset = save_element(this.asset_bar_top_view, "a", )
 
 	// inializie tool_Bar
@@ -216,6 +245,16 @@ asset_Bar_UI.prototype = {
 
 
 
+	},
+
+	droppable_area: {
+		accept: 'div#new_Asset_Window_content_inner > div.new_asset_object',
+		activeClass: "ui-state-highlight",
+		drop: function(event, ui) {
+			console.log(event);
+			console.log(ui);
+			Control.send_to_asset(event, ui);
+		}
 	}
 }
 

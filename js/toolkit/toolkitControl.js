@@ -55,5 +55,27 @@ toolkit_Control.prototype = {
 	send_youtube_retrieved_list: function(data) {
 		//console.log(data)
 		UI.new_asset_window.new_data(data);
+	},
+
+	send_to_asset: function(event, object) {
+
+		var new_asset = $(object.draggable.context);
+		new_asset.appendTo(UI.asset_bar.asset_list_view.cview);
+
+		/*
+		$item.fadeOut(function() {
+        var $list = $( "ul", $trash ).length ?
+          $( "ul", $trash ) :
+          $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
+ 
+        $item.find( "a.ui-icon-trash" ).remove();
+        $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+          $item
+            .animate({ width: "48px" })
+            .find( "img" )
+              .animate({ height: "36px" });
+        });
+      });
+		*/
 	}
 }

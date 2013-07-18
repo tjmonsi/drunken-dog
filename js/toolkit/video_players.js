@@ -86,6 +86,7 @@ timeline_Player.prototype = {
     scrubber_fx: {
         axis: 'x',
         containment: 'parent',
+        cursor: 'move',
         start: function(){
         	var target = Data.videoplayers[this.id.replace("_timeline_scrubber", "")];
         	target.pause();
