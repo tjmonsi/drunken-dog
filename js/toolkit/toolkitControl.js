@@ -60,6 +60,9 @@ toolkit_Control.prototype = {
 	send_to_asset: function(event, object) {
 
 		var new_asset = $(object.draggable.context);
+		console.log(new_asset);
+		console.log(object);
+		/*change this*/
 		new_asset.appendTo(UI.asset_bar.asset_list_view.cview);
 
 		/*

@@ -152,7 +152,7 @@ new_Asset_Window.prototype = {
 	add_list: function(i, data) {
 		if (typeof(data.player) !== 'undefined' && typeof(data.title) !== 'undefined') {
             //dataContainer.append("<li><a href = "+val.player.default+" target = '_blank'>"+val.title+"</a></li>");
-            var object = new new_Asset_Object(this.youtube_list.cview, data, data.id+"new_asset_object");
+            var object = new new_Asset_Object(this.youtube_list.cview, data, data.id+"_new_asset_object");
 
         }
 	},
