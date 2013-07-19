@@ -52,7 +52,7 @@ timeline_Player.prototype = {
 
     timeline_scrub_end: function(e) {
             this.mousehold_flag=false;
-            console.log(e.offsetX)
+            //console.log(e.offsetX)
     },
 
     timeline_scrub_mouseleave: function(e) {

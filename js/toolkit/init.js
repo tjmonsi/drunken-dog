@@ -6,6 +6,7 @@ var UI = null;
 var global_id_length = 10;
 var win_width = 0;
 var win_height = 0;
+var debug = true;
 
 var run = function() {
 

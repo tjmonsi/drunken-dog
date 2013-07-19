@@ -119,7 +119,6 @@ var Video_Asset_Object = function (parent, data, id) {
 	this.videoplayer = new video_Player(this.element, this.data, random_id, 240);
 	Data.videoplayers[this.videoplayer.id]=this.videoplayer;
 
-	console.log(Data.videoplayers[this.videoplayer.id])
 
 	this.data_viewer = save_element(this.element, "div", id+'_video_asset_data_view', ['video_asset_data']);
 	this.data_viewer.append(this.data.title)
@@ -185,6 +184,9 @@ var new_Asset_Object = function (parent, data, id) {
 
 	this.videoplayer = new video_Player(this.element, this.data, random_id, 240);
 	Data.videoplayers[this.videoplayer.id]=this.videoplayer;
+
+	//console.log(Data.videoplayers[this.videoplayer.id])
+	//console.log(Data.videoplayers)
 
 	this.data_viewer = save_element(this.element, "div", id+'_data_view', ['new_asset_object_data']);
 	this.data_viewer.append(this.data.title)
@@ -293,7 +295,11 @@ new_Asset_Window.prototype = {
 
         }
 
-        console.log(Data.videoplayers.length)
+        try {
+			console.log(Object.keys(Data.videoplayers).length)
+		} catch (e) {
+			throw new Error(e);
+		}
 	},
 
 	renew_list: function() {
@@ -322,7 +328,11 @@ new_Asset_Window.prototype = {
 			delete Data.videoplayers[id];
 		}
 		this.parent=null;
-		console.log(Data.videoplayers.length)
+		try {
+		console.log(Object.keys(Data.videoplayers).length)
+		} catch (e) {
+			throw new Error(e);
+		}
 		//delete this;
 		//console.log(UI.new_asset_window);
 		UI.new_asset_window=null;
@@ -474,5 +484,18 @@ toolkit_UI.prototype = {
 
 		// initialize workarea
 		this.workArea = new workArea_UI(this.element);
+
+		if (debug) {
+			this.debug = new button_UI(this.element, "Debug", "debug_button", this.show_debug)
+		}
+	},
+
+	show_debug: function(){
+		console.log("UI data");
+		console.log(UI);
+		console.log("Control data");
+		console.log(Control);
+		console.log("Data model");
+		console.log(Data);
 	}
 }

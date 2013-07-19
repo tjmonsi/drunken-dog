@@ -13,6 +13,7 @@
     <file path="/Dummy.txt" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374213383770" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372151955011" ignored="false" />
+    <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,37 +33,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="toolkitControl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitControl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="66" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="toolkitUI.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitUI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.0987372">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="toolkitData.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitData.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main_toolkit.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_toolkit.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toolkit_UI.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/toolkit/toolkit_UI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="120" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.4879449">
               <folding />
             </state>
           </provider>
@@ -96,6 +79,8 @@
         <option value="$PROJECT_DIR$/js/video.js" />
         <option value="$PROJECT_DIR$/js/timeline.js" />
         <option value="$PROJECT_DIR$/data/comment.json" />
+        <option value="$PROJECT_DIR$/main_toolkit.html" />
+        <option value="$PROJECT_DIR$/js/toolkit/toolkit_UI.js" />
       </list>
     </option>
   </component>
@@ -262,7 +247,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -415,13 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_toolkit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="101" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.019517796">
@@ -436,23 +414,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="66" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitData.js">
+    <entry file="file://$PROJECT_DIR$/main_toolkit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/toolkit/toolkitUI.js">
+    <entry file="file://$PROJECT_DIR$/js/toolkit/toolkit_UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.0987372">
+        <state line="120" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.4879449">
           <folding />
         </state>
       </provider>

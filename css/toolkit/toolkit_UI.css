@@ -175,6 +175,15 @@
 	position: absolute;
 }
 
+/*---- special -----*/
+a#debug_button {
+	position: absolute;
+	z-index: 100000;
+	top: 0px;
+	right: 0px;
+	margin: 3px;
+}
+
 
 
 

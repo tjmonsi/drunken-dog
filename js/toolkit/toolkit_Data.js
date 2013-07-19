@@ -2,12 +2,12 @@
 
 var toolkit_Data = function(parent) {
 	this.parent = parent;
-	this.videoplayers = [];
+	this.videoplayers = {};
 	//console.log(this.videoplayers['access']==null);
 
-	this.video_assets = [];
+	this.video_assets = {};
 
-	this.scene_objects = [];
+	this.scene_objects = {};
 
 	this.init();
 }
