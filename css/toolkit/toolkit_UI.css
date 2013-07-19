@@ -74,6 +74,18 @@
 	background-color: blue;
 }
 
+.window_exit {
+	width:4.9%;
+	float: left;
+	height: 20px;
+	padding-top: 10px;
+	background-color: black;
+}
+
+.window_exit a.ui-icon {
+	margin-left: 10px;
+}
+
 /* For the New Asset Window */
 #new_Asset_Window {
 	width: 890px;

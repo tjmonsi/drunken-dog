@@ -119,6 +119,8 @@ var Video_Asset_Object = function (parent, data, id) {
 	this.videoplayer = new video_Player(this.element, this.data, random_id, 240);
 	Data.videoplayers[this.videoplayer.id]=this.videoplayer;
 
+	console.log(Data.videoplayers[this.videoplayer.id])
+
 	this.data_viewer = save_element(this.element, "div", id+'_video_asset_data_view', ['video_asset_data']);
 	this.data_viewer.append(this.data.title)
 
@@ -205,7 +207,7 @@ var new_Asset_Object = function (parent, data, id) {
 
 new_Asset_Object.prototype = {
 	on_click: function(e) {
-
+		Control.send_to_asset(this.element);
 	},
 
 	init: function() {
@@ -239,6 +241,12 @@ var new_Asset_Window = function (parent) {
 	this.handler.append("New Asset");
 	this.handler.disableSelection();
 
+	this.top_exit = save_element(this.element, "div", "new_Asset_Window_window_exit", ["window_exit"]);
+	this.top_exit_button = save_element(this.top_exit, "a", "new_Asset_Window_window_exit_button", ["ui-icon", 'ui-icon-circle-close'], {'href':'#', 'title':'Close Window'});
+	this.top_exit_button.append("Close WIndow");
+
+	this.top_exit_button.click($.proxy(this.on_click_close, this));
+
 	this.content_area = save_element(this.element, "div", "new_Asset_Window_content", ["window_content"]);
 	
 	this.search_area = save_element(this.content_area, "div", "new_Asset_Window_Search");
@@ -251,6 +259,8 @@ var new_Asset_Window = function (parent) {
 
 	this.element.draggable(this.window_drag);
 	this.element.draggable("option", "handle", this.handler.selector);
+
+	this.containerlist = [];
 
 	this.data = null;
 
@@ -265,6 +275,10 @@ new_Asset_Window.prototype = {
 		//console.log(this.data);
 	},
 
+	on_click_close: function(e){
+		this.destroy();
+	},
+
 	new_data: function(data) {
 		console.log(data)
 		$.each(data.data.items, $.proxy(this.add_list, this));
@@ -274,8 +288,12 @@ new_Asset_Window.prototype = {
 		if (typeof(data.player) !== 'undefined' && typeof(data.title) !== 'undefined') {
             //dataContainer.append("<li><a href = "+val.player.default+" target = '_blank'>"+val.title+"</a></li>");
             var object = new new_Asset_Object(this.youtube_list.cview, data, data.id+"_new_asset_object");
+            var id = object.videoplayer.id;
+            this.containerlist.push(id);
 
         }
+
+        console.log(Data.videoplayers.length)
 	},
 
 	renew_list: function() {
@@ -299,8 +317,15 @@ new_Asset_Window.prototype = {
 
 	destroy: function() {
 		this.element.remove();
+		while (this.containerlist.length!=0){
+			var id = this.containerlist.pop();
+			delete Data.videoplayers[id];
+		}
 		this.parent=null;
-		delete this;
+		console.log(Data.videoplayers.length)
+		//delete this;
+		//console.log(UI.new_asset_window);
+		UI.new_asset_window=null;
 	}
 }
 
