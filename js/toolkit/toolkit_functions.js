@@ -37,6 +37,13 @@ function onStateChange(event) {
     console.log(event);
 }
 
+function updateSize(){
+    win_width = $(document).width();
+    win_height = $(document).height();
+
+    UI.asset_bar.asset_bar_list_resize();
+}
+
 function makeID(length){
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

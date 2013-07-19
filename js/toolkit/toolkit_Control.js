@@ -60,7 +60,7 @@ toolkit_Control.prototype = {
 	send_to_asset: function(object) {
 
 		var new_asset = $(object.draggable.context);
-		console.log(new_asset.data());
+		//console.log(new_asset.data());
 
 		if (new_asset.data().type=='video') {
 			if (Data.save_video_asset(new_asset.data().data)) {
@@ -76,7 +76,7 @@ toolkit_Control.prototype = {
 
 	send_to_workspace: function(event, object) {
 		var new_asset = $(object.draggable.context);
-		console.log(new_asset.data());
+		//console.log(new_asset.data());
 
 		this.send_to_asset(object);
 

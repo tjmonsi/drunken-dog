@@ -148,7 +148,16 @@ Video_Asset_Object.prototype = {
 		revert: 'invalid',
 		helper: 'clone',
 		cursor: 'move',
-		zIndex: 100000
+		zIndex: 100000,
+		start: function() {
+			UI.asset_bar.asset_list_view.css({"overflow":"visible"});
+		},
+		drag: function() {
+
+		},
+		stop: function(){
+			UI.asset_bar.asset_list_view.css({"overflow":"auto"});
+		}
 	},
 
 	destroy: function() {
@@ -209,6 +218,7 @@ new_Asset_Object.prototype = {
 		helper: 'clone',
 		cursor: 'move',
 		zIndex: 100000
+
 	},
 
 	destroy: function() {
@@ -332,8 +342,16 @@ var asset_Bar_UI = function(parent) {
 	this.parent = parent;
 	this.element = save_element(this.parent, "div", "asset_Bar")
 
+	console.log(this.element.height());
+
 	this.asset_bar_top_view = save_element(this.element, "div", "asset_Bar_top");
+
+	console.log(this.asset_bar_top_view.height());
+
 	this.asset_list_view = save_element(this.element, "div", "asset_Bar_list");
+	this.asset_list_view.css({"overflow":"auto"});
+
+	this.asset_bar_list_resize();
 
 	this.asset_bar_top_view.cview = save_element(this.asset_bar_top_view, "div", "asset_Bar_top_content", ["pad10"]);
 	this.asset_list_view.cview = save_element(this.asset_list_view, "div", "asset_Bar_list_content", ["pad10"]);
@@ -356,6 +374,11 @@ asset_Bar_UI.prototype = {
 
 
 
+	},
+
+	asset_bar_list_resize: function() {
+		var height = this.element.height()-this.asset_bar_top_view.height();
+		this.asset_list_view.css({"height":height})
 	},
 
 	droppable_area: {
@@ -389,7 +412,7 @@ workArea_UI.prototype = {
 		accept: 'div#new_Asset_Window_content_inner > div.new_asset_object, div#asset_Bar_list_content > div.video_asset_object',
 		activeClass: "ui-state-highlight",
 		drop: function(event, ui) {
-			console.log(event);
+			//console.log(event);
 			///console.log(ui);
 			Control.send_to_workspace(event, ui);
 		}
