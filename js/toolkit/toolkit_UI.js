@@ -111,8 +111,9 @@ Video_Scene_Object.prototype = {
 var Video_Asset_Object = function (parent, data, id) {
 	this.parent = parent;
 	this.data = data;
+	//console.log(this.data.type)
 	this.element = save_element(this.parent, "div", id, ['video_asset_object']);
-	this.element.data({"type": "video", "data": this.data});
+	this.element.data({"type": this.data.type, "data": this.data});
 
 	var random_id = makeID(global_id_length);
 
@@ -176,9 +177,10 @@ Video_Asset_Object.prototype = {
 var new_Asset_Object = function (parent, data, id) {
 	this.parent = parent;
 	data.subtype = "youtube";
+	data.type = "video";
 	this.data = data;
 	this.element = save_element(this.parent, "div", id, ['new_asset_object']);
-	this.element.data({"type": "video", "data": this.data});
+	this.element.data({"type": this.data.type, "data": this.data});
 
 	var random_id = makeID(global_id_length);
 
@@ -295,11 +297,11 @@ new_Asset_Window.prototype = {
 
         }
 
-        try {
+        /*try {
 			console.log(Object.keys(Data.videoplayers).length)
 		} catch (e) {
 			throw new Error(e);
-		}
+		}*/
 	},
 
 	renew_list: function() {
@@ -328,11 +330,11 @@ new_Asset_Window.prototype = {
 			delete Data.videoplayers[id];
 		}
 		this.parent=null;
-		try {
+		/*try {
 		console.log(Object.keys(Data.videoplayers).length)
 		} catch (e) {
 			throw new Error(e);
-		}
+		}*/
 		//delete this;
 		//console.log(UI.new_asset_window);
 		UI.new_asset_window=null;
@@ -377,11 +379,11 @@ var asset_Bar_UI = function(parent) {
 	this.parent = parent;
 	this.element = save_element(this.parent, "div", "asset_Bar")
 
-	console.log(this.element.height());
+	//console.log(this.element.height());
 
 	this.asset_bar_top_view = save_element(this.element, "div", "asset_Bar_top");
 
-	console.log(this.asset_bar_top_view.height());
+	//console.log(this.asset_bar_top_view.height());
 
 	this.asset_list_view = save_element(this.element, "div", "asset_Bar_list");
 	this.asset_list_view.css({"overflow":"auto"});

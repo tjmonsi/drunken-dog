@@ -62,13 +62,18 @@ toolkit_Control.prototype = {
 		var new_asset = $(object.draggable.context);
 		//console.log(new_asset.data());
 
-		if (new_asset.data().type=='video') {
+		if (Data.save_asset(new_asset.data().data)) {
+			var video_asset = new Video_Asset_Object(UI.asset_bar.asset_list_view.cview, new_asset.data().data, new_asset.data().data.id);
+			Data.update_asset(new_asset.data().data.id+"_"+new_asset.data().data.type, "obj", video_asset);
+		}
+
+		/*if (new_asset.data().type=='video') {
 			if (Data.save_video_asset(new_asset.data().data)) {
 				var video_asset = new Video_Asset_Object(UI.asset_bar.asset_list_view.cview, new_asset.data().data, new_asset.data().data.id);
 				Data.video_assets[new_asset.data().data.id].obj = video_asset;
 				//console.log(Data.video_assets[new_asset.data().data.id])
 			}
-		}
+		}*/
 
 		
 
