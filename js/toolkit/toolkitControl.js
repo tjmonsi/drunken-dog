@@ -57,28 +57,43 @@ toolkit_Control.prototype = {
 		UI.new_asset_window.new_data(data);
 	},
 
-	send_to_asset: function(event, object) {
+	send_to_asset: function(object) {
 
 		var new_asset = $(object.draggable.context);
-		console.log(new_asset);
-		console.log(object);
-		/*change this*/
-		new_asset.appendTo(UI.asset_bar.asset_list_view.cview);
+		console.log(new_asset.data());
 
-		/*
-		$item.fadeOut(function() {
-        var $list = $( "ul", $trash ).length ?
-          $( "ul", $trash ) :
-          $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
- 
-        $item.find( "a.ui-icon-trash" ).remove();
-        $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
-          $item
-            .animate({ width: "48px" })
-            .find( "img" )
-              .animate({ height: "36px" });
-        });
-      });
-		*/
+		if (new_asset.data().type=='video') {
+			if (Data.save_video_asset(new_asset.data().data)) {
+				var video_asset = new Video_Asset_Object(UI.asset_bar.asset_list_view.cview, new_asset.data().data, new_asset.data().data.id);
+				Data.video_assets[new_asset.data().data.id].obj = video_asset;
+				//console.log(Data.video_assets[new_asset.data().data.id])
+			}
+		}
+
+		
+
+	},
+
+	send_to_workspace: function(event, object) {
+		var new_asset = $(object.draggable.context);
+		console.log(new_asset.data());
+
+		this.send_to_asset(object);
+
+		if (new_asset.data().type=='video') {
+			var scene_id;
+			do {
+				scene_id = makeID(10);
+			} while (!Data.save_scene_object(scene_id, new_asset.data().data));
+
+			//350, 160
+
+			var scene_object = new Video_Scene_Object(UI.workArea.element, new_asset.data().data, scene_id, event.pageX-350, event.pageY-160);
+			Data.scene_objects[scene_id].obj = scene_object;
+
+
+		}
+
+
 	}
 }

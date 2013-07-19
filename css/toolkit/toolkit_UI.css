@@ -61,11 +61,13 @@
 	right: 0px;
 	top: 160px;
 	bottom: 0px;
+	overflow: auto;
 }
 
 /* General Windows */
 .window_handler {
-	width: inherit;
+	width: 95%;
+	float: left;
 	height: 20px;
 	text-align: center;
 	padding-top: 10px;
@@ -74,15 +76,16 @@
 
 /* For the New Asset Window */
 #new_Asset_Window {
-	width: 850px;
+	width: 890px;
 	position: absolute;
-	height: 500px;
+	height: 510px;
 	background-color: #cccccc;
 	border: 1px solid black;
 }
 
 #new_Asset_Window_Search {
 	width: inherit;
+	clear: both;
 	height: 30px;
 	padding-top: 10px;
 	background-color: #a3a3ac;
@@ -93,6 +96,8 @@
 	position: absolute;
 	bottom: 0px;
 	top: 70px;
+	left: 30px;
+	right: 30px;
 }
 
 #new_Asset_Window_content_inner {
@@ -107,7 +112,29 @@
 	margin-bottom: 5px;
 	border: 1px solid black;
 	background-color:  #a3a3ac;
-	overflow: ;
+	width: 240px;
+	height: 180px;
+}
+
+/* For the Asset List */
+.video_asset_object {
+	padding: 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	background-color:  #a3a3ac;
+	width: 240px;
+}
+
+/* For the Workspace */
+.video_scene_object {
+	position: absolute;
+	padding: 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	background-color:  #a3a3ac;
+	width: 240px;	
 }
 
 /* Video Players */

@@ -32,8 +32,8 @@ var timeline_Player = function(parent, id) {
 timeline_Player.prototype = {
 
 	timeline_scrub_start: function(e){
-        console.log(e.target.id);
-        console.log(this.id)
+       // console.log(e.target.id);
+       // console.log(this.id)
         if (e.target.id==this.id){
             this.mousehold_flag=true;
         }
@@ -45,7 +45,7 @@ timeline_Player.prototype = {
 
     timeline_scrub: function(e) {
         if (this.mousehold_flag) {
-            console.log(e.offsetX)
+           // console.log(e.offsetX)
             this.timeline_scrub_function(e.offsetX-5);
         }
     },
@@ -154,6 +154,11 @@ var video_Player = function(parent, data, idnum, width) {
     this.loaded=false;
 
     this.interval = null;
+
+    this.player_element.data({
+        "data":this.data,
+        "id": this.id,
+        });
    // console.log("videoPlayer finishes everything")
 
 }
