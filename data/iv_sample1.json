@@ -146,11 +146,11 @@
 				},
 				{
 					"data":{
-						"type":"play_button",
+						"type":"button",
 						"value": "Replay with hints",
+						"triggers": ["trigger_1_11"],
 						"play": 14,
-						"video_id": "video_2",
-						"triggers": ["trigger_1_11"]
+						"video_id": "video_2"
 					},
 					"id": "replay_1_9",
 					"x": 0,
@@ -164,18 +164,20 @@
 				},
 				{
 					"data":{
-						"type":"trigger_show",
-						"show": ["text_label_1_12", "text_label_1_13"]
+						"type":"trigger",
+						"show": ["text_label_1_12", "text_label_1_13"],
+						"hide": [],
+						"name": "trigger 1"
 					},
 					"id": "trigger_1_11",
 					"x": 0,
 					"y": 0,
-					"parent": "form_1_1",
-					"start": "inherit",
-					"pause": "inherit",
-					"end": "inherit",
-					"show": "hide",
-					"video_id": "inherit"
+					"parent": null,
+					"start": null,
+					"pause": null,
+					"end": null,
+					"show": null,
+					"video_id": null
 				},
 			],
 			"triggers":[
