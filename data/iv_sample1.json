@@ -180,16 +180,7 @@
 					"video_id": null
 				},
 			],
-			"triggers":[
-			{
-				"data": {
 
-				},
-				"start": 168.8,
-				"pause": true,
-				"end": null
-			}
-			]
 
 		}
 	}
