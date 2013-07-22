@@ -78,6 +78,21 @@
 				{
 					"data":{
 						"type":"text_label",
+						"value": "P(T)="
+					},
+					"id": "question_1_3",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "inherit",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"text_label",
 						"value": "What is now the possibility of getting tails? Or P(T)?"
 					},
 					"id": "question_1_1_5",
@@ -179,7 +194,38 @@
 					"show": null,
 					"video_id": null
 				},
-			],
+				{
+					"data":{
+						"type":"text_label",
+						"value": "This is the number of possibilities for getting heads"
+					},
+					"id": "text_label_1_12",
+					"x": 0,
+					"y": 0,
+					"parent": "",
+					"start": 14,
+					"pause": false,
+					"end": 367,
+					"show": "hide",
+					"video_id": "video_2"
+				},
+				{
+					"data":{
+						"type":"text_label",
+						"value": "This is the total number of possibilities for flipping a coin"
+					},
+					"id": "text_label_1_13",
+					"x": 0,
+					"y": 0,
+					"parent": "",
+					"start": 14,
+					"pause": false,
+					"end": 367,
+					"show": "hide",
+					"video_id": "video_2"
+				}
+
+			]
 
 
 		}
