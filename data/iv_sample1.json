@@ -6,17 +6,189 @@
 			"scene_objects":[
 			{
 				"data":{
-
-
+					"id":"YpvE0Co66nU",
 				},
-				"id":"1",
+				"id":"video_1",
 				"prev": "start",
-				"next": "",
-				"start":,
-				"end":,
+				"next": "2",
+				"start":72,
+				"end":124.7,
+
+			},
+			{
+				"data":{
+					"id":"uzkc-qNVoOk",
+				},
+				"id":"video_2",
+				"prev": "start",
+				"next": "2",
+				"start":14,
+				"end":367,
+
+			},
+			{
+				"data":{
+					"id":"BAjOEsU_mpE",
+				},
+				"id":"video_3",
+				"prev": "start",
+				"next": null,
+				"start":62,
+				"end":565,
 
 			}
+			],
+			"embedded_objects":[
+				{
+					"data":{
+						"type":"form",
+						"sub_type": "input_box",
+						"objects": ["question_1_3", "question_1_1_5", "hint_1_8"],
+						"input": ["input_box_1_2"],
+						"submit": "submit_1_4",
+					},
+					"id": "form_1_1",
+					"x": 0,
+					"y": 0,
+					"start": 168.8,
+					"pause": true,
+					"end": null,
+					"show": true,
+					"video_id": "video_2"
+				},
+				{
+					"data":{
+						"type":"input_box",
+						"value": "",
+						"correct": 0.5,
+						"right": ["text_1_7"],
+						"wrong": ["hint_1_8", "replay_1_9"],
+						"collect": true 
+					},
+					"id": "input_box_1_2",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "inherit",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"text_label",
+						"value": "What is now the possibility of getting tails? Or P(T)?"
+					},
+					"id": "question_1_1_5",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "inherit",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"submit",
+						"value": "Submit Answer",
+						"value_wrong": "Retry Answer",
+						"value_correct": "Continue",
+						"wrong": [{"input_box_1_2":""}],
+						"correct": {"play": "current"}
+					},
+					"id": "submit_1_4",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "inherit",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"hint_trigger",
+						"show": ["video_1_10"]
+					},
+					"id": "hint_1_8",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "hide",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"video",
+						"data":{
+							"id":"YpvE0Co66nU"
+						},
+						"start":72,
+						"end":124.7,
+						"width": 360
+					},
+					"id": "hint_1_8",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "hide",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"play_button",
+						"value": "Replay with hints",
+						"play": 14,
+						"video_id": "video_2",
+						"triggers": ["trigger_1_11"]
+					},
+					"id": "replay_1_9",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "hide",
+					"video_id": "inherit"
+				},
+				{
+					"data":{
+						"type":"trigger_show",
+						"show": ["text_label_1_12", "text_label_1_13"]
+					},
+					"id": "trigger_1_11",
+					"x": 0,
+					"y": 0,
+					"parent": "form_1_1",
+					"start": "inherit",
+					"pause": "inherit",
+					"end": "inherit",
+					"show": "hide",
+					"video_id": "inherit"
+				},
+			],
+			"triggers":[
+			{
+				"data": {
+
+				},
+				"start": 168.8,
+				"pause": true,
+				"end": null
+			}
 			]
+
 		}
 	}
 }
