@@ -3,6 +3,7 @@
 function onYouTubePlayerReady(playerId) {
     //console.log(playerId)
     var video_id = playerId.substring(0, playerId.length-global_id_length);
+    //console.log(video_id)
     var pre_corrected_Id = playerId;
     for (var i; i<playerId.length; i++) {
         if (playerId[i]=='_') pre_corrected_Id += '1'+i;
@@ -10,22 +11,34 @@ function onYouTubePlayerReady(playerId) {
     }
     var corrected_Id = pre_corrected_Id.replace(/\W/g, '');
 
-    Data.videoplayers[playerId].player.addEventListener("onError", "onPlayerError"+corrected_Id);
-    Data.videoplayers[playerId].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
+    console.log(corrected_Id)
+    //console.log("Hello")
+    //console.log(VData.videoplayers);
 
-
+    try {
+        VData.videoplayers[playerId].player.addEventListener("onError", "onPlayerError"+corrected_Id);
+        VData.videoplayers[playerId].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
+    } catch (e) {
+        throw new Error(e)
+    }
+    //console.log("Hello1")
+    console.log(VData.videoplayers);
 
     window["onPlayerError" + corrected_Id] = function(state) {
-        Data.videoplayers[playerId].on_player_Error(state);
+        //console.log("onPlayerError")
+        VData.videoplayers[playerId].on_player_Error(state);
     };
 
     window["onStateChange" + corrected_Id] = function(state) {
-        Data.videoplayers[playerId].on_player_State_Change(state);
+        VData.videoplayers[playerId].on_player_State_Change(state);
     };
 
-    Data.videoplayers[playerId].player.cueVideoById(video_id);
-    Data.videoplayers[playerId].player.setPlaybackQuality("default");
-    Data.videoplayers[playerId].seekload(0);
+    //console.log()
+
+    VData.videoplayers[playerId].player.cueVideoById(video_id);
+    VData.videoplayers[playerId].player.setPlaybackQuality("default");
+    VData.videoplayers[playerId].seekload(0);
+    
 
 }
 
@@ -41,7 +54,7 @@ function updateSize(){
     win_width = $(document).width();
     win_height = $(document).height();
 
-    UI.asset_bar.asset_bar_list_resize();
+    //UI.asset_bar.asset_bar_list_resize();
 }
 
 function makeID(length){

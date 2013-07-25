@@ -72,7 +72,7 @@ timeline_Player.prototype = {
 
         var timer = (posx*this.timelength)/(this.element.width()-10);
         this.scrubber.css({"left": posx});
-        Data.videoplayers[this.video_id].seek(timer);
+        VData.videoplayers[this.video_id].seek(timer);
 
     },
 
@@ -88,14 +88,14 @@ timeline_Player.prototype = {
         containment: 'parent',
         cursor: 'move',
         start: function(){
-        	var target = Data.videoplayers[this.id.replace("_timeline_scrubber", "")];
+        	var target = VData.videoplayers[this.id.replace("_timeline_scrubber", "")];
         	target.pause();
         },
         drag: function(){
 
         },
         stop: function(){
-        	var target = Data.videoplayers[this.id.replace("_timeline_scrubber", "")];
+        	var target = VData.videoplayers[this.id.replace("_timeline_scrubber", "")];
         	//console.log(target.timeline);
             var posx = target.timeline.scrubber.position().left;
 
@@ -117,8 +117,18 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
     this.player=null;
     this.width = width;
     var height = this.width*(9/16)
+
+
+    if (typeof(sceneflag)==='undefined') {
+        this.sceneflag = false;
+    } else {
+        this.sceneflag = sceneflag;
+    }
+    var player_container_class;
+    if (!this.sceneflag) player_container_class='player_container'
+    else player_container_class='main_player_container'
     //console.log("videoPlayer is called")
-    this.player_container = save_element(this.parent, "div", this.id+"_container", ["player_container"]);
+    this.player_container = save_element(this.parent, "div", this.id+"_container", [player_container_class]);
 
     var address = "http://www.youtube.com/apiplayer?controls=0"+
     			  	"&enablejsapi=1"+
@@ -144,18 +154,13 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
     
     this.timeline = new timeline_Player(this.player_container, this.id);
 
-    if (typeof(sceneflag)==='undefined') {
-        this.sceneflag = false;
-    } else {
-        this.sceneflag = sceneflag;
-    }
 
     if (this.sceneflag) {
         this.timeline.element.addClass('hide');
         this.timeline.scrubber.addClass('hide'); 
     }
 
-    
+
     this.player_area = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
     this.player_area.css({"width":this.width, "height": height});
 
@@ -173,6 +178,9 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
         "id": this.id,
         });
    // console.log("videoPlayer finishes everything")
+
+   this.video_start = null;
+   this.video_end = null;
 
 }
 
@@ -194,15 +202,14 @@ video_Player.prototype = {
 		if (event=='1') {
 			this.playerflag=true;
 			this.timeline.timelength = this.player.getDuration();
-			Control.currently_playing=this;
 			this.interval = setInterval($.proxy(this.checkposition, this), 250);
 		} else {
 			this.playerflag=false;
-			if ((Control.currently_playing!=null) && (Control.currently_playing==this)) Control.currently_playing=null;
 			clearInterval(this.interval);
 		}
 		if (event=='5') {
 			this.loaded = true;
+            this.seekload(VData.scene_objects[this.idnum].start);
 			this.timeline.timelength = this.player.getDuration();
 		}
 	},
@@ -237,19 +244,41 @@ video_Player.prototype = {
 	},
 
 	on_click: function(event) {
-
-		if (this.playerflag) {
-			this.pause();
-		} else {
-			this.play();
-		}
+        console.log(event.offsetX);
+        console.log(event.offsetY);
+        //console.log(this.player_area.attr('id'))
+        if (event.target.id==this.player_area.attr('id')){
+            console.log(VData.timeline.passable)
+            
+            if (this.sceneflag) {
+                if (VData.timeline.passable) {
+            		if (this.playerflag) {
+            			this.pause();
+            		} else {
+            			this.play();
+            		}
+                }
+            } else {
+                if (this.playerflag) {
+                    this.pause();
+                } else {
+                    this.play();
+                } 
+            }
+        }
 	},
 
     play: function() {
 		if (this.loaded){
-			if ((Control.currently_playing!=this) && (Control.currently_playing!=null)) {
-				Control.currently_playing.pause();
-			}
+            if (!this.sceneflag) {
+                if (this.video_start!=null) {
+                    if (this.player.getCurrentTime()<this.video_start) {
+                        this.player.seekTo(this.video_start+0.1, false);
+                    }
+
+                }   
+            }
+
 			this.player.playVideo();
 			//this.playerflag=true;
 		} else {
@@ -280,12 +309,65 @@ video_Player.prototype = {
 		this.player.pauseVideo();	
     },
 
+    set_start_end: function(start, end) {
+        if (!this.sceneflag) {
+            this.video_start=start;
+            this.video_end=end;
+            //this.seekload(this.video_start)
+        }
+    },
+
 
 	checkposition: function() {
 		//console.log("chackposition")
         if (!this.sceneflag){
+
+            if ((this.video_start!=null) && (this.video_end!=null)) {
+                if (this.player.getCurrentTime()<this.video_start) {
+                    this.seek(this.video_start)
+                } else if (this.player.getCurrentTime()>this.video_end) {
+                    this.seekpause(this.video_start)
+                }
+            }
+
             var timer = this.player.getCurrentTime();
             this.timeline.updatepos(timer);
+                
+
+        } else {
+            var vidstart = VData.scene_objects[this.idnum].start
+            var vidend = VData.scene_objects[this.idnum].end
+            var index = VData.timeline.timeline_index[this.idnum];
+
+            if (this.player.getCurrentTime()<vidstart) {
+                this.seekpause(vidstart);
+                this.on_back();
+            }
+            else if (this.player.getCurrentTime()>vidend){
+                this.pause();
+                this.on_back();
+            
+                var next = VData.timeline.timeline[index+1]
+                var nextstart = VData.timeline.timeline_timepts[index+1].video_start
+                if (next!=null) {
+                    VUI.main_VideoPlayer.videoset[next].on_show();
+                    VUI.main_VideoPlayer.videoset[next].seek(nextstart);
+                }
+
+                /*var next = VData.scene_objects[this.idnum].next;
+
+                if (next!=null) {
+                    var nextstart = VData.scene_objects[next].start;
+                    VUI.main_VideoPlayer.videoset[next].on_show();
+                    VUI.main_VideoPlayer.videoset[next].seek(nextstart);*/
+
+                //}
+            } else {
+                VData.timeline.update_timeline(index, this.player.getCurrentTime());
+            }
+
+
+
         }
     }
 	
