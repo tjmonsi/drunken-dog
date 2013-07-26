@@ -59,6 +59,26 @@ main_Data_Timeline.prototype = {
 
 			}
 		}
+
+		for (var key in VData.trigger_comments){
+			var trigger_time = parseFloat(key);
+			var arr = VData.trigger_comments[key]
+
+			for (var i in arr) {
+
+				var pinID = arr[i].pinID
+				if ((trigger_time<=time) && (trigger_time+5>=time)) {
+				
+					VUI.comment_pts[pinID].element.removeClass('hide')
+
+				} else {
+
+					VUI.comment_pts[pinID].element.addClass('hide')
+				}
+			}
+
+
+		}
 		//console.log(this.currentTime);
 	},
 
@@ -102,6 +122,9 @@ var viewer_Data = function(parent) {
 	this.init();
 	//this.main_timeline = [];
 	this.timeline = new main_Data_Timeline();
+
+	this.trigger_comments = {};
+	this.comment_threads = {};
 
 }
 

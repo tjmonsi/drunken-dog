@@ -168,6 +168,11 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
 	this.player = document.getElementById(this.id);
 
 	this.player_area.click($.proxy(this.on_click, this));
+
+    this.player_area.bind("contextmenu", $.proxy(this.right_click, this));
+
+    this.contextmenu = new video_contextmenu(this.player_area, this.id+"_context_menu", this.idnum);
+
 	this.playerflag=false;
     this.loaded=false;
 
@@ -185,6 +190,18 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
 }
 
 video_Player.prototype = {
+
+    right_click: function(event) {
+        //console.log(event);
+        //console.log("rightclick")
+
+        this.contextmenu.setxy(event.offsetX, event.offsetY);
+        this.contextmenu.element.removeClass('hide')
+
+        this.pause();
+
+        return false
+    },
 
 	on_playing: function() {
 		//console.log("on_playing")
@@ -244,14 +261,18 @@ video_Player.prototype = {
 	},
 
 	on_click: function(event) {
-        console.log(event.offsetX);
-        console.log(event.offsetY);
+
+        this.contextmenu.element.addClass('hide')
         //console.log(this.player_area.attr('id'))
         if (event.target.id==this.player_area.attr('id')){
             console.log(VData.timeline.passable)
             
             if (this.sceneflag) {
+                console.log(event.offsetX);
+                console.log(event.offsetY);
                 if (VData.timeline.passable) {
+
+                    //console.log(event.which)
             		if (this.playerflag) {
             			this.pause();
             		} else {

@@ -24,7 +24,19 @@
 				"id":"video00002",
 				"prev": "video00001",
 				"next": "video00003",
-				"start":178,
+				"start":150,
+				"end":183,
+				"temp_next": null,
+				"original_start": 14
+			},
+			{
+				"data":{
+					"id":"uzkc-qNVoOk"
+				},
+				"id":"video00003",
+				"prev": "video00002",
+				"next": "video00004",
+				"start":300,
 				"end":367,
 				"temp_next": null,
 				"original_start": 14
@@ -33,8 +45,8 @@
 				"data":{
 					"id":"BAjOEsU_mpE"
 				},
-				"id":"video00003",
-				"prev": "video00002",
+				"id":"video00004",
+				"prev": "video00003",
 				"next": null,
 				"start":62,
 				"end":565,
@@ -182,7 +194,7 @@
 						"type":"button",
 						"value": "Replay with hints",
 						"triggers": ["trigger_1_11"],
-						"play": 14,
+						"play": 150,
 						"video_id": "video00002"
 					},
 					"id": "replay_1_9",
@@ -223,7 +235,7 @@
 					"x": 0,
 					"y": 0,
 					"parent": null,
-					"start": 14,
+					"start": 150,
 					"pause": false,
 					"end": 367,
 					"show": false,
@@ -239,7 +251,7 @@
 					"x": 0,
 					"y": 0,
 					"parent": null,
-					"start": 14,
+					"start": 150,
 					"pause": false,
 					"end": 367,
 					"show": false,

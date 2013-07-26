@@ -1,5 +1,212 @@
 "use strict";
 
+/*var video_comment_threads = function(parent, id, data, video_id, x, y){
+	this.parent = parent;
+	this.id = id;
+	this.data = data;
+	this.video_id = video_id;
+	this.x = x;
+	this.y = y;
+
+	this.element = save_element(this.parent)
+}*/
+
+var video_comment_point = function(parent, id, data, video_id, x,y, time){
+	this.parent = parent;
+	this.id = id;
+	this.data = data;
+	this.video_id = video_id;
+	this.x = x
+	this.y = y;
+	this.comment_thread = null;
+	this.time = time;
+	this.comment_view_data = {};
+
+
+
+	this.element = save_element(this.parent, "div", this.id+"_comment_pt", ['comment_pt']);
+	this.element.css({"left": this.x, "top": this.y});
+	this.element.append(this.data.length);
+
+	this.element.click($.proxy(this.show_comment_threads, this));
+}
+
+video_comment_point.prototype = {
+	update_comment_thread_length: function() {
+		this.element.empty();
+		this.element.append(this.data.length);
+	},
+
+	show_comment_threads: function(event) {
+		console.log(event)
+		this.comment_thread = save_element(this.parent, "div", this.id+"_comment_thread", ['comment_threads']);
+		this.comment_thread.css({"left": this.x, "top": this.y});
+
+		$.each(this.data, $.proxy(this.foreach_comment_thread, this));
+
+		this.comment_thread.append(br())
+		this.comment_thread_new = new button_UI (this.comment_thread, "New Thread", this.id+"_new_comment_thread", $.proxy(this.new_comment_thread, this));
+		this.comment_thread.append(br())
+		this.comment_thread.append(br())
+		this.comment_thread_close = new button_UI (this.comment_thread, "Close", this.id+"_close_comment_thread", $.proxy(this.destroy_comment_thread, this));
+
+	},
+
+	foreach_comment_thread: function(index, value){
+		this.comment_view_data[value.id] = save_element(this.comment_thread, "div", value.id, ['comment_thread']);
+		this.comment_view_data[value.id].append(value.commenter+":");
+		this.comment_view_data[value.id].append(br());
+		this.comment_view_data[value.id].append(br());
+		this.comment_view_data[value.id].append(value.comment)
+		console.log(value)
+	},
+
+	update_comment_thread: function(value) {
+		this.data.push(value)
+		this.update_comment_thread_length();
+
+	},
+
+	new_comment_thread: function(event) {
+		//console.log(this.data)
+		this.add_new_comment_thread = new video_new_comment_thread(this.parent, this.id+"_new_comment_thread", this.video_id, this.x, this.y, this.time, this.data[0].pinID)
+		this.destroy_comment_thread();
+		//this.show_comment_threads();
+	},
+
+	destroy_comment_thread: function() {
+		this.comment_thread.remove();
+		this.comment_view_data = {};
+	}
+
+
+
+
+
+
+
+}
+
+var video_new_comment_thread = function(parent, id, video_id, x, y, time, pinID) {
+	this.parent = parent
+	this.id=id;
+	this.video_id=video_id;
+	this.x=x;
+	this.y=y;
+	this.time = time;
+
+	if (pinID==null) this.pinID = makeID(global_id_length)+"_comment_pin";
+	else this.pinID = pinID
+
+	console.log(pinID)
+	this.element = save_element(this.parent, "div", this.id, ['new_comment_thread']);
+	this.element.css({"left": this.x, "top": this.y})
+	this.header = save_element(this.element, "div", this.id+"_header", ['new_comment_header']);
+	this.header.append("Add New Comment Thread")
+	this.comment_box = save_element(this.element, "textarea", this.id+"_comment", ['new_comment_box']);
+	this.commenter = save_element(this.element, "input", this.id+"_commenter", ['new_commenter']);
+
+	this.element.append(br());
+
+
+	this.clear_comment = new button_UI(this.element, "Erase", this.id+"_clear_comment", $.proxy(this.reset_comment, this));
+	this.ok_comment = new button_UI(this.element, "Submit", this.id+"_submit_comment", $.proxy(this.submit_comment, this))
+	this.cancel_comment = new button_UI(this.element, "Cancel", this.id+"_cancel_comment", $.proxy(this.exit_comment, this))
+}
+
+video_new_comment_thread.prototype = {
+	reset_comment: function(){
+		this.comment_box.val('');
+		this.commenter.val('');
+	},
+
+	submit_comment: function(){
+		//console.log(this.comment_box.val());
+		var comment_id = makeID(global_id_length)+"_comment"
+		var time = this.time
+		console.log(time)
+		var new_comment_thread = {"commenter":this.commenter.val(), "comment": this.comment_box.val(), "id": comment_id, "thread":[], "video_id": this.video_id, "time": time, "pinID": this.pinID};
+		VData.comment_threads[comment_id]=new_comment_thread;
+
+
+		if (VData.trigger_comments[time.toString()]==null) {
+			VData.trigger_comments[time.toString()]=[];
+		}
+		VData.trigger_comments[time.toString()].push({"data":new_comment_thread, "pinID": this.pinID});
+
+		if (VUI.comment_pts[this.pinID]==null){
+			console.log("it is null")
+			var data = []
+			data.push(new_comment_thread)
+			VUI.comment_pts[this.pinID]=new video_comment_point(this.parent, this.pinID, data, this.video_id, this.x, this.y, this.time);
+		} else {
+			console.log(this.pinID)
+			VUI.comment_pts[this.pinID].update_comment_thread(new_comment_thread);
+		}
+
+
+		this.destroy();
+	},
+
+	exit_comment: function(){
+		this.destroy();
+	},
+
+	destroy: function(){
+		this.element.remove();
+		this.parent=null;
+		this.data = null;
+		delete this;
+	}
+}
+
+var video_contextmenu = function(parent, id, video_id) {
+	this.parent = parent;
+	this.id = id;
+	this.video_id = video_id;
+	console.log(this.video_id)
+	this.x = 0;
+	this.y = 0;
+	this.add_new_comment_thread=null;
+
+	this.element = save_element(this.parent, "div", this.id, ['context_menu']);
+	this.add_comment = save_element(this.element, "div", this.id+"_add_comment", ['context_menu_item'])
+	this.add_comment.append("Add Comment");
+	this.add_comment.click($.proxy(this.add_new_comment, this))
+
+	this.see_debug = save_element(this.element, "div", this.id+"_see_debug", ['context_menu_item'])
+	this.see_debug.append("Debug");
+	this.see_debug.click($.proxy(this.debug, this))
+
+	this.element.css({"left":this.x, "top":this.y})
+	this.element.addClass('hide');
+}
+
+video_contextmenu.prototype = {
+	setxy: function(x,y) {
+		this.x=x;
+		this.y=y;
+		this.element.css({"left":this.x, "top":this.y})
+	},
+
+	add_new_comment: function(event){
+		console.log(this.x);
+		console.log(this.y);
+		this.add_new_comment_thread = new video_new_comment_thread(this.parent, this.id+"_new_comment_thread", this.video_id, this.x, this.y, VUI.main_VideoPlayer.videoset[this.video_id].player.getCurrentTime())
+	},
+
+	debug: function(event){
+		console.log(VData);
+		console.log(VUI);
+	},
+
+	save_comments: function(event){
+		console.log(VData.comment_threads);
+
+	}
+
+}
+
 /*---------------------- button_UI -------------------------*/
 
 var button_UI = function(parent, label, id, callback, color, mousein, mouseout) {
@@ -371,6 +578,8 @@ var viewer_UI = function(parent) {
 
 	this.main_VideoPlayer = null;
 	this.embedded_objects = {};
+	this.comment_threads = {};
+	this.comment_pts = {};
 
 	this.init();
 
