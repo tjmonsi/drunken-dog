@@ -3,33 +3,72 @@
 /*---------------------- timeline_Player --------------------------*/
 
 var timeline_Player = function(parent, id) {
+    this.classType = "timeline_Player"
 	this.parent = parent;
-	this.id = id+"_timeline";
+	this.id = id;
 	this.video_id = id;
 
-	var element = create_element("div", this.id, ["timeline"], {});
-	var scrubber = create_element("div", this.id+"_scrubber", ["scrubber"], {});
-
-	element.appendChild(scrubber);
-	this.parent.append(element);
-
-	this.element = $("#"+this.id);
-	this.scrubber = $("#"+this.id+"_scrubber");
-    this.scrubber.css({"top": 0, "left": 0});
-
-	this.scrubber.draggable(this.scrubber_fx);
-
-	this.element.mousedown($.proxy(this.timeline_scrub_start,this));
-    this.element.mouseup($.proxy(this.timeline_scrub_end,this));
-    this.element.mouseleave($.proxy(this.timeline_scrub_mouseleave(),this));
-    this.element.mouseenter($.proxy(this.timeline_scrub_mouseenter(),this));
-    this.mousehold_flag=false;
-
-    this.timelength=0;
-    this.truetime = 0;
+    this.start();
 }
 
 timeline_Player.prototype = {
+
+    start: function() {
+        if (this.parent!='test') this.init();
+        else this.test();
+    },
+
+    init: function(){
+        var element = create_element("div", this.id, ["timeline"], {});
+        var scrubber = create_element("div", this.id+"_scrubber", ["scrubber"], {});
+
+        element.appendChild(scrubber);
+        this.parent.append(element);
+
+        this.element = $("#"+this.id);
+        this.scrubber = $("#"+this.id+"_scrubber");
+        this.scrubber.css({"top": 0, "left": 0});
+
+        this.scrubber.draggable(this.scrubber_fx);
+
+        this.element.mousedown($.proxy(this.timeline_scrub_start,this));
+        this.element.mouseup($.proxy(this.timeline_scrub_end,this));
+        this.element.mouseleave($.proxy(this.timeline_scrub_mouseleave(),this));
+        this.element.mouseenter($.proxy(this.timeline_scrub_mouseenter(),this));
+        this.mousehold_flag=false;
+
+        this.timelength=0;
+        this.truetime = 0;
+
+        if (debug) {
+            var msg = this.classType+":"+this.id+" created successfuly"
+            console.log(msg)
+        }
+    },
+
+    test: function(){
+        var test_code = 0;
+
+        if (test_run) {
+            
+        }
+
+        return test_code;
+    },
+
+    destroy: function() {
+        for (var key in this) {
+            if (this[key].classType!=null) {
+                this[key].destroy();
+            }
+        }
+
+        //add more here
+
+
+        // this should be last
+        vData.delete_instance(this.id);
+    },
 
 	timeline_scrub_start: function(e){
        // console.log(e.target.id);
@@ -72,7 +111,7 @@ timeline_Player.prototype = {
 
         var timer = (posx*this.timelength)/(this.element.width()-10);
         this.scrubber.css({"left": posx});
-        vP_Array[this.video_id].seek(timer);
+        vData.instances[this.video_id].seek(timer);
 
     },
 
@@ -88,14 +127,14 @@ timeline_Player.prototype = {
         containment: 'parent',
         cursor: 'move',
         start: function(){
-        	var target = vP_Array[this.id.replace("_timeline_scrubber", "")];
+        	var target = vData.instances[this.id.replace("_timeline_scrubber", "")];
         	target.pause();
         },
         drag: function(){
 
         },
         stop: function(){
-        	var target = vP_Array[this.id.replace("_timeline_scrubber", "")];
+        	var target = vData.instances[this.id.replace("_timeline_scrubber", "")];
         	//console.log(target.timeline);
             var posx = target.timeline.scrubber.position().left;
 

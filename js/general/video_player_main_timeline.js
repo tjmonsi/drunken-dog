@@ -1,38 +1,70 @@
 "use strict";
 
 /*---------  Main Time Line ------------- */
-
-var global_Timeline = new main_Timeline();
-
-var main_Timeline = function() {
-	this.init();
-	this.timelength = 0;
+var main_Timeline = function(parent, id) {
+	this.parent = parent;
+	this.id = id;
+	this.classType = "main_Timeline"
+	//this.timelength = 0;
 	//this.timeline_timepts= [];
 	//this.timeline_index = {};
 	this.timeline = [];
-	this.currentTime=0;
-	this.passable = true;
-	this.gate_key = null
+	//this.currentTime=0;
+	//this.passable = true;
+	//this.gate_key = null
+
+	this.start();
 }
 
 main_Timeline.prototype = {
+
+    start: function() {
+        if (this.parent!='test') this.init();
+        else this.test();
+    },
+
 	init: function() {
 
+		if (debug) creation_success(this.classType, this.id)
 	},
 
+	test: function(){
+        var test_code = 0;
+
+        if (test_run) {
+            
+        }
+
+        return test_code;
+    },
+
+    destroy: function() {
+        for (var key in this) {
+            if (this[key].classType!=null) {
+                this[key].destroy();
+            }
+        }
+
+        //add more here
+
+
+        // this should be last
+        vData.delete_instance(this.id);
+    },    
+
 	load_time_length: function() {
-		$.each(this.timeline, $.proxy(this.add_to_length, this))
-		console.log(this.timelength);
+		//$.each(this.timeline, $.proxy(this.add_to_length, this))
+		//console.log(this.timelength);
 		//console.log(this.timeline_start);
-		console.log(this.timeline_index);
-		console.log(this.timeline);
+		//console.log(this.timeline_index);
+		//console.log(this.timeline);
 	},
 
 	add_to_length: function(index, value) {
 
-		this.timeline_timepts[index]={ "timelength_start":this.timelength, "video_start": VData.scene_objects[value].start, "video_end": VData.scene_objects[value].end};
+		/*this.timeline_timepts[index]={ "timelength_start":this.timelength, "video_start": VData.scene_objects[value].start, "video_end": VData.scene_objects[value].end};
 		this.timeline_index[value]=index;
-		this.timelength+=(this.timeline_timepts[index].video_end-this.timeline_timepts[index].video_start);
+		this.timelength+=(this.timeline_timepts[index].video_end-this.timeline_timepts[index].video_start);*/
 	},
 
 	update_timeline: function(video_id, time) {
@@ -88,7 +120,7 @@ main_Timeline.prototype = {
 	},
 
 	check_initial_show: function(index, value) {
-		var initial_show = VData.embedded_objects[value].show;
+		/*var initial_show = VData.embedded_objects[value].show;
 
 		try {
 			if (initial_show) {
@@ -96,16 +128,16 @@ main_Timeline.prototype = {
 			}
 		} catch (e) {
 
-		} 
+		} */
 	},
 
 	hide_elements: function(index, value) {
-		try {
+		/*try {
 			//console.log(value)
 			VUI.embedded_objects[value].element.addClass('hide');
 		} catch (e) {
 
-		}
+		}*/
 	}
 
 
