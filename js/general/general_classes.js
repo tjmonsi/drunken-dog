@@ -1,3 +1,5 @@
+//general_classes
+
 "use strict";
 
 /*---------------------- button_UI -------------------------*/
@@ -244,4 +246,13 @@ window_Class.prototype = {
 		this.destroy();
 	}
 
+}
+
+
+/*---------------------- General_class checker ---------------------*/
+
+function general_classes(){
+    this.test = function() {
+        return 0;
+    }
 }

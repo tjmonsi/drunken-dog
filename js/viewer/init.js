@@ -15,6 +15,7 @@ var run = function(){
 	if (test_bed()) {
 
 		var root = $("body");
+		
 		vData = new data_Model(root, "vData");
 		vUI = new viewer_UI(root, "main_Viewer");
 

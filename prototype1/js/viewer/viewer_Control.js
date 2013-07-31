@@ -11,7 +11,7 @@ viewer_Control.prototype = {
 	init: function() {
 
 		/* this is for the Youtube search */
-		this.yt_API = "http://gdata.youtube.com/feeds/api/";
+		this.yt_API = "//gdata.youtube.com/feeds/api/";
 		this.yt_API_version = "&v=2";
 		this.yt_API_alt = "&alt=jsonc";
 

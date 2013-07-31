@@ -130,7 +130,7 @@ var video_Player = function(parent, data, idnum, width, sceneflag) {
     //console.log("videoPlayer is called")
     this.player_container = save_element(this.parent, "div", this.id+"_container", [player_container_class]);
 
-    var address = "http://www.youtube.com/apiplayer?controls=0"+
+    var address = "//www.youtube.com/apiplayer?controls=0"+
     			  	"&enablejsapi=1"+
     			  	"&rel=0"+
 					"&showinfo=0"+

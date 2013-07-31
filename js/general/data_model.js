@@ -1,3 +1,5 @@
+//data_Model
+
 "use strict";
 
 var data_Model = function(parent, id) {
@@ -54,9 +56,6 @@ data_Model.prototype = {
     	this.instances[id]=null;
     }
 
-
-
-
-
-
 }
+
+//@ sourceURL=../general/data_model.js

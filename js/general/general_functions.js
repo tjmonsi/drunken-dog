@@ -1,3 +1,5 @@
+//general_functions
+
 "use strict";
 
 function updateSize(){
@@ -52,16 +54,26 @@ function create_element(el, id, classes, attributes) {
 }
 
 function creation_success(classtype, id){
-    var name = classtype+": "+id;
 
-    var t = "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    var name = classtype+":\n"+id;
 
-    for (var i=0; i<(name.length/4)+1; i++){
+    var t = message_tab(20, name.length, 5)
+
+    var msg = name+t+system.general.create_success
+    console.log(msg)
+}
+
+function message_tab(numtab, length, mod){
+    var t = ""
+    for (var i=0; i<numtab; i++) {
+        t+="\t"
+    }
+
+    for (var i=0; i<(length/mod)+1; i++) {
         t=t.substring(0,t.length-1)
     }
 
-    var msg = name+t+console_messages.general.create_success
-    console.log(msg)
+    return t
 }
 
 function general_functions(){
