@@ -6,9 +6,11 @@
 		"scene_objects":[
 		{
 			"id": "video00001",
+			"name": "video00001",
+			"type": "scene",
 			"prev": null,
 			"next": "video00002",
-			"start": 123,
+			"begin": 123,
 			"end": 124.7,
 			"video_data": {
 				"id": "YpvE0Co66nU"
@@ -16,10 +18,131 @@
 			"original_start": 72
 		},
 		{
-
-		}
-
-
+			"id": "video00002",
+			"name": "video00002",
+			"type": "scene",
+			"prev": "video00001",
+			"next": "video00003",
+			"begin": 150,
+			"end": 183,
+			"video_data": {
+				"id": "uzkc-qNVoOk"
+			},
+			"original_start": 14
+		},
+		{
+			"id": "video00003",
+			"name": "video00003",
+			"type": "scene",
+			"prev": "video00002",
+			"next": "video00004",
+			"begin": 300,
+			"end": 367,
+			"video_data": {
+				"id": "uzkc-qNVoOk"
+			},
+			"original_start": 14
+		},
+		{
+			"id": "video00004",
+			"name": "video00004",
+			"type": "scene",
+			"prev": "video00003",
+			"next": null,
+			"begin": 62,
+			"end": 565,
+			"video_data": {
+				"id": "BAjOEsU_mpE"
+			},
+			"original_start": 14
+		}		
+		],
+		"embedded_objects": [
+		{
+			"id": "form000001",
+			"type": "form",
+			"begin": 178,
+			"end": null,
+			"x": 0,
+			"y": 0,
+			"scene_id": "video00002",
+			"pause": true,
+			"show": true,
+			"parent": null,
+			"object_data": {
+				"name": "form for probability",
+				"submit": "submit0001",
+				"time_gate": true
+			}
+		},
+		{
+			"id": "inputbox01",
+			"type": "input",
+			"begin": "inherit",
+			"end": "inherit",
+			"x": 0,
+			"y": 0,
+			"scene_id": "inherit",
+			"pause": "inherit",
+			"show": "inherit",
+			"parent": "form000001",
+			"object_data": {
+				"sub_type": "input_box",
+				"name": "input for answer",
+				"value": "",
+				"correct": "0.5",
+				"data_collection": null,
+				"font_size": 30,
+				"width": 60,
+				"color": "#000000",
+				"background_color": "#FFFFFF",
+				"draggable": false
+			}
+		},
+		{
+			"id": "textlabel0",
+			"type": "text_label",
+			"begin": "inherit",
+			"end": "inherit",
+			"x": 0,
+			"y": 0,
+			"scene_id": "inherit",
+			"pause": "inherit",
+			"show": "inherit",
+			"parent": "form000001",
+			"object_data": {
+				"name": "question 1",
+				"value": "P(T)=",
+				"data_collection": null,
+				"font_size": 30,
+				"width": null,
+				"color": "#FFFFFF",
+				"background_color": null,
+				"draggable": false
+			}
+		},
+		{
+			"id": "textlabel1",
+			"type": "text_label",
+			"begin": "inherit",
+			"end": "inherit",
+			"x": 0,
+			"y": 0,
+			"scene_id": "inherit",
+			"pause": "inherit",
+			"show": "inherit",
+			"parent": "form000001",
+			"object_data": {
+				"name": "question text",
+				"value": "What is now the possibility of getting tails? Or P(T)?",
+				"data_collection": null,
+				"font_size": 30,
+				"width": 500,
+				"color": "#FFFFFF",
+				"background_color": null,
+				"draggable": false
+			}
+		}				
 		]
 		
 	}

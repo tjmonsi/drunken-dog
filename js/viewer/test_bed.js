@@ -9,6 +9,7 @@ var system = {
 		nl: "\n\n",
 		line_break: "---------------------------------------------------------------",
 		all_loaded: "\n\nEverything Loaded and Running... running system\n\n",
+		data_loaded: "Data loaded successfully: "
 	},
 
 	general_functions: {
