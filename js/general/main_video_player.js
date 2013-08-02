@@ -31,7 +31,10 @@ main_Video_Player.prototype = {
 
             for (var i=0; i<vData.data.data.scene_objects.length; i++) {
                 var data = vData.data.data.scene_objects[i];
-                vData.add_instances(new video_Player(this.element, data, 1280, true))
+
+                var obj = new video_Player(this.element, data, 1280, true)
+                vData.add_instances(obj)
+                //onYoutubePlayerReady(obj.playerID)
             }
 
             vData.instances[vData.data.start_scene].on_show();

@@ -2,6 +2,8 @@
 
 "use strict";
 
+
+
 function updateSize(){
     win_width = $(document).width();
     win_height = $(document).height();

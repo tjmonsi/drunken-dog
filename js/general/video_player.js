@@ -12,8 +12,9 @@ Requirements:
 playerId - identification ID of the player. playerId should be videoID+videoPlayerID.
 
 */
+function onYouTubePlayerReady(playerId) {
 
-function onYoutubePlayerReady(playerId) {
+    if (playerId=="test") return true;
     console.log(playerId)
     //gets the videoID... It substracts videoPlayerID length, which is the global_id_length
     var video_id = playerId.substring(0, playerId.length-global_id_length);
@@ -26,13 +27,13 @@ function onYoutubePlayerReady(playerId) {
     }
     var corrected_Id = pre_corrected_Id.replace(/\W/g, '');
 
-    console.log(video_Player_id);
+    console.log(vData.instances[video_Player_id]);
     try {
         vData.instances[video_Player_id].player.addEventListener("onError", "onPlayerError"+corrected_Id);
         vData.instances[video_Player_id].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
     } catch (e) {
         throw new Error(e)
-    } 
+    }
 
     window["onPlayerError" + corrected_Id] = function(state) {
         //console.log("onPlayerError")
@@ -43,21 +44,24 @@ function onYoutubePlayerReady(playerId) {
         vData.instances[video_Player_id].on_player_State_Change(state);
     };
 
-    vData.instances[video_Player_id].player.cueVideoId(video_id);
+    vData.instances[video_Player_id].player.cueVideoById(video_id);
     vData.instances[video_Player_id].player.setPlaybackQuality("default");
     vData.instances[video_Player_id].seekstart();
 
 }
 
+
 /* video_Player */
 
 var video_Player = function(parent, data, width, sceneflag) {
+
     this.classType = "video_Player"
     this.parent = parent;
     this.data = data;
 
-	this.width = width;
+    this.width = width;
     this.sceneflag = sceneflag;
+
 
     this.start();
 
@@ -80,22 +84,42 @@ video_Player.prototype = {
         if (!this.sceneflag) player_container_class='player_container'
         else player_container_class='main_player_container'
 
-        this.playerID = this.data.video_data.id+this.id
+        this.playerID = this.data.object_data.id+this.id
         this.player_container = save_element(this.parent, "div", this.id+"_container", [player_container_class]);
 
         var address = "//www.youtube.com/apiplayer?controls=0"+
-                        "&enablejsapi=1"+
-                        "&rel=0"+
-                        "&showinfo=0"+
-                        "&autohide=1"+
-                        "&playerapiid="+this.playerID+
-                        "&version=3"+
-                        "&autoplay=0";
+            "&enablejsapi=1"+
+            "&rel=0"+
+            "&showinfo=0"+
+            "&autohide=1"+
+            "&playerapiid="+this.playerID+
+            "&version=3"+
+            "&autoplay=0";
 
-        var element = create_element("object", this.id, ["video_player"], {"type":"application/x-shockwave-flash",
-                                                                            "data": address, 
-                                                                            "width":this.width,
-                                                                            "height": height})
+        //console.log(this.data)
+        var address2 = "//www.youtube.com/v/"+
+            this.data.object_data.id+"?controls=0"+
+            "&enablejsapi=1"+
+            "&rel=0"+
+            "&showinfo=0"+
+            "&autohide=1"+
+            "&playerapiid="+this.playerID+
+            "&version=3"+
+            "&autoplay=0";
+
+        /*
+         var params = { allowScriptAccess: "always" };
+         var atts = { id: "myytplayer" };
+         swfobject.embedSWF("http://www.youtube.com/v/VIDEO_ID?enablejsapi=1&playerapiid=ytplayer&version=3",
+         "ytapiplayer", "425", "356", "8", null, null, params, atts);
+
+
+         */
+
+        var element = create_element("object", this.playerID, ["video_player"], {"type":"application/x-shockwave-flash",
+            "data": address,
+            "width":this.width,
+            "height": height})
 
         var param = create_element("param", null, null, {"name":"allowScriptAccess", "value":"always"})
         var param2 = create_element("param", null, null, {"name":"wmode", "value":"opaque"})
@@ -104,19 +128,19 @@ video_Player.prototype = {
         element.appendChild(param2);
 
         this.player_container.append(element);
-        
+
         this.timeline = new timeline_Player(this.player_container, this.id+"_timeline");
 
         if (this.sceneflag) {
             this.timeline.element.addClass('hide');
-            this.timeline.scrubber.addClass('hide'); 
+            this.timeline.scrubber.addClass('hide');
         }
 
         this.player_area = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
         this.player_area.css({"width":this.width, "height": height});
 
-        this.player_element = $("object#"+this.id);
-        this.player = document.getElementById(this.id);
+        this.player_element = $("object#"+this.playerID);
+        this.player = document.getElementById(this.playerID);
 
 
 
@@ -132,14 +156,19 @@ video_Player.prototype = {
         this.player_element.data({
             "data":this.data,
             "width": this.width,
-            "scenflag": this.sceneflag
+            "sceneflag": this.sceneflag
         });
+
+        //this.player.cueVideoId(this.data.object_data.id);
 
         //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
         //this.contextmenu = new video_contextmenu(this.player_area, this.data.id+"_context_menu", this.data.id);
 
-        this.on_back();
+        //console.log(this.player)
 
+
+
+        this.on_back();
 
         
         if (debug) creation_success(this.classType, this.id)
@@ -303,7 +332,7 @@ video_Player.prototype = {
 
     seekstart: function() {
         this.player.stopVideo();
-        this.player.seekTo(this.data.start, false);
+        this.player.seekTo(this.data.begin, false);
         this.player.playVideo();
         this.player.pauseVideo();
     },
