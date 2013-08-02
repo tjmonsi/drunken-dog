@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/general.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/viewer/viewer_general.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/viewer/viewer_ids.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/data_model.js" afterPath="$PROJECT_DIR$/js/general/data_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/init.js" afterPath="$PROJECT_DIR$/js/viewer/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/main_video_player.js" afterPath="$PROJECT_DIR$/js/general/main_video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/test_bed.js" afterPath="$PROJECT_DIR$/js/viewer/test_bed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/ui.js" afterPath="$PROJECT_DIR$/js/viewer/ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player.js" afterPath="$PROJECT_DIR$/js/general/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player_main_timeline.js" afterPath="$PROJECT_DIR$/js/general/video_player_main_timeline.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewer.html" afterPath="$PROJECT_DIR$/viewer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype1/js/viewer/viewer_UI.js" afterPath="$PROJECT_DIR$/prototype1/js/viewer/viewer_UI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/viewer_function_loader.js" afterPath="$PROJECT_DIR$/js/viewer/viewer_function_loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,6 +27,7 @@
     <file path="/viewer_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375423810768" ignored="false" />
     <file path="/video_player.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375431475785" ignored="false" />
     <file path="/test_bed.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375430268890" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375431740102" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +47,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="video_player.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="video_player.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="56" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.4532967">
+            <state line="95" column="56" selection-start="3081" selection-end="3081" vertical-scroll-proportion="-13.2">
               <folding />
             </state>
           </provider>
@@ -113,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewer.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="viewer.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="76" selection-start="592" selection-end="592" vertical-scroll-proportion="-7.625">
+            <state line="13" column="44" selection-start="560" selection-end="560" vertical-scroll-proportion="0.2510288">
               <folding />
             </state>
           </provider>
@@ -181,8 +169,8 @@
         <option value="$PROJECT_DIR$/css/viewer/viewer_general.css" />
         <option value="$PROJECT_DIR$/js/viewer/init.js" />
         <option value="$PROJECT_DIR$/js/viewer/test_bed.js" />
-        <option value="$PROJECT_DIR$/viewer.html" />
         <option value="$PROJECT_DIR$/js/general/video_player.js" />
+        <option value="$PROJECT_DIR$/viewer.html" />
       </list>
     </option>
   </component>
@@ -667,16 +655,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/viewer.html">
+    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="76" selection-start="592" selection-end="592" vertical-scroll-proportion="-7.625">
+        <state line="95" column="56" selection-start="3081" selection-end="3081" vertical-scroll-proportion="-13.2">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
+    <entry file="file://$PROJECT_DIR$/viewer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="56" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.4532967">
+        <state line="13" column="44" selection-start="560" selection-end="560" vertical-scroll-proportion="0.2510288">
           <folding />
         </state>
       </provider>
