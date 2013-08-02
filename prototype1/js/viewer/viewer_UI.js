@@ -376,7 +376,7 @@ video_submit.prototype = {
 				//console.log(VData.embedded_objects[this.id])
 				var video_id = VData.embedded_objects[this.id].video_id
 				if (video_id=="inherit") {
-					parent = VData.embedded_objects[this.id].parent
+					var parent = VData.embedded_objects[this.id].parent
 					video_id = VData.embedded_objects[parent].video_id
 				}
 				VUI.main_VideoPlayer.videoset[video_id].play();

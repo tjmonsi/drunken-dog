@@ -14,9 +14,9 @@ playerId - identification ID of the player. playerId should be videoID+videoPlay
 */
 
 function onYoutubePlayerReady(playerId) {
-
+    console.log(playerId)
     //gets the videoID... It substracts videoPlayerID length, which is the global_id_length
-    var video_id = playerId.subsrting(0, playerId.length-global_id_length);
+    var video_id = playerId.substring(0, playerId.length-global_id_length);
     var video_Player_id = playerId.replace(video_id, "");
 
     var pre_corrected_Id = playerId;
@@ -26,6 +26,7 @@ function onYoutubePlayerReady(playerId) {
     }
     var corrected_Id = pre_corrected_Id.replace(/\W/g, '');
 
+    console.log(video_Player_id);
     try {
         vData.instances[video_Player_id].player.addEventListener("onError", "onPlayerError"+corrected_Id);
         vData.instances[video_Player_id].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
@@ -73,6 +74,8 @@ video_Player.prototype = {
         this.id = this.data.id
         this.player = null;
 
+        var height = this.width*(9/16)
+
         var player_container_class;
         if (!this.sceneflag) player_container_class='player_container'
         else player_container_class='main_player_container'
@@ -80,7 +83,7 @@ video_Player.prototype = {
         this.playerID = this.data.video_data.id+this.id
         this.player_container = save_element(this.parent, "div", this.id+"_container", [player_container_class]);
 
-        var address = "http://www.youtube.com/apiplayer?controls=0"+
+        var address = "//www.youtube.com/apiplayer?controls=0"+
                         "&enablejsapi=1"+
                         "&rel=0"+
                         "&showinfo=0"+
@@ -89,7 +92,7 @@ video_Player.prototype = {
                         "&version=3"+
                         "&autoplay=0";
 
-        var element = create_element("object", this.playerID, ["video_player"], {"type":"application/x-shockwave-flash", 
+        var element = create_element("object", this.id, ["video_player"], {"type":"application/x-shockwave-flash",
                                                                             "data": address, 
                                                                             "width":this.width,
                                                                             "height": height})
@@ -102,7 +105,7 @@ video_Player.prototype = {
 
         this.player_container.append(element);
         
-        this.ins.timeline = new timeline_Player(this.player_container, this.id+"_timeline");
+        this.timeline = new timeline_Player(this.player_container, this.id+"_timeline");
 
         if (this.sceneflag) {
             this.timeline.element.addClass('hide');
@@ -115,9 +118,11 @@ video_Player.prototype = {
         this.player_element = $("object#"+this.id);
         this.player = document.getElementById(this.id);
 
+
+
         this.player_area.click($.proxy(this.on_click, this));
 
-        this.player_area.bind("contextmenu", $.proxy(this.right_click, this));
+        //this.player_area.bind("contextmenu", $.proxy(this.right_click, this));
 
         this.playerflag=false;
         this.loaded=false;
@@ -130,9 +135,15 @@ video_Player.prototype = {
             "scenflag": this.sceneflag
         });
 
-        this.contextmenu = new video_contextmenu(this.player_area, this.data.id+"_context_menu", this.data.id);
+        //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
+        //this.contextmenu = new video_contextmenu(this.player_area, this.data.id+"_context_menu", this.data.id);
+
+        this.on_back();
+
+
         
         if (debug) creation_success(this.classType, this.id)
+        if (debug2) console.log(this);
 	},
 
     test: function(){
@@ -224,7 +235,7 @@ video_Player.prototype = {
 
 	on_click: function(event) {
 
-        this.contextmenu.element.addClass('hide')
+        //this.contextmenu.element.addClass('hide')
 
         if (event.target.id==this.player_area.attr('id')){
             

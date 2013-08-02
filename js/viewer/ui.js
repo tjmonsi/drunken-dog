@@ -19,9 +19,16 @@ viewer_UI.prototype = {
 
 	init: function() {
 		this.element = save_element(this.parent, "div", this.id);
-		vData.add_instances(new main_Video_Player(this.element, {id:"main_VideoPlayer"}));
+
+        //create video players of scene objects
+        vData.add_instances(new main_Video_Player(this.element, {id:"main_VideoPlayer"}));
+
+        //create main timeline object
+        vData.add_instances(new main_Timeline(this.element, "main_Timeline"));
+
 
 		if (debug) creation_success(this.classType, this.id)
+        if (debug2) console.log(this);
 	},
 
 	test: function(){

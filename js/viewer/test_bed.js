@@ -96,6 +96,8 @@ var test_bed = function(){
 
 	}
 
+    //onYoutubePlayerReady("1");
+
 	console.log(
 		system.general.nl+
 		system.general.line_break+

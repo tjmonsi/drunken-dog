@@ -1,0 +1,29 @@
+/* Video Players */
+.main_player_container {
+    position: absolute;
+}
+
+.player_container {
+    position: relative;
+}
+
+.player_area {
+    position: absolute;
+    top: 0px;
+}
+
+.timeline {
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.scrubber {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    position: absolute;
+}

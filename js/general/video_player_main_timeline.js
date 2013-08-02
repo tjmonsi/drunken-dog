@@ -7,13 +7,10 @@ var main_Timeline = function(parent, id) {
 	this.parent = parent;
 	this.id = id;
 	this.classType = "main_Timeline"
-	//this.timelength = 0;
-	//this.timeline_timepts= [];
-	//this.timeline_index = {};
-	this.timeline = [];
-	//this.currentTime=0;
-	//this.passable = true;
-	//this.gate_key = null
+	this.timeline_set = [];
+    this.timeline_lengths = [];
+    this.scene_set = {};
+    this.temporary_set = []
 
 	this.start();
 }
@@ -27,7 +24,25 @@ main_Timeline.prototype = {
 
 	init: function() {
 
-		if (debug) creation_success(this.classType, this.id)
+        try {
+            //console.log(vData.data)
+            if (vData.data.data.scene_objects.length==0) console.log("ehh")
+
+            for (var i=0; i<vData.data.data.scene_objects.length; i++){
+
+                this.add_to_timeline(vData.data.data.scene_objects[i]);
+
+            }
+
+		    if (debug) creation_success(this.classType, this.id)
+
+            if (debug2) console.log(this)
+
+        } catch (e) {
+            console.error(e.stack);
+            //console.log("Error at aisle 41")
+        }
+
 	},
 
 	test: function(){
@@ -52,99 +67,89 @@ main_Timeline.prototype = {
 
         // this should be last
         vData.delete_instance(this.id);
-    },    
+    },
 
-	load_time_length: function() {
-		//$.each(this.timeline, $.proxy(this.add_to_length, this))
-		//console.log(this.timelength);
-		//console.log(this.timeline_start);
-		//console.log(this.timeline_index);
-		//console.log(this.timeline);
-	},
+    add_to_timeline: function(data, flag) {
 
-	add_to_length: function(index, value) {
+        var t_index = null;
+        var index = null;
 
-		/*this.timeline_timepts[index]={ "timelength_start":this.timelength, "video_start": VData.scene_objects[value].start, "video_end": VData.scene_objects[value].end};
-		this.timeline_index[value]=index;
-		this.timelength+=(this.timeline_timepts[index].video_end-this.timeline_timepts[index].video_start);*/
-	},
+        var new_data = {"id": data.id,
+            "prev": data.prev,
+            "next": data.next,
+            "begin": data.begin,
+            "end": data.end}
 
-	update_timeline: function(video_id, time) {
-		//var currentTime = time-this.timeline_timepts[index].video_start;
-		//this.currentTime = currentTime+this.timeline_timepts[index].timelength_start;
+        // if the scene is at the start of the timeline
+        if (data.prev==null) {
 
-		/*
-		for (var key in VData.trigger_starts) {
-			var trigger_time = parseFloat(key);
+            var timeline = [];
 
+            timeline.push(new_data);
+            index = timeline.indexOf(new_data);
 
-			//console.log(trigger_time)
-			if ((time<=trigger_time) && (time+0.25>=trigger_time)) {
-				if (VData.trigger_starts[key].pause) {
-					VUI.main_VideoPlayer.videoset[VData.timeline.timeline[index]].pause();
-					this.passable=VData.trigger_starts[key].passable;
-					this.gate_key=key;
-				}
-				$.each(VData.trigger_starts[key].data, $.proxy(this.check_initial_show, this))
-			}
-		}
-
-		for (var key in VData.trigger_ends) {
-			var trigger_time = parseFloat(key);
-
-			if (time>=trigger_time) {
-				//console.log(trigger_time)
-				$.each(VData.trigger_ends[key], $.proxy(this.hide_elements, this))
-
-			}
-		}
-
-		for (var key in VData.trigger_comments){
-			var trigger_time = parseFloat(key);
-			var arr = VData.trigger_comments[key]
-
-			for (var i in arr) {
-
-				var pinID = arr[i].pinID
-				if ((trigger_time<=time) && (trigger_time+5>=time)) {
-				
-					VUI.comment_pts[pinID].element.removeClass('hide')
-
-				} else {
-
-					VUI.comment_pts[pinID].element.addClass('hide')
-				}
-			}
-
-
-		}*/
-		//console.log(this.currentTime);
-	},
-
-	check_initial_show: function(index, value) {
-		/*var initial_show = VData.embedded_objects[value].show;
-
-		try {
-			if (initial_show) {
-				VUI.embedded_objects[value].element.removeClass('hide');
-			}
-		} catch (e) {
-
-		} */
-	},
-
-	hide_elements: function(index, value) {
-		/*try {
-			//console.log(value)
-			VUI.embedded_objects[value].element.addClass('hide');
-		} catch (e) {
-
-		}*/
-	}
+            this.timeline_set.push(timeline);
+            t_index = this.timeline_set.indexOf(timeline);
 
 
 
+        } else {
+
+            // checks if the previous scene is already been loaded
+            if (this.scene_set[data.prev]!=null) {
+
+                t_index = this.scene_set[data.prev].t_index;
+                index = this.scene_set[data.prev].index+1;
+                var timeline = this.timeline_set[t_index];
+
+                timeline.splice(index, 0, new_data);
+
+                this.timeline_set[t_index] = timeline;
+
+            } else {
+
+                if (flag==null) this.temporary_set.push(data);
+
+            }
+
+        }
+
+        if ((index!=null) && (t_index!=null)) {
+            this.scene_set[data.id] = {"index": index, "t_index": t_index};
+
+            this.update_timeline_lengths(t_index);
+
+            if (flag==null) {
+                for (var i = 0; i<this.temporary_set.length; i++) {
+                    if (this.add_to_timeline(this.temporary_set[i], true)) {
+                        i = 0;
+                    }
+                }
+            }
+
+            return true
+        } else {
+            return false
+        }
 
 
+    },
+
+    update_timeline_lengths: function(t_index) {
+
+        var timeline = this.timeline_set[t_index];
+
+        var timeline_length = 0;
+
+        for (var i=0; i<timeline.length; i++) {
+
+            var scene_length = timeline[i].end - timeline[i].begin;
+            timeline_length += scene_length
+
+        }
+
+        this.timeline_lengths[t_index] = timeline_length
+
+    }
 
 }

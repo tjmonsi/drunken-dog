@@ -4,9 +4,11 @@ var vData = null;
 var vUI = null;
 
 var global_id_length = 10;
+var yt_length = 11;
 var win_width = 0;
 var win_height = 0;
-var debug = true;
+var debug = false;
+var debug2 = false;
 var test_run = false;
 
 var run = function(){
@@ -22,6 +24,9 @@ var run = function(){
 	} else {
 		console.error("Shutting down program")
 	}
+
+
+    console.log(vData)
 }
 
 $(document).ready(run);

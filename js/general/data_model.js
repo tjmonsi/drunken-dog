@@ -20,8 +20,6 @@ data_Model.prototype = {
     },
 
 	init: function() {
-		this.add_instances(new main_Timeline(this.parent, "global_Timeline"))
-
         try {
             var vars = this.get_url_vars();
             var file = "";
@@ -31,19 +29,30 @@ data_Model.prototype = {
                 } else {
                     file = "data/iv_sample2.json"
                 }
+
+                if (vars.debug2!=null) {
+                    debug2 = vars.debug2
+                }
+
+                if (vars.debug!=null) {
+                    debug = vars.debug
+                }
             } else {
                 throw new Error("Something is wrong with vars file")
             }
 
             this.data = $.parseJSON(this.load_file(file));
 
-            if (debug) console.log(file+"\t\t\t\t\t\t\t\t\t\t\t"+system.general.data_loaded)
+            if (debug) console.log("\n\n"+file+"\t\t\t\t\t\t\t\t\t\t\t"+system.general.data_loaded+"\n\n")
         } catch (e) {
-            console.error(e);
+            console.error(e.stack);
             return
         }
 
+        //this.add_instances(new main_Timeline(this.parent, "global_Timeline"))
+
 		if (debug) creation_success(this.classType, this.id)
+        if (debug2) console.log(this);
 	},
 
     test: function(){
@@ -84,10 +93,18 @@ data_Model.prototype = {
 
     add_instances: function(obj) {
 
-    	if (this.check_instances(obj.id)!=null) {
+    	if (this.check_instances(obj.id)==null) {
     		this.instances[obj.id] = obj
+
+            //if (debug) console.log(obj)
     		return true
     	} else {
+
+            if (debug) {
+
+                console.log("adding instance error")
+                console.log(obj)
+            }
     		return false
     	}
     },

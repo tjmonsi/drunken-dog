@@ -13,7 +13,7 @@ function load_script_success(data, textStatus, jq) {
 	    	throw new Error("There's no file/function name called "+name+": "+this.url)
 	    }
 
-	    if (system[name],loaded==null) {
+	    if (system[name].loaded==null) {
 			throw new Error("There's no loaded variable for "+name)
 	    }
 

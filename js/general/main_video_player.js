@@ -2,7 +2,7 @@
 
 "use strict";
 
-/*---------------------- button_UI -------------------------*/
+/*---------------------- main_Video_Player -------------------------*/
 
 var main_Video_Player = function(parent, data) {
 	this.classType = "main_Video_Player"
@@ -21,11 +21,27 @@ main_Video_Player.prototype = {
     },
 
 	init: function() {
-		this.id = this.data.id;
 
+        try {
+            this.id = this.data.id;
 
+            this.element = save_element(this.parent, "div", this.id);
 
-		if (debug) creation_success(this.classType, this.id)
+            if (vData.data.data.scene_objects.length==0) throw new Error ("No scenes at data to load video. please check");
+
+            for (var i=0; i<vData.data.data.scene_objects.length; i++) {
+                var data = vData.data.data.scene_objects[i];
+                vData.add_instances(new video_Player(this.element, data, 1280, true))
+            }
+
+            vData.instances[vData.data.start_scene].on_show();
+
+            if (debug) creation_success(this.classType, this.id)
+
+            if (debug2) console.log(this)
+        } catch (e) {
+            console.error(e.stack)
+        }
 	},
 
 	test: function(){
