@@ -14,8 +14,6 @@ playerId - identification ID of the player. playerId should be videoID+videoPlay
 */
 function onYouTubePlayerReady(playerId) {
 
-    if (playerId=="test") return true;
-    console.log(playerId)
     //gets the videoID... It substracts videoPlayerID length, which is the global_id_length
     var video_id = playerId.substring(0, playerId.length-global_id_length);
     var video_Player_id = playerId.replace(video_id, "");
@@ -27,7 +25,6 @@ function onYouTubePlayerReady(playerId) {
     }
     var corrected_Id = pre_corrected_Id.replace(/\W/g, '');
 
-    console.log(vData.instances[video_Player_id]);
     try {
         vData.instances[video_Player_id].player.addEventListener("onError", "onPlayerError"+corrected_Id);
         vData.instances[video_Player_id].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
@@ -36,7 +33,6 @@ function onYouTubePlayerReady(playerId) {
     }
 
     window["onPlayerError" + corrected_Id] = function(state) {
-        //console.log("onPlayerError")
         vData.instances[video_Player_id].on_player_Error(state);
     };
 
@@ -44,7 +40,7 @@ function onYouTubePlayerReady(playerId) {
         vData.instances[video_Player_id].on_player_State_Change(state);
     };
 
-    vData.instances[video_Player_id].player.cueVideoById(video_id);
+    vData.instances[video_Player_id].player.loadVideoById(video_id, vData.instances[video_Player_id].data.begin);
     vData.instances[video_Player_id].player.setPlaybackQuality("default");
     vData.instances[video_Player_id].seekstart();
 
@@ -96,26 +92,6 @@ video_Player.prototype = {
             "&version=3"+
             "&autoplay=0";
 
-        //console.log(this.data)
-        var address2 = "//www.youtube.com/v/"+
-            this.data.object_data.id+"?controls=0"+
-            "&enablejsapi=1"+
-            "&rel=0"+
-            "&showinfo=0"+
-            "&autohide=1"+
-            "&playerapiid="+this.playerID+
-            "&version=3"+
-            "&autoplay=0";
-
-        /*
-         var params = { allowScriptAccess: "always" };
-         var atts = { id: "myytplayer" };
-         swfobject.embedSWF("http://www.youtube.com/v/VIDEO_ID?enablejsapi=1&playerapiid=ytplayer&version=3",
-         "ytapiplayer", "425", "356", "8", null, null, params, atts);
-
-
-         */
-
         var element = create_element("object", this.playerID, ["video_player"], {"type":"application/x-shockwave-flash",
             "data": address,
             "width":this.width,
@@ -158,8 +134,6 @@ video_Player.prototype = {
             "width": this.width,
             "sceneflag": this.sceneflag
         });
-
-        //this.player.cueVideoId(this.data.object_data.id);
 
         //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
         //this.contextmenu = new video_contextmenu(this.player_area, this.data.id+"_context_menu", this.data.id);
@@ -212,7 +186,7 @@ video_Player.prototype = {
 				this.checkposition();
 			}
 		} catch(e){
-			//console.log(e);
+			console.error(e.stack)
 		}
     },
 
@@ -228,7 +202,6 @@ video_Player.prototype = {
 		}
 		if (event=='5') {
 			this.loaded = true;
-            this.seekload(this.data.start);
 			this.timeline.timelength = this.player.getDuration();
 		}
 	},
@@ -243,6 +216,7 @@ video_Player.prototype = {
         this.player_container.css('z-index', "-11000");
         this.player_area.css('z-index', "-11000");
         this.player_element.css('z-index', "-11000");
+
     },
 
     hide: function() {
@@ -269,8 +243,7 @@ video_Player.prototype = {
         if (event.target.id==this.player_area.attr('id')){
             
             if (this.sceneflag) {
-                console.log(event.offsetX);
-                console.log(event.offsetY);
+                console.log(event.offsetX+", "+event.offsetY);
 
 /*!CHANGE PART HERE*/
                 if (/*VData.timeline.passable*/ true) {
@@ -293,12 +266,12 @@ video_Player.prototype = {
     play: function() {
 		if (this.loaded){
             if (!this.sceneflag) {
-                if (this.video_start!=null) {
-                    if (this.player.getCurrentTime()<this.video_start) {
-                        this.player.seekTo(this.video_start+0.1, false);
-                    }
 
-                }   
+                if (this.player.getCurrentTime()<this.data.begin) {
+                    this.player.seekTo(this.data.begin+0.1, false);
+                }
+
+
             }
 
 			this.player.playVideo();
@@ -324,10 +297,14 @@ video_Player.prototype = {
     },
 
     seekload: function(seconds) {
+        try {
     	this.player.stopVideo();
         this.player.seekTo(seconds, false);
         this.player.playVideo();
-		this.player.pauseVideo();	
+		this.player.pauseVideo();
+        } catch (e) {
+            console.error(e.stack)
+        }
     },
 
     seekstart: function() {
@@ -337,25 +314,17 @@ video_Player.prototype = {
         this.player.pauseVideo();
     },
 
-    set_start_end: function(start, end) {
-        if (!this.sceneflag) {
-            this.video_start=start;
-            this.video_end=end;
-        }
-    },
-
-
 	checkposition: function() {
 
         if (!this.sceneflag){
 
-            if ((this.video_start!=null) && (this.video_end!=null)) {
-                if (this.player.getCurrentTime()<this.video_start) {
-                    this.seek(this.video_start)
-                } else if (this.player.getCurrentTime()>this.video_end) {
-                    this.seekpause(this.video_start)
-                }
+
+            if (this.player.getCurrentTime()<this.data.begin) {
+                this.seek(this.data.begin)
+            } else if (this.player.getCurrentTime()>this.data.end) {
+                this.seekpause(this.data.begin)
             }
+
 
             var timer = this.player.getCurrentTime();
             this.timeline.updatepos(timer);
@@ -363,36 +332,33 @@ video_Player.prototype = {
 
         } else {
 
-            var vidstart = this.data.start
+            var vidstart = this.data.begin
             var vidend = this.data.end
 
             /*CHANGE PART HERE*/
             //var index = VData.timeline.timeline_index[this.idnum];
 
-            if (this.player.getCurrentTime()<vidstart) {
+            if (this.player.getCurrentTime()<vidstart-0.1) {
                 this.seekpause(vidstart);
                 this.on_back();
             }
             else if (this.player.getCurrentTime()>vidend){
+
+
                 this.pause();
                 this.on_back();
 
                 var next = this.data.next
-                var nextstart = vData.instances[next].data.start
-            
-                //var next = VData.timeline.timeline[index+1]
-                //var nextstart = VData.timeline.timeline_timepts[index+1].video_start
+                var nextstart = vData.instances[next].data.begin
+
                 if (next!=null) {
                 	vData.instances[next].on_show();
                 	vData.instances[next].seek(nextstart);
-                    //VUI.main_VideoPlayer.videoset[next].on_show();
-                    //VUI.main_VideoPlayer.videoset[next].seek(nextstart);
                 }
-
 
             } else {
             	/*CHANGE PART HERE*/
-            	vData.global_Timeline.update_timeline(this.data.id, this.player.getCurrentTime());
+            	//vData.global_Timeline.update_timeline(this.data.id, this.player.getCurrentTime());
                 //VData.timeline.update_timeline(index, this.player.getCurrentTime());
             }
 

@@ -21,13 +21,15 @@ viewer_UI.prototype = {
 		this.element = save_element(this.parent, "div", this.id);
 
         //create video players of scene objects
-        this.main_VideoPlayer =  new main_Video_Player(this.element, {id:"main_VideoPlayer"})
-
-        //vData.add_instances(this.main_VideoPlayer);
+        vData.add_instances(new main_Video_Player(this.element, {id:"main_VideoPlayer"}));
 
         //create main timeline object
         vData.add_instances(new main_Timeline(this.element, "main_Timeline"));
 
+        //add all embedded objects
+        for (var i=0; i<vData.data.data.embedded_objects.length; i++) {
+
+        }
 
 		if (debug) creation_success(this.classType, this.id)
         if (debug2) console.log(this);

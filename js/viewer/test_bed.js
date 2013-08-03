@@ -59,7 +59,12 @@ var system = {
 	main_Video_Player: {
 		name: "main_Video_Player",
 		loaded: false
-	}
+	},
+    embedded_objects: {
+        name: "embedded_objects",
+        file: "./js/general/embedded_objects.js",
+        loaded: false
+    }
 
 }
 
