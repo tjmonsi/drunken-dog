@@ -120,44 +120,8 @@ data_Model.prototype = {
 
     delete_instances: function(id) {
     	this.instances[id]=null;
-    },
-
-    add_triggers: function(obj) {
-
-        if (this.check_trigger(obj.time)==null) {
-
-            this.triggers[obj.time]=[obj];
-
-        } else {
-
-            this.triggers[obj.time].push(obj);
-
-        }
-
-    },
-
-    check_trigger: function(time) {
-        if (this.triggers[time.toString()]!=null) {
-            return this.triggers[time.toString()]
-        } else {
-            return null
-        }
-    },
-
-    delete_trigger: function(obj) {
-
-        var arr = this.triggers[obj.time.toString()];
-        var index = arr.indexOf(obj);
-
-        arr.splice(index, 1);
-
-        if (arr.length==0) {
-           this.triggers[obj.time.toString()]=null;
-        } else {
-            this.triggers[obj.time.toString()]=arr;
-        }
-
     }
+
 
 }
 

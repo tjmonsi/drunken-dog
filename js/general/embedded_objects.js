@@ -9,12 +9,12 @@
 "use strict";
 
 var embedded_objects = function(parent, data) {
-    this.classType = "embedded_objects"
+    this.classType = "embedded_objects";
     this.parent = parent;
     this.data = data;
 
     this.start();
-}
+};
 
 embedded_objects.prototype = {
 
@@ -24,102 +24,151 @@ embedded_objects.prototype = {
     },
 
     init: function() {
-        this.id = this.data.id
-
-        var element_type=null;
-        var attr = {};
-        var css = {};
-        var val = null;
-        var classes = [];
-        var hide = false;
-
-        var obj = this.data.object_data
-
-        css.left = this.data.x;
-        css.top = this.data.y;
-
-        if (obj.font_size!=null) css["font-size"] =  obj.font_size;
-
-        if (obj.width!=null) css.width = obj.width;
-
-        if (obj.color!=null) css.color = obj.color;
-
-        if (obj.background_color!=null) css["background-color"] = obj.background_color;
+        this.id = this.data.id;
 
 
-        if (this.data.type=="form") {
+        try {
 
-            element_type = "form";
-            classes.push('video_form');
-            hide = true
+            var element_type=null;
+            var attr = {};
+            var css = {};
+            var val = null;
+            var classes = [];
+            var hide = false;
 
-        } else if (this.data.type == "input") {
+            var obj = this.data.object_data;
 
-            element_type = "input";
-            hide = true;
+            css.left = this.data.x;
+            css.top = this.data.y;
 
-            if (obj.sub_type=="input_box") {
-                classes.push('input_box');
-                attr[type]="text";
-                attr[name]=this.id
+            if (obj.font_size!=null) css["font-size"] =  obj.font_size;
+
+            if (obj.width!=null) css.width = obj.width;
+
+            if (obj.color!=null) css.color = obj.color;
+
+            if (obj.background_color!=null) css["background-color"] = obj.background_color;
+
+
+
+
+            if (this.data.type=="form") {
+
+                element_type = "form";
+                classes.push('video_form');
+                hide = true
+
+            } else if (this.data.type == "input") {
+
+                element_type = "input";
+                hide = true;
+
+                if (obj.sub_type=="input_box") {
+                    classes.push('input_box');
+                    attr['type']="text";
+                    attr['name']=this.id
+                    attr['value']=obj.value;
+
+
+                }
+
+            } else if (this.data.type == "text_label") {
+
+                element_type = "div";
+                hide = true
+                classes.push('text_label');
                 val = obj.value;
+
+
+            } else if (this.data.type == "submit") {
+
+                this.button = new button_Class(this.parent, obj.value, this.id+"_submit_button", $.proxy(this.callback, this));
+                classes.push('submit_button');
+                hide = true;
+
+                this.correct_flag = true;
+                this.submit_status=1;
+
+            } else if (this.data.type == "hint") {
+
+                this.button = new button_Class(this.parent, "hint", this.id+"_hint_button", $.proxy(this.callback, this));
+                classes.push("hint_button");
+                hide = true
+
+                this.currentShow = false;
+
+
+            } else if (this.data.type == "video") {
+
+                element_type = "div";
+                classes.push("sub_video");
+                hide = true;
+
+            } else if (this.data.type == "button") {
+
+                this.button = new button_Class(this.parent, obj.value, this.id+"_ordinary_button", $.proxy(this.callback, this));
+                classes.push("video_button");
+                hide = true;
+            }
+
+            if (this.button!=null) {
+
+                vData.add_instances(this.button);
+                this.element = this.button.element;
+
+                for (var class_i in classes) {
+                    this.element.addClass(classes[class_i])
+                }
+
+            } else {
+
+                this.element = save_element(this.parent, element_type, this.id, classes, attr);
+
+                if (this.data.type == "video") {
+
+                    this.video = new video_Player(this.element, this.data.object_data, this.data.object_data.width, false);
+
+                    vData.add_instances(this.video);
+
+                }
 
             }
 
-        } else if (this.data.type == "text_label") {
+            this.element.css(css)
 
-            element_type = "div";
-            hide = true
-            classes.push('text_label');
-            val = obj.value;
+            if (val!=null) {
+                this.element.append(val);
+            }
 
+            if (this.data.begin!=null) {
+                var time = this.data.begin
 
-        } else if (this.data.type == "submit") {
+                var obj3 = {"id": this.id, "show": this.data.show, "hide": false, "pause": this.data.pause, "time": time, "retrig": this.data.retrig, "triggered": false};
 
-            this.button = new button_UI(this.parent, obj.value, this.id+"_submit_button", $.proxy(this.callback, this));
-            classes.push('submit_button');
-            hide = true;
+                //vData.add_triggers(obj3);
+                vData.instances[this.data.scene_id].add_triggers(obj3);
+            }
 
-            this.correct_flag = true;
-            this.submit_status=1;
+            if (this.data.end!=null) {
+                var time = this.data.end
+                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time, "retrig": this.data.retrig, "triggered": false}
 
-        } else if (this.data.type == "hint") {
+                //vData.add_triggers(obj3)
+                vData.instances[this.data.scene_id].add_triggers(obj3);
+            } else {
+                var time =this.data.begin
+                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time+0.25, "retrig": this.data.retrig, "triggered": false }
 
-            this.button = new button_UI(this.parent, "hint", this.id+"_hint_button", $.proxy(this.callback, this));
-            classes.push("hint_button");
-            hide = true
+                //vData.add_triggers(obj3)
+                vData.instances[this.data.scene_id].add_triggers(obj3);
+            }
 
-            this.currentShow = false;
+            if (hide) this.element.addClass('hide');
 
-
-        } else if (this.data.type == "video") {
-
-            element_type = "div";
-            classes.push("sub_video");
-            hide = true;
-
-        } else if (this.data.type == "button") {
-
-            this.button = new button_UI(this.parent, obj.value, this.id+"_ordinary_button", $.proxy(this.callback, this));
-            classes.push("video_button");
-            hide = true;
+            if (debug) creation_success(this.classType, this.id)
+        } catch (e) {
+            console.error(e.stack)
         }
-
-        if (this.button!=null) {
-
-            vData.add_instances(this.button);
-            this.element = this.button.element;
-            this.element.addClass(classes)
-
-        } else {
-
-            this.element = save_element(this.parent, element_type, this.id, classes, attr);
-
-        }
-
-        if (hide) this.element.addClass('hide');
-
-        if (debug) creation_success(this.classType, this.id)
     },
 
     test: function(){
@@ -144,6 +193,93 @@ embedded_objects.prototype = {
 
         // this should be last
         vData.delete_instance(this.id);
+    },
+
+    callback: function() {
+
+        if (this.data.type=="submit") {
+
+            var input_array = vData.instances[this.data.parent].data.object_data.input;
+
+            if (this.submit_status==1) {
+
+                var correct_status = true;
+
+                for (var i in input_array) {
+                    var obj = vData.instances[input_array[i]];
+
+                    var correct = obj.data.object_data.correct;
+                    var input_type = obj.data.object_data.input_type;
+                    var input_value = obj.element.val();
+
+                    if (correct==null) {
+                        // add something here
+                        continue;
+                    }
+
+                    if (input_type=="number") {
+
+                        // sanitize input_value
+
+                        input_value = eval(input_value);
+                        correct = parseFloat(correct);
+
+
+                    }
+
+                    if (input_value!=correct) {
+                        correct_status=false;
+                        // add x mark
+
+                        for (var key in this.data.object_data.wrong_1) {
+                            vData.instances[this.data.object_data.wrong_1[key]].trigger();
+                        }
+                    } else {
+                        // add check mark
+                        for (var key in this.data.object_data.right_1) {
+                            vData.instances[this.data.object_data.right_1[key]].trigger();
+                        }
+                    }
+
+                }
+
+                if (correct_status) {
+                    this.element.empty();
+                    this.element.append(this.data.object_data.value_correct);
+                    this.submit_status=2;
+                } else {
+                    this.element.empty();
+                    this.element.append(this.data.object_data.value_wrong)
+                    this.submit_status=3;
+                }
+
+            } else if (this.submit_status==2) {
+
+                // do correct
+                for (var key in this.data.object_data.right_2) {
+                    vData.instances[this.data.object_data.right_2[key]].trigger();
+                }
+
+            } else if (this.submit_status==3) {
+
+                // do wrong
+                for (var key in this.data.object_data.wrong_2) {
+                    vData.instances[this.data.object_data.wrong_2[key]].trigger();
+                }
+
+            }
+
+
+
+        } else if (this.data.type == "hint") {
+            for (var key in this.data.object_data.action) {
+                vData.instances[this.data.object_data.action[key]].trigger();
+            }
+        } else if (this.data.type == "button") {
+            for (var key in this.data.object_data.action) {
+                vData.instances[this.data.object_data.action[key]].trigger();
+        }
+
     }
 
 }

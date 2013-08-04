@@ -29,7 +29,7 @@ function onYouTubePlayerReady(playerId) {
         vData.instances[video_Player_id].player.addEventListener("onError", "onPlayerError"+corrected_Id);
         vData.instances[video_Player_id].player.addEventListener("onStateChange", "onStateChange"+corrected_Id);
     } catch (e) {
-        throw new Error(e)
+        console.error(e.stack)
     }
 
     window["onPlayerError" + corrected_Id] = function(state) {
@@ -73,6 +73,7 @@ video_Player.prototype = {
 
         this.id = this.data.id
         this.player = null;
+        this.triggers = {};
 
         var height = this.width*(9/16)
 
@@ -112,17 +113,17 @@ video_Player.prototype = {
             this.timeline.scrubber.addClass('hide');
         }
 
-        this.player_area = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
-        this.player_area.css({"width":this.width, "height": height});
+        this.element = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
+        this.element.css({"width":this.width, "height": height});
 
         this.player_element = $("object#"+this.playerID);
         this.player = document.getElementById(this.playerID);
 
 
 
-        this.player_area.click($.proxy(this.on_click, this));
+        this.element.click($.proxy(this.on_click, this));
 
-        //this.player_area.bind("contextmenu", $.proxy(this.right_click, this));
+        //this.element.bind("contextmenu", $.proxy(this.right_click, this));
 
         this.playerflag=false;
         this.loaded=false;
@@ -135,10 +136,12 @@ video_Player.prototype = {
             "sceneflag": this.sceneflag
         });
 
-        //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
-        //this.contextmenu = new video_contextmenu(this.player_area, this.data.id+"_context_menu", this.data.id);
+        this.interval_sets = {};
 
-        //console.log(this.player)
+        //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
+        //this.contextmenu = new video_contextmenu(this.element, this.data.id+"_context_menu", this.data.id);
+
+
 
 
 
@@ -195,10 +198,12 @@ video_Player.prototype = {
 		if (event=='1') {
 			this.playerflag=true;
 			this.timeline.timelength = this.player.getDuration();
-			this.interval = setInterval($.proxy(this.checkposition, this), 250);
+			this.interval_sets['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
+            this.interval_sets['check_trigger'] = setInterval($.proxy(this.fire_trigger, this), 250);
 		} else {
 			this.playerflag=false;
-			clearInterval(this.interval);
+			clearInterval(this.interval_sets['checkposition']);
+            clearInterval(this.interval_sets['check_trigger']);
 		}
 		if (event=='5') {
 			this.loaded = true;
@@ -206,28 +211,138 @@ video_Player.prototype = {
 		}
 	},
 
+    fire_trigger: function() {
+        var time = this.player.getCurrentTime()
+
+        /*var t_1 = time-0.1;
+        var t_2 = time+0.1;
+
+        console.log(time)
+
+        if (vData.triggers[time]!=null) {
+            var arr = vData.triggers[time];
+            this.interval_sets['t_0'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_0'), 10)
+        } else if (vData.triggers[t_1]!=null) {
+            var arr = vData.triggers[t_1];
+            this.interval_sets['t_1'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_1'), 10)
+        } else if (vData.triggers[t_2]!=null) {
+            var arr = vData.triggers[t_2];
+            this.interval_sets['t_2'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_2'), 10)
+        }*/
+
+        //console.log(this.triggers)
+        for (var key in this.triggers) {
+            var time_trigger = parseFloat(key);
+
+
+            if ((time<=time_trigger) && (time+0.25>time_trigger)) {
+            //if ((time<=time_trigger) && (time+0.25>=time_trigger)) {
+                var obj = this.triggers[key];
+                this.interval_sets[key] = setInterval($.proxy(this.trigger_objects, this, obj, key, key), 50);
+            }
+
+
+        }
+
+    },
+
+    add_triggers: function(obj) {
+        console.log(obj)
+        var time = obj.time
+        console.log(time)
+
+        if (this.check_triggers(time)==null) {
+
+            this.triggers[time.toString()]=[obj];
+
+        } else {
+
+            this.triggers[time.toString()].push(obj);
+
+        }
+
+    },
+
+    check_triggers: function(time) {
+        if (this.triggers[time.toString()]!=null) {
+            return this.triggers[time.toString()]
+        } else {
+            return null
+        }
+    },
+
+    delete_triggers: function(obj) {
+
+        var time = obj.time
+        time = time.toString();
+        var arr = this.triggers[time];
+        var index = arr.indexOf(obj);
+
+        arr.splice(index, 1);
+
+        if (arr.length==0) {
+            this.triggers[time]=null;
+        } else {
+            this.triggers[time]=arr;
+        }
+
+    },
+
+
+    trigger_objects: function(arr, key, interval) {
+        clearInterval(this.interval_sets[interval]);
+
+        for (var i=0; i<arr.length; i++) {
+
+            var obj = arr[i];
+
+            if (!obj.triggered) {
+
+                if (obj.show){
+
+                    vData.instances[obj.id].element.removeClass('hide');
+                } else
+                if (obj.hide) {
+
+                    vData.instances[obj.id].element.addClass('hide');
+                }
+
+                if (obj.pause)
+                    this.pause();
+
+                obj.triggered = true
+                arr[i] = obj
+            }
+
+
+        }
+
+        this.triggers[key] = arr;
+
+    },
+
     on_show: function() {
         this.player_container.css('z-index', 11000);
-        this.player_area.css('z-index', 11000);
+        this.element.css('z-index', 11000);
         this.player_element.css('z-index', 11000);
     },
 
     on_back: function() {
         this.player_container.css('z-index', "-11000");
-        this.player_area.css('z-index', "-11000");
+        this.element.css('z-index', "-11000");
         this.player_element.css('z-index', "-11000");
 
     },
 
     hide: function() {
         this.player_container.addClass('hide');
-        this.player_area.addClass('hide');
+        this.element.addClass('hide');
         this.player_element.addClass('hide');
     },
 
     unhide: function() {
         this.player_container.removeClass('hide');
-        this.player_area.removeClass('hide');
+        this.element.removeClass('hide');
         this.player_element.removeClass('hide');
     },
 
@@ -240,7 +355,7 @@ video_Player.prototype = {
 
         //this.contextmenu.element.addClass('hide')
 
-        if (event.target.id==this.player_area.attr('id')){
+        if (event.target.id==this.element.attr('id')){
             
             if (this.sceneflag) {
                 console.log(event.offsetX+", "+event.offsetY);

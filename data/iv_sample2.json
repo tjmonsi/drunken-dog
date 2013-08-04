@@ -4,146 +4,296 @@
 	"start_scene": "video00001",
 	"data": {
 		"scene_objects":[
-		{
-			"id": "video00001",
-			"name": "video00001",
-			"type": "scene",
-			"prev": null,
-			"next": "video00002",
-			"begin": 120,
-			"end": 124.7,
-			"object_data": {
-				"id": "YpvE0Co66nU"
-			},
-			"original_start": 72
-		},
-		{
-			"id": "video00002",
-			"name": "video00002",
-			"type": "scene",
-			"prev": "video00001",
-			"next": "video00003",
-			"begin": 150,
-			"end": 183,
-			"object_data": {
-				"id": "uzkc-qNVoOk"
-			},
-			"original_start": 14
-		},
-		{
-			"id": "video00003",
-			"name": "video00003",
-			"type": "scene",
-			"prev": "video00002",
-			"next": "video00004",
-			"begin": 300,
-			"end": 367,
-			"object_data": {
-				"id": "uzkc-qNVoOk"
-			},
-			"original_start": 14
-		},
-		{
-			"id": "video00004",
-			"name": "video00004",
-			"type": "scene",
-			"prev": "video00003",
-			"next": null,
-			"begin": 62,
-			"end": 565,
-			"object_data": {
-				"id": "BAjOEsU_mpE"
-			},
-			"original_start": 14
-		}		
+            {
+                "id": "video00001",
+                "name": "video00001",
+                "type": "scene",
+                "prev": null,
+                "next": "video00002",
+                "begin": 120,
+                "end": 124.7,
+                "object_data": {
+                    "id": "YpvE0Co66nU"
+                },
+                "original_start": 72
+            },
+            {
+                "id": "video00002",
+                "name": "video00002",
+                "type": "scene",
+                "prev": "video00001",
+                "next": "video00003",
+                "begin": 176,
+                "end": 183,
+                "object_data": {
+                    "id": "uzkc-qNVoOk"
+                },
+                "original_start": 14,
+                "original_2": 150
+            },
+            {
+                "id": "video00003",
+                "name": "video00003",
+                "type": "scene",
+                "prev": "video00002",
+                "next": "video00004",
+                "begin": 300,
+                "end": 367,
+                "object_data": {
+                    "id": "uzkc-qNVoOk"
+                },
+                "original_start": 14
+            },
+            {
+                "id": "video00004",
+                "name": "video00004",
+                "type": "scene",
+                "prev": "video00003",
+                "next": null,
+                "begin": 62,
+                "end": 565,
+                "object_data": {
+                    "id": "BAjOEsU_mpE"
+                },
+                "original_start": 14
+            }
 		],
 		"embedded_objects": [
-		{
-			"id": "form000001",
-			"type": "form",
-			"begin": 178,
-			"end": null,
-			"x": 0,
-			"y": 0,
-			"scene_id": "video00002",
-			"pause": true,
-			"show": true,
-			"parent": null,
-			"object_data": {
-				"name": "form for probability",
-				"submit": "submit0001",
-				"time_gate": true
-			}
-		},
-		{
-			"id": "inputbox01",
-			"type": "input",
-			"begin": "inherit",
-			"end": "inherit",
-			"x": 0,
-			"y": 0,
-			"scene_id": "inherit",
-			"pause": "inherit",
-			"show": "inherit",
-			"parent": "form000001",
-			"object_data": {
-				"sub_type": "input_box",
-				"name": "input for answer",
-				"value": "",
-				"correct": "0.5",
-				"data_collection": null,
-				"font_size": 30,
-				"width": 60,
-				"color": "#000000",
-				"background_color": "#FFFFFF",
-				"draggable": false
-			}
-		},
-		{
-			"id": "textlabel0",
-			"type": "text_label",
-			"begin": "inherit",
-			"end": "inherit",
-			"x": 0,
-			"y": 0,
-			"scene_id": "inherit",
-			"pause": "inherit",
-			"show": "inherit",
-			"parent": "form000001",
-			"object_data": {
-				"name": "question 1",
-				"value": "P(T)=",
-				"data_collection": null,
-				"font_size": 30,
-				"width": null,
-				"color": "#FFFFFF",
-				"background_color": null,
-				"draggable": false
-			}
-		},
-		{
-			"id": "textlabel1",
-			"type": "text_label",
-			"begin": "inherit",
-			"end": "inherit",
-			"x": 0,
-			"y": 0,
-			"scene_id": "inherit",
-			"pause": "inherit",
-			"show": "inherit",
-			"parent": "form000001",
-			"object_data": {
-				"name": "question text",
-				"value": "What is now the possibility of getting tails? Or P(T)?",
-				"data_collection": null,
-				"font_size": 30,
-				"width": 500,
-				"color": "#FFFFFF",
-				"background_color": null,
-				"draggable": false
-			}
-		}				
-		]
+            {
+                "id": "form000001",
+                "type": "form",
+                "begin": 178,
+                "end": null,
+                "x": 0,
+                "y": 0,
+                "scene_id": "video00002",
+                "pause": true,
+                "show": true,
+                "parent": null,
+                "retrig": false,
+                "object_data": {
+                    "name": "form for probability",
+                    "submit": "submit0001",
+                    "input": ["inputbox01"],
+                    "time_gate": true
+                }
+            },
+            {
+                "id": "inputbox01",
+                "type": "input",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 195,
+                "y": 452,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "input_box",
+                    "name": "input for answer",
+                    "value": "",
+                    "correct": "0.5",
+                    "input_type": "number",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 60,
+                    "color": "#000000",
+                    "background_color": "#FFFFFF",
+                    "draggable": false
+                }
+            },
+            {
+                "id": "textlabel0",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 116,
+                "y": 462,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "question 1",
+                    "value": "P(T)=",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": null,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "textlabel1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 411,
+                "y": 459,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "question text",
+                    "value": "What is now the possibility of getting tails? Or P(T)?",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 500,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "submit0001",
+                "type": "submit",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 275,
+                "y": 459,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "submit for question number 1",
+                    "value": "Submit Answer",
+                    "value_wrong": "Retry Answer",
+                    "value_correct": "Continue",
+                    "right_2": ["right00001"],
+                    "right_1": [],
+                    "wrong_1": ["wrong00001"],
+                    "wrong_2": ["wrong00002"],
+                    "draggable": false
+                }
+            },
+            {
+                "id": "hint000001",
+                "type": "hint",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 262,
+                "y": 421,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "hint for question number 1",
+                    "action": ["hinta00001"],
+                    "draggable": false
+                }
+            },
+            {
+                "id": "subvid0001",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 357,
+                "y": 194,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl01",
+                    "name": "subvideo for question number 1",
+                    "begin": 72,
+                    "end": 124.7,
+                    "width": 360,
+                    "object_data": {
+                        "id":"YpvE0Co66nU"
+                    },
+                    "draggable": false
+                }
+            },
+            {
+                "id": "button0001",
+                "type": "hint",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 193,
+                "y": 510,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "replay again",
+                    "value": "Replay with hints",
+                    "action": ["replay0001"],
+                    "draggable": false
+                }
+            }
+		],
+        "actions" : [
+            {
+                "id": "wrong00001",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["hint000001", "replay0001"],
+                "hide": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "wrong00002",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": [],
+                "hide": [],
+                "clear_val": ["inputbox01"],
+                "change_val": []
+            },
+            {
+                "id": "right00001",
+                "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00002",
+                "show": [],
+                "hide": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hinta00001",
+                "name": "video hint",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["subvid0001"],
+                "hide": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "replay0001",
+                "name": "replay hint",
+                "play": 150,
+                "pause": false,
+                "scene_id": "video00002",
+                "show": [],
+                "hide": [],
+                "clear_val": [],
+                "change_val": []
+            }
+
+        ]
 		
 	}
 }

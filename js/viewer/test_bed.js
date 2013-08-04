@@ -64,6 +64,11 @@ var system = {
         name: "embedded_objects",
         file: "./js/general/embedded_objects.js",
         loaded: false
+    },
+    action_objects: {
+        name: "action_objects",
+        file: "./js/general/action_objects.js",
+        loaded: false
     }
 
 }

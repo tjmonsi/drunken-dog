@@ -26,8 +26,41 @@ viewer_UI.prototype = {
         //create main timeline object
         vData.add_instances(new main_Timeline(this.element, "main_Timeline"));
 
+
         //add all embedded objects
         for (var i=0; i<vData.data.data.embedded_objects.length; i++) {
+
+            var obj = vData.data.data.embedded_objects[i];
+
+            for (var j=0; j<vData.data.data.embedded_objects.length; j++) {
+                var obj2 = vData.data.data.embedded_objects[j];
+                if (obj2.id==obj.parent) {
+                    break;
+                } else {
+                   obj2=null;
+                }
+            }
+
+            for (var key in obj) {
+
+                if (obj[key]=="inherit") {
+                    obj[key]=obj2[key];
+                }
+
+            }
+
+
+            vData.add_instances(new embedded_objects(vData.instances[obj.scene_id].element, obj));
+
+        }
+
+        //add  all action objeccts;
+
+        for (var i=0; i<vData.data.data.actions.length; i++){
+
+            var obj = vData.data.data.actions[i];
+
+            vData.add_instances(new action_objects(this.element, obj));
 
         }
 
