@@ -140,10 +140,14 @@ embedded_objects.prototype = {
                 this.element.append(val);
             }
 
+            var obj4 = {"id": this.id, "video_id": this.data.scene_id, "begin": this.data.begin, "end": this.data.end}
+
+            vData.instances['main_Timeline'].add_trigger_strips(obj4);
+
             if (this.data.begin!=null) {
                 var time = this.data.begin
 
-                var obj3 = {"id": this.id, "show": this.data.show, "hide": false, "pause": this.data.pause, "time": time, "retrig": this.data.retrig, "triggered": false};
+                var obj3 = {"id": this.id, "show": this.data.show, "hide": false, "pause": this.data.pause, "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type};
 
                 //vData.add_triggers(obj3);
                 vData.instances[this.data.scene_id].add_triggers(obj3);
@@ -151,13 +155,13 @@ embedded_objects.prototype = {
 
             if (this.data.end!=null) {
                 var time = this.data.end
-                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time, "retrig": this.data.retrig, "triggered": false}
+                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type}
 
                 //vData.add_triggers(obj3)
                 vData.instances[this.data.scene_id].add_triggers(obj3);
             } else {
                 var time =this.data.begin
-                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time+0.25, "retrig": this.data.retrig, "triggered": false }
+                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time+0.25, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type }
 
                 //vData.add_triggers(obj3)
                 vData.instances[this.data.scene_id].add_triggers(obj3);
@@ -211,6 +215,7 @@ embedded_objects.prototype = {
                     var correct = obj.data.object_data.correct;
                     var input_type = obj.data.object_data.input_type;
                     var input_value = obj.element.val();
+                    obj.element.prop('disabled', true);
 
                     if (correct==null) {
                         // add something here
@@ -265,6 +270,18 @@ embedded_objects.prototype = {
                 // do wrong
                 for (var key in this.data.object_data.wrong_2) {
                     vData.instances[this.data.object_data.wrong_2[key]].trigger();
+                }
+
+                this.element.empty();
+                this.element.append(this.data.object_data.value);
+
+                this.submit_status=1;
+
+                for (var i in input_array) {
+                    var obj = vData.instances[input_array[i]];
+
+                    obj.element.prop('disabled', false);
+
                 }
 
             }

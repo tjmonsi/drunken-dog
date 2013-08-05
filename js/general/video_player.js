@@ -126,7 +126,7 @@ video_Player.prototype = {
 
         this.element.click($.proxy(this.on_click, this));
 
-        //this.element.bind("contextmenu", $.proxy(this.right_click, this));
+
 
         this.playerflag=false;
         this.loaded=false;
@@ -142,6 +142,26 @@ video_Player.prototype = {
         this.interval_sets = {};
 
         //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
+        this.context_menu_data = {
+            "id": this.id+"_context_menu",
+            "video_id": this.id,
+            "object_data": [
+                {
+                    "id": this.id+"_add_comment",
+                    "value": "Add Comment Thread",
+                    callback: ($.proxy(this.context_menu_add_comment_thread, this))
+                },
+                {
+                    "id": this.id+"_debug",
+                    "value": "Debug",
+                    callback: ($.proxy(this.context_menu_debug, this))
+                }
+            ]
+        }
+
+        vData.add_instances(new context_menu(this.element, this.context_menu_data));
+
+        this.element.bind("contextmenu", $.proxy(this.right_click, this));
         //this.contextmenu = new video_contextmenu(this.element, this.data.id+"_context_menu", this.data.id);
 
         if (this.sceneflag) this.on_back();
@@ -175,8 +195,10 @@ video_Player.prototype = {
     },
 
 	right_click: function(event) {
-        this.contextmenu.setxy(event.offsetX, event.offsetY);
-        this.contextmenu.element.removeClass('hide')
+        //this.contextmenu.setxy(event.offsetX, event.offsetY);
+        //this.contextmenu.element.removeClass('hide')
+        vData.instances[this.context_menu_data.id].setxy(event.offsetX, event.offsetY)
+        vData.instances[this.context_menu_data.id].element.removeClass('hide')
 
         this.pause();
         return false
@@ -238,9 +260,8 @@ video_Player.prototype = {
     },
 
     add_triggers: function(obj) {
-        console.log(obj)
+
         var time = obj.time
-        console.log(time)
 
         if (this.check_triggers(time)==null) {
 
@@ -251,6 +272,8 @@ video_Player.prototype = {
             this.triggers[time.toString()].push(obj);
 
         }
+
+
 
     },
 
@@ -374,6 +397,8 @@ video_Player.prototype = {
 	on_click: function(event) {
         //console.log(event.target.id)
         //this.contextmenu.element.addClass('hide')
+
+        vData.instances[this.context_menu_data.id].element.addClass('hide');
 
         if (event.target.id==this.element.attr('id')){
             
@@ -545,6 +570,16 @@ video_Player.prototype = {
 
 
         }
+    },
+
+    context_menu_add_comment_thread: function(event) {
+        console.log("Add comment")
+
+    },
+
+    context_menu_debug: function(event) {
+        console.log(vData);
+        console.log(vUI);
     }
 	
 }

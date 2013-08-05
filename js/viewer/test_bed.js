@@ -69,6 +69,11 @@ var system = {
         name: "action_objects",
         file: "./js/general/action_objects.js",
         loaded: false
+    },
+    context_menu: {
+        name: "context_menu",
+        file: "./js/general/context_menu.js",
+        loaded: false
     }
 
 }

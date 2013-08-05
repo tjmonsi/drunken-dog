@@ -39,8 +39,17 @@ body, html{
     margin-top: 1px;
     margin-bottom: 1px;
     border: 1px solid white;
-    background-color: #263666;
+    background-color: #777777;
     z-index: -11000;
+
+}
+
+.timeline_strip {
+    position: absolute;
+    z-index: 1000;
+    height: 13px;
+    width: 2px;
+    opacity: 0.5;
 }
 
 .main_scrubber {
@@ -48,6 +57,30 @@ body, html{
     height: 20px;
     width: 10px;
     background-color: #FF0000;
+    z-index: 11000;
+    opacity: 0.7;
+}
+
+.context_menu {
+    position: absolute;
+    width: 200px;
+    background-color: #93939c;
+    border: 1px solid black;
+}
+
+.context_menu div.context_menu_item{
+    height: 15px;
+    padding: 5px;
+    padding-left: 15px;
+    width: inherit;
+    border: 1px solid black;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.context_menu div.context_menu_item:hover {
+    color: white;
 }
 
 /* Buttons */

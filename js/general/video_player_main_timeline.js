@@ -12,8 +12,9 @@ var main_Timeline = function(parent, id) {
     this.scene_set = {};
     this.temporary_set = [];
     this.timeline_set_element = [];
+    this.trigger_elements = {};
 
-    this.mousehold_flag=true;
+    this.mousehold_flag=false;
 
 	this.start();
 }
@@ -205,6 +206,53 @@ main_Timeline.prototype = {
 
     },
 
+    add_trigger_strips: function(obj) {
+
+        console.log(obj);
+
+        var id = obj.id;
+        var t_index = this.scene_set[obj.video_id].t_index;
+        var index = this.scene_set[obj.video_id].index;
+
+        var arr = this.timeline_set[t_index];
+        var new_obj = arr[index];
+
+        var vid_begin = vData.instances[obj.video_id].data.begin;
+        var vid_end = vData.instances[obj.video_id].data.end;
+
+        var time_start = obj.begin-vid_begin;
+        var time_end;
+
+        if (obj.end!=null) time_end = obj.end-vid_begin;
+        else time_end = (obj.begin+0.15)-vid_begin;
+
+        var strip_time = time_end - time_start;
+
+        console.log(strip_time)
+
+        var width = new_obj.element.width();
+        var time_length = vid_end-vid_begin;
+
+        console.log(width);
+        console.log(time_length);
+
+        var strip_width = (width*strip_time)/time_length;
+        var posx = (new_obj.element.position().left*time_start)/time_length;
+
+        var posx = posx+new_obj.element.position().left+10
+
+        console.log(strip_width)
+
+        if (strip_width<2) strip_width=2;
+
+        this.trigger_elements[obj.id+"_timeline_strip"] = (save_element(new_obj.element, "div", obj.id+"_timeline_strip", ['timeline_strip']));
+
+        this.trigger_elements[obj.id+"_timeline_strip"].css({"width": strip_width});
+        this.trigger_elements[obj.id+"_timeline_strip"].css({"left": posx});
+        this.trigger_elements[obj.id+"_timeline_strip"].css({"background-color": "#00FF00"});
+
+    },
+
     updatepos: function(time, video_id){
         this.scrubber.attr("id", video_id+"_main_scrubber");
         //console.log(time);
@@ -337,6 +385,8 @@ main_Timeline.prototype = {
 
 
     timeline_scrub_mouseleave: function(e) {
+
+        console.log(e);
         if (this.mousehold_flag) {
             this.mousehold_flag=false;
             this.timeline_scrub_function(e.offsetX-10, e.offsetY, e.target.id);
