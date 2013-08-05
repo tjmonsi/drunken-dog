@@ -31,6 +31,25 @@ body, html{
     position: absolute;
 }
 
+/* Timeline bars */
+
+.timeline_bar {
+    float: left;
+    height: 13px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border: 1px solid white;
+    background-color: #263666;
+    z-index: -11000;
+}
+
+.main_scrubber {
+    position: absolute;
+    height: 20px;
+    width: 10px;
+    background-color: #FF0000;
+}
+
 /* Buttons */
 
 .button {

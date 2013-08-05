@@ -8,6 +8,7 @@ var main_Video_Player = function(parent, data) {
 	this.classType = "main_Video_Player"
 	this.parent = parent;
 	this.data = data;
+    this.height = 0;
 
 	this.start();
 
@@ -32,12 +33,18 @@ main_Video_Player.prototype = {
             for (var i=0; i<vData.data.data.scene_objects.length; i++) {
                 var data = vData.data.data.scene_objects[i];
 
-                var obj = new video_Player(this.element, data, 1280, true)
+                var obj = new video_Player(this.element, data, vid_max_width, true)
                 vData.add_instances(obj)
+
+                if (obj.player_container.outerHeight(true)>this.height) {
+                    this.height = obj.player_container.outerHeight(true);
+                }
                 //onYoutubePlayerReady(obj.playerID)
             }
 
             vData.instances[vData.data.start_scene].on_show();
+
+            this.element.css({"height": this.height})
 
             if (debug) creation_success(this.classType, this.id)
 

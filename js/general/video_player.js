@@ -71,6 +71,9 @@ video_Player.prototype = {
 
 	init: function() {
 
+        this.time_gate = false;
+        this.currentTime = 0;
+
         this.id = this.data.id
         this.player = null;
         this.triggers = {};
@@ -106,7 +109,7 @@ video_Player.prototype = {
 
         this.player_container.append(element);
 
-        this.timeline = new timeline_Player(this.player_container, this.id+"_timeline");
+        this.timeline = new timeline_Player(this.player_container, this.id+"_timeline", this.data.end-this.data.begin, this.data.begin);
 
         if (this.sceneflag) {
             this.timeline.element.addClass('hide');
@@ -141,11 +144,7 @@ video_Player.prototype = {
         //!!! TASK MAKE CONTEXT MENU AVAILABLE AGAIN
         //this.contextmenu = new video_contextmenu(this.element, this.data.id+"_context_menu", this.data.id);
 
-
-
-
-
-        this.on_back();
+        if (this.sceneflag) this.on_back();
 
         
         if (debug) creation_success(this.classType, this.id)
@@ -197,48 +196,40 @@ video_Player.prototype = {
 
 		if (event=='1') {
 			this.playerflag=true;
-			this.timeline.timelength = this.player.getDuration();
+			this.timeline.timelength = this.data.end-this.data.begin;
 			this.interval_sets['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
             this.interval_sets['check_trigger'] = setInterval($.proxy(this.fire_trigger, this), 250);
 		} else {
 			this.playerflag=false;
-			clearInterval(this.interval_sets['checkposition']);
-            clearInterval(this.interval_sets['check_trigger']);
+            for (var key in this.interval_sets) {
+                clearInterval(this.interval_sets[key]);
+            }
+
 		}
 		if (event=='5') {
 			this.loaded = true;
-			this.timeline.timelength = this.player.getDuration();
+			this.timeline.timelength = this.data.end-this.data.begin;
 		}
 	},
 
     fire_trigger: function() {
+
         var time = this.player.getCurrentTime()
-
-        /*var t_1 = time-0.1;
-        var t_2 = time+0.1;
-
-        console.log(time)
-
-        if (vData.triggers[time]!=null) {
-            var arr = vData.triggers[time];
-            this.interval_sets['t_0'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_0'), 10)
-        } else if (vData.triggers[t_1]!=null) {
-            var arr = vData.triggers[t_1];
-            this.interval_sets['t_1'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_1'), 10)
-        } else if (vData.triggers[t_2]!=null) {
-            var arr = vData.triggers[t_2];
-            this.interval_sets['t_2'] = setInterval($.proxy(this.trigger_objects, this, arr, 't_2'), 10)
-        }*/
 
         //console.log(this.triggers)
         for (var key in this.triggers) {
             var time_trigger = parseFloat(key);
 
 
-            if ((time<=time_trigger) && (time+0.25>time_trigger)) {
+            if ((time<=time_trigger) && (time+0.3>time_trigger)) {
             //if ((time<=time_trigger) && (time+0.25>=time_trigger)) {
                 var obj = this.triggers[key];
                 this.interval_sets[key] = setInterval($.proxy(this.trigger_objects, this, obj, key, key), 50);
+            }
+
+            if (time>=time_trigger) {
+                var obj = this.triggers[key];
+                this.interval_sets[key+"_end"] = setInterval($.proxy(this.trigger_object_ends, this, obj, key), 50);
             }
 
 
@@ -307,8 +298,13 @@ video_Player.prototype = {
                     vData.instances[obj.id].element.addClass('hide');
                 }
 
-                if (obj.pause)
+                if (obj.pause) {
                     this.pause();
+                    if (vData.instances[obj.id].data.object_data.time_gate) {
+                        this.time_gate = true;
+                    }
+
+                }
 
                 obj.triggered = true
                 arr[i] = obj
@@ -321,6 +317,27 @@ video_Player.prototype = {
 
     },
 
+    trigger_object_ends: function(arr, key) {
+        clearInterval(this.interval_sets[key+"_end"]);
+
+        for (var i=0; i<arr.length; i++) {
+            var obj = arr[i];
+
+            if (!obj.triggered) {
+
+                if (obj.hide) {
+                    vData.instances[obj.id].element.addClass('hide');
+                }
+
+            }
+
+            obj.triggered = true;
+            arr[i] = obj
+        }
+
+        this.triggers[key] = arr;
+    },
+
     on_show: function() {
         this.player_container.css('z-index', 11000);
         this.element.css('z-index', 11000);
@@ -328,6 +345,9 @@ video_Player.prototype = {
     },
 
     on_back: function() {
+        if (this.player.pauseVideo!=null) {
+            this.pause();
+        }
         this.player_container.css('z-index', "-11000");
         this.element.css('z-index', "-11000");
         this.player_element.css('z-index', "-11000");
@@ -352,7 +372,7 @@ video_Player.prototype = {
 	},
 
 	on_click: function(event) {
-
+        //console.log(event.target.id)
         //this.contextmenu.element.addClass('hide')
 
         if (event.target.id==this.element.attr('id')){
@@ -361,7 +381,7 @@ video_Player.prototype = {
                 console.log(event.offsetX+", "+event.offsetY);
 
 /*!CHANGE PART HERE*/
-                if (/*VData.timeline.passable*/ true) {
+                if (!this.time_gate) {
             		if (this.playerflag) {
             			this.pause();
             		} else {
@@ -397,6 +417,7 @@ video_Player.prototype = {
 
     pause: function() {
         this.player.pauseVideo();
+
         
     },
 
@@ -431,6 +452,46 @@ video_Player.prototype = {
 
 	checkposition: function() {
 
+        if (this.parent.hasClass("hide")) {
+            //this.pause();
+            for (var key in this.interval_sets) {
+                clearInterval(this.interval_sets[key]);
+                console.log(key)
+            }
+
+            return;
+        }
+
+        if ((this.player.getCurrentTime()-this.data.start)>this.currentTime) {
+            this.currentTime = this.player.getCurrentTime()-this.data.start;
+        } else {
+
+            var arr1 = null;
+            var obj1 = null;
+            for (var key in this.triggers) {
+
+                arr1 = this.triggers[key];
+
+                for (var i in arr1) {
+
+                    obj1 = arr1[i];
+
+                    if (obj1.retrig) {
+                        obj1.triggered = false;
+                    }
+
+                    arr1[i]=obj1
+                }
+
+                this.triggers[key]=arr1;
+
+
+
+            }
+
+            this.currentTime = this.player.getCurrentTime()-this.data.start;
+        }
+
         if (!this.sceneflag){
 
 
@@ -464,14 +525,18 @@ video_Player.prototype = {
                 this.on_back();
 
                 var next = this.data.next
-                var nextstart = vData.instances[next].data.begin
+
 
                 if (next!=null) {
+                    var nextstart = vData.instances[next].data.begin
                 	vData.instances[next].on_show();
                 	vData.instances[next].seek(nextstart);
                 }
 
             } else {
+
+                var timer = this.player.getCurrentTime();
+                vData.instances['main_Timeline'].updatepos(timer, this.id);
             	/*CHANGE PART HERE*/
             	//vData.global_Timeline.update_timeline(this.data.id, this.player.getCurrentTime());
                 //VData.timeline.update_timeline(index, this.player.getCurrentTime());

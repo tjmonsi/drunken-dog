@@ -51,7 +51,7 @@
                 "prev": "video00003",
                 "next": null,
                 "begin": 62,
-                "end": 565,
+                "end": 120,
                 "object_data": {
                     "id": "BAjOEsU_mpE"
                 },
@@ -70,7 +70,7 @@
                 "pause": true,
                 "show": true,
                 "parent": null,
-                "retrig": false,
+                "retrig": true,
                 "object_data": {
                     "name": "form for probability",
                     "submit": "submit0001",
@@ -201,7 +201,7 @@
                 "y": 194,
                 "scene_id": "inherit",
                 "pause": "inherit",
-                "show": "inherit",
+                "show": false,
                 "parent": "form000001",
                 "retrig": "inherit",
                 "object_data": {
@@ -218,7 +218,7 @@
             },
             {
                 "id": "button0001",
-                "type": "hint",
+                "type": "button",
                 "begin": "inherit",
                 "end": "inherit",
                 "x": 193,

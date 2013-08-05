@@ -278,6 +278,7 @@ embedded_objects.prototype = {
         } else if (this.data.type == "button") {
             for (var key in this.data.object_data.action) {
                 vData.instances[this.data.object_data.action[key]].trigger();
+            }
         }
 
     }

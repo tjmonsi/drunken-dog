@@ -23,8 +23,11 @@ viewer_UI.prototype = {
         //create video players of scene objects
         vData.add_instances(new main_Video_Player(this.element, {id:"main_VideoPlayer"}));
 
+        var vid_height = vData.instances["main_VideoPlayer"].element.outerHeight(true)
+
         //create main timeline object
         vData.add_instances(new main_Timeline(this.element, "main_Timeline"));
+
 
 
         //add all embedded objects

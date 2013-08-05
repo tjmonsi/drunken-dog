@@ -4,5 +4,18 @@
     left: 50px;
     right: 50px;
     bottom: 50px;
+    overflow: auto;
 }
+
+#main_VideoPlayer {
+    position: relative;
+    display: block;
+}
+
+#main_Timeline {
+    position: relative;
+    display: block;
+}
+
+
 

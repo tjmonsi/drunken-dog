@@ -59,6 +59,7 @@ action_objects.prototype = {
     trigger: function() {
 
         if (this.data.play!=null) {
+            vData.instances[this.data.scene_id].time_gate = false;
             if  (this.data.play=="current")
                 vData.instances[this.data.scene_id].play();
             else

@@ -4,11 +4,14 @@
 
 /*---------------------- timeline_Player --------------------------*/
 
-var timeline_Player = function(parent, id) {
+var timeline_Player = function(parent, id, timelength, time_begin) {
     this.classType = "timeline_Player"
 	this.parent = parent;
 	this.id = id;
-	this.video_id = id;
+
+
+    this.timelength = timelength;
+    this.begin = time_begin
 
     this.start();
 }
@@ -21,6 +24,7 @@ timeline_Player.prototype = {
     },
 
     init: function(){
+        this.video_id = this.id.replace("_timeline", "");
         var element = create_element("div", this.id, ["timeline"], {});
         var scrubber = create_element("div", this.id+"_scrubber", ["scrubber"], {});
 
@@ -109,16 +113,16 @@ timeline_Player.prototype = {
         }
     },
 
-    timeline_scrub_function: function(posx) {;
+    timeline_scrub_function: function(posx) {
 
         var timer = (posx*this.timelength)/(this.element.width()-10);
         this.scrubber.css({"left": posx});
-        vData.instances[this.video_id].seek(timer);
+        vData.instances[this.video_id].seek(timer+this.begin);
 
     },
 
     updatepos: function(time){
-        this.truetime = time;
+        this.truetime = time-this.begin;
         var posx = (this.truetime*(this.element.width()-10))/this.timelength;
         this.scrubber.css({"left": posx});
 
@@ -141,7 +145,7 @@ timeline_Player.prototype = {
             var posx = target.timeline.scrubber.position().left;
 
             target.timeline.truetime=(posx*target.timeline.timelength)/(target.timeline.element.width()-10);
-            target.seek(target.timeline.truetime);
+            target.seek(target.timeline.truetime+this.begin);
 
         }
 
