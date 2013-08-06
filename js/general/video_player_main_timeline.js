@@ -208,7 +208,7 @@ main_Timeline.prototype = {
 
     add_trigger_strips: function(obj) {
 
-        console.log(obj);
+        //console.log(obj);
 
         var id = obj.id;
         var t_index = this.scene_set[obj.video_id].t_index;
@@ -228,20 +228,20 @@ main_Timeline.prototype = {
 
         var strip_time = time_end - time_start;
 
-        console.log(strip_time)
+        //console.log(strip_time)
 
         var width = new_obj.element.width();
         var time_length = vid_end-vid_begin;
 
-        console.log(width);
-        console.log(time_length);
+        //console.log(width);
+        //console.log(time_length);
 
         var strip_width = (width*strip_time)/time_length;
         var posx = (width*time_start)/time_length;
-        console.log(new_obj.element.position().left)
+        //console.log(new_obj.element.position().left)
         var posx = posx+new_obj.element.position().left+10
-        console.log(posx)
-        console.log(strip_width)
+        //console.log(posx)
+        //console.log(strip_width)
 
         if (strip_width<2) strip_width=2;
 
@@ -398,7 +398,7 @@ main_Timeline.prototype = {
 
     timeline_scrub_mouseleave: function(e) {
 
-        console.log(e);
+        //console.log(e);
         if (this.mousehold_flag) {
             var id = e.target.id;
             var strip = null

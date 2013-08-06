@@ -248,8 +248,8 @@
                 "type": "text_label",
                 "begin": 150,
                 "end": 178,
-                "x": 423,
-                "y": 381,
+                "x": 416,
+                "y": 421,
                 "scene_id": "video00002",
                 "pause": false,
                 "show": false,
@@ -274,7 +274,9 @@
                 "pause": false,
                 "scene_id": null,
                 "show": ["hint000001", "button0001"],
+                "show_all": [],
                 "hide": [],
+                "hide_all": [],
                 "clear_val": null,
                 "change_val": []
             },
@@ -285,7 +287,9 @@
                 "pause": false,
                 "scene_id": null,
                 "show": [],
+                "show_all": [],
                 "hide": [],
+                "hide_all": [],
                 "clear_val": ["inputbox01"],
                 "change_val": []
             },
@@ -296,7 +300,9 @@
                 "pause": false,
                 "scene_id": "video00002",
                 "show": [],
+                "show_all": [],
                 "hide": [],
+                "hide_all": [],
                 "clear_val": [],
                 "change_val": []
             },
@@ -307,7 +313,9 @@
                 "pause": false,
                 "scene_id": null,
                 "show": ["subvid0001"],
+                "show_all": [],
                 "hide": [],
+                "hide_all": [],
                 "clear_val": [],
                 "change_val": []
             },
@@ -317,8 +325,10 @@
                 "play": 150,
                 "pause": false,
                 "scene_id": "video00002",
-                "show": ["textlabel2", "textlabel3"],
+                "show": [],
+                "show_all": ["textlabel2", "textlabel3"],
                 "hide": ["form000001", "inputbox01", "textlabel0", "textlabel1", "submit0001", "hint000001", "subvid0001", "button0001"],
+                "hide_all": [],
                 "clear_val": [],
                 "change_val": []
             }

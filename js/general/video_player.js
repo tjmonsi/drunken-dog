@@ -238,24 +238,96 @@ video_Player.prototype = {
 
         var time = this.player.getCurrentTime()
 
-        //console.log(this.triggers)
+
+
+        console.log(this.triggers)
         for (var key in this.triggers) {
             var time_trigger = parseFloat(key);
 
+            if (time>=time_trigger) {
 
+                for (var i=0; i<this.triggers[key].length; i++) {
+
+                    //console.log(this.triggers[key][i].triggered);
+                    if (this.triggers[key][i].triggered==false) {
+
+                        if (this.triggers[key][i].type_trig=="begin") {
+                            if (vData.instances[this.triggers[key][i].id].data.show){
+                                vData.instances[this.triggers[key][i].id].element.removeClass('hide');
+                                this.triggers[key][i].triggered = true
+                            }
+                            if (vData.instances[this.triggers[key][i].id].data.pause) {
+                                this.pause();
+                                if (vData.instances[this.triggers[key][i].id].data.object_data.time_gate) {
+                                    this.time_gate = true;
+                                }
+                                this.triggers[key][i].triggered = true
+                            }
+                        } else if (this.triggers[key][i].type_trig=="end") {
+                            vData.instances[this.triggers[key][i].id].element.addClass('hide');
+                            this.triggers[key][i].triggered = true
+                        }
+
+                    }
+                    //console.log(this.triggers[key][i].triggered);
+
+                }
+
+            } else {
+                for (var i=0; i<this.triggers[key].length; i++) {
+                    if (this.triggers[key][i].type_trig=="begin") {
+                        vData.instances[this.triggers[key][i].id].element.addClass('hide');
+                        vData.instances[this.triggers[key][i].id].reset();
+                        this.triggers[key][i].triggered = false
+                    }
+                }
+            }
+            /*
             if (time>=time_trigger) {
             //if ((time<=time_trigger) && (time+0.25>=time_trigger)) {
-                var obj = this.triggers[key];
-                this.interval_sets[key] = setInterval($.proxy(this.trigger_objects, this, obj, key, key), 50);
+                this.triggers[key];
+
+                for (var i in obj)
+                { console.log(obj[i].triggered)}
+                this.trigger_objects(obj);
+                for (var i in obj)
+                { console.log(obj[i].triggered)}
+                for (var i in this.triggers[key])
+                { console.log(this.triggers[key][i].triggered)}
             }
 
-            if (time>=time_trigger) {
+            /*if (time>=time_trigger) {
                 var obj = this.triggers[key];
                 this.interval_sets[key+"_end"] = setInterval($.proxy(this.trigger_object_ends, this, obj, key), 50);
+            }*/
+
+            if (time<time_trigger) {
+                var obj = this.triggers[key];
+                //this.interval_sets[key+"_hide"] = setInterval($.proxy(this.trigger_object_hide, this, obj, key), 50);
             }
 
 
         }
+
+    },
+
+    trigger_object_hide: function(arr, key){
+        clearInterval(this.interval_sets[key+"_hide"]);
+
+        for (var i=0; i<arr.length; i++) {
+            var obj = arr[i];
+
+
+
+            vData.instances[obj.id].element.addClass('hide')
+
+
+
+            obj.triggered = false;
+            arr[i] = obj
+        }
+
+        this.triggers[key] = arr;
 
     },
 
@@ -303,33 +375,40 @@ video_Player.prototype = {
     },
 
 
-    trigger_objects: function(arr, key, interval) {
-        clearInterval(this.interval_sets[interval]);
-
+    trigger_objects: function(arr, key) {
+        //clearInterval(this.interval_sets[key]);
+        //console.log(arr);
         for (var i=0; i<arr.length; i++) {
 
             var obj = arr[i];
 
-            if (!obj.triggered) {
+            //console.log(obj)
+            //console.log(obj.triggered)
 
-                if (obj.show){
+            if (obj.triggered==false) {
+                console.log(vData.instances[obj.id].data)
+                if (vData.instances[obj.id].data.show){
 
                     vData.instances[obj.id].element.removeClass('hide');
+                    //obj.triggered = true
                 } else
-                if (obj.hide) {
+                if (vData.instances[obj.id].data.hide) {
 
                     vData.instances[obj.id].element.addClass('hide');
+                    //obj.triggered = true
                 }
 
-                if (obj.pause) {
+                if (vData.instances[obj.id].data.pause) {
                     this.pause();
                     if (vData.instances[obj.id].data.object_data.time_gate) {
                         this.time_gate = true;
                     }
+                    //obj.triggered = true
 
                 }
 
                 obj.triggered = true
+                //console.log(obj.triggered);
                 arr[i] = obj
             }
 
@@ -337,6 +416,7 @@ video_Player.prototype = {
         }
 
         this.triggers[key] = arr;
+        //console.log(this.triggers[key]);
 
     },
 
@@ -487,9 +567,13 @@ video_Player.prototype = {
             return;
         }
 
-        if ((this.player.getCurrentTime()-this.data.start)>this.currentTime) {
-            this.currentTime = this.player.getCurrentTime()-this.data.start;
+        if ((this.player.getCurrentTime()-this.data.begin)>=this.currentTime) {
+
+
+
+            this.currentTime = this.player.getCurrentTime()-this.data.begin;
         } else {
+            console.log((this.player.getCurrentTime()-this.data.begin))
 
             var arr1 = null;
             var obj1 = null;
@@ -515,7 +599,7 @@ video_Player.prototype = {
 
             }
 
-            this.currentTime = this.player.getCurrentTime()-this.data.start;
+            this.currentTime = this.player.getCurrentTime()-this.data.begin;
         }
 
         if (!this.sceneflag){

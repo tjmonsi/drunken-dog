@@ -71,12 +71,27 @@ action_objects.prototype = {
         }
 
         for (var key in this.data.show) {
+
             vData.instances[this.data.show[key]].element.removeClass('hide')
+
+        }
+
+        for (var key in this.data.show_all) {
+
+            vData.instances[this.data.show_all[key]].data.show=true;
+            vData.instances[this.data.show_all[key]].element.removeClass('hide')
+
         }
 
 
         for (var key in this.data.hide) {
             vData.instances[this.data.hide[key]].element.addClass('hide')
+
+        }
+
+        for (var key in this.data.hide_all) {
+            vData.instances[this.data.hide_all[key]].element.addClass('hide')
+            vData.instances[this.data.hide_all[key]].data.show=false;
         }
 
         for (var key in this.data.clear_val) {

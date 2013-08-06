@@ -1,3 +1,18 @@
+.right_png, .wrong_png {
+    position: absolute;
+    z-index: 1000;
+}
+
+.right_png {
+    width: 80px;
+    height: 80px
+}
+
+.wrong_png {
+    width: 60px;
+    height: 70px
+}
+
 /* Video Players */
 .main_player_container {
     position: absolute;

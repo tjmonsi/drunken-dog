@@ -41,6 +41,10 @@ embedded_objects.prototype = {
             css.left = this.data.x;
             css.top = this.data.y;
 
+            var gen_css = {};
+            gen_css.left = this.data.x-50;
+            gen_css.top = this.data.y-50;
+
             if (obj.font_size!=null) css["font-size"] =  obj.font_size;
 
             if (obj.width!=null) css.width = obj.width;
@@ -71,6 +75,15 @@ embedded_objects.prototype = {
 
 
                 }
+
+                this.wrong_png = save_element(this.parent, "img", this.id+"_wrong_png", ['wrong_png', 'hide']);
+                this.right_png = save_element(this.parent, "img", this.id+"_right_png", ['right_png', 'hide']);
+
+                this.wrong_png.attr("src", "./images/wrong.png")
+                this.right_png.attr("src", "./images/right.png")
+
+                this.wrong_png.css(gen_css);
+                this.right_png.css(gen_css);
 
             } else if (this.data.type == "text_label") {
 
@@ -147,7 +160,7 @@ embedded_objects.prototype = {
             if (this.data.begin!=null) {
                 var time = this.data.begin
 
-                var obj3 = {"id": this.id, "show": this.data.show, "hide": false, "pause": this.data.pause, "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type};
+                var obj3 = {"id": this.id, "type_trig": "begin", "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type};
 
                 //vData.add_triggers(obj3);
                 vData.instances[this.data.scene_id].add_triggers(obj3);
@@ -155,13 +168,13 @@ embedded_objects.prototype = {
 
             if (this.data.end!=null) {
                 var time = this.data.end
-                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type}
+                var obj3 = {"id": this.id, "type_trig": "end", "time": time, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type}
 
                 //vData.add_triggers(obj3)
                 vData.instances[this.data.scene_id].add_triggers(obj3);
             } else {
                 var time =this.data.begin
-                var obj3 = {"id": this.id, "show": false, "hide": true, "pause": false, "time": time+0.25, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type }
+                var obj3 = {"id": this.id, "type_trig": "end", "time": time+0.25, "retrig": this.data.retrig, "triggered": false, "video_id": this.data.scene_id, "type": this.data.type }
 
                 //vData.add_triggers(obj3)
                 vData.instances[this.data.scene_id].add_triggers(obj3);
@@ -235,11 +248,13 @@ embedded_objects.prototype = {
                     if (input_value!=correct) {
                         correct_status=false;
                         // add x mark
-
+                        obj.wrong_png.removeClass('hide');
                         for (var key in this.data.object_data.wrong_1) {
                             vData.instances[this.data.object_data.wrong_1[key]].trigger();
                         }
                     } else {
+
+                        obj.right_png.removeClass('hide');
                         // add check mark
                         for (var key in this.data.object_data.right_1) {
                             vData.instances[this.data.object_data.right_1[key]].trigger();
@@ -249,10 +264,12 @@ embedded_objects.prototype = {
                 }
 
                 if (correct_status) {
+
                     this.element.empty();
                     this.element.append(this.data.object_data.value_correct);
                     this.submit_status=2;
                 } else {
+
                     this.element.empty();
                     this.element.append(this.data.object_data.value_wrong)
                     this.submit_status=3;
@@ -263,6 +280,14 @@ embedded_objects.prototype = {
                 // do correct
                 for (var key in this.data.object_data.right_2) {
                     vData.instances[this.data.object_data.right_2[key]].trigger();
+                }
+
+                for (var i in input_array) {
+                    var obj = vData.instances[input_array[i]];
+                    obj.wrong_png.addClass('hide');
+                    obj.right_png.addClass('hide');
+
+
                 }
 
             } else if (this.submit_status==3) {
@@ -279,7 +304,7 @@ embedded_objects.prototype = {
 
                 for (var i in input_array) {
                     var obj = vData.instances[input_array[i]];
-
+                    obj.wrong_png.addClass('hide');
                     obj.element.prop('disabled', false);
 
                 }
@@ -296,6 +321,29 @@ embedded_objects.prototype = {
             for (var key in this.data.object_data.action) {
                 vData.instances[this.data.object_data.action[key]].trigger();
             }
+        }
+
+    },
+
+    reset: function() {
+
+        if (this.data.type=="submit") {
+
+            var input_array = vData.instances[this.data.parent].data.object_data.input;
+            for (var i in input_array) {
+                var obj = vData.instances[input_array[i]];
+                obj.right_png.addClass('hide');
+                obj.wrong_png.addClass('hide');
+                obj.element.val("")
+                obj.element.prop('disabled', false);
+            //this.element
+            }
+
+            this.element.empty();
+            this.element.append(this.data.object_data.value);
+
+            this.submit_status=1;
+
         }
 
     }

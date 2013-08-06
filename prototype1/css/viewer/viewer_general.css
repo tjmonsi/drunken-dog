@@ -31,7 +31,7 @@ body, html{
     bottom: 100px;
 }
 
-.video_form, .input_box, .text_label, .submit_button, .hint_button, .sub_video, .video_button {
+.video_form, .input_box, .text_label, .submit_button, .hint_button, .sub_video, .video_button, .wrong_png, .right_png {
 	position: absolute;
 }
 
