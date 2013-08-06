@@ -185,6 +185,7 @@ video_Player.prototype = {
     destroy: function(){
 
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -192,7 +193,7 @@ video_Player.prototype = {
 
         this.player_container.empty();
 
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
 	right_click: function(event) {
@@ -666,16 +667,10 @@ video_Player.prototype = {
         }
     },
 
-    context_menu_add_comment_thread: function(x,y, event) {
-        console.log(x)
-        console.log(y)
-        console.log(event)
-        //console.log("Add comment")
-        //console.log(event.target.left);
-        //console.log(event);
-        //console.log($(event.target.id))
-        //!! TASK HERE
-        vData.add_instances(new new_comment_thread_form(this.element, {"id": this.id+"_add_new_comment_thread", "video_id": this.id, "x": x, "y": y, "time": this.player.getCurrentTime()}));
+    context_menu_add_comment_thread: function(event) {
+
+
+        vData.add_instances(new new_comment_thread_form(this.element, {"id": this.id+"_add_new_comment_thread", "video_id": this.id, "x": this.context_menu.x, "y": this.context_menu.y, "time": this.player.getCurrentTime()}));
 
     },
 

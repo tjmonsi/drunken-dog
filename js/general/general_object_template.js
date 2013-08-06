@@ -36,6 +36,7 @@ general_object.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -45,7 +46,7 @@ general_object.prototype = {
 
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     }
 
 }

@@ -15,8 +15,12 @@
 
 /* Comments */
 .new_comment_window {
-    width: 300px;
+
     /*height: 300px;*/
+}
+
+.new_comment_box {
+    width: 300px;
 }
 
 /* Video Players */

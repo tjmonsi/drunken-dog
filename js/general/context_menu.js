@@ -8,7 +8,7 @@
 
 "use strict";
 
-/*---------------------- button_UI -------------------------*/
+/*---------------------- context_menu -------------------------*/
 
 var context_menu = function(parent, data) {
     this.classType = "context_menu"
@@ -42,7 +42,7 @@ context_menu.prototype = {
 
             this.menu_item[index].append(this.data.object_data[index].value);
 
-            this.menu_item[index].click($.proxy(this.data.object_data[index].callback, this, this.x, this.y));
+            this.menu_item[index].click($.proxy(this.data.object_data[index].callback, this));
 
         }
 
@@ -66,6 +66,7 @@ context_menu.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -75,7 +76,7 @@ context_menu.prototype = {
 
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
     setxy: function(x,y) {

@@ -56,6 +56,7 @@ button_Class.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -66,7 +67,7 @@ button_Class.prototype = {
         this.element.empty();
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
 	on_click: function(event){
@@ -138,6 +139,7 @@ button_Icon_Class.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -148,7 +150,7 @@ button_Icon_Class.prototype = {
         this.element.empty();
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
 	on_click: function(event){
@@ -242,6 +244,8 @@ window_Class.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (key=="parent") continue;
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -251,7 +255,7 @@ window_Class.prototype = {
         this.window.empty();
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
 	close_window: function() {

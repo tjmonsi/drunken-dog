@@ -51,6 +51,7 @@ new_comment_thread_form.prototype = {
         this.commentboxarea = save_element(this.element, "div", this.id+"_commentboxarea", ['commentboxarea']);
 
         this.comment_box = save_element(this.commentboxarea, "textarea", this.id+"_comment", ['new_comment_box']);
+        this.commentboxarea.append(br());
         this.commenter = save_element(this.commentboxarea, "input", this.id+"_commenter", ['new_commenter']);
         this.commenter.val("user")
 
@@ -60,8 +61,9 @@ new_comment_thread_form.prototype = {
         vData.add_instances(this.clear_comment);
         this.submit_comment = new button_Class(this.commentbutton_area, "Submit", this.id+"_submit_comment");
         vData.add_instances(this.submit_comment);
-        this.cancel_comment = new button_Class(this.commentbutton_area, "Cancel", this.id+"_cancel_comment");
+        this.cancel_comment = new button_Class(this.commentbutton_area, "Cancel", this.id+"_cancel_comment", $.proxy(this.destroy, this));
         vData.add_instances(this.cancel_comment);
+
 
         if (debug) creation_success(this.classType, this.id)
     },
@@ -78,7 +80,7 @@ new_comment_thread_form.prototype = {
 
     destroy: function() {
         for (var key in this) {
-            console.log(this[key])
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -88,7 +90,7 @@ new_comment_thread_form.prototype = {
 
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     }
 
 }

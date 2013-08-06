@@ -201,6 +201,7 @@ embedded_objects.prototype = {
 
     destroy: function() {
         for (var key in this) {
+            if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
@@ -210,7 +211,7 @@ embedded_objects.prototype = {
 
 
         // this should be last
-        vData.delete_instance(this.id);
+        vData.delete_instances(this.id);
     },
 
     callback: function() {
