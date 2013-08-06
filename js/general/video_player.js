@@ -243,7 +243,7 @@ video_Player.prototype = {
             var time_trigger = parseFloat(key);
 
 
-            if ((time<=time_trigger) && (time+0.3>time_trigger)) {
+            if (time>=time_trigger) {
             //if ((time<=time_trigger) && (time+0.25>=time_trigger)) {
                 var obj = this.triggers[key];
                 this.interval_sets[key] = setInterval($.proxy(this.trigger_objects, this, obj, key, key), 50);
@@ -500,7 +500,8 @@ video_Player.prototype = {
                 for (var i in arr1) {
 
                     obj1 = arr1[i];
-
+                    vData.instances[obj1.id].element.addClass('hide');
+                    this.time_gate=false;
                     if (obj1.retrig) {
                         obj1.triggered = false;
                     }
@@ -540,8 +541,16 @@ video_Player.prototype = {
             //var index = VData.timeline.timeline_index[this.idnum];
 
             if (this.player.getCurrentTime()<vidstart-0.1) {
-                this.seekpause(vidstart);
-                this.on_back();
+
+                if (this.data.prev==null) {
+                    this.seek(vidstart);
+                } else {
+                    this.seekpause(vidstart);
+                    this.on_back();
+
+                }
+
+
             }
             else if (this.player.getCurrentTime()>vidend){
 

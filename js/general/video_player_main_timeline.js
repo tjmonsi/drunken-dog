@@ -237,10 +237,10 @@ main_Timeline.prototype = {
         console.log(time_length);
 
         var strip_width = (width*strip_time)/time_length;
-        var posx = (new_obj.element.position().left*time_start)/time_length;
-
+        var posx = (width*time_start)/time_length;
+        console.log(new_obj.element.position().left)
         var posx = posx+new_obj.element.position().left+10
-
+        console.log(posx)
         console.log(strip_width)
 
         if (strip_width<2) strip_width=2;
@@ -360,22 +360,34 @@ main_Timeline.prototype = {
     },
 
     timeline_scrub_start: function(e) {
-        //console.log(e.target.id)
-        if (this.return_if_timeline(e.target.id)) {
+        console.log(e)
+        if (e.target.id.indexOf("_main_scrubber")==-1) {
             this.mousehold_flag = true;
         }
 
         if (this.mousehold_flag) {
+            var id = e.target.id;
+            var strip = null
 
-
-            this.timeline_scrub_function(e.offsetX-10, e.offsetY, e.target.id);
+            if (e.target.id.indexOf("_timeline_bars")==-1) {
+                id = e.target.parentElement.id
+                strip = e.target.id
+            }
+            this.timeline_scrub_function(e.offsetX-10, e.offsetY, id, strip);
         }
 
     },
 
     timeline_scrub: function(e) {
         if (this.mousehold_flag) {
-            this.timeline_scrub_function(e.offsetX-10, e.offsetY, e.target.id);
+            var id = e.target.id;
+            var strip = null
+
+            if (e.target.id.indexOf("_timeline_bars")==-1) {
+                id = e.target.parentElement.id
+                strip = e.target.id
+            }
+            this.timeline_scrub_function(e.offsetX-10, e.offsetY, id, strip);
         }
     },
 
@@ -388,8 +400,14 @@ main_Timeline.prototype = {
 
         console.log(e);
         if (this.mousehold_flag) {
-            this.mousehold_flag=false;
-            this.timeline_scrub_function(e.offsetX-10, e.offsetY, e.target.id);
+            var id = e.target.id;
+            var strip = null
+
+            if (e.target.id.indexOf("_timeline_bars")==-1) {
+                id = e.target.parentElement.id
+                strip = e.target.id
+            }
+            this.timeline_scrub_function(e.offsetX-10, e.offsetY, id, strip);
         }
     },
 
@@ -399,7 +417,7 @@ main_Timeline.prototype = {
         }
     },
 
-    timeline_scrub_function: function(posx, posy, id) {
+    timeline_scrub_function: function(posx, posy, id, strip) {
         var prevtarget = vData.instances[this.scrubber.attr("id").replace("_main_scrubber", "")];
 
         var posy = parseInt(posy/15)
@@ -421,7 +439,15 @@ main_Timeline.prototype = {
 
         var element = arr[index].element;
 
+        var addposx = 0;
+
+        if (strip!=null) {
+            console.log(strip)
+            addposx = this.trigger_elements[strip].position().left
+        }
+
         posx = posx+element.position().left;
+        posx += addposx
 
         var true_time = ((posx*time_length)/(el_width))-pos_el;
 
