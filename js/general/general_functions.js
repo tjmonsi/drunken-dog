@@ -20,9 +20,13 @@ function makeID(length){
 }
 
 function save_element(parent, el, id, classes, attributes){
-    var element = create_element(el, id, classes, attributes);
-    parent.append(element);
-    return $(el+"#"+id);
+    try {
+        var element = create_element(el, id, classes, attributes);
+        parent.append(element);
+        return $(el+"#"+id);
+    } catch(e) {
+        console.error(e.stack)
+    }
 }
 
 function br(){

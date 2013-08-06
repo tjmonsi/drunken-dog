@@ -105,6 +105,7 @@ embedded_objects.prototype = {
             } else if (this.data.type == "hint") {
 
                 this.button = new button_Class(this.parent, "hint", this.id+"_hint_button", $.proxy(this.callback, this));
+
                 classes.push("hint_button");
                 hide = true
 

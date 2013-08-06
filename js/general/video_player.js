@@ -159,7 +159,8 @@ video_Player.prototype = {
             ]
         }
 
-        vData.add_instances(new context_menu(this.element, this.context_menu_data));
+        this.context_menu = new context_menu(this.element, this.context_menu_data)
+        vData.add_instances(this.context_menu);
 
         this.element.bind("contextmenu", $.proxy(this.right_click, this));
         //this.contextmenu = new video_contextmenu(this.element, this.data.id+"_context_menu", this.data.id);
@@ -665,8 +666,16 @@ video_Player.prototype = {
         }
     },
 
-    context_menu_add_comment_thread: function(event) {
-        console.log("Add comment")
+    context_menu_add_comment_thread: function(x,y, event) {
+        console.log(x)
+        console.log(y)
+        console.log(event)
+        //console.log("Add comment")
+        //console.log(event.target.left);
+        //console.log(event);
+        //console.log($(event.target.id))
+        //!! TASK HERE
+        vData.add_instances(new new_comment_thread_form(this.element, {"id": this.id+"_add_new_comment_thread", "video_id": this.id, "x": x, "y": y, "time": this.player.getCurrentTime()}));
 
     },
 

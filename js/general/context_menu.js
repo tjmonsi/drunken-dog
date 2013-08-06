@@ -42,7 +42,7 @@ context_menu.prototype = {
 
             this.menu_item[index].append(this.data.object_data[index].value);
 
-            this.menu_item[index].click($.proxy(this.data.object_data[index].callback, this));
+            this.menu_item[index].click($.proxy(this.data.object_data[index].callback, this, this.x, this.y));
 
         }
 
@@ -82,6 +82,11 @@ context_menu.prototype = {
         this.x=x;
         this.y=y;
         this.element.css({"left": this.x, "top": this.y});
+
+        //for (var index in this.data.object_data) {
+//            this.menu_item[index].($.proxy(this.data.object_data[index].callback, this, this.x, this.y));
+
+//        }
     }
 
 }

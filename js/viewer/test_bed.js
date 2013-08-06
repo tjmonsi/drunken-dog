@@ -74,6 +74,11 @@ var system = {
         name: "context_menu",
         file: "./js/general/context_menu.js",
         loaded: false
+    },
+    new_comment_thread_form: {
+        name: "new_comment_thread_form",
+        file: "./js/viewer/new_comment_thread.js",
+        loaded: false
     }
 
 }

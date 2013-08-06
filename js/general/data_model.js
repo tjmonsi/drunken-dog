@@ -7,6 +7,7 @@ var data_Model = function(parent, id) {
 	this.parent = parent
 	this.instances = {};
     this.triggers = {};
+    this.comments = {};
 	this.id = id;
     this.data = null;
 	this.start();

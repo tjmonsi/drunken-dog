@@ -31,6 +31,45 @@ body, html{
     position: absolute;
 }
 
+.window_Class {
+    position: absolute;
+    background-color: #777777;
+    border: 1px solid white;
+}
+
+.window_Class_handler_title {
+    float: left;
+    width: 90%;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    height: 15px;
+    vertical-align: 50%;
+}
+
+.window_Class_handler {
+    height: 15px;
+    background-color: blue;
+}
+
+.window_Class_handler_icons {
+    float: right;
+    width: 9%;
+    background-color: blue;
+    color: white;
+    height: 15px;
+
+}
+
+
+.window_Class_handler_icons a{
+    float: right;
+
+}
+
+
+
+
 /* Timeline bars */
 
 .timeline_bar {

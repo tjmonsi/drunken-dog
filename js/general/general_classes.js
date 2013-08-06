@@ -178,11 +178,11 @@ button_Icon_Class.prototype = {
 
 /*-------------------------- window classes ------------------------*/
 
-var window_Class = function(parent, data, content, draggable, pad){
+var window_Class = function(parent, data, draggable, pad){
 	this.classType = "window_Class"
 	this.parent = parent;
 	this.data = data;
-	this.content = content;
+	//this.content = content;
 	this.draggable = draggable;
 
 	if (typeof(pad)==='undefined') this.pad=10;
@@ -201,18 +201,31 @@ window_Class.prototype = {
 
 	init: function() {
 		this.id = this.data.id;
-		this.window = save_element(this.parent, "div", this.id, ['window_Class']);
+		this.window = save_element(this.parent.parent, "div", this.id, ['window_Class']);
+
+        this.window.css({"left": this.data.x, "top": this.data.y})
+
+        this.window.addClass(this.data.class);
+
 
 		this.window_handler = save_element(this.window, "div", this.id+"_handler", ['window_Class_handler'])
 
-		this.window_exit = new button_Icon_Class(this.window_handler, this.id+"_handler_exit", 'ui-icon-circle-close', 'Exit', $.proxy(this.close_window, this))
-		this.window_exit.addClass('window_handler_exit_icon');
+        this.window_handler_title = save_element(this.window_handler, "div", this.id+"_handler_title", ['window_Class_handler_title']);
+
+        this.window_handler_title.append(this.data.window_name);
+
+        this.window_handler_icons = save_element(this.window_handler, "div", this.id+"_handler_icons", ['window_Class_handler_icons']);
+
+		this.window_exit = new button_Icon_Class(this.window_handler_icons, this.id+"_handler_exit", 'ui-icon-circle-close', 'Exit', $.proxy(this.close_window, this))
+
+        vData.add_instances(this.window_exit)
+		this.window_exit.element.addClass('window_handler_exit_icon');
 
 
-		this.window.append(this.content);
-		this.window.data({'data': this.data})
 
-		this.element = $(this.data.jquery_selector);
+		//this.window.data({'data': this.data})
+
+		//this.element = $(this.data.jquery_selector);
 
 		if (debug) creation_success(this.classType, this.id)
 	},
@@ -243,7 +256,9 @@ window_Class.prototype = {
 
 	close_window: function() {
 		/*! ADD DELETE OF THE ELEMENT */
-		this.destroy();
+		//this.destroy();
+
+        this.parent.destroy();
 	}
 
 }

@@ -13,6 +13,12 @@
     height: 70px
 }
 
+/* Comments */
+.new_comment_window {
+    width: 300px;
+    /*height: 300px;*/
+}
+
 /* Video Players */
 .main_player_container {
     position: absolute;

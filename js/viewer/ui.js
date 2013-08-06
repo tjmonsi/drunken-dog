@@ -6,6 +6,8 @@ var viewer_UI = function(parent, id) {
 	this.classType = "viewer_UI"
 	this.parent = parent
 	this.id = id
+    this.embedded_objects = {}
+    this.actions = {}
 
 	this.start();
 }
@@ -21,12 +23,14 @@ viewer_UI.prototype = {
 		this.element = save_element(this.parent, "div", this.id);
 
         //create video players of scene objects
-        vData.add_instances(new main_Video_Player(this.element, {id:"main_VideoPlayer"}));
+        this.main_VideoPlayer = new main_Video_Player(this.element, {id:"main_VideoPlayer"})
+        vData.add_instances(this.main_VideoPlayer);
 
         var vid_height = vData.instances["main_VideoPlayer"].element.outerHeight(true)
 
         //create main timeline object
-        vData.add_instances(new main_Timeline(this.element, "main_Timeline"));
+        this.main_Timeline = new main_Timeline(this.element, "main_Timeline")
+        vData.add_instances(this.main_Timeline);
 
 
 
@@ -52,7 +56,7 @@ viewer_UI.prototype = {
 
             }
 
-
+            //this.embedded_objects[obj.id] = new embedded_objects(vData.instances[obj.scene_id].element, obj)
             vData.add_instances(new embedded_objects(vData.instances[obj.scene_id].element, obj));
 
         }
@@ -62,7 +66,7 @@ viewer_UI.prototype = {
         for (var i=0; i<vData.data.data.actions.length; i++){
 
             var obj = vData.data.data.actions[i];
-
+            //this.actions[obj.id] =  new action_objects(this.element, obj)
             vData.add_instances(new action_objects(this.element, obj));
 
         }

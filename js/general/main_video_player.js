@@ -9,6 +9,7 @@ var main_Video_Player = function(parent, data) {
 	this.parent = parent;
 	this.data = data;
     this.height = 0;
+    this.video_set = {};
 
 	this.start();
 
@@ -34,6 +35,8 @@ main_Video_Player.prototype = {
                 var data = vData.data.data.scene_objects[i];
 
                 var obj = new video_Player(this.element, data, vid_max_width, true)
+
+                this.video_set[data.id] = obj;
                 vData.add_instances(obj)
 
                 if (obj.player_container.outerHeight(true)>this.height) {
@@ -68,6 +71,11 @@ main_Video_Player.prototype = {
         for (var key in this) {
             if (this[key].classType!=null) {
                 this[key].destroy();
+            } else if (key=='video_set') {
+                for (var k in this[key]) {
+                    this[key][k].destroy();
+                }
+
             }
         }
 
