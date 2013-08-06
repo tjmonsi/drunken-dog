@@ -500,7 +500,7 @@ video_Player.prototype = {
                 for (var i in arr1) {
 
                     obj1 = arr1[i];
-                    vData.instances[obj1.id].element.addClass('hide');
+                    //vData.instances[obj1.id].element.addClass('hide');
                     this.time_gate=false;
                     if (obj1.retrig) {
                         obj1.triggered = false;

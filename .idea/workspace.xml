@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="" />
     <list default="true" id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/iv_sample_test2.json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/iv_sample_test2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/iv_sample2.json" afterPath="$PROJECT_DIR$/data/iv_sample2.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player.js" afterPath="$PROJECT_DIR$/js/general/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player_main_timeline.js" afterPath="$PROJECT_DIR$/js/general/video_player_main_timeline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <ignored path="invicble1.iws" />
@@ -81,10 +76,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="video_player.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="video_player.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="503" column="41" selection-start="13280" selection-end="13280" vertical-scroll-proportion="0.9074074">
+                <state line="501" column="35" selection-start="13167" selection-end="13167" vertical-scroll-proportion="0.7685185">
                   <folding />
                 </state>
               </provider>
@@ -188,7 +183,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="video_player_main_timeline.js" pinned="false" current="true" current-in-tab="true">
+              <file leaf-file-name="video_player_main_timeline.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/js/general/video_player_main_timeline.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state line="471" column="47" selection-start="12464" selection-end="12464" vertical-scroll-proportion="0.83455884">
@@ -240,7 +235,7 @@
               <file leaf-file-name="iv_sample2.json" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/data/iv_sample2.json">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="251" column="24" selection-start="8309" selection-end="8309" vertical-scroll-proportion="0.74489796">
+                    <state line="251" column="24" selection-start="8309" selection-end="8309" vertical-scroll-proportion="-0.53061223">
                       <folding />
                     </state>
                   </provider>
@@ -753,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype1/js/viewer/viewer_UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="24" selection-start="6346" selection-end="6346" vertical-scroll-proportion="0.0">
+        <state line="479" column="12" selection-start="12519" selection-end="12519" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -807,16 +802,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
+    <entry file="file://$PROJECT_DIR$/js/general/video_player_main_timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="503" column="41" selection-start="13280" selection-end="13280" vertical-scroll-proportion="0.9074074">
+        <state line="471" column="47" selection-start="12464" selection-end="12464" vertical-scroll-proportion="0.83455884">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/video_player_main_timeline.js">
+    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="471" column="47" selection-start="12464" selection-end="12464" vertical-scroll-proportion="0.83455884">
+        <state line="501" column="35" selection-start="13167" selection-end="13167" vertical-scroll-proportion="0.7685185">
           <folding />
         </state>
       </provider>
