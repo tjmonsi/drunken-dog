@@ -7,7 +7,8 @@ var data_Model = function(parent, id) {
 	this.parent = parent
 	this.instances = {};
     this.triggers = {};
-    this.comments = {};
+    this.comment_set = {};
+    this.discussion_set = {};
 	this.id = id;
     this.data = null;
 	this.start();
@@ -121,6 +122,70 @@ data_Model.prototype = {
 
     delete_instances: function(id) {
     	this.instances[id]=null;
+    },
+
+    comments: function(val, del) {
+
+        try {
+
+            if (val.id!=null) {
+                var id = val.id
+                var obj = val
+
+            } else {
+                var id = val;
+            }
+
+            if (del) {
+                this.comment_set[id].destroy();
+                return
+            }
+
+            if (this.comment_set[id]!=null) {
+
+                return this.comment_set[id];
+
+            } else if (obj!=null) {
+                this.comment_set[id] = obj
+
+            } throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
+
+        } catch (e) {
+
+            console.error(e.stack);
+        }
+
+    },
+
+    discussions: function(val, del) {
+        try {
+
+            if (val.id!=null) {
+                var id = val.id
+                var obj = val
+
+            } else {
+                var id = val;
+            }
+
+            if (del) {
+                this.discussion_set[id].destroy();
+                return
+            }
+
+            if (this.discussion_set[id]!=null) {
+
+                return this.discussion_set[id];
+
+            } else if (obj!=null) {
+                this.discussion_set[id] = obj
+
+            } throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
+
+        } catch (e) {
+
+            console.error(e.stack);
+        }
     }
 
 

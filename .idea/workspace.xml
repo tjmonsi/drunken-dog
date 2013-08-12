@@ -3,13 +3,14 @@
   <component name="ChangeListManager">
     <list id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="" />
     <list default="true" id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/context_menu.js" afterPath="$PROJECT_DIR$/js/general/context_menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/data_model.js" afterPath="$PROJECT_DIR$/js/general/data_model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/embedded_objects.js" afterPath="$PROJECT_DIR$/js/general/embedded_objects.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/general_classes.js" afterPath="$PROJECT_DIR$/js/general/general_classes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/general_object_template.js" afterPath="$PROJECT_DIR$/js/general/general_object_template.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/general_functions.js" afterPath="$PROJECT_DIR$/js/general/general_functions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/new_comment_thread.js" afterPath="$PROJECT_DIR$/js/viewer/new_comment_thread.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player.js" afterPath="$PROJECT_DIR$/js/general/video_player.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/viewer/viewer_general.css" afterPath="$PROJECT_DIR$/css/viewer/viewer_general.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
@@ -21,31 +22,31 @@
     <file path="/ui.js" changelist="fa1e6a72-3418-4e3a-a950-beb6134c84bf" time="1375775437111" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
-    <file path="/Dummy.txt" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375783541103" ignored="false" />
+    <file path="/Dummy.txt" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375980060222" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372151955011" ignored="false" />
     <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
     <file path="/viewer_function_loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375418090243" ignored="false" />
     <file path="/video_player_main_timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375753258805" ignored="false" />
     <file path="/init.js" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375630467339" ignored="false" />
-    <file path="/data_model.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375767880365" ignored="false" />
+    <file path="/data_model.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376015621026" ignored="false" />
     <file path="/main_video_player.js" changelist="fa1e6a72-3418-4e3a-a950-beb6134c84bf" time="1375775069740" ignored="false" />
     <file path="/viewer.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375768253016" ignored="false" />
-    <file path="/viewer_general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784106242" ignored="false" />
+    <file path="/viewer_general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376285836874" ignored="false" />
     <file path="/viewer_ids.css" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375661869108" ignored="false" />
     <file path="/viewer_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375423810768" ignored="false" />
-    <file path="/video_player.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784822573" ignored="false" />
+    <file path="/video_player.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376278303820" ignored="false" />
     <file path="/test_bed.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375768201837" ignored="false" />
     <file path="/iv_sample2.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375761198500" ignored="false" />
-    <file path="/general_functions.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375770141767" ignored="false" />
+    <file path="/general_functions.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376283073699" ignored="false" />
     <file path="/test.html" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375441612054" ignored="false" />
-    <file path="/embedded_objects.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784838289" ignored="false" />
+    <file path="/embedded_objects.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376283385427" ignored="false" />
     <file path="/general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375773961592" ignored="false" />
     <file path="/actions_objects.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375761264803" ignored="false" />
     <file path="/video_player_timeline.js" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375634415802" ignored="false" />
     <file path="/context_menu.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784847305" ignored="false" />
-    <file path="/new_comment_thread.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784976378" ignored="false" />
-    <file path="/general_classes.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784779608" ignored="false" />
+    <file path="/new_comment_thread.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376287647003" ignored="false" />
+    <file path="/general_classes.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376281190157" ignored="false" />
     <file path="/general_object_template.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375784795309" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,7 @@
       <file leaf-file-name="general_classes.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/general/general_classes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="42" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0">
+            <state line="227" column="32" selection-start="5366" selection-end="5366" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -78,7 +79,7 @@
       <file leaf-file-name="data_model.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/general/data_model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="175" column="47" selection-start="4035" selection-end="4035" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,7 +88,25 @@
       <file leaf-file-name="new_comment_thread.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/viewer/new_comment_thread.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="135" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.4007732">
+            <state line="86" column="8" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.61752987">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_player.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="30" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iv_sample2.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/iv_sample2.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="190" column="25" selection-start="6253" selection-end="6253" vertical-scroll-proportion="64.916664">
               <folding />
             </state>
           </provider>
@@ -96,7 +115,16 @@
       <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/general/embedded_objects.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="42" selection-start="6017" selection-end="6017" vertical-scroll-proportion="0.0">
+            <state line="267" column="54" selection-start="8146" selection-end="8146" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="general_functions.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/general/general_functions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="13" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,7 +133,7 @@
       <file leaf-file-name="viewer_general.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/viewer/viewer_general.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="25" column="12" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,19 +168,19 @@
       <list>
         <option value="$PROJECT_DIR$/data/iv_sample2.json" />
         <option value="$PROJECT_DIR$/prototype1/css/viewer/viewer_general.css" />
-        <option value="$PROJECT_DIR$/js/general/data_model.js" />
         <option value="$PROJECT_DIR$/js/viewer/test_bed.js" />
         <option value="$PROJECT_DIR$/viewer.html" />
-        <option value="$PROJECT_DIR$/js/general/general_functions.js" />
         <option value="$PROJECT_DIR$/css/general.css" />
         <option value="$PROJECT_DIR$/js/general/main_video_player.js" />
         <option value="$PROJECT_DIR$/js/viewer/ui.js" />
-        <option value="$PROJECT_DIR$/css/viewer/viewer_general.css" />
         <option value="$PROJECT_DIR$/js/general/general_object_template.js" />
-        <option value="$PROJECT_DIR$/js/general/video_player.js" />
-        <option value="$PROJECT_DIR$/js/general/embedded_objects.js" />
         <option value="$PROJECT_DIR$/js/general/context_menu.js" />
+        <option value="$PROJECT_DIR$/js/general/data_model.js" />
+        <option value="$PROJECT_DIR$/js/general/video_player.js" />
         <option value="$PROJECT_DIR$/js/general/general_classes.js" />
+        <option value="$PROJECT_DIR$/js/general/general_functions.js" />
+        <option value="$PROJECT_DIR$/js/general/embedded_objects.js" />
+        <option value="$PROJECT_DIR$/css/viewer/viewer_general.css" />
         <option value="$PROJECT_DIR$/js/viewer/new_comment_thread.js" />
       </list>
     </option>
@@ -187,6 +215,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -215,137 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viewer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototype1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viewer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viewer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -364,20 +263,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="general" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,7 +300,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,8 +309,8 @@
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/GitHub.appref-ms" />
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -499,13 +383,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11079746" sideWeight="0.6455224" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2159492" sideWeight="0.6455224" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -581,32 +465,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prototype1/js/viewer/viewer_Data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="18" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototype1/data/iv_sample1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="19" selection-start="5309" selection-end="5309" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="5" selection-start="680" selection-end="680" vertical-scroll-proportion="0.02209131">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/viewer/viewer_ids.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="0.4197349">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="0.4197349" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/general/video_player_timeline.js">
@@ -623,25 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/iv_sample2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="25" selection-start="2132" selection-end="2132" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/viewer/viewer_general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/general_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/general/general_object_template.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="42" selection-start="692" selection-end="692" vertical-scroll-proportion="0.7345361">
@@ -649,30 +491,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
+    <entry file="file://$PROJECT_DIR$/prototype1/js/toolkit/toolkit_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="30" selection-start="5837" selection-end="5837" vertical-scroll-proportion="0.806701">
+        <state line="15" column="4" selection-start="629" selection-end="629" vertical-scroll-proportion="0.2988048">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/data_model.js">
+    <entry file="file://$PROJECT_DIR$/prototype1/js/toolkit/toolkit_Control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/embedded_objects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="42" selection-start="6017" selection-end="6017" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/general_classes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="42" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.0">
+        <state line="69" column="54" selection-start="1804" selection-end="1804" vertical-scroll-proportion="0.70119524">
           <folding />
         </state>
       </provider>
@@ -684,9 +512,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/iv_sample2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="190" column="25" selection-start="6253" selection-end="6253" vertical-scroll-proportion="64.916664">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype1/js/toolkit/video_players.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="30" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/data_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="47" selection-start="4035" selection-end="4035" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/general_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="13" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/general_classes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="32" selection-start="5366" selection-end="5366" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/embedded_objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267" column="54" selection-start="8146" selection-end="8146" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/viewer/viewer_general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="12" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/viewer/new_comment_thread.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="135" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.4007732">
+        <state line="86" column="8" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.61752987">
           <folding />
         </state>
       </provider>

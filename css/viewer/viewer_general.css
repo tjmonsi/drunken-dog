@@ -23,6 +23,11 @@
     width: 300px;
 }
 
+.discussion_bounding_box {
+    position: absolute;
+    border: 1px solid white;
+}
+
 /* Video Players */
 .main_player_container {
     position: absolute;

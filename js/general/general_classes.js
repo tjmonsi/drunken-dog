@@ -223,7 +223,10 @@ window_Class.prototype = {
         vData.add_instances(this.window_exit)
 		this.window_exit.element.addClass('window_handler_exit_icon');
 
-
+        if (this.draggable) {
+            console.log("draggable");
+            //add draggable here
+        }
 
 		//this.window.data({'data': this.data})
 
@@ -263,7 +266,13 @@ window_Class.prototype = {
 		//this.destroy();
 
         this.parent.destroy();
-	}
+	},
+
+    setxy: function(x,y) {
+        this.data.x = x;
+        this.data.y = y;
+        this.window.css({"left": this.data.x, "top": this.data.y})
+    }
 
 }
 

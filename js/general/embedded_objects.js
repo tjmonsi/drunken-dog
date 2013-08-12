@@ -240,10 +240,27 @@ embedded_objects.prototype = {
                     if (input_type=="number") {
 
                         // sanitize input_value
+                        input_value = sanitize_to_number(input_value);
+                        var arr = input_value.split(" ")
+                        var ans = 0;
+                        for (var k in arr) {
+                            var num = arr[k];
+                            if (num.indexOf("/")==-1) {
+                                ans+= parseFloat(num);
+                            } else {
+                                var arr2 = num.split("/");
+                                var num2 = parseFloat(arr2[0]);
+                                for (var l=1; l<arr2.length; l++) {
+                                    num2 = num2/parseFloat(arr2[l]);
+                                }
+                                ans+=num2;
+                            }
 
-                        input_value = eval(input_value);
+                        }
+
+                        //input_value = eval(input_value);
                         correct = parseFloat(correct);
-
+                        input_value = ans;
 
                     }
 
@@ -312,8 +329,6 @@ embedded_objects.prototype = {
                 }
 
             }
-
-
 
         } else if (this.data.type == "hint") {
             for (var key in this.data.object_data.action) {

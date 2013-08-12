@@ -77,6 +77,7 @@ video_Player.prototype = {
         this.id = this.data.id
         this.player = null;
         this.triggers = {};
+        this.discussions = {};
 
         var height = this.width*(9/16)
 
@@ -476,6 +477,33 @@ video_Player.prototype = {
 		//console.log(data.title);
 	},
 
+    on_mouse_down: function(event) {
+        vData.instances[this.context_menu_data.id].element.addClass('hide');
+
+        if (event.target.id==this.element.attr('id')){
+
+            if (this.sceneflag) {
+
+            }
+
+
+            // if video == pause, wait... for mouse up... then play
+            // if video == play, pause
+
+
+        }
+    },
+
+    on_mouse_move: function(event) {
+        // record delta pxx and delta pxy
+    },
+
+    on_mouse_up: function(event){
+        // if time_mouseup - time_mousedown < threshold, play video
+
+        // if time_mouseup - time_mousedown > threshold + mousemove >50pxx and 50pxxy, then create bounding box for comment
+    },
+
 	on_click: function(event) {
         //console.log(event.target.id)
         //this.contextmenu.element.addClass('hide')
@@ -487,7 +515,7 @@ video_Player.prototype = {
             if (this.sceneflag) {
                 console.log(event.offsetX+", "+event.offsetY);
 
-/*!CHANGE PART HERE*/
+
                 if (!this.time_gate) {
             		if (this.playerflag) {
             			this.pause();

@@ -19,6 +19,30 @@ function makeID(length){
     return text;
 }
 
+function sanitize_to_number(num) {
+    var possible = "0123456789./ ";
+
+    console.log(num);
+    for (var i in num) {
+        var flag = false;
+        for (var j in possible) {
+            if (num[i]==possible[j]) {
+                flag=true;
+                break;
+            }
+        }
+        if (!flag) {
+            num = num.slice(0,i)+num.slice(i, num.length-1);
+        }
+        //num.splice(i,1);
+
+    }
+
+    console.log(num);
+
+    return num;
+}
+
 function save_element(parent, el, id, classes, attributes){
     try {
         var element = create_element(el, id, classes, attributes);
