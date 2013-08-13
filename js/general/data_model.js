@@ -8,6 +8,7 @@ var data_Model = function(parent, id) {
 	this.instances = {};
     this.triggers = {};
     this.comment_set = {};
+    this.annotation_set = {};
     this.discussion_set = {};
 	this.id = id;
     this.data = null;
@@ -147,14 +148,45 @@ data_Model.prototype = {
 
             } else if (obj!=null) {
                 this.comment_set[id] = obj
-
+                return
             } throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
 
         } catch (e) {
-
+            console.error(val)
             console.error(e.stack);
         }
 
+    },
+
+    annotations: function(val, del) {
+        try {
+
+            if (val.id!=null) {
+                var id = val.name
+                var obj = val
+
+            } else {
+                var id = val;
+            }
+
+            if (del) {
+                this.annotation_set[id].destroy();
+                return
+            }
+
+            if (this.annotation_set[id]!=null) {
+
+                return this.annotation_set[id];
+
+            } else if (obj!=null) {
+                this.annotation_set[id] = obj
+                return
+            } throw new Error ("don't know what to do with annotation_set:\nval: "+val.toString()+" \ndel: "+del);
+
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+        }
     },
 
     discussions: function(val, del) {
@@ -179,11 +211,11 @@ data_Model.prototype = {
 
             } else if (obj!=null) {
                 this.discussion_set[id] = obj
-
+                return
             } throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
 
         } catch (e) {
-
+            console.error(val)
             console.error(e.stack);
         }
     }

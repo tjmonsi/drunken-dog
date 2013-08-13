@@ -37,8 +37,15 @@ new_comment_thread_form.prototype = {
             "window_name": "New Comment Thread"
         }
 
-        var new_comment_id = makeID(global_id_length);
-        var new_discussion_id = makeID(global_id_length);
+        this.new_comment_id = makeID(global_id_length);
+        while (vData.comments(this.new_comment_id)!=null) {
+            this.new_comment_id = makeID(global_id_length);
+        }
+
+        this.new_discussion_id = makeID(global_id_length);
+        while (vData.discussions(this.new_discussion_id)!=null) {
+            this.new_discussion_id = makeID(global_id_length);
+        }
 
         this.window = new window_Class(this, window_data, true, 10)
         vData.add_instances(this.window);
@@ -57,20 +64,27 @@ new_comment_thread_form.prototype = {
 
         this.clear_comment = new button_Class(this.commentbutton_area, "Erase", this.id+"_clear_comment");
         vData.add_instances(this.clear_comment);
-        this.submit_comment = new button_Class(this.commentbutton_area, "Submit", this.id+"_submit_comment");
+        this.submit_comment = new button_Class(this.commentbutton_area, "Submit", this.id+"_submit_comment", $.proxy(this.save_comment, this));
         vData.add_instances(this.submit_comment);
         this.cancel_comment = new button_Class(this.commentbutton_area, "Cancel", this.id+"_cancel_comment", $.proxy(this.destroy, this));
         vData.add_instances(this.cancel_comment);
+
+        this.commentbutton_area.append(br());
+
+        this.draw_button = new button_Class(this.commentbutton_area, "Draw Annotation", this.id+"_draw_annotation", $.proxy(this.draw_annotation, this));
+        this.draw_flag = false;
 
 
         // check if there is a bounding box
         if (this.data.bounding_box==null) {
 
-            this.data.bounding_box = {"id": new_discussion_id+"_bounding_box",
+            this.data.bounding_box = {"id": this.new_discussion_id+"_bounding_box",
                                     "width": 100,
                                     "height": 100,
                                     "x": this.data.x-50,
                                     "y": this.data.y-50}
+        } else {
+            this.data.bounding_box.id = this.new_discussion_id+"_bounding_box"
         }
 
         this.data.x = this.data.bounding_box.x + this.data.bounding_box.width;
@@ -84,6 +98,7 @@ new_comment_thread_form.prototype = {
                                 "top": this.data.bounding_box.y,
                                 "left": this.data.bounding_box.x});
 
+        this.comment_objects = [];
         // create a pin at the bounding box's center: width/2, height/2
 
 
@@ -113,19 +128,71 @@ new_comment_thread_form.prototype = {
     },
 
     destroy: function() {
+
+        vData.instances[this.data.video_id].on_stop_draw();
+
+        vData.instances[this.data.video_id].return_mouse_events();
+
         for (var key in this) {
             if (this[key]==null) continue;
             if (this[key].classType!=null) {
                 this[key].destroy();
             }
+            //this[key]=null;
         }
 
         //add more here
         this.bounding_box_ui.remove();
         this.bounding_box_ui = null;
+        //this.window.remove();
 
         // this should be last
         vData.delete_instances(this.id);
+    },
+
+    draw_annotation: function() {
+
+        if (vData.instances[this.data.video_id].canvas.data().visible_flag) {
+            vData.instances[this.data.video_id].on_stop_draw();
+        } else {
+            console.log("draw")
+            vData.instances[this.data.video_id].on_draw();
+        }
+    },
+
+    reset_comment: function() {
+        this.commenter.val("user");
+        this.comment_box.val("");
+    },
+
+    save_comment: function() {
+
+        // create new comment
+        var comment_data = {
+            "id": this.new_comment_id,
+            "commenter": this.commenter.val(),
+            "comment": this.comment_box.val(),
+            "x": this.data.x,
+            "y": this.data.y,
+            "discussion_id": this.new_discussion_id,
+            "objects": this.comment_objects
+        }
+
+        var discussion_data = {
+            "id": this.new_discussion_id,
+            "comment_list": [this.new_comment_id],
+            "data": this.data
+        }
+
+        vData.comments(comment_data);
+        vData.discussions(discussion_data);
+
+
+        console.log(vData.comment_set);
+        console.log(vData.discussion_set);
+
+        this.destroy();
+
     }
 
 }

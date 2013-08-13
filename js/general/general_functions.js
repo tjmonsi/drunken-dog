@@ -19,6 +19,10 @@ function makeID(length){
     return text;
 }
 
+function switch_val(var1, var2) {
+    return [var2, var1];
+}
+
 function sanitize_to_number(num) {
     var possible = "0123456789./ ";
 

@@ -57,7 +57,7 @@ var video_Player = function(parent, data, width, sceneflag) {
 
     this.width = width;
     this.sceneflag = sceneflag;
-
+    this.mouse_events_configured=false
 
     this.start();
 
@@ -73,11 +73,13 @@ video_Player.prototype = {
 
         this.time_gate = false;
         this.currentTime = 0;
+        this.new_comment_form_flag = false;
+        this.reply_comment_form_flag = false;
 
         this.id = this.data.id
         this.player = null;
         this.triggers = {};
-        this.discussions = {};
+        this.discussion_triggers = {};
 
         var height = this.width*(9/16)
 
@@ -117,6 +119,10 @@ video_Player.prototype = {
             this.timeline.scrubber.addClass('hide');
         }
 
+        this.canvas = save_element(this.player_container, "canvas", this.id+"_canvas", ["canvas_area"], {"width": this.width, "height": height});
+        this.canvas.css({"z-index": -11000});
+        this.canvas.data({"visible_flag": false});
+
         this.element = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
         this.element.css({"width":this.width, "height": height});
 
@@ -125,7 +131,11 @@ video_Player.prototype = {
 
 
 
-        this.element.click($.proxy(this.on_click, this));
+        //this.element.click($.proxy(this.on_click, this));
+
+        this.element.mousedown($.proxy(this.on_mouse_down, this));
+        this.element.mousemove($.proxy(this.on_mouse_move, this));
+        this.element.mouseup($.proxy(this.on_mouse_up, this));
 
 
 
@@ -204,6 +214,11 @@ video_Player.prototype = {
         vData.instances[this.context_menu_data.id].element.removeClass('hide')
 
         this.pause();
+
+        this.configure_mouse_events();
+
+
+
         return false
     },
 
@@ -352,6 +367,41 @@ video_Player.prototype = {
 
     },
 
+    discussion_trigger: function(obj) {
+        try {
+
+            if (val.id!=null) {
+                var id = val.time.toString();
+                var obj = val
+
+            } else {
+                var id = val;
+            }
+
+            if (del) {
+                //this.discussion_triggers[id.toString()]=null;
+                return
+            }
+
+            if (this.discussion_triggers[id]!=null) {
+                if (obj!=null) {
+                    this.discussion_triggers[id].push(obj)
+                    return
+                } else {
+                    return this.discussion_triggers[id];
+                }
+            } else if (obj!=null) {
+
+                this.discussion_triggers[id] = [obj]
+                return
+            } throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
+
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+        }
+    },
+
     check_triggers: function(time) {
         if (this.triggers[time.toString()]!=null) {
             return this.triggers[time.toString()]
@@ -448,6 +498,7 @@ video_Player.prototype = {
         this.player_container.css('z-index', 11000);
         this.element.css('z-index', 11000);
         this.player_element.css('z-index', 11000);
+        this.canvas.css('z-index', 11000);
     },
 
     on_back: function() {
@@ -457,7 +508,95 @@ video_Player.prototype = {
         this.player_container.css('z-index', "-11000");
         this.element.css('z-index', "-11000");
         this.player_element.css('z-index', "-11000");
+        this.canvas.css('z-index', -11000);
 
+    },
+
+    on_draw: function() {
+        this.canvas.css('z-index', 11000);
+        this.canvas.data({"visible_flag": true});
+
+        this.element.unbind('mousedown', $.proxy(this.on_mouse_down, this))
+        this.element.unbind('mousemove', $.proxy(this.on_mouse_move, this))
+        this.element.unbind('mouseup', $.proxy(this.on_mouse_up, this))
+        this.element.unbind('click', $.proxy(this.on_click, this))
+
+        this.element.mousedown($.proxy(this.on_mouse_down_draw, this))
+        this.element.mousemove($.proxy(this.on_mouse_move_draw, this))
+        this.element.mouseup($.proxy(this.on_mouse_up_draw, this))
+    },
+
+    on_stop_draw: function() {
+
+        this.canvas.data({"visible_flag": false});
+
+        this.element.unbind("mousedown", $.proxy(this.on_mouse_down_draw, this));
+        this.element.unbind("mousemove", $.proxy(this.on_mouse_move_draw, this))
+        this.element.unbind("mouseup", $.proxy(this.on_mouse_up_draw, this))
+
+        this.element.click($.proxy(this.on_click, this))
+
+        //this.element.mousedown($.proxy(this.on_mouse_down, this));
+        //this.element.mousemove($.proxy(this.on_mouse_move, this));
+        //this.element.mouseup($.proxy(this.on_mouse_up, this));
+
+    },
+
+    on_mouse_down_draw: function(event) {
+        this.drawing_mouse = true;
+        var drawing_id = makeID(global_id_length+global_id_length);
+        while (vData.annotations(drawing_id)!=null) {
+            drawing_id = makeID(global_id_length+global_id_length);
+        }
+
+        this.drawing_object = {
+            type: "line",
+            strokeStyle: "#585",
+            name: drawing_id,
+            strokeWidth: 6,
+            rounded: true,
+            visible: true,
+            "x1": event.offsetX, "y1": event.offsetY
+        }
+
+        this.drawing_pts = [{"x": event.offsetX, "y": event.offsetY}];
+
+        for (var i=1; i<this.drawing_pts.length ; i++) {
+            var val = i+1;
+            this.drawing_object['x'+(val)]=this.drawing_pts[i].x
+            this.drawing_object['y'+(val)]=this.drawing_pts[i].y
+        }
+
+
+
+        console.log(this.drawing_object)
+
+        this.canvas.addLayer(this.drawing_object).drawLayers();
+
+    },
+
+    on_mouse_move_draw: function(event) {
+        if (this.drawing_mouse) {
+
+            if (event.target.id==this.element.attr('id')){
+                this.drawing_pts.push({"x": event.offsetX, "y":event.offsetY});
+                for (var i=1; i<this.drawing_pts.length ; i++) {
+                    var val = i+1;
+                    this.drawing_object['x'+val]=this.drawing_pts[i].x
+                    this.drawing_object['y'+val]=this.drawing_pts[i].y
+                }
+
+                this.canvas.setLayer(this.drawing_object.name ,this.drawing_object).drawLayers()
+            }
+
+
+        }
+    },
+
+    on_mouse_up_draw: function(event){
+        this.drawing_mouse = false;
+
+        vData.annotations(this.drawing_object);
     },
 
     hide: function() {
@@ -479,29 +618,196 @@ video_Player.prototype = {
 
     on_mouse_down: function(event) {
         vData.instances[this.context_menu_data.id].element.addClass('hide');
+        console.log(event)
+
+        if (event.button==2) return;
+        this.mouse_down_flag = true;
 
         if (event.target.id==this.element.attr('id')){
 
             if (this.sceneflag) {
+                console.log(event.offsetX+", "+event.offsetY);
 
+                if (!this.time_gate) {
+                    if (this.playerflag) {
+
+                        this.pause();
+                        this.from_play = true;
+                        this.from_pause = false
+                    } else {
+
+                        //console.log("should play")
+                        this.from_pause= true;
+                        this.from_play = false;
+                        //this.play();
+                    }
+                }
+            } else {
+                if (this.playerflag) {
+                    this.pause();
+                    this.from_play = true;
+                    this.from_pause = false
+                } else {
+                    this.from_pause= true;
+                    this.from_play = false;
+                    //this.play();
+                }
             }
 
+
+            this.mouse_down_time = event.timeStamp;
+            this.b_box_data = {
+                x: event.offsetX,
+                y: event.offsetY,
+                upleft_x: event.offsetX,
+                upleft_y: event.offsetY,
+                lowright_x: event.offsetX,
+                lowright_y: event.offsetY
+            }
 
             // if video == pause, wait... for mouse up... then play
             // if video == play, pause
 
 
+        } else {
+            //event.stopImmediatePropagation()
         }
     },
 
     on_mouse_move: function(event) {
+        var new_x = event.offsetX;
+        var new_y = event.offsetY;
+
+        if (this.mouse_down_flag) {
+
+            if (event.target.id==this.element.attr('id')){
+
+            } else {
+                new_x = this.b_box_data.upleft_x+new_x;
+                new_y = this.b_box_data.upleft_y+new_y;
+            }
+
+            var b_box = this.get_bounding_box(new_x, new_y);
+
+            if (b_box == null) return;
+
+            b_box.id = this.id+"_temp_bounding_box_id";
+            if (this.bounding_box_ui_temp==null) this.bounding_box_ui_temp = save_element(this.element, "div", b_box.id, ['discussion_bounding_box']);
+            this.bounding_box_ui_temp.css({"width": b_box.width,
+                "height": b_box.height,
+                "top": b_box.y,
+                "left": b_box.x});
+
+            //console.log(this.bounding_box_ui_temp)
+
+
+
+        }
+
         // record delta pxx and delta pxy
     },
 
-    on_mouse_up: function(event){
-        // if time_mouseup - time_mousedown < threshold, play video
 
-        // if time_mouseup - time_mousedown > threshold + mousemove >50pxx and 50pxxy, then create bounding box for comment
+
+    get_bounding_box: function(x,y) {
+
+        if (this.b_box_data!=null) {
+
+            if (x < this.b_box_data.x) {
+                this.b_box_data.upleft_x = x;
+                this.b_box_data.lowright_x = this.b_box_data.x;
+            } else {
+                //console.log(x)
+                this.b_box_data.lowright_x = x;
+                this.b_box_data.upleft_x = this.b_box_data.x;
+            }
+
+            if (y < this.b_box_data.y) {
+                this.b_box_data.upleft_y = y;
+                this.b_box_data.lowright_y = this.b_box_data.y;
+            } else {
+                this.b_box_data.lowright_y = y;
+                this.b_box_data.upleft_y = this.b_box_data.y;
+            }
+
+            var width = this.b_box_data.lowright_x-this.b_box_data.upleft_x;
+            var height = this.b_box_data.lowright_y-this.b_box_data.upleft_y;
+
+            //console.log(this.b_box_data)
+            return {
+                "width": width,
+                "height": height,
+                "x": this.b_box_data.upleft_x,
+                "y": this.b_box_data.upleft_y
+            }
+
+        } else {
+            return null
+        }
+
+    },
+
+    on_mouse_up: function(event){
+
+        this.mouse_down_flag = false;
+        var new_x = event.offsetX;
+        var new_y = event.offsetY;
+
+
+        if (event.target.id==this.element.attr('id')){
+
+        } else {
+
+            if (this.b_box_data==null) return;
+            new_x = this.b_box_data.upleft_x+new_x;
+            new_y = this.b_box_data.upleft_y+new_y;
+        }
+
+        this.mouse_up_time = event.timeStamp;
+
+        var b_box = this.get_bounding_box(new_x, new_y);
+        console.log((this.mouse_up_time-this.mouse_down_time))
+        if (b_box!=null) {
+
+            b_box.id = this.id+"_temp_bounding_box_id";
+            if (this.bounding_box_ui_temp==null) this.bounding_box_ui_temp = save_element(this.element, "div", b_box.id, ['discussion_bounding_box']);
+            this.bounding_box_ui_temp.css({"width": b_box.width,
+                "height": b_box.height,
+                "top": b_box.y,
+                "left": b_box.x});
+
+            if ((this.mouse_up_time-this.mouse_down_time)<=200) {
+
+                if (this.from_pause) {
+                    console.log(this.from_pause);
+                    this.play();
+                }
+            } else {
+                if ((b_box.width>=min_bounding_box_val) && (b_box.height>=min_bounding_box_val)) {
+                    //create bounding box with new comment
+
+                    vData.add_instances(new new_comment_thread_form(this.element, {"id": this.id+"_add_new_comment_thread", "video_id": this.id, "x": this.context_menu.x, "y": this.context_menu.y, "time": this.player.getCurrentTime(), "bounding_box": b_box}));
+                    //console.log(b_box);
+                } else {
+                    //console.log(b_box);
+                    console.log("should play")
+                    if (this.from_play) {
+                        this.play();
+                    }
+
+                }
+
+            }
+
+
+            this.bounding_box_ui_temp.remove();
+            this.bounding_box_ui_temp = null;
+            this.b_box_data = null;
+
+        } else {
+            console.log("bbox null")
+        }
+
     },
 
 	on_click: function(event) {
@@ -510,28 +816,74 @@ video_Player.prototype = {
 
         vData.instances[this.context_menu_data.id].element.addClass('hide');
 
+
+
         if (event.target.id==this.element.attr('id')){
+
+            if (vData.check_instances(this.id+"_add_new_comment_thread")) {
+                vData.instances[this.id+"_add_new_comment_thread"].destroy();
+            }
             
             if (this.sceneflag) {
                 console.log(event.offsetX+", "+event.offsetY);
 
 
-                if (!this.time_gate) {
+                /*if (!this.time_gate) {
             		if (this.playerflag) {
+                        this.from_play = true;
+                        this.from_pause = false
             			this.pause();
             		} else {
+                        this.from_play = false;
+                        this.from_pause = true
             			this.play();
             		}
-                }
+                } */
             } else {
-                if (this.playerflag) {
+                /*if (this.playerflag) {
+                    this.from_play = true;
+                    this.from_pause = false
                     this.pause();
                 } else {
+                    this.from_play = false;
+                    this.from_pause = true
                     this.play();
-                } 
+                } */
             }
+
+            this.return_mouse_events();
         }
+
+
 	},
+
+    return_mouse_events: function() {
+
+        if (this.mouse_events_configured) {
+            this.element.mousedown($.proxy(this.on_mouse_down, this));
+            this.element.mousemove($.proxy(this.on_mouse_move, this));
+            this.element.mouseup($.proxy(this.on_mouse_up, this));
+
+            this.element.unbind('click', $.proxy(this.on_click, this));
+
+            console.log("return mouse events")
+
+            this.mouse_events_configured=false
+        }
+    },
+
+    configure_mouse_events: function() {
+
+        console.log("configure mouse events")
+
+        if (!this.mouse_events_configured) {
+            this.element.click($.proxy(this.on_click, this));
+            this.element.unbind('mousedown', $.proxy(this.on_mouse_down, this))
+            this.element.unbind('mousemove', $.proxy(this.on_mouse_move, this))
+            this.element.unbind('mouseup', $.proxy(this.on_mouse_up, this))
+            this.mouse_events_configured=true
+        }
+    },
 
     play: function() {
 		if (this.loaded){
@@ -697,7 +1049,7 @@ video_Player.prototype = {
 
     context_menu_add_comment_thread: function(event) {
 
-
+        console.log(event);
         vData.add_instances(new new_comment_thread_form(this.element, {"id": this.id+"_add_new_comment_thread", "video_id": this.id, "x": this.context_menu.x, "y": this.context_menu.y, "time": this.player.getCurrentTime()}));
 
     },

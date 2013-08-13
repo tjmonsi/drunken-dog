@@ -8,6 +8,7 @@ var vUI = null;
 var global_id_length = 10;
 var yt_length = 11;
 var vid_max_width = 1280;
+var min_bounding_box_val = 30;
 var win_width = 0;
 var win_height = 0;
 var debug = false;

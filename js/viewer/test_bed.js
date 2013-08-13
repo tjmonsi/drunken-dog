@@ -79,6 +79,16 @@ var system = {
         name: "new_comment_thread_form",
         file: "./js/viewer/new_comment_thread.js",
         loaded: false
+    },
+    discussion_thread: {
+        name: "discussion_thread",
+        file: "./js/viewer/discussion_thread.js",
+        loaded: false
+    },
+    discussion_trigger: {
+        name: "discussion_trigger",
+        file: "./js/viewer/discussion_thread.js",
+        loaded: false
     }
 
 }

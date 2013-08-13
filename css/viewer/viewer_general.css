@@ -42,6 +42,12 @@
     top: 0px;
 }
 
+.canvas_area {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
 .timeline {
     height: 10px;
     background-color: black;

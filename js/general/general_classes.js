@@ -256,6 +256,7 @@ window_Class.prototype = {
 
         //add more here
         this.window.empty();
+        this.window.remove();
 
         // this should be last
         vData.delete_instances(this.id);
