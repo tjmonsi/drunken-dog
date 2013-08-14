@@ -38,12 +38,18 @@ new_comment_thread_form.prototype = {
         }
 
         this.new_comment_id = makeID(global_id_length);
+
+        //console.log(vData.comments(this.new_comment_id))
         while (vData.comments(this.new_comment_id)!=null) {
+            //console.log(this.new_comment_id);
             this.new_comment_id = makeID(global_id_length);
         }
 
         this.new_discussion_id = makeID(global_id_length);
+        //console.log(vData.discussions(this.new_discussion_id))
+
         while (vData.discussions(this.new_discussion_id)!=null) {
+            //console.log(this.new_discussion_id);
             this.new_discussion_id = makeID(global_id_length);
         }
 
@@ -72,6 +78,7 @@ new_comment_thread_form.prototype = {
         this.commentbutton_area.append(br());
 
         this.draw_button = new button_Class(this.commentbutton_area, "Draw Annotation", this.id+"_draw_annotation", $.proxy(this.draw_annotation, this));
+        vData.add_instances(this.draw_button);
         this.draw_flag = false;
 
 
@@ -133,6 +140,8 @@ new_comment_thread_form.prototype = {
 
         vData.instances[this.data.video_id].return_mouse_events();
 
+
+
         for (var key in this) {
             if (this[key]==null) continue;
             if (this[key].classType!=null) {
@@ -144,10 +153,16 @@ new_comment_thread_form.prototype = {
         //add more here
         this.bounding_box_ui.remove();
         this.bounding_box_ui = null;
+
+        vData.instances[this.data.video_id].clear_annotations();
         //this.window.remove();
 
         // this should be last
         vData.delete_instances(this.id);
+    },
+
+    close_window: function() {
+        this.destroy();
     },
 
     draw_annotation: function() {
@@ -156,13 +171,20 @@ new_comment_thread_form.prototype = {
             vData.instances[this.data.video_id].on_stop_draw();
         } else {
             console.log("draw")
-            vData.instances[this.data.video_id].on_draw();
+            vData.instances[this.data.video_id].on_draw(this.id, this.new_comment_id);
         }
     },
 
     reset_comment: function() {
         this.commenter.val("user");
         this.comment_box.val("");
+        for (var i in this.comment_objects) {
+            vData.annotations(this.comment_objects[i], true);
+
+        }
+
+        this.comment_objects=[]
+        vData.instances[this.data.video_id].clear_annotations();
     },
 
     save_comment: function() {
@@ -175,17 +197,38 @@ new_comment_thread_form.prototype = {
             "x": this.data.x,
             "y": this.data.y,
             "discussion_id": this.new_discussion_id,
-            "objects": this.comment_objects
+            "objects": this.comment_objects,
+            "reply_to": null,
+            "replies": [],
+            "time_made": new Date()
         }
 
         var discussion_data = {
+            "time": this.data.time,
             "id": this.new_discussion_id,
-            "comment_list": [this.new_comment_id],
-            "data": this.data
+            "comment_list": [],
+            "primary_comment_list": [this.new_comment_id],
+            "data": this.data,
+            "x": this.data.bounding_box.x,
+            "y": this.data.bounding_box.y,
+            "video_id": this.data.video_id
         }
+
+        //console.log(discussion_data)
+
+        /*var discussion_trigger = {
+            "time": this.data.time,
+            "id": this.new_discussion_id,
+            "x": this.data.bounding_box.x,
+            "y": this.data.bounding_box.y,
+            "bounding_box": this.data.bounding_box
+        }*/
 
         vData.comments(comment_data);
         vData.discussions(discussion_data);
+
+        vData.instances[this.data.video_id].discussion_trigger(discussion_data);
+        vData.instances[this.data.video_id].clear_annotations();
 
 
         console.log(vData.comment_set);

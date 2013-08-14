@@ -266,7 +266,7 @@ window_Class.prototype = {
 		/*! ADD DELETE OF THE ELEMENT */
 		//this.destroy();
 
-        this.parent.destroy();
+        this.parent.close_window();
 	},
 
     setxy: function(x,y) {

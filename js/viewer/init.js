@@ -14,6 +14,7 @@ var win_height = 0;
 var debug = false;
 var debug2 = false;
 var test_run = false;
+var comment_time = 3;
 
 var run = function(){
 

@@ -28,6 +28,22 @@
     border: 1px solid white;
 }
 
+.discussion_trigger {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: #93939c;
+    color: black;
+    font-weight: bold;
+}
+
+.comment {
+    border: 1px solid white;
+    width: 300px;
+}
+
 /* Video Players */
 .main_player_container {
     position: absolute;
@@ -46,6 +62,13 @@
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+.discussion_area {
+    position: absolute;
+    top: 0px;
+    width: 400px;
+    left: 1280px;
 }
 
 .timeline {

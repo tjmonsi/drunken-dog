@@ -57,6 +57,27 @@ function save_element(parent, el, id, classes, attributes){
     }
 }
 
+function save_element_after(before, el, id, classes, attributes) {
+    try {
+        var element = create_element(el, id, classes, attributes);
+        before.after(element);
+        return $(el+"#"+id)
+    } catch (e) {
+        console.error(e.stack)
+    }
+
+}
+
+function withinarea(x, y, x2, y2, area) {
+
+    if (((x>=x2-area) && (x<=x2+area)) && ((y>=y2-area) && (y<=y2+area))) {
+        return true
+    } else {
+        return false
+    }
+
+}
+
 function br(){
     return create_element('br');
 }

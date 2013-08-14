@@ -149,7 +149,11 @@ data_Model.prototype = {
             } else if (obj!=null) {
                 this.comment_set[id] = obj
                 return
-            } throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
+            } else {
+                return
+            }
+
+            throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
 
         } catch (e) {
             console.error(val)
@@ -161,16 +165,19 @@ data_Model.prototype = {
     annotations: function(val, del) {
         try {
 
-            if (val.id!=null) {
+            if (val.name!=null) {
                 var id = val.name
                 var obj = val
 
             } else {
                 var id = val;
             }
-
+            console.log(val);
             if (del) {
-                this.annotation_set[id].destroy();
+
+
+                if (this.annotation_set[id].destroy!=null) this.annotation_set[id].destroy()
+                this.annotation_set[id] = null;
                 return
             }
 
@@ -181,7 +188,11 @@ data_Model.prototype = {
             } else if (obj!=null) {
                 this.annotation_set[id] = obj
                 return
-            } throw new Error ("don't know what to do with annotation_set:\nval: "+val.toString()+" \ndel: "+del);
+            } else {
+                return
+            }
+
+            throw new Error ("don't know what to do with annotation_set:\nval: "+val.toString()+" \ndel: "+del);
 
         } catch (e) {
             console.error(val)
@@ -212,7 +223,11 @@ data_Model.prototype = {
             } else if (obj!=null) {
                 this.discussion_set[id] = obj
                 return
-            } throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
+            } else {
+                return
+            }
+
+            throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
 
         } catch (e) {
             console.error(val)

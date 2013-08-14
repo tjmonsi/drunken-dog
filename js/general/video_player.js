@@ -80,6 +80,10 @@ video_Player.prototype = {
         this.player = null;
         this.triggers = {};
         this.discussion_triggers = {};
+        this.discussion_trigpoint = {};
+        this.discussion_threads = {};
+
+        this.normal_mode_movement = true;
 
         var height = this.width*(9/16)
 
@@ -123,11 +127,17 @@ video_Player.prototype = {
         this.canvas.css({"z-index": -11000});
         this.canvas.data({"visible_flag": false});
 
+        this.discussion_area = save_element(this.player_container, "div", this.id+"_discussion_area", ["discussion_area"]);
+        this.discussion_area.css({"height": height});
+
         this.element = save_element(this.player_container, "div", this.id+"_area", ["player_area"]);
         this.element.css({"width":this.width, "height": height});
 
         this.player_element = $("object#"+this.playerID);
         this.player = document.getElementById(this.playerID);
+
+
+
 
 
 
@@ -258,7 +268,7 @@ video_Player.prototype = {
 
 
 
-        console.log(this.triggers)
+        //console.log(this.triggers)
         for (var key in this.triggers) {
             var time_trigger = parseFloat(key);
 
@@ -317,12 +327,35 @@ video_Player.prototype = {
             /*if (time>=time_trigger) {
                 var obj = this.triggers[key];
                 this.interval_sets[key+"_end"] = setInterval($.proxy(this.trigger_object_ends, this, obj, key), 50);
-            }*/
+            }
 
             if (time<time_trigger) {
                 var obj = this.triggers[key];
                 //this.interval_sets[key+"_hide"] = setInterval($.proxy(this.trigger_object_hide, this, obj, key), 50);
+            }*/
+        }
+
+        for (var key in this.discussion_triggers) {
+            var time_trigger = parseFloat(key);
+
+            if ((time>=time_trigger-comment_time) && (time<time_trigger+comment_time+1)) {
+
+                for (var i=0; i<this.discussion_triggers[key].length; i++) {
+                    var obj = this.discussion_triggers[key][i];
+                    console.log(this.discussion_trigpoint[obj.id])
+                    this.discussion_trigpoint[obj.id].element.removeClass('hide');
+
+
+                }
+
+            } else {
+                for (var i=0; i<this.discussion_triggers[key].length; i++) {
+                    var obj = this.discussion_triggers[key][i];
+                    this.discussion_trigpoint[obj.id].element.addClass('hide');
+
+                }
             }
+
 
 
         }
@@ -367,7 +400,7 @@ video_Player.prototype = {
 
     },
 
-    discussion_trigger: function(obj) {
+    discussion_trigger: function(val, del) {
         try {
 
             if (val.id!=null) {
@@ -385,6 +418,9 @@ video_Player.prototype = {
 
             if (this.discussion_triggers[id]!=null) {
                 if (obj!=null) {
+
+                    this.discussion_trigpoint[obj.id] = new discussion_trigger(this.element, obj);
+                    vData.add_instances(this.discussion_trigpoint[obj.id]);
                     this.discussion_triggers[id].push(obj)
                     return
                 } else {
@@ -392,15 +428,25 @@ video_Player.prototype = {
                 }
             } else if (obj!=null) {
 
-                this.discussion_triggers[id] = [obj]
+                this.discussion_triggers[id] = [obj];
+
+                this.discussion_trigpoint[obj.id] = new discussion_trigger(this.element, obj);
+                vData.add_instances(this.discussion_trigpoint[obj.id]);
+
                 return
-            } throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
+            } else {
+                return
+            }
+
+            throw new Error ("don't know what to do with discussion:\nval: "+val.toString()+"\ndel: "+del);
 
         } catch (e) {
             console.error(val)
             console.error(e.stack);
         }
     },
+
+
 
     check_triggers: function(time) {
         if (this.triggers[time.toString()]!=null) {
@@ -512,7 +558,11 @@ video_Player.prototype = {
 
     },
 
-    on_draw: function() {
+    on_draw: function(val, val2) {
+        console.log(vData.instances[val]);
+        this.comment_window = val;
+        this.new_comment_id = val2;
+
         this.canvas.css('z-index', 11000);
         this.canvas.data({"visible_flag": true});
 
@@ -527,6 +577,9 @@ video_Player.prototype = {
     },
 
     on_stop_draw: function() {
+
+        //this.new_comment = false;
+        //this.reply_to_comment=false
 
         this.canvas.data({"visible_flag": false});
 
@@ -544,34 +597,41 @@ video_Player.prototype = {
 
     on_mouse_down_draw: function(event) {
         this.drawing_mouse = true;
-        var drawing_id = makeID(global_id_length+global_id_length);
-        while (vData.annotations(drawing_id)!=null) {
-            drawing_id = makeID(global_id_length+global_id_length);
+
+        if (event.target.id==this.element.attr('id')){
+            var drawing_id = makeID(global_id_length+global_id_length);
+            while (vData.annotations(drawing_id)!=null) {
+                drawing_id = makeID(global_id_length+global_id_length);
+            }
+
+            this.drawing_object = {
+                type: "line",
+                strokeStyle: "#585",
+                name: drawing_id,
+                strokeWidth: 6,
+                rounded: true,
+                visible: true,
+                "x1": event.offsetX, "y1": event.offsetY,
+                "data": {
+                    "video_id": this.data.id,
+                    "comment": this.new_comment_id
+                }
+            }
+
+            this.drawing_pts = [{"x": event.offsetX, "y": event.offsetY}];
+
+            for (var i=1; i<this.drawing_pts.length ; i++) {
+                var val = i+1;
+                this.drawing_object['x'+(val)]=this.drawing_pts[i].x
+                this.drawing_object['y'+(val)]=this.drawing_pts[i].y
+            }
+
+
+
+            console.log(this.drawing_object)
+
+            this.canvas.addLayer(this.drawing_object).drawLayers();
         }
-
-        this.drawing_object = {
-            type: "line",
-            strokeStyle: "#585",
-            name: drawing_id,
-            strokeWidth: 6,
-            rounded: true,
-            visible: true,
-            "x1": event.offsetX, "y1": event.offsetY
-        }
-
-        this.drawing_pts = [{"x": event.offsetX, "y": event.offsetY}];
-
-        for (var i=1; i<this.drawing_pts.length ; i++) {
-            var val = i+1;
-            this.drawing_object['x'+(val)]=this.drawing_pts[i].x
-            this.drawing_object['y'+(val)]=this.drawing_pts[i].y
-        }
-
-
-
-        console.log(this.drawing_object)
-
-        this.canvas.addLayer(this.drawing_object).drawLayers();
 
     },
 
@@ -594,9 +654,28 @@ video_Player.prototype = {
     },
 
     on_mouse_up_draw: function(event){
+
         this.drawing_mouse = false;
 
-        vData.annotations(this.drawing_object);
+        if (event.target.id==this.element.attr('id')){
+            vData.instances[this.comment_window].comment_objects.push(this.drawing_object)
+           // console.log(this.drawing_object)
+            vData.annotations(this.drawing_object);
+        }
+       // console.log(vData)
+    },
+
+    draw_annotations: function(array) {
+        this.clear_annotations();
+        for (var i in array) {
+            console.log(array[i])
+            this.canvas.addLayer(array[i]).drawLayers();
+        }
+    },
+
+    clear_annotations: function() {
+        this.canvas.removeLayers();
+        this.canvas.clearCanvas();
     },
 
     hide: function() {
@@ -702,12 +781,55 @@ video_Player.prototype = {
 
 
 
+        } else if (this.normal_mode_movement) {
+
+            if (event.target.id==this.element.attr('id')){
+                //console.log("movement")
+                var time = this.player.getCurrentTime();
+
+                for (var key in this.discussion_triggers) {
+                    var time_trigger = parseFloat(key);
+
+                    if ((time>=time_trigger-comment_time) && (time<time_trigger+comment_time+1)) {
+
+                        for (var i=0; i<this.discussion_triggers[key].length; i++) {
+                            var obj = this.discussion_triggers[key][i];
+                            var area = 200;
+
+                            if (withinarea(new_x, new_y, obj.x, obj.y, area)) {
+
+                                var xval = Math.abs((new_x-obj.x)/area);
+                                var yval = Math.abs((new_y-obj.y)/area);
+                                var tval = Math.abs((time-time_trigger)/comment_time)
+
+                                var op = 1 - ((xval+yval)/2)
+                                //op = op-tval;
+
+                                //console.log(op)
+                                //console.log(this.discussion_trigpoint[obj.id].element);
+                                this.discussion_trigpoint[obj.id].element.css({"opacity": op});
+
+                            } else {
+                                this.discussion_trigpoint[obj.id].element.css({"opacity": 0});
+                            }
+                            //console.log(this.discussion_trigpoint[obj.id])
+
+
+                            //this.discussion_trigpoint[obj.id].element.;
+
+
+                        }
+
+                    }
+
+                }
+
+            }
+
         }
 
         // record delta pxx and delta pxy
     },
-
-
 
     get_bounding_box: function(x,y) {
 
@@ -755,7 +877,7 @@ video_Player.prototype = {
 
 
         if (event.target.id==this.element.attr('id')){
-
+            // add here to close all discussion triggers
         } else {
 
             if (this.b_box_data==null) return;
