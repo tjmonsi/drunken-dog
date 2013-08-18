@@ -44,6 +44,13 @@
     width: 300px;
 }
 
+.discussion_comment {
+    border: 1px solid white;
+    width: 300px;
+    margin-left: 10px;
+    background-color: #93939c;
+}
+
 /* Video Players */
 .main_player_container {
     position: absolute;

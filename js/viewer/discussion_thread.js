@@ -406,7 +406,7 @@ discussion_thread.prototype = {
     },
 
     init: function() {
-        this.id = this.data.id
+        this.id = this.data.id+"_discussion_thread"
 
         vData.instances[this.data.video_id].seekpause(this.data.time);
         this.element = save_element(this.parent, "div", this.id+"_discussion_content", ['discussion_content']);
@@ -441,15 +441,11 @@ discussion_thread.prototype = {
                 this.data.primary_comment_list[i]+"_discussion__comment_user",
                 ['discussion_comment_user']);
 
-
-
             this.comment_list_elements[this.data.primary_comment_list[i]+"_discussion_comment_additional_data"] = save_element(
                 this.comment_list_elements[this.data.primary_comment_list[i]],
                 'div',
                 this.data.primary_comment_list[i]+"_discussion_comment_additional_data",
                 ['discussion_comment_additional_data']);
-
-
 
             var comment_data = vData.comments(this.data.primary_comment_list[i]);
 

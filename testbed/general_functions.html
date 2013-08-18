@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/ui-darkness/jquery-ui-1.10.3.custom.min.css" />
+
+    <style>
+        .pass {
+            color: green;
+        }
+
+        .fail {
+            color: red;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="../js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../js/jcanvas.min.js"></script>
+
+    <script type="text/javascript" src="../js/main_viewer/assert.js"></script>
+
+    <script type="text/javascript" src="../js/main_viewer/general_functions.js"></script>
+
+    <script type="text/javascript">
+        var testbed = {
+            makeID: {
+                test: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+                pass: ' is of length ',
+                fail: ' is not of length '
+
+            }
+        }
+
+        var makeID_test = function(val, pass, fail) {
+
+            var ul = createElement('ul')
+            $('body').append(ul);
+
+            for (var i in val) {
+                var obj = makeID(val[i]);
+                var pass1 = obj+pass+obj.length;
+                var fail1 = obj+fail+obj.length;
+
+                assert_html(obj.length === val[i], ul, pass1, fail1 );
+
+            }
+
+        }
+
+        var run = function() {
+            for (var key in testbed) {
+                var obj = testbed[key];
+                makeID_test(obj.test, obj.pass, obj.fail);
+            }
+        }
+
+        $(document).ready(run);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

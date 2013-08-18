@@ -176,6 +176,11 @@ video_Player.prototype = {
                     "id": this.id+"_debug",
                     "value": "Debug",
                     callback: ($.proxy(this.context_menu_debug, this))
+                },
+                {
+                    "id": this.id+"_save_data",
+                    "value": "Save Data",
+                    callback: ($.proxy(this.save_data, this))
                 }
             ]
         }
@@ -310,29 +315,6 @@ video_Player.prototype = {
                     }
                 }
             }
-            /*
-            if (time>=time_trigger) {
-            //if ((time<=time_trigger) && (time+0.25>=time_trigger)) {
-                this.triggers[key];
-
-                for (var i in obj)
-                { console.log(obj[i].triggered)}
-                this.trigger_objects(obj);
-                for (var i in obj)
-                { console.log(obj[i].triggered)}
-                for (var i in this.triggers[key])
-                { console.log(this.triggers[key][i].triggered)}
-            }
-
-            /*if (time>=time_trigger) {
-                var obj = this.triggers[key];
-                this.interval_sets[key+"_end"] = setInterval($.proxy(this.trigger_object_ends, this, obj, key), 50);
-            }
-
-            if (time<time_trigger) {
-                var obj = this.triggers[key];
-                //this.interval_sets[key+"_hide"] = setInterval($.proxy(this.trigger_object_hide, this, obj, key), 50);
-            }*/
         }
 
         for (var key in this.discussion_triggers) {
@@ -344,7 +326,7 @@ video_Player.prototype = {
                     var obj = this.discussion_triggers[key][i];
                     console.log(this.discussion_trigpoint[obj.id])
                     this.discussion_trigpoint[obj.id].element.removeClass('hide');
-
+                    this.discussion_threads[obj.id].element.removeClass('hide');
 
                 }
 
@@ -352,7 +334,7 @@ video_Player.prototype = {
                 for (var i=0; i<this.discussion_triggers[key].length; i++) {
                     var obj = this.discussion_triggers[key][i];
                     this.discussion_trigpoint[obj.id].element.addClass('hide');
-
+                    this.discussion_threads[obj.id].element.addClass('hide');
                 }
             }
 
@@ -420,6 +402,7 @@ video_Player.prototype = {
                 if (obj!=null) {
 
                     this.discussion_trigpoint[obj.id] = new discussion_trigger(this.element, obj);
+                    this.discussion_threads[obj.id] = new discussion_thread(this.discussion_area, obj);
                     vData.add_instances(this.discussion_trigpoint[obj.id]);
                     this.discussion_triggers[id].push(obj)
                     return
@@ -431,6 +414,7 @@ video_Player.prototype = {
                 this.discussion_triggers[id] = [obj];
 
                 this.discussion_trigpoint[obj.id] = new discussion_trigger(this.element, obj);
+                this.discussion_threads[obj.id] = new discussion_thread(this.discussion_area, obj);
                 vData.add_instances(this.discussion_trigpoint[obj.id]);
 
                 return
@@ -1179,6 +1163,32 @@ video_Player.prototype = {
     context_menu_debug: function(event) {
         console.log(vData);
         console.log(vUI);
+    },
+
+    save_data: function(event) {
+        var d1 = vData;
+        //var d2 = vUI;
+        var d3 = vData.comment_set
+        var d4 = vData.discussion_set
+
+        var data1 = JSON.stringify({"vData": d1.data});
+        var data2 = JSON.stringify({"comment_set": d3, "discussion_set": d4});
+
+        var x = $.post('data2.php', {"data": data1, "file": "data1.json"});
+        var y = $.post('data2.php', {"data":data2, "file": "data2.json"});
+
+        x.done(function(data) {
+            console.log(data);
+        })
+        y.done(function(data) {
+            console.log(data);
+        })
+    },
+
+    success_download: function(data, var2, var3) {
+        console.log(data);
+        console.log(var2);
+        console.log(var3);
     }
 	
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+    <script type="text/javascript" src="../js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="../js/main_viewer/general_functions.js"></script>
+
+    <script type="text/javascript" src="../js/main_viewer/base_class.js"></script>
+
+    <script type="text/javascript">
+
+        var example_object = Class.extend({
+            init: function() {
+                this.parent = $('body');
+
+                this.run();
+            },
+
+            run: function() {
+                this.element = saveElement(this.parent, "div", "example");
+                this.element.css({"position": "absolute", "left": 100, "top": 150, "width": 1500, "height": 2000})
+
+                this.element.mousemove($.proxy(this.on_mousemove, this));
+            },
+
+            on_mousemove: function(e) {
+                var deltax = e.pageX- e.offsetX;
+                var deltay = e.pageY- e.offsetY;
+                console.log(e.pageX+","+ e.pageY+" - "+ e.offsetX+","+ e.offsetY);
+                console.log("delta1:"+deltax+","+deltay)
+                var o =this.element.offset();
+                var newx = e.pageX-o.left;
+                var newy = e.pageY- o.top;
+                console.log(newx+","+ newy+" - "+ e.offsetX+","+ e.offsetY);
+
+            }
+        })
+
+        var run = function() {
+            var ex = new example_object();
+        }
+
+        $(document).ready(run);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

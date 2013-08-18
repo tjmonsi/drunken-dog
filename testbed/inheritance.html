@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+    <script type="text/javascript" src="../js/main_viewer/general_functions.js"></script>
+
+    <script type="text/javascript" src="../js/main_viewer/base_class.js"></script>
+
+    <script type="text/javascript">
+
+        var Person = Class.extend({
+            init: function(parent, data){
+                this.parent = parent;
+                this.data = data;
+                this.run();
+            },
+
+            run: function() {
+                console.log("Person")
+            }
+
+
+        });
+
+        var Ninja = Person.extend({
+            init: function(parent, data){
+                this._super(parent, data);
+            },
+            run: function(){
+                // Call the inherited version of dance()
+                console.log("Ninja")
+            }
+        });
+
+        var p = new Person("Person parent", "Person Data");
+        var n = new Ninja("Ninja parent", "Ninja Data");
+
+        console.log(p.parent);
+        console.log(p.data);
+
+        console.log(n.parent);
+        console.log(n.data);
+
+
+        // Should all be true
+        console.log(p instanceof Person && p instanceof Class &&
+                n instanceof Ninja && n instanceof Person && n instanceof Class)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
