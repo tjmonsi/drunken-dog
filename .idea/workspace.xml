@@ -3,33 +3,7 @@
   <component name="ChangeListManager">
     <list id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="" />
     <list default="true" id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/assert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/base_class.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/base_class.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/console.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data1.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data1.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data2.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/main_viewer/general.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/general_functions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/inheritance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/interaction_element.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/main_video_player.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main_viewer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/mouse_element.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/test_mouse_movement.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsend.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/timeline.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewer/discussion_thread.js" afterPath="$PROJECT_DIR$/js/viewer/discussion_thread.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/general/video_player.js" afterPath="$PROJECT_DIR$/js/general/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/viewer/viewer_general.css" afterPath="$PROJECT_DIR$/css/viewer/viewer_general.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main_viewer/main_timeline.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
@@ -42,7 +16,7 @@
     <file path="/ui.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376793313560" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
-    <file path="/Dummy.txt" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376745076962" ignored="false" />
+    <file path="/Dummy.txt" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376843695508" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376790219042" ignored="false" />
     <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
@@ -82,6 +56,7 @@
     <file path="/base_class.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376790330829" ignored="false" />
     <file path="/inheritance.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376794452509" ignored="false" />
     <file path="/interaction_element.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376812355930" ignored="false" />
+    <file path="/main_timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376830655714" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,53 +78,38 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="ui.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main_viewer/ui.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="0" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="26" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#0#160#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="interaction_element.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/interaction_element.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="15" column="77" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#0#159#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main_viewer.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main_viewer.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="64" selection-start="455" selection-end="455" vertical-scroll-proportion="-5.625">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main_video_player.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="viewer_general.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/viewer/viewer_general.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="general.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/general.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main_video_player.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/main_video_player.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="12" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.8142857">
-                  <folding>
-                    <element signature="e#0#160#0" expanded="false" />
-                  </folding>
+                <state line="40" column="12" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -163,24 +123,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="timeline.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main_viewer/timeline.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="33" column="8" selection-start="931" selection-end="984" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#0#159#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="base_class.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/base_class.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="75" column="24" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -189,25 +136,36 @@
             <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="84" column="8" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main_timeline.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/main_viewer/main_timeline.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="40" column="59" selection-start="1096" selection-end="1096" vertical-scroll-proportion="-0.47142857">
                   <folding>
-                    <element signature="e#0#160#0" expanded="false" />
-                    <element signature="n#!!doc;n#onYouTubePlayerReady#0" expanded="false" />
-                    <element signature="e#3568#3605#0" expanded="false" />
-                    <element signature="e#3631#3879#0" expanded="false" />
-                    <element signature="e#3905#4238#0" expanded="false" />
-                    <element signature="e#4261#4638#0" expanded="false" />
-                    <element signature="e#4662#4703#0" expanded="false" />
-                    <element signature="e#5136#6917#0" expanded="false" />
-                    <element signature="e#6981#7242#0" expanded="false" />
-                    <element signature="e#7273#8082#0" expanded="false" />
-                    <element signature="e#8115#8620#0" expanded="false" />
-                    <element signature="e#8651#8955#0" expanded="false" />
-                    <element signature="e#8992#9189#0" expanded="false" />
-                    <element signature="e#9228#9417#0" expanded="false" />
-                    <element signature="e#10534#10661#0" expanded="false" />
-                    <element signature="e#10697#11800#0" expanded="false" />
-                    <element signature="e#11832#11904#0" expanded="false" />
+                    <element signature="e#0#159#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="viewer_ids.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/viewer/viewer_ids.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -225,10 +183,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="data.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="39" column="14" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-7.241279">
+                <state line="39" column="14" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -270,10 +228,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="video_player_main_timeline.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="video_player_main_timeline.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/general/video_player_main_timeline.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="5" column="72" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+                <state line="9" column="53" selection-start="216" selection-end="216" vertical-scroll-proportion="-1.2209302">
                   <folding />
                 </state>
               </provider>
@@ -308,7 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/general/video_player.js" />
         <option value="$PROJECT_DIR$/testbed/js/test_mouse_movement.html" />
         <option value="$PROJECT_DIR$/testbed/test_mouse_movement.html" />
         <option value="$PROJECT_DIR$/js/main_viewer/timeline.js" />
@@ -324,6 +281,7 @@
         <option value="$PROJECT_DIR$/js/main_viewer/main_video_player.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/console.js" />
+        <option value="$PROJECT_DIR$/js/main_viewer/main_timeline.js" />
       </list>
     </option>
   </component>
@@ -485,6 +443,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="viewer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="main_viewer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -501,8 +477,8 @@
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/GitHub.appref-ms" />
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -592,7 +568,6 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2159492" sideWeight="0.670398" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -603,6 +578,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3544776" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -669,6 +645,61 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/console.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="95" selection-start="256" selection-end="256" vertical-scroll-proportion="0.30523255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="14" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/general/data_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="48" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/viewer/viewer_ids.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/timeline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="8" selection-start="931" selection-end="984" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="26" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/viewer/viewer_general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/viewer/ui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -683,125 +714,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testbed/inheritance.html">
+    <entry file="file://$PROJECT_DIR$/js/general/video_player_main_timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="8" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.5858896">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testbed/base_class.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="0" selection-end="1208" vertical-scroll-proportion="0.6441718">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#160#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/mouse_element.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+        <state line="9" column="53" selection-start="216" selection-end="216" vertical-scroll-proportion="-1.2209302">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_viewer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="64" selection-start="455" selection-end="455" vertical-scroll-proportion="-5.625">
+        <state line="9" column="64" selection-start="455" selection-end="455" vertical-scroll-proportion="-5.625" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main_viewer/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/data_model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="48" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="46" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/general/video_player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="0" selection-start="7339" selection-end="7339" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/interaction_element.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="77" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#159#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="8" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#160#0" expanded="false" />
-            <element signature="n#!!doc;n#onYouTubePlayerReady#0" expanded="false" />
-            <element signature="e#3568#3605#0" expanded="false" />
-            <element signature="e#3631#3879#0" expanded="false" />
-            <element signature="e#3905#4238#0" expanded="false" />
-            <element signature="e#4261#4638#0" expanded="false" />
-            <element signature="e#4662#4703#0" expanded="false" />
-            <element signature="e#5136#6917#0" expanded="false" />
-            <element signature="e#6981#7242#0" expanded="false" />
-            <element signature="e#7273#8082#0" expanded="false" />
-            <element signature="e#8115#8620#0" expanded="false" />
-            <element signature="e#8651#8955#0" expanded="false" />
-            <element signature="e#8992#9189#0" expanded="false" />
-            <element signature="e#9228#9417#0" expanded="false" />
-            <element signature="e#10534#10661#0" expanded="false" />
-            <element signature="e#10697#11800#0" expanded="false" />
-            <element signature="e#11832#11904#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/main_video_player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="12" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.8142857">
+        <state line="40" column="12" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/main_timeline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="59" selection-start="1096" selection-end="1096" vertical-scroll-proportion="-0.47142857">
           <folding>
-            <element signature="e#0#160#0" expanded="false" />
+            <element signature="e#0#159#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/console.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="95" selection-start="256" selection-end="256" vertical-scroll-proportion="0.30523255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="14" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-7.241279">
-          <folding />
         </state>
       </provider>
     </entry>
