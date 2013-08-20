@@ -80,19 +80,26 @@ var Class = C.extend({
         try {
             for (var key in this) {
                 if (this[key]==null) continue;
+                if (key == "parent") continue;
                 if (this[key].close!=null) {
+
                     res = this[key].close();
                     if ((res==3) || (res==null)) throw new Error("Something went wrong at closing key: "+key);
                 }
                 if (this[key].empty!=null) this[key].empty();
                 if (this[key].remove!=null) this[key].remove();
-                this[key]=null;
-
-                res = vD.i(this.id, true);
-                if ((res==3) || (res==null)) throw new Error("Something went wrong at closing this element");
+                if (key!="id") this[key]=null;
             }
+            res = vD.i(this.id, true);
+            if ((res==3) || (res==null)) throw new Error("Something went wrong at closing this element");
+
+            return res;
+
         } catch (e) {
-            this.generalError(e);
+
+            console.error(e.stack);
+            console.log(vD);
+            log(e.stack.toString());
             return res;
         }
 

@@ -35,24 +35,63 @@ var mainTimeline = Class.extend({
             this.timeline(vD.data.data.scene_objects[i]);
         }
 
+
+
         this.timeline_container = saveElement(this.parent, "div", this.id);
-        this.timeline_container.css({"width": vid_max_width});
+        this.timeline_container.css({"width": vid_max_width, "top": vid_max_width*(9/16)});
         this.visual_element = saveElement(this.timeline_container, "div", this.id+"_visual_element");
         this.visual_element.css({"width": vid_max_width});
 
-        // this.element
+        this.mainTimelineData = {
+            "id": this.id+"_mainTimeline",
+            "defaultMode": "normal",
+            "class": ["mainTimeline"],
+            "css": {
+                "top": 0,
+                "left": 0,
+                "width": vid_max_width,
+                "height": 15
+            },
+            "on_click": {},
+            "right_click": {},
+            "on_mousedown": {},
+            "on_mousemove": {},
+            "on_mouseup": {},
+            "on_mouseenter": {},
+            "on_mouseleave": {}
+        }
 
+        this.setupInteractionElement();
+        this.interactionElement = new interactionElement(this.timeline_container, this.mainTimelineData);
+        vD.i(this.interactionElement);
+        this.element = this.interactionElement.element;
+        this.element.css({"z-index": 11000});
+        this.scrubber = saveElement(this.element, "div", this.timeline_arr[0].arr[0].id+"_main_scrubber", ["main_scrubber"]);
+
+        this.scrubber.css({"top": 0, "left": 0, "width": 10, "height": 15});
+        this.scrubber.draggable(this.scrubber_fx);
+
+        this.set_primary_timeline(0);
+
+        //this.mainTimeline = new
+
+        // this.element
+        log("main_Timeline created", 1);
+    },
+
+    setupInteractionElement: function() {
+        this.mainTimelineData.on_mousedown.normal = $.proxy(this.timeline_scrub_start, this);
     },
 
     timeline: function(data, flag) {
-
+        //console.log(data);
         var t_index = null;
         var index = null;
 
         if (flag==null) flag="add";
-
-        if ((flag=="add") && (flag=="temp")) {
-
+        //console.log(flag);
+        if ((flag=="add") || (flag=="temp")) {
+            //console.log(flag)
             var new_data = {
                 "id": data.id,
                 "prev": data.prev,
@@ -98,7 +137,7 @@ var mainTimeline = Class.extend({
                 this.update_timeline_lengths(t_index);
 
                 if (flag=="add") {
-                    for (var i in this.temporary_set) {
+                    for (var i=0; this.temporary_arr.length; i++) {
                         if (this.timeline(this.temporary_set[i], "temp")) {
                             i=0;
                         }
@@ -139,6 +178,8 @@ var mainTimeline = Class.extend({
 
         var main_t_bar = vid_max_width;
 
+        var posx = 0;
+
         for (var i in arr) {
 
             var obj = arr[i];
@@ -146,8 +187,10 @@ var mainTimeline = Class.extend({
 
             var pix_length = main_t_bar * (length/time_length);
 
-            obj.element = save_element(this.timeline_set_element[t_index], "div", obj.id+"_"+t_index+"_timeline_bars", ["timeline_bar"]);
-            obj.element.css({"width": pix_length-4});
+            obj.element = saveElement(this.timeline_arr[t_index].element, "div", obj.id+"_"+t_index+"_timeline_bars", ["timeline_bar"]);
+            obj.element.css({"width": pix_length-2, "height": 15, "left": posx});
+
+            posx += pix_length;
 
             arr[i] = obj;
 
@@ -166,7 +209,10 @@ var mainTimeline = Class.extend({
             var t_index = this.scene_set[obj.video_id].t_index;
             var index = this.scene_set[obj.video_id].index;
 
-            var arr = this.timeline_arr[t_index];
+            console.log(obj);
+            console.log(this.scene_set[obj.video_id]);
+
+            var arr = this.timeline_arr[t_index].arr;
             var new_obj = arr[index];
 
             var vid_begin = vD.i(obj.video_id).data.begin;
@@ -175,24 +221,156 @@ var mainTimeline = Class.extend({
             var time_start = obj.begin-vid_begin;
             var time_end;
 
+            console.log(time_start);
+
             if (obj.end!=null) time_end = obj.end-vid_begin;
             else time_end = (obj.begin+0.15)-vid_begin;
 
-            var time_end = (obj.begin+0.15)-vid_begin;
+            //var time_end = (obj.begin+0.15)-vid_begin
+            // ;
+            var strip_time = time_end - time_start;
+
+            console.log(strip_time);
 
             var width = new_obj.element.width();
             var time_length = vid_end-vid_begin;
 
+            console.log(width);
+            console.log(time_length);
+
             var strip_width = (width * strip_time)/time_length;
             var posx = (width * time_start)/time_length;
-            posx = posx + new_obj.element.position().left+10;
+
+            console.log(posx);
+
+            //var tempx =
+
+            //posx = posx - new_obj.element.position().left+10;
 
             if (strip_width < 2) strip_width = 2;
 
+            this.trigger_elements[obj.id+"_timeline_bar"] = saveElement(new_obj.element, "div", obj.id+"_timeline_bar", ["timeline_bar"]);
+            this.trigger_elements[obj.id+"_timeline_bar"].css({"width": strip_width, "z-index": 11000});
+            this.trigger_elements[obj.id+"_timeline_bar"].css({"left": posx});
+            this.trigger_elements[obj.id+"_timeline_bar"].css({"background-color": "#00FF00"});
+
+        } // other flags
+
+    },
+
+    updatepos: function(time, video_id) {
+        this.scrubber.attr("id", video_id+"_main_scrubber");
+
+        var t_index = this.scene_set[video_id].t_index;
+        var index = this.scene_set[video_id].index;
+
+        var timeline = this.timeline_arr[t_index].arr;
+        var obj = timeline[index];
+
+        var scene_length = 0;
+        var true_time = time - obj.begin;
+
+        for (var i in timeline) {
+            if (i == index) break;
+            scene_length += (timeline[i].end - timeline[i].begin);
+        }
+
+        var posx = ((true_time + scene_length) * this.timeline_arr[t_index].element.width()-40) / this.timeline_arr[t_index].length;
+
+        if (posx >= this.timeline_arr[t_index].element.position().left+(this.timeline_arr[t_index].element.width())-10) posx = this.timeline_arr[t_index].element.position().left-10;
 
 
+        this.scrubber.css({"left": posx});
+    },
+
+    scrubber_fx: {
+        containment: 'parent',
+        cursor: 'pointer',
+        grid: [1, 15],
+        start: function() {
+            var target = vD.i(this.id.replace("_main_scrubber", ""));
+            target.pause();
+        },
+
+        drag: function() {
+
+        },
+
+        stop: function() {
+            var prevtarget = vD.i(this.id.replace("_main_scrubber", ""));
+            var timeline = vD.i("mainTimeline");
+            var posx = timeline.scrubber.position().left;
+            var posy = timeline.scrubber.position().top;
+            var int_y = parseInt(posy/15);
+
+            var el_width = timeline.timeline_arr[int_y].element.width();
+            var pos_el = timeline.timeline_arr[int_y].element.position().left;
+            var time_length = timeline.timeline_arr[int_y].length;
+            var arr = timeline.timeline_arr[int_y].arr;
+            var true_time = ((posx * time_length) / (el_width-10)) - pos_el;
+            var scene_length = 0;
+            var prev_scene_length = 0;
+
+            for (var i in arr) {
+                scene_length += arr[i].end - arr[i].begin;
+
+                if (true_time < scene_length) break;
+                prev_scene_length = scene_length;
+            }
+
+            var obj = arr[i];
+            prevtarget.on_back();
+
+            timeline.scrubber.attr("id", obj.id+"_main_scrubber");
+            vD.i(obj.id).on_show();
+            vD.i(obj.id).seek((true_time - prev_scene_length) + vD.i(obj.id).data.begin);
+        }
+    },
+
+    timeline_scrub_start: function(e) {
+        if (e.data.mousedown_flag) {
+            var id = e.target.id;
+            this.timeline_scrub_function(e, id);
+        }
+    },
+
+    timeline_scrub_function: function(e) {
+
+        var prevtarget = vD.i(this.scrubber.attr("id").replace("_main_scrubber", ""));
+        var posy = parseInt(e.y/15);
+
+        var el_width = this.timeline_arr[posy].element.width();
+        var pos_el = this.timeline_arr[posy].element.position().left;
+        var time_length = this.timeline_arr[posy].length;
+        var arr = this.timeline_arr[posy].arr;
+
+        var posx = e.x
+
+        var true_time = ((posx * time_length) / (el_width)) - pos_el;
+
+        this.scrubber.css({"left": posx, "top": posy*15});
+
+        var scene_length =0;
+        var prev_scene_length = 0;
+
+        for (var i in arr) {
+            scene_length += arr[i].end - arr[i].begin;
+            if (true_time < scene_length) break;
+            prev_scene_length = scene_length;
 
         }
+
+        var obj = arr[i];
+
+        prevtarget.on_back();
+
+        this.scrubber.attr("id", obj.id+"_main_scrubber");
+        vD.i(obj.id).on_show();
+        vD.i(obj.id).seek((true_time-prev_scene_length)+vD.i(obj.id).data.begin)
+
+
+
+
     }
 
 })

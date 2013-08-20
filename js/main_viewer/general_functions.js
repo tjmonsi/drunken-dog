@@ -10,6 +10,12 @@ function updateSize(){
     //UI.asset_bar.asset_bar_list_resize();
 }
 
+// capFirst = capitalize first letter of string
+function capFirst(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // create a random id string of a specified length
 function makeID(length){
     var text = "";
@@ -20,7 +26,7 @@ function makeID(length){
 }
 
 // santize input as a number input
-function toNum(num) {
+function toStringNum(num) {
     var possible = "0123456789./ ";
     for (var i in num) {
         var flag = false;
@@ -36,6 +42,28 @@ function toNum(num) {
     }
     return num;
 }
+
+function toFloat(str) {
+    var arr = str.split(" ");
+    var num = 0;
+
+    for (var k in arr) {
+        var x = arr[k];
+        if (x.indexOf("/") == -1) {
+            num += parseFloat(x);
+        } else {
+            var arr3 = x.split("/");
+            var x2 = parseFloat(arr3[0]);
+            for (var i=1; i<arr3.length; i++) {
+                x2 = x2/parseFloat(arr3[i]);
+            }
+            num += x2;
+        }
+
+    }
+    return num;
+}
+
 
 // create an element and appends it to parent. Must have id
 function saveElement(parent, el, id, classes, attributes){

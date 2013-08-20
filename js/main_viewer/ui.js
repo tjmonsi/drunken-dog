@@ -17,12 +17,51 @@ var viewerUI = Class.extend({
     },
 
     run: function() {
+        try {
+            this.element = saveElement(this.parent, "div", this.id);
 
-        this.element = saveElement(this.parent, "div", this.id);
+            vD.i(new mainVideoPlayer(this.element, {"id": "mainVideoPlayer"}));
 
-        vD.i(new mainVideoPlayer(this.element, {"id": "mainVideoPlayer"}));
+            for (var i in vD.data.data.embedded_objects) {
+                var obj = vD.data.data.embedded_objects[i];
 
+                for (var j in vD.data.data.embedded_objects) {
+                    var obj2 = vD.data.data.embedded_objects[j];
 
+                    if (obj2.id == obj.parent) break
+                    else obj2 = null;
+
+                }
+
+                for (var key in obj) {
+                    if (obj[key]=="inherit") {
+                        if (obj2!= null) obj[key] = obj2[key];
+                        else throw new Error ("Something is wrong with inherit");
+                    }
+                }
+                var layer = "";
+
+                if ((obj.object_data.on_element) || (obj.draggable)) layer = "element";
+                else layer = "objectLayer"
+
+                if (window['embedded'+capFirst(obj.type)]==null) throw new Error ("No object yet for "+obj.type);
+                vD.i(new window['embedded'+capFirst(obj.type)](vD.i(obj.scene_id)[layer], obj));
+
+                /*if (obj.type == "form") {
+                    var element =
+                }*/
+            }
+
+            // add all action objects;
+
+            for (var i in vD.data.data.actions) {
+                var obj = vD.data.data.actions[i];
+                vD.i(new actionObject(this.element,obj));
+            }
+        } catch (e) {
+            console.error(e.stack);
+            log(e.stack.toString());
+        }
 
     },
 

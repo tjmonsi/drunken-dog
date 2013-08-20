@@ -88,7 +88,8 @@
                     "width": 60,
                     "color": "#000000",
                     "background_color": "#FFFFFF",
-                    "draggable": false
+                    "draggable": false,
+                    "on_element": true
                 }
             },
             {
@@ -157,7 +158,8 @@
                     "right_1": [],
                     "wrong_1": ["wrong00001"],
                     "wrong_2": ["wrong00002"],
-                    "draggable": false
+                    "draggable": false,
+                    "on_element": true
                 }
             },
             {
@@ -175,7 +177,8 @@
                 "object_data": {
                     "name": "hint for question number 1",
                     "action": ["hinta00001"],
-                    "draggable": false
+                    "draggable": false,
+                    "on_element": true
                 }
             },
             {
@@ -199,7 +202,8 @@
                     "object_data": {
                         "id":"YpvE0Co66nU"
                     },
-                    "draggable": false
+                    "draggable": false,
+                    "on_element": true
                 }
             },
             {
@@ -218,7 +222,8 @@
                     "name": "replay again",
                     "value": "Replay with hints",
                     "action": ["replay0001"],
-                    "draggable": false
+                    "draggable": false,
+                    "on_element": true
                 }
             },
             {
@@ -232,7 +237,7 @@
                 "pause": false,
                 "show": false,
                 "parent": null,
-                "retrig": false,
+                "retrig": true,
                 "object_data": {
                     "name": "hint number 1",
                     "value": "Below is the number of possibilities for getting heads",
@@ -254,7 +259,7 @@
                 "pause": false,
                 "show": false,
                 "parent": null,
-                "retrig": false,
+                "retrig": true,
                 "object_data": {
                     "name": "hint number 2",
                     "value": "Above is the total number of possibilities for flipping a coin.",

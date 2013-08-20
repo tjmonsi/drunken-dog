@@ -57,6 +57,7 @@ var interactionElement = Class.extend({
         event.data = {};
         event.data.mousedown_flag = this.mousedown_flag;
         event.data.mouseover_flag = this.mouseover_flag;
+        event.data.timeStamp = e.timeStamp;
 
         if (data!=null) {
             event.data.object_data = data;
@@ -71,7 +72,6 @@ var interactionElement = Class.extend({
     mouseevent: function(mouseevent, e) {
         if (this.data[mouseevent]==null) return e.default_return_val;
         if (this.data[mouseevent][this.mode]==null) return e.default_return_val;
-
         return this.data[mouseevent][this.mode](e);
     },
 
@@ -91,7 +91,7 @@ var interactionElement = Class.extend({
     on_mousedown: function(e) {
         if (e.button==2) return;
         this.mousedown_flag = true;
-        e.preventDefault();
+        //e.preventDefault();
         var event = this.consolidateEvent(e, this.data.on_mousedown.data);
         return this.mouseevent("on_mousedown", event);
     },

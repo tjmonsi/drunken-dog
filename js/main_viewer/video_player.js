@@ -64,11 +64,19 @@ var videoPlayer = Class.extend({
         this.currentTime = 0;
         this.playerID = this.data.object_data.id+this.id;
         this.mouse_option = null;
-        this.mousedown_flag = false;
-        this.mouseover_flag = false;
         this.playerFlag = false;
         this.interval_set = {};
         this.loaded = false;
+        this.timeGate = false;
+        this.fromPlay = false;
+        this.fromPause = true;
+        this.mouseDownTime = 0;
+        this.mouseUpTime = 0;
+        this.mouseTimeSpan = 200;
+        this.bBoxData = {};
+        this.bBoxUI_temp = null;
+
+        this.open_windows = null;
 
         this.run();
     },
@@ -78,7 +86,7 @@ var videoPlayer = Class.extend({
         if (!this.sceneflag) playerContainerClass='playerContainer';
         else playerContainerClass='main_playerContainer';
 
-        this.player_container = saveElement(this.parent, "div", this.id+"_container", [playerContainerClass]);
+        this.playerContainer = saveElement(this.parent, "div", this.id+"_container", [playerContainerClass]);
 
         this.createEssentials();
 
@@ -86,19 +94,19 @@ var videoPlayer = Class.extend({
         log("VideoPlayer: "+this.id+" created successfully", 1);
     },
 
-
     // player states and what to do
     on_player_State_Change: function(event) {
         if (event=='1') {
             this.playerFlag = true;
             this.timeline.timelength = this.data.end - this.data.begin;
             this.interval_set['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
-            this.interval_set['check_trigger'] = setInterval($.proxy(this.check_trigger, this), 250);
+            this.interval_set['check_trigger'] = setInterval($.proxy(this.checktrigger, this), 250);
+            this.interactionElement.mode="normal";
         } else {
             this.playerFlag = false;
             for (var key in this.interval_set) {
                 clearInterval(this.interval_set[key]);
-                this.interval_set=null;
+                this.interval_set[key]=null;
             }
         }
 
@@ -112,21 +120,21 @@ var videoPlayer = Class.extend({
         console.error(event);
     },
     on_show: function() {
-        this.player_container.css('z-index', 11000);
+        this.playerContainer.css('z-index', 11000);
         this.element.css('z-index', 11000);
         this.canvas.css('z-index', 11000);
-        this.object_layer.css('z-index', 11000);
-        this.discussion_area.css('z-index', 11000);
+        this.objectLayer.css('z-index', 11000);
+        this.discussionArea.css('z-index', 11000);
     },
     on_back: function() {
         if (this.player.pauseVideo!=null) {
             this.pause();
         }
-        this.player_container.css('z-index', -11000);
+        this.playerContainer.css('z-index', -11000);
         this.element.css('z-index', -11000);
         this.canvas.css('z-index', -11000);
-        this.object_layer.css('z-index', -11000);
-        this.discussion_area.css('z-index', -11000);
+        this.objectLayer.css('z-index', -11000);
+        this.discussionArea.css('z-index', -11000);
     },
     play: function() {
         if (this.loaded) {
@@ -150,7 +158,7 @@ var videoPlayer = Class.extend({
             this.player.playVideo();
             this.player.pauseVideo();
         } else {
-            this.play();
+            this.player.playVideo();
         }
     },
     seekBegin: function(pauseflag) {
@@ -175,11 +183,13 @@ var videoPlayer = Class.extend({
 
         } else {
             // if new time is lower than currentTime
+            vD.reset_triggers(this.id, this.player.getCurrentTime());
+
             this.currentTime = this.player.getCurrentTime() - this.data.begin;
 
         }
 
-        if (!sceneflag) {
+        if (!this.sceneflag) {
             // when currentTime is before the set data begin
             if (this.player.getCurrentTime() < this.data.begin) {
                 this.seekBegin()
@@ -192,7 +202,7 @@ var videoPlayer = Class.extend({
 
         } else {
 
-            if (this.player.getCurrentTime() < this.data.begin-0.1) {
+            if (this.player.getCurrentTime() < this.data.begin-0.2) {
 
                 if (this.data.prev==null) {
                     this.seekBegin()
@@ -202,7 +212,6 @@ var videoPlayer = Class.extend({
                 }
 
             } else if (this.player.getCurrentTime() > this.data.end) {
-
                 this.pause();
                 this.on_back();
 
@@ -213,11 +222,54 @@ var videoPlayer = Class.extend({
             } else {
 
                 var timer = this.player.getCurrentTime();
-                //vD.i("main_Timeline").updatepos(timer, this.id);
+                vD.i("mainTimeline").updatepos(timer, this.id);
 
             }
 
         }
+    },
+    checktrigger: function() {
+        var time = this.player.getCurrentTime();
+        //console.log(time);
+        var trigger_arr = vD.triggers(this.id, time);
+        //console.log(trigger_arr);
+        for (var i in trigger_arr) {
+            for (var key in trigger_arr[i]) {
+
+                var obj = trigger_arr[i][key];
+                if (obj.triggered==false) {
+                    //console.log("1:"+obj.id)
+                    if (obj.type_trig=="begin") {
+                        if (vD.i(obj.id).data.show) {
+                            //console.log("2:"+obj.id)
+                            vD.i(obj.id).on_show();
+                            obj.triggered=true;
+                        }
+
+                        if (vD.i(obj.id).data.pause) {
+                            if ((time>=obj.time) && (time-0.5)<=obj.time) {
+                                this.pause();
+                                this.interactionElement.mode = "trigger_pause";
+                                //add timegate here
+                                //if (vD)
+                            }
+                            obj.triggered=true;
+                        }
+                    } else if (obj.type_trig=="end") {
+                        //console.log("3:"+obj.id);
+                        vD.i(obj.id).on_hide();
+                        //this.play();
+                        obj.triggered=true;
+                    }
+                    vD.triggers(this.id, obj);
+                }
+
+
+                //trigger_arr[i][key] = obj;
+
+            }
+        }
+
     },
 
     // create element areas
@@ -252,11 +304,17 @@ var videoPlayer = Class.extend({
         element.appendChild(param);
         element.appendChild(param2);
 
-        this.player_container.append(element);
+        this.playerContainer.append(element);
     },
     createTimeline: function() {
         try {
-            this.timeline = new timeLine(this.player_container, this.id+"_timeline", this.data.end-this.data.begin, this.data.begin);
+            var timelineData = {
+                id: this.id+"_timeline",
+                width: this.width,
+                height: this.height
+            }
+
+            this.timeline = new timeLine(this.playerContainer, timelineData, this.data.end-this.data.begin, this.data.begin);
             if (this.sceneflag) {
                 this.timeline.element.addClass('hide');
                 this.timeline.scrubber.addClass('hide');
@@ -269,7 +327,7 @@ var videoPlayer = Class.extend({
     },
     createCanvas: function() {
 
-        this.canvas = saveElement(this.player_container,
+        this.canvas = saveElement(this.playerContainer,
             "canvas",
             this.id+"_canvas",
             ["canvas_area"],
@@ -279,18 +337,19 @@ var videoPlayer = Class.extend({
 
     },
     createLayerObjects: function() {
-        this.object_layer = saveElement(this.player_container, "div", this.id+"_object_layer", ["object_layer"]);
-        this.object_layer.css({"width":this.width, "height": this.height});
+        this.objectLayer = saveElement(this.playerContainer, "div", this.id+"_objectLayer", ["objectLayer"]);
+        this.objectLayer.css({"width":this.width, "height": this.height});
     },
     createDiscussionArea: function() {
-        this.discussion_area = saveElement(this.player_container, "div", this.id+"_discussion_area", ["discussion_area"]);
-        this.discussion_area.css({"height": this.height});
+        this.discussionArea = saveElement(this.playerContainer, "div", this.id+"_discussion_area", ["discussion_area"]);
+        this.discussionArea.css({"height": this.height});
     },
     createPlayerArea: function() {
         this.interactionElementData = {
             "id": this.id+"_area",
             "defaultMode": "normal",
             "class": ["player_area"],
+            "default_return_val": true,
             "css": {
                 "top": 0,
                 "left": 0,
@@ -307,7 +366,7 @@ var videoPlayer = Class.extend({
         }
 
         this.setupInteractionElement();
-        this.interactionElement = new interactionElement(this.player_container, this.interactionElementData);
+        this.interactionElement = new interactionElement(this.playerContainer, this.interactionElementData);
         vD.i(this.interactionElement);
         this.element = this.interactionElement.element;
     },
@@ -316,11 +375,207 @@ var videoPlayer = Class.extend({
         try {
             if (this.interactionElementData==null) throw new Error ("Setting up of the interactionElementData is not done");
 
+            this.interactionElementData.on_mousedown.normal = $.proxy(this.on_mousedown, this);
+            this.interactionElementData.on_mousemove.normal = $.proxy(this.on_mousemove, this);
+            this.interactionElementData.on_mouseup.normal = $.proxy(this.on_mouseup, this);
+
+            this.interactionElementData.right_click.normal = $.proxy(this.right_click, this);
+
+            this.interactionElementData.on_click.open_window = $.proxy(this.on_click, this);
+            this.interactionElementData.on_click.trigger_pause = $.proxy(this.on_trigger_click, this);
+
+            this.interactionElementData.right_click.open_window = $.proxy(this.right_click, this);
+            this.interactionElementData.right_click.trigger_pause = $.proxy(this.on_trigger_right_click, this);
 
 
         } catch (e) {
             this.generalError(e);
         }
+    },
+
+    right_click: function(event) {
+        this.interactionElement.mode = "open_window";
+        this.contextMenu.on_show(event.x, event.y);
+        this.pause();
+        return false;
+    },
+    on_trigger_right_click: function(event) {
+        this.contextMenu.on_show(event.x, event.y);
+        return false;
+    },
+
+    on_click: function(event) {
+        this.contextMenu.on_hide();
+        this.interactionElement.mode = "normal";
+    },
+    on_trigger_click: function(event) {
+        this.contextMenu.on_hide();
+    },
+
+    on_mousedown: function(event) {
+
+        try {
+            if (event.target.id == this.element.attr('id')) {
+
+                if (this.sceneflag) {
+                    console.log(event.x+", "+event.y);
+
+                    if (!this.timeGate) {
+
+                        if (this.playerFlag) {
+                            this.pause();
+                            this.fromPlay = true;
+                            this.fromPause = false;
+                        } else {
+                            this.fromPause = true;
+                            this.fromPlay = false;
+                        }
+                    }
+                } else {
+                    if (this.playerFlag) {
+                        this.pause();
+                        this.fromPlay = true;
+                        this.fromPause = false;
+                    } else {
+                        this.fromPause = true;
+                        this.fromPlay = false;
+                    }
+                }
+
+                this.mouseDownTime = event.data.timeStamp;
+                this.bBoxData = {
+                    x: event.x,
+                    y: event.y,
+                    xUL: event.x,
+                    yUL: event.y,
+                    xDR: event.x,
+                    yDR: event.y
+                }
+            } else {
+                // something here
+            }
+        } catch (e) {
+            this.generalError(e);
+        }
+    },
+    on_mousemove: function(event) {
+        try {
+            var new_x = event.x;
+            var new_y = event.y;
+
+            if (event.data.mousedown_flag) {
+                /*if (event.target.id==this.element.attr('id')) {
+
+                }*/
+                console.log(event.x)
+                var bBox = this.getBoundingBox(new_x, new_y);
+
+                if (bBox == null) return;
+
+                bBox.id = this.id+"__boundingBoxId";
+
+                if (this.bBoxUI_temp == null) {
+                    this.bBoxUI_temp = saveElement(this.objectLayer, "div", bBox.id, ['discussionBoundingBox']);
+                }
+                this.bBoxUI_temp.css({
+                    "width": bBox.width,
+                    "height": bBox.height,
+                    "top": bBox.y,
+                    "left": bBox.x
+                });
+
+            } else {
+                // show/hide triggers
+            }
+        } catch (e) {
+            this.generalError(e)
+        }
+    },
+    on_mouseup: function(event) {
+        try {
+            var new_x = event.x;
+            var new_y = event.y;
+
+            if (event.target.id == this.element.attr('id')) {
+                // add here to close all discussion triggers
+            }
+
+            this.mouseUpTime = event.data.timeStamp;
+            var bBox = this.getBoundingBox(new_x, new_y);
+
+            if (bBox!=null) {
+                bBox.id = this.id+"_boundingBoxId";
+                if (this.bBoxUI_temp == null) {
+                    this.bBoxUI_temp = saveElement(this.objectLayer, "div", bBox.id, ['discussionBoundingBox']);
+                }
+                this.bBoxUI_temp.css({
+                    "width": bBox.width,
+                    "height": bBox.height,
+                    "top": bBox.y,
+                    "left": bBox.x
+                });
+
+
+                if ((this.mouseUpTime-this.mouseDownTime) <= this.mouseTimeSpan) {
+                    if (this.fromPause) {
+                        this.play();
+                    }
+                } else {
+                    if ((bBox.width >= minBoundingBoxVal) && (bBox.height >- minBoundingBoxVal)) {
+                        // add comment
+                    } else {
+                        if (this.fromPlay) {
+                            this.play();
+                        }
+                    }
+                }
+            }
+
+            if (this.bBoxUI_temp!=null) {
+                this.bBoxUI_temp.remove();
+                this.bBoxUI_temp = null;
+                this.bBoxData = null;
+            }
+
+        } catch (e) {
+            this.generalError(e);
+        }
+    },
+
+
+    getBoundingBox: function(x, y) {
+        if (this.bBoxData!=null) {
+            if (x < this.bBoxData.x) {
+                this.bBoxData.xUL = x;
+                this.bBoxData.xDR = this.bBoxData.x;
+            } else {
+                this.bBoxData.xDR = x;
+                this.bBoxData.xUL = this.bBoxData.x;
+            }
+
+            if (y < this.bBoxData.y) {
+                this.bBoxData.yUL = y;
+                this.bBoxData.yDR = this.bBoxData.y;
+            } else {
+                this.bBoxData.yDR = y;
+                this.bBoxData.yUL = this.bBoxData.y;
+            }
+
+            var width = this.bBoxData.xDR - this.bBoxData.xUL;
+            var height = this.bBoxData.yDR - this.bBoxData.yUL;
+
+            return {
+                "width": width,
+                "height": height,
+                x: this.bBoxData.xUL,
+                y: this.bBoxData.yUL
+            }
+
+        } else {
+            return null;
+        }
+
+
     },
 
     setPlayer: function() {
@@ -336,29 +591,35 @@ var videoPlayer = Class.extend({
                     {
                         "id": this.id+"_add_comment",
                         "value": "Add Comment Thread",
-                        callback: ($.proxy(this.context_menu_add_comment_thread, this))
+                        callback: ($.proxy(this.contextMenuAddCommentThread, this))
                     },
                     {
                         "id": this.id+"_debug",
                         "value": "Debug",
-                        callback: ($.proxy(this.context_menu_debug, this))
+                        callback: ($.proxy(this.contextMenuDebug, this))
                     },
                     {
                         "id": this.id+"_save_data",
                         "value": "Save Data",
-                        callback: ($.proxy(this.save_data, this))
+                        callback: ($.proxy(this.saveData, this))
                     }
                 ]
             }
 
-            //this.contextMenu = new contextMenu(this.element, this.contextMenuData);
-            //if (res==null) throw new Error ("Cannot create object videoPlayer");
+            this.contextMenu = new contextMenu(this.element, this.contextMenuData);
+            var res = vD.i(this.contextMenu);
+            if (res==null) throw new Error ("Cannot create contextMenu videoPlayer");
         } catch (e) {
             this.generalError(e);
         }
     },
+
+    contextMenuDebug: function(event) {
+        console.log(vD);
+    },
     generalError: function(e) {
         console.error(e.stack);
+        console.log(vD);
         log(e.stack.toString());
     }
 })

@@ -74,6 +74,7 @@ var dataModel = Class.extend({
             var id = null;
             var obj = null;
 
+            //if (val==null && del==true) return 2;
             // checks if value is an object with id or if it is just an id
             if (val.id!=null) {
                 id = val.id;
@@ -90,6 +91,8 @@ var dataModel = Class.extend({
 
             // if del flag is true, delete object
             if (del) {
+                //console.log(id);
+                //console.log(this.instance_set[id])
                 if (this.instance_set[id]!=null) {
                     this.instance_set[id]=null;
                     return 2
@@ -101,6 +104,8 @@ var dataModel = Class.extend({
 
             // check if id -> obj in instance_set exists;
             if (this.instance_set[id]!=null) {
+                //if (obj!=null) this.instance_set[id] = obj;
+                //else
                 return this.instance_set[id];
 
             // if it doesn't exist (meaning id is free to connect to obj)
@@ -126,6 +131,46 @@ var dataModel = Class.extend({
         }
     },
 
+    reset_triggers: function(video, val) {
+        if (video==null) throw new Error("There's no video id");
+        if (val==null) throw new Error("There's no time");
+
+        var time = val.toString();
+
+        if (this.trigger_set[video]==null) return null;
+
+        var arr_set = [];
+
+        // return hashtable of objects for time
+        for (var k in this.trigger_set[video]) {
+
+            if (parseFloat(time)<= parseFloat(k)) {
+                arr_set.push(this.trigger_set[video][k])
+            }
+        }
+        //console.log(arr_set)
+
+        for (var i in arr_set) {
+            for (var j in arr_set[i]) {
+                var obj = arr_set[i][j];
+
+                if (vD.i(obj.id).fromAction) {
+                    vD.i(obj.id).fromAction = false;
+                } else {
+                    vD.i(obj.id).on_hide();
+                }
+
+                if (obj.retrig) {
+                    obj.triggered=false;
+                    this.triggers(video, obj);
+                    //if (obj.id=="textlabel2") console.log(vD.trigger_set[video]);
+                }
+            }
+        }
+
+
+    },
+
     triggers: function(video, val, del, val2) {
         try {
             var time = null;
@@ -136,8 +181,9 @@ var dataModel = Class.extend({
                 time = val.time.toString();
                 obj = val;
             } else {
-                time = val.time.toString();
+                time = val.toString();
             }
+
 
             // checks if 2nd value after delete is the object that we want to delete: used only for delete
             // if obj doesn't exist, all objects will be deleted in that time
@@ -191,6 +237,9 @@ var dataModel = Class.extend({
             // catch val2... if val2 exists... object should be null for this operation
             if (val2!=null) obj=null;
 
+            // search first
+
+
             if (this.trigger_set[video]!=null) {
                 if (this.trigger_set[video][time]!=null) {
                     if (obj!=null) {
@@ -199,7 +248,7 @@ var dataModel = Class.extend({
                         this.trigger_set[video][time][id]=obj;
                         return 1;
                     } else {
-                        // return hashtable of objects for time
+
                         return this.trigger_set[video][time];
                     }
                 } else if (obj!=null) {
@@ -210,7 +259,19 @@ var dataModel = Class.extend({
                     return 1;
                 } else if (obj==null) {
                     // there's no object... nothing to save
-                    return null;
+                    //return null;
+                    // search first
+                    var arr_set = [];
+
+                    // return hashtable of objects for time
+                    for (var k in this.trigger_set[video]) {
+
+                        if (parseFloat(time)>= parseFloat(k)) {
+                            arr_set.push(this.trigger_set[video][k])
+                        }
+                    }
+                    //console.log(arr_set)
+                    return arr_set;
                 }
             } else if (obj!=null) {
                 var id = obj.id;

@@ -22,7 +22,7 @@ var mainVideoPlayer = Class.extend({
     run: function() {
         try {
             this.element = saveElement(this.parent, "div", this.id);
-            this.element.css({"top": 100, "left": 20});
+            this.element.css({"top": 10, "left": 20});
             // check if scene_objects has elements
 
             if (vD.data.data.scene_objects.length==0) throw new Error ("No scenes at data to load video. please check");
@@ -39,6 +39,9 @@ var mainVideoPlayer = Class.extend({
             }
 
             vD.i(vD.data.start_scene).on_show();
+
+            this.mainTimeline = new mainTimeline(this.element, "mainTimeline");
+            vD.i(this.mainTimeline);
 
             log("Main Video Player is created", 1);
 
