@@ -8,6 +8,10 @@ var dataModel = Class.extend({
         this.data = null;
         this.instance_set = {};
         this.trigger_set = {};
+        this.comment_set = {};
+        this.discussion_set = {};
+        this.annotation_set = {};
+        this.discussion_trigger_set = {};
 
         this.run();
     },
@@ -104,8 +108,6 @@ var dataModel = Class.extend({
 
             // check if id -> obj in instance_set exists;
             if (this.instance_set[id]!=null) {
-                //if (obj!=null) this.instance_set[id] = obj;
-                //else
                 return this.instance_set[id];
 
             // if it doesn't exist (meaning id is free to connect to obj)
@@ -129,6 +131,9 @@ var dataModel = Class.extend({
             log(e.stack.toString());
             return;
         }
+    },
+    i: function(val, del) {
+        return this.instances(val, del);
     },
 
     reset_triggers: function(video, val) {
@@ -170,7 +175,6 @@ var dataModel = Class.extend({
 
 
     },
-
     triggers: function(video, val, del, val2) {
         try {
             var time = null;
@@ -295,9 +299,304 @@ var dataModel = Class.extend({
         }
     },
 
-    // shortcut for instances
-    i: function(val, del) {
-        return this.instances(val, del);
+    comments: function(val, del){
+        try {
+
+            if (val.id!=null) {
+                var id = val.id;
+                var obj = val;
+            } else {
+                var id = val;
+            }
+
+            // check if id is null... then throw error
+            if (id==null) {
+                throw new Error("id is needed to do CRD for instances")
+                return;
+            }
+
+            if (del) {
+                if (this.comment_set[id]!=null) {
+                    this.comment_set[id]=null;
+                    return 2
+                } else {
+                    return 3
+                }
+            }
+
+            if (this.comment_set[id]!=null) {
+                if (obj!=null) {
+                    this.comment_set[id] = obj
+                    return 1
+                } else {
+                    return this.comment_set[id];
+                }
+            } else if (obj!=null) {
+                this.comment_set[id] = obj
+                return 1
+
+                // if obj doesn't exist
+                // then return null
+            } else if (obj==null) {
+                return null;
+            }
+
+            throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
+
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+            log(e.stack.toString());
+            return;
+        }
+    },
+    c: function(val, del) {
+        return this.comments(val, del);
+    },
+
+    discussions: function(val, del){
+        try {
+
+            if (val.id!=null) {
+                var id = val.id;
+                var obj = val;
+            } else {
+                var id = val;
+            }
+
+            // check if id is null... then throw error
+            if (id==null) {
+                throw new Error("id is needed to do CRD for instances")
+                return;
+            }
+
+            if (del) {
+                if (this.discussion_set[id]!=null) {
+                    this.discussion_set[id]=null;
+                    return 2
+                } else {
+                    return 3
+                }
+            }
+
+            if (this.discussion_set[id]!=null) {
+                if (obj!=null) {
+                    this.discussion_set[id] = obj
+                    return 1
+                } else {
+                    return this.discussion_set[id];
+                }
+
+            } else if (obj!=null) {
+                this.discussion_set[id] = obj
+                return 1
+
+                // if obj doesn't exist
+                // then return null
+            } else if (obj==null) {
+                return null;
+            }
+
+            throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
+
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+            log(e.stack.toString());
+            return;
+        }
+    },
+    d: function(val, del) {
+        return this.discussions(val, del)
+    },
+
+    annotations: function(val, del) {
+        try {
+
+            if (val.name!=null) {
+                var id = val.name;
+                var obj = val;
+            } else {
+                var id = val;
+            }
+
+            // check if id is null... then throw error
+            if (id==null) {
+                throw new Error("id is needed to do CRD for instances")
+                return;
+            }
+
+            if (del) {
+                if (this.annotation_set[id]!=null) {
+                    this.annotation_set[id]=null;
+                    return 2
+                } else {
+                    return 3
+                }
+            }
+
+            if (this.annotation_set[id]!=null) {
+
+                return this.annotation_set[id];
+
+            } else if (obj!=null) {
+                this.annotation_set[id] = obj
+                return 1
+
+                // if obj doesn't exist
+                // then return null
+            } else if (obj==null) {
+                return null;
+            }
+
+            throw new Error ("don't know what to do with comments:\nval: "+val.toString()+" \ndel: "+del);
+
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+            log(e.stack.toString());
+            return;
+        }
+    },
+    a: function(val, del) {
+        return this.annotations(val, del);
+    },
+
+    discussion_triggers: function(video, val, del, val2) {
+        try {
+            var time = null;
+            var obj = null;
+
+
+
+            // checks if value is an object with id or if it is just an id
+            if (val.time!=null) {
+                time = val.time.toString();
+                obj = val;
+            } else {
+                time = val.toString();
+            }
+
+
+            // checks if 2nd value after delete is the object that we want to delete: used only for delete
+            // if obj doesn't exist, all objects will be deleted in that time
+            if (val2!=null) {
+                obj = val;
+            }
+
+            if (video==null) {
+                throw new Error ("video_id is needed to CRD object")
+                return;
+            }
+            // check if id is null... then throw error
+            if (time==null) {
+                throw new Error("time is needed to CRD object ")
+                return;
+            }
+
+            if ((!del) && (val2!=null)) {
+                throw new Error("val2 should be null");
+                return 6
+            }
+
+            // if del flag is true, delete object
+            if (del) {
+                if (this.discussion_trigger_set[video]!=null) {
+                    if (this.discussion_trigger_set[video][time]!=null) {
+                        if (obj!=null) {
+                            var id = obj.id;
+                            if (this.discussion_trigger_set[video][time][id]!=null) {
+                                this.discussion_trigger_set[video][time][id]=null;
+                                return 2;
+                            } else {
+                                return 3;
+                            }
+                        } else {
+                            for (var key in this.discussion_trigger_set[video][time]) {
+                                this.discussion_trigger_set[video][time][key]=null
+                            }
+                            this.discussion_trigger_set[video][time]=null;
+                            return 4;
+                        }
+                    } else {
+                        return 3;
+                    }
+                } else {
+                    return 3;
+                }
+
+            }
+
+            // catch val2... if val2 exists... object should be null for this operation
+            if (val2!=null) obj=null;
+
+            // search first
+
+
+            if (this.discussion_trigger_set[video]!=null) {
+                if (this.discussion_trigger_set[video][time]!=null) {
+                    if (obj!=null) {
+                        // if object exist... put it on the set
+                        var id = obj.id
+                        this.discussion_trigger_set[video][time][id]=obj;
+                        return 1;
+                    } else {
+
+                        return this.discussion_trigger_set[video][time];
+                    }
+                } else if (obj!=null) {
+                    // if object exist... put it on the set
+                    var id = obj.id;
+                    this.discussion_trigger_set[video][time] = {};
+                    this.discussion_trigger_set[video][time][id]=obj;
+                    return 1;
+                } else if (obj==null) {
+                    // there's no object... nothing to save
+                    //return null;
+                    // search first
+                    var arr_set = [];
+
+                    // return hashtable of objects for time
+                    for (var k in this.discussion_trigger_set[video]) {
+                        var time_trigger = parseFloat(k);
+                        var t = parseFloat(time);
+
+                        //console.log(time_trigger);
+
+                        if ((t>=time_trigger-comment_time) && (t<time_trigger+comment_time+1)) {
+                        //if ((parseFloat(time)>= parseFloat(k)) {
+                            arr_set.push(this.discussion_trigger_set[video][k])
+                            //console.log(arr_set)
+                        }
+                    }
+                    //console.log(arr_set)
+                    return arr_set;
+                }
+            } else if (obj!=null) {
+                var id = obj.id;
+                this.discussion_trigger_set[video]={};
+                this.discussion_trigger_set[video][time] = {};
+                this.discussion_trigger_set[video][time][id]=obj;
+                return 1;
+            } else if (obj==null) {
+                // there's no object... nothing to save
+                return null;
+            }
+
+            // if something happened that these things didn't catch, throw error
+            throw new Error ("don't know what to do with discussion triggers:\nval: "+val.toString()+" \ndel: "+del);
+        } catch (e) {
+            console.error(val)
+            console.error(e.stack);
+            log(e.stack.toString());
+            return;
+        }
+
+    },
+
+    dt: function(video, val, del, val2){
+        return this.discussion_triggers(video,val,del,val2)
     }
+
 
 });

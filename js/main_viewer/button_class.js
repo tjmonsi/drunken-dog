@@ -39,14 +39,21 @@ var buttonClass = Class.extend({
         this.label = new_label;
         this.element.empty();
         this.element.append(this.label);
+    },
+
+    update_color: function(color) {
+        this.element.removeClass(this.color);
+        this.color = color;
+        this.element.addClass(this.color);
     }
 })
 
 var buttonIcon = buttonClass.extend({
     init: function(parent, icon, id, label, callback, color) {
-        this._super(parent, label, id, callback, color);
         this.icon = icon;
-        this.run();
+        this._super(parent, label, id, callback, color);
+
+        //this.run();
     },
 
     run: function() {

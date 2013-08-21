@@ -7,12 +7,13 @@
  */
 
 var windowedElement = Class.extend({
-    init: function(parent, data, draggable, pad) {
+    init: function(parent, data) {
         this.parent = parent;
         this.data = data;
         this.id = this.data.id;
-        this.draggable = draggable
-        this.pad = pad;
+        this.draggable = this.data.draggable
+        this.pad = this.data.pad;
+        vD.i(this);
     },
 
     run: function() {
@@ -24,8 +25,273 @@ var windowedElement = Class.extend({
         this.windowHandlerTitle = saveElement(this.windowHandler, "div", this.id+"_windowHandlerTitle", ['windowClassHandlerTitle']);
         this.windowHandlerTitle.append(this.data.windowName);
 
-        this.windowHanlerIcons =saveElement(this.windowHandler, "div", this.id+"_windowHandlerIcons", ['windowClassHandlerIcons']);
-        this.windowExit = new button
-        //saveElement(this.windowHandlerIcons, "div", this.id+"_windowHanlderExit", )
+        this.windowHandlerIcons =saveElement(this.windowHandler, "div", this.id+"_windowHandlerIcons", ['windowClassHandlerIcons']);
+        this.windowExit = new buttonIcon(this.windowHandlerIcons, 'ui-icon-circle-close', this.id+"_windowHandlerExit", "Exit", $.proxy(this.closeWindow, this));
+        this.windowExit.element.addClass('windowHandlerExitIcon');
+
+        if (this.draggable) {
+            // add draggable function here
+        }
+
+        this.windowContent = saveElement(this.window, "div", this.id+"_windowContent", ["windowContent", this.pad]);
+
+    },
+
+    closeWindow: function() {
+        this.close();
+
+        /*try {
+            throw new Error("hey")
+        } catch(e) {
+            console.log(e.stack)
+        }*/
+    },
+
+    setxy: function(x,y){
+        this.data.x = x;
+        this.data.y = y;
+        this.window.css({"left": this.data.x, "top": this.data.y});
     }
+});
+
+var addNewDiscussion = windowedElement.extend({
+    init: function(parent, data) {
+        this._super(parent, data);
+        this.run();
+    },
+
+    run: function(){
+        this._super();
+
+        do {
+            var new_id = makeID(global_id_length-2);
+        } while (vD.d(new_id)!=null);
+
+        this.data.discussion_id = new_id;
+
+        if (this.data.bBox==null) {
+            this.data.bBox = {
+                "id": this.data.discussion_id+"_bBox",
+                "width": 100,
+                "height": 100,
+                "x": this.data.x-50,
+                "y": this.data.y-50
+            }
+        }
+        //console.log(this.data);
+        this.bBoxUI_temp = saveElement(this.parent, "div", this.data.bBox.id, ["discussionBoundingBox"]);
+        this.bBoxUI_temp.css(
+            {
+                "width": this.data.bBox.width,
+                "height": this.data.bBox.height,
+                "left": this.data.bBox.x,
+                "top": this.data.bBox.y
+            }
+        )
+
+        this.setxy(this.data.bBox.x+this.data.bBox.width, this.data.bBox.y+this.data.bBox.height);
+
+        this.newCommentData = {
+            "video_id": this.data.video_id,
+            "discussion_id": new_id,
+            "closeWindow": $.proxy(this.closeWindow, this),
+            "saveComment": $.proxy(this.saveComment, this),
+            replyTo: null
+        }
+
+        this.element = new commentBox(this.windowContent, this.newCommentData);
+
+    },
+
+    closeWindow: function(){
+        vD.i(this.data.video_id).clearAnnotations();
+        vD.i(this.data.video_id).backToMode();
+        this._super();
+    },
+
+    saveComment: function(data) {
+        //console.log(data);
+        var comment_id = data.id
+
+        var discussion_data = {
+            "time": this.data.time,
+            "id": this.newCommentData.discussion_id,
+            "comment_list": [comment_id],
+            "video_id": this.data.video_id,
+            "x": this.data.x,
+            "y": this.data.y,
+            "bBox": this.data.bBox
+        }
+
+        var discussion_trigger = {
+            "time": this.data.time,
+            "id": this.newCommentData.discussion_id,
+            "video_id": this.data.video_id
+        }
+
+        vD.c(data);
+        vD.d(discussion_data);
+        vD.dt(this.data.video_id, discussion_trigger);
+
+        vD.i(new discussionPt(this.parent, discussion_data));
+
+        this.closeWindow();
+    }
+
+})
+
+var discussionOnVideo = windowedElement.extend({
+    init: function(parent, data){
+        this._super(parent, data);
+        this.commentListElements = {};
+        this.run();
+    },
+
+    run: function(){
+        this._super();
+        console.log(this.data);
+
+        for (var i in this.data.comment_list) {
+            this.commentListElements[this.data.comment_list[i]] = saveElement(
+                this.windowContent,
+                "div",
+                this.data.comment_list[i]+"_CommentOnVideo",
+                ["commentDivArea"]
+            );
+
+            this.commentListElements[this.data.comment_list[i]+"_commentEl"] = saveElement(
+                this.commentListElements[this.data.comment_list[i]],
+                "div",
+                this.data.comment_list[i]+"_commentEl",
+                ["commentEl"]
+            )
+            var commentEl = this.commentListElements[this.data.comment_list[i]+"_commentEl"]
+
+            this.commentListElements[this.data.comment_list[i]+"_commentUser"] = saveElement(
+                this.commentListElements[this.data.comment_list[i]],
+                "div",
+                this.data.comment_list[i]+"_commentUser",
+                ["commentUser"]
+            )
+            var commentUser = this.commentListElements[this.data.comment_list[i]+"_commentUser"]
+
+            this.commentListElements[this.data.comment_list[i]+"_commentAdditionalData"] = saveElement(
+                this.commentListElements[this.data.comment_list[i]],
+                "div",
+                this.data.comment_list[i]+"_commentAdditionalData",
+                ["commentAdditionalData"]
+            )
+            var commentAdditionalData = this.commentListElements[this.data.comment_list[i]+"_commentAdditionalData"]
+
+            var cData = vD.c(this.data.comment_list[i]);
+
+            // draw annotations
+            vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
+
+            var comment = cData.comment;
+            if ($.trim(comment)=="") comment = "&nbsp;";
+
+            commentEl.append(cData.commenter+" says:<br/>"+comment+"<hr/>");
+            commentUser.append("Date made: "+cData.timeStamp.toString());
+            commentAdditionalData.append("Number of replies: "+cData.comment_list.length);
+
+            this.commentListElements[this.data.comment_list[i]+"_oldCommentButtonArea"] = saveElement(
+                this.commentListElements[this.data.comment_list[i]],
+                "div",
+                this.data.comment_list[i]+"_oldCommentButtonArea",
+                ["oldCommentButtonArea"]
+            )
+            var oldCommentButtonArea = this.commentListElements[this.data.comment_list[i]+"_oldCommentButtonArea"]
+
+            this.commentListElements[this.data.comment_list[i]+"_commentReply"] = new buttonClass(
+                oldCommentButtonArea,
+                "Reply",
+                this.data.comment_list[i]+"_commentReply",
+                $.proxy(this.addReply, this, this.data.comment_list[i])
+            )
+
+
+            this.commentListElements[this.data.comment_list[i]+"_seeDiscussion"] = new buttonClass(
+                oldCommentButtonArea,
+                "See Discussion",
+                this.data.comment_list[i]+"_seeDiscussion",
+                $.proxy(this.seeDiscussion, this, this.data.comment_list[i], this.data.id)
+            )
+
+            this.commentListElements[this.data.comment_list[i]+"_newDiscussion"] = new buttonClass(
+                oldCommentButtonArea,
+                "New Discussion",
+                this.data.comment_list[i]+"_newDiscussion",
+                $.proxy(this.newDiscussion, this)
+            )
+
+        }
+        //this.element = saveElement();
+    },
+
+    addReply: function(last_commentID){
+        this.newCommentData = {
+            "video_id": this.data.video_id,
+            "discussion_id": this.data.id.replace("_DiscussionOnVideo", ""),
+            "closeWindow": $.proxy(this.closeWindow, this),
+            "saveComment": $.proxy(this.saveComment, this),
+            replyTo: last_commentID
+        }
+
+        var parent = null;
+        if (last_commentID) {
+            parent =  this.commentListElements[last_commentID];
+        } else {
+            parent = this.windowContent
+        }
+        this.element = new commentBox(parent, this.newCommentData);
+    },
+
+    seeDiscussion: function(commentID, discussionID) {
+
+    },
+
+    newDiscussion: function() {
+        for (var i in this.commentListElements) {
+            if (this.commentListElements[i]!=null) {
+                if (this.commentListElements[i].close!=null) {
+                    this.commentListElements[i].close();
+                } else {
+                    this.commentListElements[i].empty()
+                    this.commentListElements[i].remove()
+                }
+                this.commentListElements[i] = null;
+            }
+        }
+
+        this.commentListElements = {}
+
+        this.addReply(null);
+    },
+
+    saveComment: function(data){
+
+        vD.c(data);
+
+        if (data.replyTo==null) {
+            console.log(data.discussion_id)
+            var obj = vD.d(data.discussion_id.replace("_discussionTrigger",""))
+            obj.comment_list.push(data.id);
+            vD.d(obj);
+            vD.i(data.discussion_id).updateData(obj);
+        } else {
+            var obj = vD.c(data.replyTo)
+            obj.comment_list.push(data.id);
+            vD.c(obj);
+        }
+
+        this.closeWindow();
+    },
+
+    closeWindow: function(){
+        console.log(this.data.id);
+        vD.i(this.data.id.replace("_DiscussionOnVideo", "")).on_closeWindow();
+        this._super();
+    }
+
 })

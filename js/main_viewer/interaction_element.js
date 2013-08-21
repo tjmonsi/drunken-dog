@@ -30,6 +30,13 @@ var interactionElement = Class.extend({
         this.createMouseInteractions();
     },
 
+    switchMode: function(mode) {
+        var mode2 = this.mode;
+        this.mode = mode
+        console.log("new:"+mode+", last:"+mode2);
+        return mode2;
+    },
+
     // set mouse interactions
     createMouseInteractions: function() {
 
@@ -70,6 +77,7 @@ var interactionElement = Class.extend({
     },
 
     mouseevent: function(mouseevent, e) {
+        //console.log(mouseevent + " "+this.mode);
         if (this.data[mouseevent]==null) return e.default_return_val;
         if (this.data[mouseevent][this.mode]==null) return e.default_return_val;
         return this.data[mouseevent][this.mode](e);
@@ -109,6 +117,7 @@ var interactionElement = Class.extend({
 
     on_mouseleave: function(e) {
         this.mouseover_flag = false;
+        this.mousedown_flag = false;
         var event = this.consolidateEvent(e, this.data.on_mouseleave.data);
         return this.mouseevent("on_mouseleave", event);
     },
@@ -120,4 +129,21 @@ var interactionElement = Class.extend({
     }
 
 
+})
+
+var interactionExistingElement = interactionElement.extend({
+    init: function(element, data){
+        this.data = data;
+        this.element = element;
+        this.mode = this.data.defaultMode;
+
+        this.mousedown_flag=false;
+        this.mouseover_flag=false;
+        vD.i(this);
+        this.run();
+    },
+
+    run: function() {
+        this.createMouseInteractions();
+    }
 })

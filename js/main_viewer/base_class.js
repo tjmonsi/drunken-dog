@@ -103,6 +103,12 @@ var Class = C.extend({
             return res;
         }
 
+    },
+
+    generalError: function(e) {
+        console.error(e.stack);
+        console.log(vD);
+        log(e.stack.toString());
     }
 })
 
