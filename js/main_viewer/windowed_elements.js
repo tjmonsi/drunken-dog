@@ -133,7 +133,9 @@ var addNewDiscussion = windowedElement.extend({
         vD.d(discussion_data);
         vD.dt(this.data.video_id, discussion_trigger);
 
+        // create both discussionthreads and discussionpts
         vD.i(new discussionPt(this.parent, discussion_data));
+
 
         this.closeWindow();
     }
@@ -149,7 +151,7 @@ var discussionOnVideo = windowedElement.extend({
 
     run: function(){
         this._super();
-        console.log(this.data);
+        //console.log(this.data);
 
         for (var i in this.data.comment_list) {
             this.commentListElements[this.data.comment_list[i]] = saveElement(
@@ -218,21 +220,25 @@ var discussionOnVideo = windowedElement.extend({
                 $.proxy(this.seeDiscussion, this, this.data.comment_list[i], this.data.id)
             )
 
-            this.commentListElements[this.data.comment_list[i]+"_newDiscussion"] = new buttonClass(
-                oldCommentButtonArea,
-                "New Discussion",
-                this.data.comment_list[i]+"_newDiscussion",
-                $.proxy(this.newDiscussion, this)
-            )
+            if (i==0) {
+                this.commentListElements[this.data.comment_list[i]+"_newDiscussion"] = new buttonClass(
+                    oldCommentButtonArea,
+                    "New Discussion",
+                    this.data.comment_list[i]+"_newDiscussion",
+                    $.proxy(this.newDiscussion, this)
+                )
+            }
 
         }
         //this.element = saveElement();
     },
 
     addReply: function(last_commentID){
+
+        console.log(this.data.id)
         this.newCommentData = {
             "video_id": this.data.video_id,
-            "discussion_id": this.data.id.replace("_DiscussionOnVideo", ""),
+            "discussion_id": this.data.id.replace("_DiscussionOnVideo", "").replace("_discussionTrigger", ""),
             "closeWindow": $.proxy(this.closeWindow, this),
             "saveComment": $.proxy(this.saveComment, this),
             replyTo: last_commentID
@@ -272,24 +278,32 @@ var discussionOnVideo = windowedElement.extend({
     saveComment: function(data){
 
         vD.c(data);
-
+        console.log(data)
+        console.log(data.discussion_id)
         if (data.replyTo==null) {
-            console.log(data.discussion_id)
             var obj = vD.d(data.discussion_id.replace("_discussionTrigger",""))
             obj.comment_list.push(data.id);
             vD.d(obj);
-            vD.i(data.discussion_id).updateData(obj);
+            // update elements
+            vD.i(data.discussion_id+"_discussionTrigger").updateData(obj);
         } else {
             var obj = vD.c(data.replyTo)
             obj.comment_list.push(data.id);
+            console.log(obj);
             vD.c(obj);
+            // please add comment to discussionArea
+            vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
+
         }
 
         this.closeWindow();
     },
 
     closeWindow: function(){
-        console.log(this.data.id);
+        //console.log(this.data.id);
+        vD.i(this.data.video_id).clearAnnotations();
+        vD.i(this.data.video_id).backToMode();
+        vD.i(this.id.split("_")[0]+"_discussionTrigger").on_hidebBox();
         vD.i(this.data.id.replace("_DiscussionOnVideo", "")).on_closeWindow();
         this._super();
     }

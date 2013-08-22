@@ -22,6 +22,10 @@ var commentBox = Class.extend({
         this.commentBox_flag = false;
         this.commenterInput_flag = false;
 
+        this.defaultvalue = {};
+        this.defaultvalue.comment = "please put your comment here"
+        this.defaultvalue.commenter = "username"
+
         vD.i(this);
         this.run();
     },
@@ -29,13 +33,13 @@ var commentBox = Class.extend({
     run: function() {
         this.commentBoxArea = saveElement(this.parent, "div", this.id+"_commentBoxArea", ["commentBoxArea"]);
         this.commentBox = saveElement(this.commentBoxArea, "textarea", this.id+"_comment", ["commentBox"]);
-        this.commentBox.val("put comment here");
+        this.commentBox.val(this.defaultvalue.comment);
         this.commentBox.focus($.proxy(this.clearCommentBox, this));
         this.commentBox.blur($.proxy(this.resetCommentBox, this));
         this.commentBoxArea.append(br());
 
         this.commenter = saveElement(this.commentBoxArea, "input", this.id+"_commenter", ["commenterInput"]);
-        this.commenter.val("put username here");
+        this.commenter.val(this.defaultvalue.commenter);
         this.commenter.focus($.proxy(this.clearCommenterInput, this));
         this.commenter.blur($.proxy(this.resetCommenterInput, this));
 
@@ -68,7 +72,7 @@ var commentBox = Class.extend({
 
         if ($.trim(this.commentBox.val())=="") {
             this.commentBox_flag = false;
-            this.commentBox.val("put comment here");
+            this.commentBox.val(this.defaultvalue.comment);
         }
     },
 
@@ -78,7 +82,7 @@ var commentBox = Class.extend({
         }
         if ($.trim(this.commenter.val())=="") {
             this.commenterInput_flag = false;
-            this.commenter.val("put username here");
+            this.commenter.val(this.defaultvalue.commenter);
         }
     },
 

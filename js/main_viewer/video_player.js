@@ -395,13 +395,13 @@ var videoPlayer = Class.extend({
     createDiscussionArea: function() {
         this.discussionBoxDefault = 200
         this.discussionArea = saveElement(this.playerContainer, "div", this.id+"_discussionArea", ["discussionArea"]);
-        this.discussionArea.css({"height": this.height, "width": 400, "top": 0, "left": this.width, "overflowY": "auto"});
+        this.discussionArea.css({"height": this.height, "width": 450, "top": 0, "left": this.width, "overflowY": "auto"});
         this.discussionAreaBBox = saveElement(this.discussionArea, "div", this.id+"_discussionAreaBox", ["discussionAreaBox", "hide"]);
         this.discussionAreaBBox.css({"top": this.discussionBoxDefault , "width": this.discussionArea.outerWidth(true)});
         this.discussionAreaBeforeSpace = saveElement(this.discussionArea, "div", this.id+"_discussionAreaBeforeSpace", ["discussionAreaBeforeSpace"]);
-        this.discussionAreaBeforeSpace.css({"height": this.discussionBoxDefault , "width": this.discussionArea.width()});
+        this.discussionAreaBeforeSpace.css({"height": this.discussionBoxDefault , "width": this.discussionArea.width()-50});
         this.discussionAreaAfterSpace = saveElement(this.discussionArea, "div", this.id+"_discussionAreaAfterSpace", ["discussionAreaBeforeSpace"]);
-        this.discussionAreaAfterSpace.css({"height": this.discussionArea.height()-this.discussionBoxDefault , "width": this.discussionArea.width()});
+        this.discussionAreaAfterSpace.css({"height": this.discussionArea.height()-this.discussionBoxDefault , "width": this.discussionArea.width()-50});
     },
     createPlayerArea: function() {
         this.interactionElementData = {
@@ -496,8 +496,10 @@ var videoPlayer = Class.extend({
             return
         }
         if (this.open_comments!=null) {
-            this.open_comments.on_collapse();
             this.open_comments.on_hidebBox();
+            this.open_comments.on_collapse();
+
+
         }
         this.open_comments=obj;
     },
@@ -942,12 +944,13 @@ var videoPlayer = Class.extend({
     },
     on_drawStop: function(event) {
         if (this.drawingObject!=null) {
+
             vD.a(this.drawingObject);
             vD.i(this.annotation_id).saveAnnotation(this.drawingObject.name);
         }
     },
-    drawAnnotations: function(array) {
-        this.clearAnnotations();
+    drawAnnotations: function(array, flag) {
+        if (!flag) this.clearAnnotations();
         for (var i in array) {
             var obj = vD.a(array[i]);
             this.canvas.addLayer(obj).drawLayers();
@@ -956,6 +959,13 @@ var videoPlayer = Class.extend({
     clearAnnotations: function() {
         this.canvas.removeLayers();
         this.canvas.clearCanvas();
+
+        try {
+            throw new Error("clear")
+        } catch (e) {
+            console.log(e.stack)
+        }
+
     },
     endAnnotation: function(){
         // DoneDraw from DrawPause to lastMode

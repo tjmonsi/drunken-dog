@@ -7,11 +7,17 @@
  */
 
 var interactionElement = Class.extend({
-    init: function(parent, data) {
-        this.parent = parent;
+    init: function(val, data, flag) {
+
+
         this.data = data;
         this.id = this.data.id;
         this.mode = this.data.defaultMode;
+        this.prevsiblingflag = flag;
+
+
+        this.parent = val
+
 
         if (this.parent==null) throw new Error ("parent should not be null");
         if (this.id==null) throw new Error ("Forgot creating data in data");
@@ -25,7 +31,12 @@ var interactionElement = Class.extend({
     },
 
     run: function() {
-        this.element = saveElement(this.parent, "div", this.id, this.data.class);
+        if (this.prevsiblingflag) {
+            this.element = saveElementAfter(this.parent, "div", this.id, this.data.class);
+        } else {
+            this.element = saveElement(this.parent, "div", this.id, this.data.class);
+        }
+
         this.element.css(this.data.css);
         this.createMouseInteractions();
     },
@@ -134,6 +145,7 @@ var interactionElement = Class.extend({
 var interactionExistingElement = interactionElement.extend({
     init: function(element, data){
         this.data = data;
+        this.id = this.data.id+"_existingElement";
         this.element = element;
         this.mode = this.data.defaultMode;
 

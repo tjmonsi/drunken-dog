@@ -82,7 +82,8 @@ var Class = C.extend({
                 if (this[key]==null) continue;
                 if (key == "parent") continue;
                 if (this[key].close!=null) {
-
+                    //console.log(key);
+                    //console.log(this[key]);
                     res = this[key].close();
                     if ((res==3) || (res==null)) throw new Error("Something went wrong at closing key: "+key);
                 }

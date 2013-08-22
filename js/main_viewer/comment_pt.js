@@ -20,6 +20,9 @@ var discussionPt = Class.extend({
         }
 
         vD.i(this.data.video_id).discussion_pts[this.data.id]=discussion_trigger;
+        this.discussionBoxArea = new discussionBoxArea(vD.i(this.data.video_id).discussionAreaBeforeSpace, this.data);
+        vD.i(this.discussionBoxArea);
+
         this.on_show();
     },
 
@@ -29,6 +32,8 @@ var discussionPt = Class.extend({
             this.element.empty();
             this.element.append(this.data.comment_list.length);
         }
+
+        this.discussionBoxArea.updateDiscussion(data);
     },
 
     on_show: function() {
@@ -70,6 +75,7 @@ var discussionPt = Class.extend({
         this.element.append(this.data.comment_list.length);
 
         //this.element.
+        this.discussionBoxArea.on_show();
 
     },
 
@@ -89,7 +95,7 @@ var discussionPt = Class.extend({
 
     on_showbBox: function() {
         this.interactionBBoxData = {
-            "id": this.id+"_bBox",
+            "id": this.id+"_interactionbBox",
             "defaultMode": "normal",
             "class": ["discussionBoundingBox"],
             "default_return_val": true,
@@ -107,6 +113,8 @@ var discussionPt = Class.extend({
             "on_mouseenter": {},
             "on_mouseleave": {}
         }
+
+        //console.log(this.id)
         this.setupInteractionBBox();
         if (this.interactionBBox == null) {
             this.interactionBBox = new interactionElement(this.parent, this.interactionBBoxData);
@@ -114,6 +122,8 @@ var discussionPt = Class.extend({
         }
 
         this.bBoxUI = this.interactionBBox.element;
+
+        this.discussionBoxArea.element.css({"background-color": "#BBBBBB", "color": "#000000"});
     },
 
     setupInteractionBBox: function() {
@@ -131,11 +141,24 @@ var discussionPt = Class.extend({
     },
 
     on_hidebBox: function() {
-        if (this.bBoxUI!=null) {
+
+        if (this.discussionBoxArea.newCommentInput!=null) {
+            if (this.discussionBoxArea.newCommentInput.annotation_flag) {
+                return;
+            }
+        }
+
+        if (this.interactionBBox!= null) {
+            this.interactionBBox.close();
+            this.interactionBBox = null;
+            this.bBoxUI = null
+        }
+        this.discussionBoxArea.element.css({"background-color": "##777777", "color": "#ffffff"});
+        /*if (this.bBoxUI!=null) {
             this.interactionBBox.close();
             this.interactionBBox = null;
             this.bBoxUI = null;
-        }
+        }*/
     },
 
     on_expand: function() {
@@ -144,7 +167,7 @@ var discussionPt = Class.extend({
         this.interactionBBox.switchMode("expand");
         this.interactionElement.switchMode("expand");
         vD.i(this.data.video_id).openedComment(this);
-
+        vD.i(this.data.video_id).seek(this.data.time, true);
         var data = {
             "id": this.id+"_DiscussionOnVideo",
             "discussion_id": this.id.replace("_discussionTrigger",""),
@@ -159,6 +182,8 @@ var discussionPt = Class.extend({
         }
 
         this.discussionWindow = new discussionOnVideo(this.parent, data)
+
+        this.discussionBoxArea.element.css({"background-color": "#BBBBBB", "color": "#000000"});
     },
 
     on_collapse: function() {
@@ -166,15 +191,19 @@ var discussionPt = Class.extend({
         if (this.interactionElement!=null) this.interactionElement.switchMode("normal");
         vD.i(this.data.video_id).openedComment(this, true);
         if (this.discussionWindow!=null) {
-            this.discussionWindow.closeWindow();
+            console.log(this.discussionWindow)
+            if (this.discussionWindow.closeWindow) this.discussionWindow.closeWindow();
             this.discussionWindow = null;
         }
+        this.triggered = false;
+        this.discussionBoxArea.element.css({"background-color": "##777777", "color": "#ffffff"});
     },
 
     on_closeWindow: function() {
-        this.interactionBBox.switchMode("normal");
+        if (this.interactionBBox!=null) this.interactionBBox.switchMode("normal");
         this.interactionElement.switchMode("normal");
         vD.i(this.data.video_id).openedComment(this, true);
+        this.triggered = false;
     },
 
     on_hide: function() {
@@ -186,6 +215,8 @@ var discussionPt = Class.extend({
             this.element = null;
         }
         this.triggered = false;
+        this.discussionBoxArea.on_hide();
+
     },
 
     changeOpacity: function(val) {
@@ -196,28 +227,31 @@ var discussionPt = Class.extend({
     }
 })
 
+/**
+discussionBoxArea ---------------------------------------------------------------------------------------
+ */
+
 var discussionBoxArea = Class.extend({
-    init: function(parent, data){
-        this.parent = parent;
+    init: function(prevsibling, data){
+        this.prevsibling = prevsibling;
         this.data = data;
         this.id = this.data.id+"_discussionArea"
         this.activeComment = null;
         this.interactionElementList = {};
+        this.commentListElements = {};
 
-        this.on_show();
+        console.log(this.id);
+        //this.on_show();
     },
 
     on_show: function(){
         this.interactionElementData = {
             "id": this.id+"_discussionArea",
             "defaultMode": "normal",
-            "class": ["discussionAreaBox"],
+            "class": ["discussionAreaCommentBox"],
             "default_return_val": true,
             "css": {
-                "width": 15,
-                "height": 15,
-                "padding-left": 5,
-                "padding-top": 5,
+                "padding": 10,
                 "background-color": "#777777",
                 "color": "white"
             },
@@ -231,7 +265,7 @@ var discussionBoxArea = Class.extend({
         }
         this.setupInteractionElement();
         if (this.interactionElement == null) {
-            this.interactionElement = new interactionElement(this.parent, this.interactionElementData);
+            this.interactionElement = new interactionElement(this.prevsibling, this.interactionElementData, true);
             vD.i(this.interactionElement);
         }
 
@@ -239,13 +273,47 @@ var discussionBoxArea = Class.extend({
         this.element.empty();
 
         for (var i in this.data.comment_list) {
-            this.populateElement(this.element, this.data.comment_list[i]);
+            this.populateElement(i ,this.element, this.data.comment_list[i]);
         }
 
 
+
+        //console.log(vD.i(this.data.video_id).discussionArea[0].scrollWidth)
+
     },
 
-    populateElement: function(parent, id, margin_left) {
+    on_hide: function() {
+
+        //console.log(this.interactionElementList);
+        for (var j in this.interactionElementList) {
+            if (this.interactionElementList[j]!=null) {
+                if (this.interactionElementList[j].close!=null) this.interactionElementList[j].close();
+                this.interactionElementList[j]=null;
+            }
+
+
+        }
+        this.interactionElementList = {};
+
+        //console.log(this.interactionElementList);
+        for (var i in this.commentListElements) {
+            if (this.commentListElements[i].close!=null) this.commentListElements[i].close();
+            if (this.commentListElements[i].empty!=null) this.commentListElements[i].empty();
+            if (this.commentListElements[i].remove!=null) this.commentListElements[i].remove();
+            if (this.commentListElements[i]!=null) this.commentListElements[i]=null
+        }
+
+        this.commentListElements = {};
+
+        this.element.empty()
+        this.element.remove();
+
+        this.interactionElement.close();
+        this.interactionElement = null;
+
+    },
+
+    populateElement: function(index, parent, id, margin_left) {
 
         this.commentListElements[id+"_parent"] = saveElement(
             parent,
@@ -260,7 +328,7 @@ var discussionBoxArea = Class.extend({
             id+"_CommentDiscussionArea",
             ["commentDivArea"]
         );
-
+        //console.log(margin_left)
         this.commentListElements[id].css({"margin-left": margin_left});
 
         var interactionElementListData = {
@@ -280,10 +348,13 @@ var discussionBoxArea = Class.extend({
 
         this.interactionElementList[id] = new interactionExistingElement(this.commentListElements[id],interactionElementListData);
 
+        console.log(this.interactionElementList)
+        //vD.i(this.interactionElementList[id]);
+
         this.commentListElements[id+"_commentEl"] = saveElement(
             this.commentListElements[id],
             "div",
-            id+"_commentEl",
+            id+"_commentDiscussionAreaEl",
             ["commentEl"]
         )
         var commentEl = this.commentListElements[id+"_commentEl"]
@@ -291,7 +362,7 @@ var discussionBoxArea = Class.extend({
         this.commentListElements[id+"_commentUser"] = saveElement(
             this.commentListElements[id],
             "div",
-            id+"_commentUser",
+            id+"_commentDiscussionAreaUser",
             ["commentUser"]
         )
         var commentUser = this.commentListElements[id+"_commentUser"]
@@ -299,15 +370,14 @@ var discussionBoxArea = Class.extend({
         this.commentListElements[id+"_commentAdditionalData"] = saveElement(
             this.commentListElements[id],
             "div",
-            id+"_commentAdditionalData",
+            id+"_commentDiscussionAreaAdditionalData",
             ["commentAdditionalData"]
         )
         var commentAdditionalData = this.commentListElements[id+"_commentAdditionalData"]
 
         var cData = vD.c(id);
 
-        // draw annotations
-        //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
+
 
         var comment = cData.comment;
         if ($.trim(comment)=="") comment = "&nbsp;";
@@ -319,7 +389,7 @@ var discussionBoxArea = Class.extend({
         this.commentListElements[id+"_oldCommentButtonArea"] = saveElement(
             this.commentListElements[id],
             "div",
-            id+"_oldCommentButtonArea",
+            id+"_oldDiscussionAreaCommentButtonArea",
             ["oldCommentButtonArea"]
         )
         var oldCommentButtonArea = this.commentListElements[id+"_oldCommentButtonArea"]
@@ -327,27 +397,37 @@ var discussionBoxArea = Class.extend({
         this.commentListElements[id+"_commentReply"] = new buttonClass(
             oldCommentButtonArea,
             "Reply",
-            id+"_commentReply",
-            $.proxy(this.addReply, this, id)
+            id+"_commentDiscussionAreaReply",
+            $.proxy(this.addReply, this, id, this.commentListElements[id+"_oldCommentButtonArea"])
         )
 
         if (cData.comment_list.length>0) {
             this.commentListElements[id+"_seeDiscussion"] = new buttonClass(
                 oldCommentButtonArea,
                 "See Discussion",
-                id+"_seeDiscussion",
+                id+"_seeDiscussionAreaDiscussion",
                 $.proxy(this.seeDiscussion, this, id, this.data.id)
             )
         }
 
         if (cData.replyTo==null) {
-            this.commentListElements[id+"_newDiscussion"] = new buttonClass(
-                oldCommentButtonArea,
-                "New Discussion",
-                id+"_newDiscussion",
-                $.proxy(this.newDiscussion, this)
-            )
+            if (index==0) {
+                this.commentListElements[id+"_newDiscussion"] = new buttonClass(
+                    oldCommentButtonArea,
+                    "New Discussion",
+                    id+"_newDiscussionAreaDiscussion",
+                    $.proxy(this.newDiscussion, this)
+                )
+            }
         }
+
+        // put all replies under this...
+        this.commentListElements[id+"_commentRepliesArea"] = saveElement(
+            parent,
+            "div",
+            id+"_CommentDiscussionAreaRepliesArea",
+            ["commentRepliesDivBox"]
+        );
 
         /*if (cData.replyTo!=null) {
             this.commentListElements[id].hide()
@@ -366,7 +446,8 @@ var discussionBoxArea = Class.extend({
         try {
             if (this.interactionElementData==null) throw new Error ("Setting up of the interactionElementData is not done");
 
-
+            this.interactionElementData.on_mouseenter.normal = $.proxy(this.on_mouseenter, this);
+            this.interactionElementData.on_mouseleave.normal = $.proxy(this.on_mouseleave, this);
 
             //this.interactionElementData.right_click.normal = $.proxy(this.right_click, this);
         } catch (e) {
@@ -376,8 +457,11 @@ var discussionBoxArea = Class.extend({
 
     setupInteractionListElement: function(obj) {
         try {
-            if (this.interactionElementData==null) throw new Error ("Setting up of the interactionElementData is not done");
+            if (obj==null) throw new Error ("Setting up of the interactionElementData is not done");
 
+            obj.on_mouseenter.normal = $.proxy(this.on_mouseenterComment, this);
+            obj.on_mouseleave.normal = $.proxy(this.on_mouseleaveComment, this);
+            obj.on_click.normal = $.proxy(this.on_clickComment, this);
 
 
             return obj;
@@ -385,7 +469,171 @@ var discussionBoxArea = Class.extend({
         } catch (e) {
             this.generalError(e);
         }
+    },
+
+    on_mouseenter: function(event) {
+        console.log("this is enter");
+        //console.log(this.id.split("_")[0]+"_discussionTrigger")
+        //console.log(vD.i(this.id.split("_")[0]+"_discussionTrigger"))
+        //console.log(this.id);
+        vD.i(this.id.split("_")[0]+"_discussionTrigger").on_showbBox();
+        this.element.css({"background-color": "#BBBBBB", "color": "#000000"})
+        //vD.i()
+    },
+
+    on_mouseleave: function(event) {
+        console.log("this is leave");
+
+        if (this.newCommentInput!=null) {
+            if (this.newCommentInput.annotation_flag) {
+                return;
+            }
+        }
+
+        this.element.css({"background-color": "##777777", "color": "#ffffff"})
+        vD.i(this.id.split("_")[0]+"_discussionTrigger").on_hidebBox();
+    },
+
+    on_click: function(event) {
+
+    },
+
+    on_mouseenterComment: function(event) {
+        console.log("comment enter")
+        console.log(event.target.id);
+
+        var comment_id = event.target.id.split("_")[0]
+
+        this.drawAnnotation(comment_id)
+        // draw annotations
+        //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
+
+
+    },
+
+    drawAnnotation: function (comment_id, flag) {
+        console.log(comment_id)
+        var cData = vD.c(comment_id);
+        if (cData==null) return;
+        //console.log(cData);
+        if (cData.replyTo) this.drawAnnotation(cData.replyTo);
+        vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr, true);
+    },
+
+    on_mouseleaveComment: function(event) {
+        console.log("comment left")
+        console.log(event.target.id);
+
+        if (this.newCommentInput!=null) {
+            if (this.newCommentInput.annotation_flag) {
+                return;
+            }
+        }
+
+        vD.i(this.data.video_id).clearAnnotations();
+    },
+
+    on_clickComment: function(event) {
+        console.log("comment clicked")
+        console.log(event.target.id);
+    },
+
+    updateCommentThread: function(comment_id) {
+
+        var cData = vD.c(comment_id);
+        var replyToCData = vD.c(cData.replyTo)
+
+        this.commentListElements[cData.replyTo+"_commentRepliesArea"].empty();
+        this.commentListElements[cData.replyTo+"_commentAdditionalData"].empty();
+        this.commentListElements[cData.replyTo+"_commentAdditionalData"].append("Number of replies: "+replyToCData.comment_list.length);
+
+        for (var i=replyToCData.comment_list.length- 1; i>=0; i--) {
+            //console.log(this.commentListElements[cData.replyTo].css("margin-left"));
+            this.populateElement(i, this.commentListElements[cData.replyTo+"_commentRepliesArea"], replyToCData.comment_list[i],
+                parseInt(this.commentListElements[cData.replyTo].css("margin-left"))+15);
+        }
+
+    },
+
+    updateDiscussion: function(data) {
+        //var cData = vD.c(comment_id);
+        this.data = data;
+        this.element.empty();
+
+        for (var i in this.data.comment_list) {
+            this.populateElement(i, this.element, this.data.comment_list[i]);
+        }
+
+    },
+
+    addReply: function(last_commentID, element){
+        //console.log(data);
+        console.log(this.data.id)
+        this.newCommentData = {
+            "video_id": this.data.video_id,
+            "discussion_id": this.data.id.replace("_DiscussionOnVideo", "").replace("_discussionTrigger", ""),
+            "closeWindow": $.proxy(this.closeReplyComment, this),
+            "saveComment": $.proxy(this.saveComment, this),
+            replyTo: last_commentID
+        }
+
+        var parent = null;
+        if (last_commentID) {
+            parent =  element;
+        } else {
+            //parent = this.windowContent
+        }
+        if (this.newCommentInput!=null) this.newCommentInput.close();
+        this.newCommentInput = new commentBox(parent, this.newCommentData);
+
+    },
+
+    saveComment: function(data){
+
+        vD.c(data);
+        //console.log(data)
+        //console.log(data.discussion_id)
+        if (data.replyTo==null) {
+            var obj = vD.d(data.discussion_id.replace("_discussionTrigger",""))
+            obj.comment_list.push(data.id);
+            vD.d(obj);
+            // update elements
+            vD.i(data.discussion_id+"_discussionTrigger").updateData(obj);
+        } else {
+            var obj = vD.c(data.replyTo)
+            obj.comment_list.push(data.id);
+            console.log(obj);
+            vD.c(obj);
+            // please add comment to discussionArea
+            vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
+
+        }
+        this.closeReplyComment()
+        //this.closeWindow();
+    },
+
+    closeReplyComment: function() {
+        this.newCommentInput.close();
+        this.newCommentInput = null;
+        //vD.i(this.data.video_id).clearAnnotations();
+        vD.i(this.data.video_id).backToMode();
+    },
+
+    seeDiscussion: function(comment_id) {
+        var cData = vD.c(comment_id);
+        //var replyToCData = vD.c(cData.replyTo)
+
+        this.commentListElements[comment_id+"_commentRepliesArea"].empty();
+        this.commentListElements[comment_id+"_commentAdditionalData"].empty();
+        this.commentListElements[comment_id+"_commentAdditionalData"].append("Number of replies: "+cData.comment_list.length);
+
+        for (var i=cData.comment_list.length- 1; i>=0; i--) {
+            //console.log(this.commentListElements[cData.replyTo].css("margin-left"));
+            this.populateElement(i, this.commentListElements[comment_id+"_commentRepliesArea"], cData.comment_list[i],
+                parseInt(this.commentListElements[comment_id].css("margin-left"))+15);
+        }
     }
+
 
     //on_mouseenter
 
