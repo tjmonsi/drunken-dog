@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="" />
     <list default="true" id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/base_class.js" afterPath="$PROJECT_DIR$/js/main_viewer/base_class.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_box.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_box.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main_viewer/general.css" afterPath="$PROJECT_DIR$/css/main_viewer/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/interaction_element.js" afterPath="$PROJECT_DIR$/js/main_viewer/interaction_element.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" afterPath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
@@ -68,7 +62,7 @@
     <file path="/action_object.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376984728311" ignored="false" />
     <file path="/windowed_elements.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377172986313" ignored="false" />
     <file path="/comment_box.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377140965511" ignored="false" />
-    <file path="/comment_pt.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377174289819" ignored="false" />
+    <file path="/comment_pt.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377176355294" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +122,7 @@
           <file leaf-file-name="comment_pt.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="305" column="38" selection-start="10441" selection-end="10441" vertical-scroll-proportion="0.86153847">
+                <state line="637" column="8" selection-start="22286" selection-end="22286" vertical-scroll-proportion="1.3292308">
                   <folding>
                     <element signature="e#228#810#0" expanded="false" />
                     <element signature="e#843#1074#0" expanded="false" />
@@ -147,13 +141,13 @@
                     <element signature="e#15035#15541#0" expanded="false" />
                     <element signature="e#15591#16135#0" expanded="false" />
                     <element signature="e#16173#16555#0" expanded="false" />
+                    <element signature="e#16593#16937#0" expanded="false" />
                     <element signature="e#16970#16978#0" expanded="false" />
-                    <element signature="e#18005#18089#0" expanded="false" />
-                    <element signature="e#18138#18917#0" expanded="false" />
-                    <element signature="e#18957#19198#0" expanded="false" />
-                    <element signature="e#19248#19982#0" expanded="false" />
-                    <element signature="e#20016#20800#0" expanded="false" />
-                    <element signature="e#21064#21807#0" expanded="false" />
+                    <element signature="e#17458#17739#0" expanded="false" />
+                    <element signature="e#19245#20024#0" expanded="false" />
+                    <element signature="e#20064#20305#0" expanded="false" />
+                    <element signature="e#20355#21089#0" expanded="false" />
+                    <element signature="e#22335#23078#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -260,7 +254,7 @@
           <file leaf-file-name="video_player.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="965" column="31" selection-start="34317" selection-end="34317" vertical-scroll-proportion="0.9127907">
+                <state line="966" column="11" selection-start="34332" selection-end="34332" vertical-scroll-proportion="0.6511628">
                   <folding>
                     <element signature="e#2984#3414#0" expanded="false" />
                     <element signature="e#3497#4505#0" expanded="false" />
@@ -865,9 +859,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="47" selection-start="10300" selection-end="10392" vertical-scroll-proportion="-8.68">
+          <folding>
+            <element signature="e#0#159#0" expanded="false" />
+            <element signature="e#196#1868#0" expanded="false" />
+            <element signature="e#2037#3334#0" expanded="false" />
+            <element signature="e#4558#8123#0" expanded="false" />
+            <element signature="e#8872#8880#0" expanded="false" />
+            <element signature="e#8913#9444#0" expanded="false" />
+            <element signature="e#9478#10224#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="965" column="31" selection-start="34317" selection-end="34317" vertical-scroll-proportion="0.9127907">
+        <state line="966" column="11" selection-start="34332" selection-end="34332" vertical-scroll-proportion="0.6511628">
           <folding>
             <element signature="e#2984#3414#0" expanded="false" />
             <element signature="e#3497#4505#0" expanded="false" />
@@ -906,24 +915,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="47" selection-start="10300" selection-end="10392" vertical-scroll-proportion="-8.68">
-          <folding>
-            <element signature="e#0#159#0" expanded="false" />
-            <element signature="e#196#1868#0" expanded="false" />
-            <element signature="e#2037#3334#0" expanded="false" />
-            <element signature="e#4558#8123#0" expanded="false" />
-            <element signature="e#8872#8880#0" expanded="false" />
-            <element signature="e#8913#9444#0" expanded="false" />
-            <element signature="e#9478#10224#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="38" selection-start="10441" selection-end="10441" vertical-scroll-proportion="0.86153847">
+        <state line="637" column="8" selection-start="22286" selection-end="22286" vertical-scroll-proportion="1.3292308">
           <folding>
             <element signature="e#228#810#0" expanded="false" />
             <element signature="e#843#1074#0" expanded="false" />
@@ -942,13 +936,13 @@
             <element signature="e#15035#15541#0" expanded="false" />
             <element signature="e#15591#16135#0" expanded="false" />
             <element signature="e#16173#16555#0" expanded="false" />
+            <element signature="e#16593#16937#0" expanded="false" />
             <element signature="e#16970#16978#0" expanded="false" />
-            <element signature="e#18005#18089#0" expanded="false" />
-            <element signature="e#18138#18917#0" expanded="false" />
-            <element signature="e#18957#19198#0" expanded="false" />
-            <element signature="e#19248#19982#0" expanded="false" />
-            <element signature="e#20016#20800#0" expanded="false" />
-            <element signature="e#21064#21807#0" expanded="false" />
+            <element signature="e#17458#17739#0" expanded="false" />
+            <element signature="e#19245#20024#0" expanded="false" />
+            <element signature="e#20064#20305#0" expanded="false" />
+            <element signature="e#20355#21089#0" expanded="false" />
+            <element signature="e#22335#23078#0" expanded="false" />
           </folding>
         </state>
       </provider>

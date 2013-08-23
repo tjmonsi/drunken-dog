@@ -507,7 +507,7 @@ var discussionBoxArea = Class.extend({
         this.drawAnnotation(comment_id)
         // draw annotations
         //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
-
+        this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "#FFFFFF"});
 
     },
 
@@ -529,13 +529,27 @@ var discussionBoxArea = Class.extend({
                 return;
             }
         }
-
+        this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "transparent"});
         vD.i(this.data.video_id).clearAnnotations();
     },
 
     on_clickComment: function(event) {
         console.log("comment clicked")
-        console.log(event.target.id);
+        console.log(event.target.id.split("_")[0]);
+        console.log(vD.i(this.data.video_id).discussionArea.scrollTop());
+        var current_top = vD.i(this.data.video_id).discussionArea.scrollTop()
+        var comment_y = this.commentListElements[event.target.id.split("_")[0]].offset().top;
+        var disc_y = vD.i(this.data.video_id).discussionArea.offset().top;
+
+
+
+        console.log(comment_y);
+        console.log(disc_y);
+        console.log(comment_y-disc_y)
+        //console.log(this.commentListElements[event.target.id.split("_")[0]].position().top-210);
+        //var posy = this.commentListElements[event.target.id.split("_")[0]].position().top-210
+        //if (posy>10) vD.i(this.data.video_id).discussionArea.animate({"scrollTop" : this.commentListElements[event.target.id.split("_")[0]].position().top-200})
+        vD.i(this.data.video_id).discussionArea.animate({"scrollTop": comment_y-disc_y-210+current_top});
     },
 
     updateCommentThread: function(comment_id) {
@@ -615,8 +629,13 @@ var discussionBoxArea = Class.extend({
     closeReplyComment: function() {
         this.newCommentInput.close();
         this.newCommentInput = null;
+        //this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "transparent"});
         //vD.i(this.data.video_id).clearAnnotations();
         vD.i(this.data.video_id).backToMode();
+    },
+
+    allCommentsBackToTransparent: function() {
+
     },
 
     seeDiscussion: function(comment_id) {

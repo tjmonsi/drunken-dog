@@ -960,11 +960,11 @@ var videoPlayer = Class.extend({
         this.canvas.removeLayers();
         this.canvas.clearCanvas();
 
-        try {
+        /*try {
             throw new Error("clear")
         } catch (e) {
             console.log(e.stack)
-        }
+        }*/
 
     },
     endAnnotation: function(){
