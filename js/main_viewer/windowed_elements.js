@@ -129,10 +129,17 @@ var addNewDiscussion = windowedElement.extend({
             "video_id": this.data.video_id
         }
 
+        var discussion_trigger_bar = {
+            "id": this.newCommentData.discussion_id,
+            "video_id": this.data.video_id,
+            "begin": this.data.time,
+            "end": null
+        }
+
         vD.c(data);
         vD.d(discussion_data);
         vD.dt(this.data.video_id, discussion_trigger);
-
+        vD.i("mainTimeline").trigger_bars(discussion_trigger_bar, null, "#FF0000")
         // create both discussionthreads and discussionpts
         vD.i(new discussionPt(this.parent, discussion_data));
 

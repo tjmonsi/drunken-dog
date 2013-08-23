@@ -199,9 +199,11 @@ var mainTimeline = Class.extend({
         this.timeline_arr[t_index].arr = arr;
     },
 
-    trigger_bars: function(obj, flag) {
+    trigger_bars: function(obj, flag, color) {
 
         if (flag==null) flag="add";
+
+        if (color==null) color = "#00FF00"
 
         if (flag=="add") {
 
@@ -209,8 +211,8 @@ var mainTimeline = Class.extend({
             var t_index = this.scene_set[obj.video_id].t_index;
             var index = this.scene_set[obj.video_id].index;
 
-            console.log(obj);
-            console.log(this.scene_set[obj.video_id]);
+            //console.log(obj);
+            //console.log(this.scene_set[obj.video_id]);
 
             var arr = this.timeline_arr[t_index].arr;
             var new_obj = arr[index];
@@ -218,10 +220,13 @@ var mainTimeline = Class.extend({
             var vid_begin = vD.i(obj.video_id).data.begin;
             var vid_end = vD.i(obj.video_id).data.end;
 
+            //console.log(vid_begin);
+            //console.log(vid_end);
+
             var time_start = obj.begin-vid_begin;
             var time_end;
 
-            console.log(time_start);
+            //console.log(time_start);
 
             if (obj.end!=null) time_end = obj.end-vid_begin;
             else time_end = (obj.begin+0.15)-vid_begin;
@@ -230,18 +235,18 @@ var mainTimeline = Class.extend({
             // ;
             var strip_time = time_end - time_start;
 
-            console.log(strip_time);
+            //console.log(strip_time);
 
             var width = new_obj.element.width();
             var time_length = vid_end-vid_begin;
 
-            console.log(width);
-            console.log(time_length);
+            //console.log(width);
+            //console.log(time_length);
 
             var strip_width = (width * strip_time)/time_length;
             var posx = (width * time_start)/time_length;
 
-            console.log(posx);
+            //console.log(posx);
 
             //var tempx =
 
@@ -250,9 +255,9 @@ var mainTimeline = Class.extend({
             if (strip_width < 2) strip_width = 2;
 
             this.trigger_elements[obj.id+"_timeline_bar"] = saveElement(new_obj.element, "div", obj.id+"_timeline_bar", ["timeline_bar"]);
-            this.trigger_elements[obj.id+"_timeline_bar"].css({"width": strip_width, "z-index": 11000});
+            this.trigger_elements[obj.id+"_timeline_bar"].css({"width": strip_width, "z-index": 11000, "height": 15});
             this.trigger_elements[obj.id+"_timeline_bar"].css({"left": posx});
-            this.trigger_elements[obj.id+"_timeline_bar"].css({"background-color": "#00FF00"});
+            this.trigger_elements[obj.id+"_timeline_bar"].css({"background-color": color});
 
         } // other flags
 

@@ -508,8 +508,10 @@ var videoPlayer = Class.extend({
     right_click: function(event) {
         if (event.target.id==this.element.attr('id')) {
 
-            if (this.on_trigger_pause) this.last_mode = this.interactionElement.switchMode("trigger_pause");
-            else this.last_mode = this.interactionElement.switchMode("trigger_pause_2")
+            //if (this.on_trigger_pause) this.last_mode = this.interactionElement.switchMode("trigger_pause");
+            //else this.last_mode = this.interactionElement.switchMode("trigger_pause_2")
+            this.last_mode = this.interactionElement.switchMode("open_window")
+
             // RC from Play and Pause to MenuPause
             this.contextMenu.on_show(event.x, event.y);
 

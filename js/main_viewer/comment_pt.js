@@ -595,11 +595,30 @@ var discussionBoxArea = Class.extend({
         if (last_commentID) {
             parent =  element;
         } else {
+            parent = this.element;
             //parent = this.windowContent
         }
         if (this.newCommentInput!=null) this.newCommentInput.close();
         this.newCommentInput = new commentBox(parent, this.newCommentData);
 
+    },
+
+    newDiscussion: function() {
+        /*for (var i in this.commentListElements) {
+            if (this.commentListElements[i]!=null) {
+                if (this.commentListElements[i].close!=null) {
+                    this.commentListElements[i].close();
+                } else {
+                    this.commentListElements[i].empty()
+                    this.commentListElements[i].remove()
+                }
+                this.commentListElements[i] = null;
+            }
+        }*/
+
+        //this.commentListElements = {}
+
+        this.addReply(null);
     },
 
     saveComment: function(data){

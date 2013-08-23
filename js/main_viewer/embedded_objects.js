@@ -9,8 +9,8 @@
 var embeddedObject = Class.extend({
     init: function(parent, data) {
         this.parent = parent;
-        console.log(parent);
-        console.log(data);
+        //console.log(parent);
+        //console.log(data);
         this.data = data;
         this.id = data.id;
         this.fromAction = false;
@@ -24,7 +24,7 @@ var embeddedObject = Class.extend({
         this.css.left = this.data.x;
         this.css.top = this.data.y;
 
-        console.log(this.css);
+        //console.log(this.css);
 
         this.val = null;
         this.classes = [];
@@ -123,13 +123,25 @@ var embeddedInput = embeddedObject.extend({
 
     run: function() {
         this._super();
-        this.elementType = "input";
+
 
         if (this.data.object_data.sub_type=="input_box") {
+            this.elementType = "input";
             this.classes.push('video_form');
             this.attr['type']="text";
             this.attr['name']=this.id;
             this.attr['value']=this.data.object_data.value;
+        } else if (this.data.object_data.sub_type=="mcq") {
+            this.elementType = "div";
+            this.classes.push('mcq');
+            this.mcqval = [];
+            for (var i in this.data.object_data.value) {
+                this.mcqval[i] = {}
+                this.mcqval[i]['type'] = 'radio';
+                this.mcqval[i]['name'] = this.id;
+                this.mcqval[i]['value'] = this.data.object_data.value[i].val
+            }
+
         }
 
         this.hide = true;
@@ -138,9 +150,34 @@ var embeddedInput = embeddedObject.extend({
     },
 
     on_show: function() {
+        console.log(this.data)
         if (this.element!=null) return;
-        this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
-        if (this.val!=null) this.element.val(this.val);
+
+        if (this.data.object_data.sub_type=="input_box") {
+            this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
+            if (this.val!=null) this.element.val(this.val);
+        } else if (this.data.object_data.sub_type=="mcq") {
+            this.element = saveElement(this.parent, this.elementType, this.id, this.classes);
+            this.mcq_elements = {};
+            console.log("enter")
+            for (var i in this.data.object_data.value) {
+
+
+                this.mcq_elements[this.id+"_mcqval_"+this.data.object_data.value[i].val] = saveElement(this.element,
+                    "input",
+                    this.id+"_mcqval_"+this.data.object_data.value[i].val,
+                    ["mcq"],
+                    this.mcqval[i]
+                );
+                this.mcq_elements[this.id+"_mcqvalText_"+this.data.object_data.value[i].val] = saveElement(this.element,
+                    "span",
+                    this.id+"_mcqvalText_"+this.data.object_data.value[i].val,
+                    ["mcqtext"])
+                this.mcq_elements[this.id+"_mcqvalText_"+this.data.object_data.value[i].val].append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+this.data.object_data.value[i].text)
+                this.element.append(br());
+            }
+        }
+
         this.wrongPNG = saveElement(this.parent, "img", this.id+"_wrongPNG", ['wrongPNG', 'hide']);
         this.rightPNG = saveElement(this.parent, "img", this.id+"_rightPNG", ['rightPNG', 'hide']);
         this.wrongPNG.attr("src", "./images/wrong.png");
@@ -155,8 +192,22 @@ var embeddedInput = embeddedObject.extend({
     on_hide: function() {
         if (this.element==null) return
         //console.log(this.element)
+        if (this.mcq_elements != null) {
+            for (var i in this.mcq_elements) {
+                this.mcq_elements[i].empty();
+                this.mcq_elements[i].remove();
+
+            }
+
+            this.mcq_elements=null
+            this.mcqval = null;
+        }
+
         this.element.empty()
         this.element.remove();
+
+
+
         this.wrongPNG.empty()
         this.wrongPNG.remove();
         this.rightPNG.empty()
@@ -274,8 +325,8 @@ var embeddedSubmit = embeddedButton.extend({
 
                 var correct = obj.data.object_data.correct;
                 var input_type = obj.data.object_data.input_type;
-                var input_value = obj.element.val();
-                obj.element.prop('disabled', true);
+
+
 
                 if (correct == null) {
                     // add something if there's no real correct value
@@ -283,11 +334,25 @@ var embeddedSubmit = embeddedButton.extend({
                 }
 
                 if (input_type == "number") {
-
+                    var input_value = obj.element.val();
+                    obj.element.prop('disabled', true);
                     input_value = toFloat(toStringNum(input_value));
                     correct = toFloat(toStringNum(correct));
 
+                } else if (input_type == "mcq") {
+
+                    var val = $("input[type='radio'][name='"+obj.id+"']:checked")
+
+                    if (val.length>0) {
+                        input_value = val.val();
+                    }
+
+                    console.log(input_value)
+                    console.log(correct)
+                    //$('input[name='+obj.id+']:radio:checked')
+
                 }
+
 
                 if (input_value!=correct) {
                     correct_status = false;

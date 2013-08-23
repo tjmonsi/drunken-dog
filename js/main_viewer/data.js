@@ -25,7 +25,7 @@ var dataModel = Class.extend({
                 if (vars.file!=null) {
                     file = vars.file;
                 } else {
-                    file = "data/iv_sample2.json"
+                    file = "data/iv_sample3.json"
                 }
                 if (vars.debug2!=null) {
                     debug2 = vars.debug2
@@ -69,7 +69,11 @@ var dataModel = Class.extend({
         oRequest.setRequestHeader("Chrome",navigator.userAgent);
         oRequest.send(null)
 
-        if (oRequest.status==200) return oRequest.responseText;
+        if (oRequest.status==200) {
+            var text =  oRequest.responseText;
+            //console.log(text);
+            return text;
+        }
         else alert("Error executing XMLHttpRequest call!");
     },
 

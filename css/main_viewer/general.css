@@ -25,6 +25,14 @@ body, html {
     display: none !important;
 }
 
+/* input Elements for Assessments */
+.mcq {
+
+}
+.mcq input{
+    position: static;
+}
+
 /* window Elements */
 .windowClass {
     background-color: #777777;

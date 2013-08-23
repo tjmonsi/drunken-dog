@@ -1,14 +1,26 @@
 {
 	"name":"iv_sample2.json",
 	"id": "iv_sample2",
-	"start_scene": "video00002",
+	"start_scene": "video00011",
 	"data": {
 		"scene_objects":[
+            {
+                "id": "video00011",
+                "name": "video00011",
+                "type": "scene",
+                "prev": null,
+                "next": "video00002",
+                "begin": 72,
+                "end": 124.7,
+                "object_data":{
+                    "id":"YpvE0Co66nU"
+                }
+            },
             {
                 "id": "video00002",
                 "name": "video00002",
                 "type": "scene",
-                "prev": null,
+                "prev": "video00011",
                 "next": "video00003",
                 "begin": 14,
                 "end": 183,
@@ -87,10 +99,10 @@
             {
                 "id": "mc00000001",
                 "type": "input",
-                "begin": 178,
+                "begin": "inherit",
                 "end": null,
-                "x": 0,
-                "y": 0,
+                "x": 169,
+                "y": 335,
                 "scene_id": "inherit",
                 "pause": "inherit",
                 "show": "inherit",
@@ -108,9 +120,9 @@
                     "input_type": "mcq",
                     "data_collection": null,
                     "font_size": 20,
-                    "width": 60,
-                    "color": "#000000",
-                    "background_color": "#FFFFFF",
+                    "width": 300,
+                    "color": "#FFFFFF",
+                    "background_color": "transparent",
                     "draggable": false,
                     "on_element": true
                 }
@@ -231,8 +243,8 @@
                     "value_correct": "Continue",
                     "right_2": ["rightmcq01"],
                     "right_1": [],
-                    "wrong_1": ["wrongmcq01"],
-                    "wrong_2": ["wrongmcq02"],
+                    "wrong_1": [],
+                    "wrong_2": [],
                     "draggable": false,
                     "on_element": true
                 }
@@ -376,6 +388,19 @@
             {
                 "id": "right00001",
                 "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00002",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "rightmcq01",
+                "name": "This is right 2",
                 "play": "current",
                 "pause": false,
                 "scene_id": "video00002",
