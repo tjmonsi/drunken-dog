@@ -33,6 +33,11 @@ var dataModel = Class.extend({
                 if (vars.debug!=null) {
                     debug = vars.debug
                 }
+                if (vars.user!=null) {
+                    this.user = user
+                } else {
+                    this.user = "user_"+makeID(3);
+                }
             } else {
                 throw new Error("Something is wrong with vars file")
             }
@@ -600,7 +605,23 @@ var dataModel = Class.extend({
 
     dt: function(video, val, del, val2){
         return this.discussion_triggers(video,val,del,val2)
+    },
+
+    saveData: function() {
+        var comments = this.comment_set;
+        var annotations = this.annotation_set;
+        var discussions = this.discussion_set;
+
+        var data = JSON.stringify({"comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
+        console.log(data)
+        var res = $.post('savefile.php', {"data": data, "file": this.user+".comments.json"});
+
+        res.done(function(d) {
+            console.log(d)
+        })
+    },
+
+    saveLog: function () {
+
     }
-
-
 });

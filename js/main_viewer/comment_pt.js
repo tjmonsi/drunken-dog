@@ -641,6 +641,8 @@ var discussionBoxArea = Class.extend({
             vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
 
         }
+
+        vD.saveData();
         this.closeReplyComment()
         //this.closeWindow();
     },

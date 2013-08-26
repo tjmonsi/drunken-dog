@@ -2,7 +2,7 @@
 $filename = 'data/'.$_POST['file'];
 
 $handle = fopen($filename, 'w') or die('Cannot open file:  '.$my_file);
-$fclose($filename);
+fclose($filename);
 //$filename = 'test.txt';
 $somecontent = $_POST["data"];
 

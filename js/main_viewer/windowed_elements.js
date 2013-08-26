@@ -143,7 +143,7 @@ var addNewDiscussion = windowedElement.extend({
         // create both discussionthreads and discussionpts
         vD.i(new discussionPt(this.parent, discussion_data));
 
-
+        vD.saveData();
         this.closeWindow();
     }
 
@@ -302,7 +302,7 @@ var discussionOnVideo = windowedElement.extend({
             vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
 
         }
-
+        vD.saveData();
         this.closeWindow();
     },
 
