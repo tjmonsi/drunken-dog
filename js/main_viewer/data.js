@@ -20,13 +20,16 @@ var dataModel = Class.extend({
         try {
             var vars = this.getURLVars();
             var file = "";
+            var filename = ""
 
             if (vars!=null) {
                 if (vars.file!=null) {
-                    file = "data/"+vars.file+".json";
+                    filename = vars.file;
                 } else {
-                    file = "data/myosin_actin1.json"
+                    filename = "myosin_actin1"
                 }
+                file = "data/"+filename+".json"
+
                 if (vars.debug2!=null) {
                     debug2 = vars.debug2
                 }
@@ -38,7 +41,7 @@ var dataModel = Class.extend({
                     var source_file = "data/"+vars.source_comments+".comments.json"
                     if (vars.user==null) vars.user = vars.source_comments
                 } else {
-                    var source_file = "data/source_comments_myosin_actin1.comments.json"
+                    var source_file = "data/source_comments_"+filename+".comments.json"
                     //if (vars.user==null) vars.user = "source_comments_"+vars.file
                 }
 
