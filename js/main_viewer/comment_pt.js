@@ -23,7 +23,10 @@ var discussionPt = Class.extend({
         this.discussionBoxArea = new discussionBoxArea(vD.i(this.data.video_id).discussionAreaBeforeSpace, this.data);
         vD.i(this.discussionBoxArea);
 
-        this.on_show();
+        //if ((vD.i(this.data.video_id).currentTime-3<=this.data.time) && (vD.i(this.data.video_id).currentTime+3>=this.data.time)) {
+
+            this.on_show();
+        //}
     },
 
     updateData: function(data){
@@ -75,7 +78,11 @@ var discussionPt = Class.extend({
         this.element.append(this.data.comment_list.length);
 
         //this.element.
+
         this.discussionBoxArea.on_show();
+
+
+
 
     },
 
@@ -382,9 +389,11 @@ var discussionBoxArea = Class.extend({
         var comment = cData.comment;
         if ($.trim(comment)=="") comment = "&nbsp;";
 
-        commentEl.append(cData.commenter+" says:<br/>"+comment+"<hr/>");
+        commentEl.append(cData.commenter+" says:<br/><br/><br/>"+comment+"<br/><br/><hr/>");
         commentUser.append("Date made: "+cData.timeStamp.toString());
         commentAdditionalData.append("Number of replies: "+cData.comment_list.length);
+
+        if (vD.user == cData.commenter) this.commentListElements[id].css({"background-color": "#009900"});
 
         this.commentListElements[id+"_oldCommentButtonArea"] = saveElement(
             this.commentListElements[id],
@@ -477,7 +486,7 @@ var discussionBoxArea = Class.extend({
         //console.log(vD.i(this.id.split("_")[0]+"_discussionTrigger"))
         //console.log(this.id);
         vD.i(this.id.split("_")[0]+"_discussionTrigger").on_showbBox();
-        this.element.css({"background-color": "#BBBBBB", "color": "#000000"})
+        this.element.css({"background-color": "#999999", "color": "#000000"})
         //vD.i()
     },
 
@@ -495,7 +504,7 @@ var discussionBoxArea = Class.extend({
     },
 
     on_click: function(event) {
-
+        //console.log(obj)
     },
 
     on_mouseenterComment: function(event) {
@@ -507,6 +516,8 @@ var discussionBoxArea = Class.extend({
         this.drawAnnotation(comment_id)
         // draw annotations
         //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
+        //this.commentListElements[event.target.id.split("_")[0]].data({"bground": this.commentListElements[event.target.id.split("_")[0]].css("background-color")}) ;
+        //console.log(this.commentListElements[event.target.id.split("_")[0]].css("background-color"));
         this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "#FFFFFF"});
 
     },
@@ -529,11 +540,16 @@ var discussionBoxArea = Class.extend({
                 return;
             }
         }
-        this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "transparent"});
+        var cData = vD.c(event.target.id.split("_")[0]);
+        var color = "transparent";
+
+        if (cData.commenter == vD.user) color = "#009900";
+
+        this.commentListElements[event.target.id.split("_")[0]].css({"background-color": color});
         vD.i(this.data.video_id).clearAnnotations();
     },
 
-    on_clickComment: function(event) {
+    on_clickComment: function( event) {
         console.log("comment clicked")
         console.log(event.target.id.split("_")[0]);
         console.log(vD.i(this.data.video_id).discussionArea.scrollTop());
@@ -541,7 +557,9 @@ var discussionBoxArea = Class.extend({
         var comment_y = this.commentListElements[event.target.id.split("_")[0]].offset().top;
         var disc_y = vD.i(this.data.video_id).discussionArea.offset().top;
 
-
+        var cData = vD.c(event.target.id.split("_")[0]);
+        var dData = vD.d(cData.discussion_id);
+        vD.i(dData.video_id).seek(dData.time, true);
 
         console.log(comment_y);
         console.log(disc_y);
@@ -669,9 +687,20 @@ var discussionBoxArea = Class.extend({
 
         for (var i=cData.comment_list.length- 1; i>=0; i--) {
             //console.log(this.commentListElements[cData.replyTo].css("margin-left"));
-            this.populateElement(i, this.commentListElements[comment_id+"_commentRepliesArea"], cData.comment_list[i],
+            this.populateElement(i,
+                this.commentListElements[comment_id+"_commentRepliesArea"], cData.comment_list[i],
                 parseInt(this.commentListElements[comment_id].css("margin-left"))+15);
         }
+
+        this.commentListElements[comment_id+"_seeDiscussion"].update_label("Close Discussion");
+        this.commentListElements[comment_id+"_seeDiscussion"].update_proxy($.proxy(this.closeDiscussion, this, comment_id));
+    },
+
+    closeDiscussion: function(comment_id) {
+        var cData = vD.c(comment_id);
+        this.commentListElements[comment_id+"_commentRepliesArea"].empty();
+        this.commentListElements[comment_id+"_seeDiscussion"].update_label("See Discussion");
+        this.commentListElements[comment_id+"_seeDiscussion"].update_proxy($.proxy(this.seeDiscussion, this, comment_id, this.data.id));
     }
 
 

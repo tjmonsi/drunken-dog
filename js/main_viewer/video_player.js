@@ -98,6 +98,8 @@ var videoPlayer = Class.extend({
         // on_show discussion pts
         this.discussion_pts = {};
 
+        this.visible_objects = {};
+
         this.run();
     },
 
@@ -121,6 +123,7 @@ var videoPlayer = Class.extend({
             this.timeline.timelength = this.data.end - this.data.begin;
             this.interval_set['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
             this.interval_set['check_trigger'] = setInterval($.proxy(this.checktrigger, this), 250);
+            this.interval_set['update_timer'] = setInterval($.proxy(this.updateTimer, this), 250);
             this.last_mode = this.interactionElement.switchMode("normal")
             // DT (Cancel) from MenuPause, CommentPause, DrawPause
             this.closeAddNewComment();
@@ -139,6 +142,9 @@ var videoPlayer = Class.extend({
         if (event=='5') {
             this.loaded = true;
             this.timeline.timelength = this.data.end-this.data.begin;
+            //this.checktrigger();
+            this.updateTimer();
+            this.checkposition();
         }
     },
 
@@ -186,6 +192,9 @@ var videoPlayer = Class.extend({
         } else {
             this.player.playVideo();
         }
+        //this.checktrigger();
+        this.updateTimer();
+        this.checkposition();
     },
     seekBegin: function(pauseflag) {
         this.seek(this.data.begin, pauseflag);
@@ -285,8 +294,9 @@ var videoPlayer = Class.extend({
                     } else if (obj.type_trig=="end") {
                         //console.log("3:"+obj.id);
                         vD.i(obj.id).on_hide();
+                        //console.log(obj);
                         //this.play();
-                        obj.triggered=true;
+                        //obj.triggered=true;
                     }
                     vD.triggers(this.id, obj);
                 }
@@ -317,17 +327,49 @@ var videoPlayer = Class.extend({
             if (this.discussion_pts[k]==null) continue;
             if ((time<this.discussion_pts[k].time-comment_time) || (time>this.discussion_pts[k].time+comment_time+1)) {
                 vD.i(this.discussion_pts[k].id+"_discussionTrigger").on_hide();
+
+                for (var i in this.visible_objects) {
+                    if (this.visible_objects[i]!=null)
+                    if (this.visible_objects[i].discussion_id == this.discussion_pts[k].id) {
+                        this.removeEmbeddedDrawing(i);
+                    }
+                }
                 //console.log("killed "+k);
                 this.discussion_pts[k]=null;
             }
         }
 
     },
+    updateTimer: function() {
+        this.visualTimer.empty();
+        var timer = this.player.getCurrentTime();
+        var begin = this.data.begin;
+        var truetime = timer-begin;
+
+        var min = parseInt(truetime/60);
+        var sec = truetime%60;
+        var millisec = (sec/100)*100
+
+        var sec_string = sec.toString();
+        var millisec = sec_string.split(".")[1].substring(0,2)
+
+        //millisec = millisec.toString();
+
+        if (sec < 10) {
+            sec_string = "0"+sec_string
+        }
+
+        var text = min+":"+sec_string.split(".")[0]+"."+millisec;
+
+        text = text+" = "+timer.toString();
+        this.visualTimer.append(text);
+    },
 
     // create element areas
     createEssentials: function() {
         this.createPlayer();
         this.createTimeline();
+        this.createTimer();
         this.createCanvas();
         this.createLayerObjects();
         this.createDiscussionArea();
@@ -376,6 +418,10 @@ var videoPlayer = Class.extend({
         } catch(e) {
             this.generalError(e);
         }
+    },
+    createTimer: function() {
+        this.visualTimer = saveElement(this.playerContainer, "div", this.id+"_visualTimer", ["visualTimer"]);
+        this.visualTimer.css({"top": this.height-17, "left": this.width-56})
     },
     createCanvas: function() {
 
@@ -618,6 +664,7 @@ var videoPlayer = Class.extend({
                             "pad": "pad20",
                             "bBox": bBox
                         }
+                        console.log(bBox);
                         this.windowAddNewComment = new addNewDiscussion(this.element, data);
                         // LCLD from Play/Pause (Normal) to CommentPause
                         this.last_mode = this.interactionElement.switchMode("addNewComment")
@@ -744,6 +791,7 @@ var videoPlayer = Class.extend({
                     "pad": "pad20",
                     "bBox": bBox
                 }
+                console.log(bBox);
                 this.windowAddNewComment = new addNewDiscussion(this.element, data);
                 // LCLD from CommentPause to CommentPause
                 this.last_mode = this.interactionElement.switchMode("addNewComment")
@@ -899,6 +947,7 @@ var videoPlayer = Class.extend({
 
     startAnnotation: function(data){
         this.annotation_id = data.id;
+        this.discussion_id = data.discussion_id;
         // StartDraw from CommentPause to DrawPause
         this.last_mode = this.interactionElement.switchMode("draw")
 
@@ -913,15 +962,18 @@ var videoPlayer = Class.extend({
             type: "line",
             strokeStyle: "#585",
             name: drawing_id,
-            strokeWidth: 6,
+            layer: "true",
+            strokeWidth: 3,
             rounded: true,
             visible: true,
             "x1": event.x, "y1": event.y,
             "data": {
                 "video_id": this.data.id,
-                "comment_id": this.annotation_id
+                "comment_id": this.annotation_id,
+                "discussion_id":this.discussion_id
             }
         }
+        //this.canvas.addLayerToGroup(drawing_id, "commentAnnotation");
         this.drawing_pts = [{"x": event.x, "y": event.y}];
         for (var i=1; i<this.drawing_pts.length ; i++) {
             var val = i+1;
@@ -946,7 +998,7 @@ var videoPlayer = Class.extend({
     },
     on_drawStop: function(event) {
         if (this.drawingObject!=null) {
-
+            console.log(JSON.stringify(this.drawingObject))
             vD.a(this.drawingObject);
             vD.i(this.annotation_id).saveAnnotation(this.drawingObject.name);
         }
@@ -955,12 +1007,38 @@ var videoPlayer = Class.extend({
         if (!flag) this.clearAnnotations();
         for (var i in array) {
             var obj = vD.a(array[i]);
+            obj.layer = true;
+            var newobj = {
+                "id": obj.name,
+                "discussion_id": obj.data.discussion_id,
+                "type": "annotation"
+            }
+            console.log(newobj)
+            this.visible_objects[newobj.id]=newobj;
             this.canvas.addLayer(obj).drawLayers();
+            console.log(obj)
+            //this.canvas.addLayerToGroup(obj.name, "commentAnnotation")
         }
     },
     clearAnnotations: function() {
-        this.canvas.removeLayers();
-        this.canvas.clearCanvas();
+        //this.canvas.removeLayers();
+        //this.canvas.clearCanvas();
+        //console.log("clearing");
+        //console.log(this.visible_objects)
+        //console.log(this.canvas.getLayers())
+        for (var i in this.visible_objects) {
+            if (this.visible_objects[i]!=null)
+            if (this.visible_objects[i].type=="annotation") {
+                this.canvas.removeLayer(this.visible_objects[i].id).drawLayers();
+                this.visible_objects[i]=null;
+
+            }
+
+
+        }
+
+
+        //this.canvas.clearCanvas();
 
         /*try {
             throw new Error("clear")
@@ -969,10 +1047,19 @@ var videoPlayer = Class.extend({
         }*/
 
     },
+    addEmbeddedDrawing: function(layer) {
+        this.canvas.addLayer(layer).drawLayers();
+    },
+    removeEmbeddedDrawing: function(layerID) {
+        this.canvas.removeLayer(layerID).drawLayers();
+
+    },
     endAnnotation: function(){
         // DoneDraw from DrawPause to lastMode
         this.interactionElement.switchMode(this.last_mode);
         this.canvas.data({"visible_flag": false});
+        this.annotation_id = null
+        this.discussion_id = null
     },
 
     setPlayer: function() {

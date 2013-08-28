@@ -24,6 +24,25 @@ body, html {
 .hide {
     display: none !important;
 }
+.visualTimer {
+    position: absolute;
+    background-color: #666666;
+    color: white;
+    text-align: left;
+    font-size: 12px;
+    height: 15px;
+    width: 50px;
+    padding-top: 2px;
+    padding-left: 5px;
+}
+/* general links */
+a {
+    color: orange;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
 
 /* input Elements for Assessments */
 .mcq {

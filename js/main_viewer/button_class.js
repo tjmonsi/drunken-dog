@@ -41,6 +41,10 @@ var buttonClass = Class.extend({
         this.element.append(this.label);
     },
 
+    update_proxy: function(proxy) {
+        this.callback = proxy;
+    },
+
     update_color: function(color) {
         this.element.removeClass(this.color);
         this.color = color;

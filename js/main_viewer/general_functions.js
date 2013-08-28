@@ -10,6 +10,15 @@ function updateSize(){
     //UI.asset_bar.asset_bar_list_resize();
 }
 
+function replaceURLs(string) {
+    return string.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&~\?\/.=]+/g,
+        function(url) {
+            return "<a target=\"_blank\" href=\""+url+"\">"+url+"</a>";
+            //var a = createElement("a", "", [], {"href": url, "target":"_blank"});
+            //a.appendChild(url);
+    });
+}
+
 // capFirst = capitalize first letter of string
 function capFirst(string)
 {

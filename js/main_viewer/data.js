@@ -23,7 +23,7 @@ var dataModel = Class.extend({
 
             if (vars!=null) {
                 if (vars.file!=null) {
-                    file = vars.file;
+                    file = "data/"+vars.file+".json";
                 } else {
                     file = "data/iv_sample3.json"
                 }
@@ -33,17 +33,53 @@ var dataModel = Class.extend({
                 if (vars.debug!=null) {
                     debug = vars.debug
                 }
+
+                if (vars.source_comments!=null) {
+                    var source_file = "data/"+vars.source_comments+".comments.json"
+                    if (vars.user==null) vars.user = vars.source_comments
+                } else {
+                    var source_file = null
+                    if (vars.user==null) vars.user = "source_comments_"+vars.file
+                }
+
+
                 if (vars.user!=null) {
-                    this.user = user
+                    this.user = vars.user
                 } else {
                     this.user = "user_"+makeID(3);
                 }
+
+
+
+
             } else {
                 throw new Error("Something is wrong with vars file")
             }
 
+
             this.data = $.parseJSON(this.loadFile(file));
             // ADD LOAD OF COMMENTS HERE
+
+            if (source_file!=null) {
+
+                try {
+                    var scd = $.parseJSON(this.loadFile(source_file))
+                } catch (e) {
+                    console.error(e.stack);
+                    scd = null;
+                }
+                if (scd!=null) {
+                    this.comment_set = scd.comment_set;
+                    this.discussion_set = scd.discussion_set;
+                    this.annotation_set = scd.annotation_set;
+                }
+                if (this.comment_set==null) this.comment_set = {}
+                if (this.discussion_set==null) this.discussion_set = {}
+                if (this.annotation_set==null) this.annotation_set = {}
+
+            }
+
+
 
             log("Loaded all data", 1);
             //log(this.data, 2);
@@ -52,6 +88,27 @@ var dataModel = Class.extend({
             console.error(e.stack);
             log(e.stack.toString());
         }
+    },
+
+    createComments: function(dData) {
+
+        var discussion_trigger = {
+            "time": dData.time,
+            "id": dData.id,
+            "video_id": dData.video_id
+        }
+
+        var discussion_trigger_bar = {
+            "id": dData.id,
+            "video_id": dData.video_id,
+            "begin": dData.time,
+            "end": null
+        }
+
+        this.dt(dData.video_id, discussion_trigger);
+        this.i("mainTimeline").trigger_bars(discussion_trigger_bar, null, "#FF0000")
+        // create both discussionthreads and discussionpts
+        this.i(new discussionPt(this.i(dData.video_id).element, dData));
     },
 
     getURLVars: function() {
@@ -175,6 +232,15 @@ var dataModel = Class.extend({
                 }
 
                 if (obj.retrig) {
+                    if (obj.type_trig=="end") {
+                        var begin = vD.i(obj.id).data.begin;
+                        if (time>begin) {
+                            //arr_set.push(this.trigger_set[video][begin.toString()])
+                            var newobj = this.trigger_set[video][begin.toString()][obj.id];
+                            newobj.triggered = false;
+                            this.triggers(video, newobj);
+                        }
+                    }
                     obj.triggered=false;
                     this.triggers(video, obj);
                     //if (obj.id=="textlabel2") console.log(vD.trigger_set[video]);

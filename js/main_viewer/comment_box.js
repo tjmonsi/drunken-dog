@@ -24,7 +24,7 @@ var commentBox = Class.extend({
 
         this.defaultvalue = {};
         this.defaultvalue.comment = "please put your comment here"
-        this.defaultvalue.commenter = "username"
+        this.defaultvalue.commenter = vD.user;
 
         vD.i(this);
         this.run();
@@ -101,7 +101,7 @@ var commentBox = Class.extend({
         var data = {
             "id": this.id,
             "discussion_id": this.data.discussion_id,
-            "comment": this.commentBox.val(),
+            "comment": replaceURLs(this.commentBox.val()),
             "commenter": this.commenter.val(),
             "timeStamp": new Date(),
             "annotation_arr": this.annotation_arr,
@@ -125,10 +125,11 @@ var commentBox = Class.extend({
         if (this.annotation_flag) {
             this.drawButton.update_color("black");
             this.annotation_flag = false;
-            vD.i(this.data.video_id).endAnnotation(data);
+            vD.i(this.data.video_id).endAnnotation();
         } else {
             var data = {
-                "id": this.id
+                "id": this.id,
+                "discussion_id": this.data.discussion_id
             }
             vD.i(this.data.video_id).startAnnotation(data);
             this.drawButton.update_color("white");

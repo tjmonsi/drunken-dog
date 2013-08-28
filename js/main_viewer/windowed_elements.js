@@ -219,13 +219,14 @@ var discussionOnVideo = windowedElement.extend({
                 $.proxy(this.addReply, this, this.data.comment_list[i])
             )
 
-
-            this.commentListElements[this.data.comment_list[i]+"_seeDiscussion"] = new buttonClass(
-                oldCommentButtonArea,
-                "See Discussion",
-                this.data.comment_list[i]+"_seeDiscussion",
-                $.proxy(this.seeDiscussion, this, this.data.comment_list[i], this.data.id)
-            )
+            if (cData.comment_list.length>0) {
+                this.commentListElements[this.data.comment_list[i]+"_seeDiscussion"] = new buttonClass(
+                    oldCommentButtonArea,
+                    "See Discussion",
+                    this.data.comment_list[i]+"_seeDiscussion",
+                    $.proxy(this.seeDiscussion, this, this.data.comment_list[i], this.data.id)
+                )
+            }
 
             if (i==0) {
                 this.commentListElements[this.data.comment_list[i]+"_newDiscussion"] = new buttonClass(
@@ -261,7 +262,9 @@ var discussionOnVideo = windowedElement.extend({
     },
 
     seeDiscussion: function(commentID, discussionID) {
-
+        var cData = vD.c(commentID);
+        console.log(discussionID)
+        vD.i(discussionID.split("_")[0]+"_discussionArea").seeDiscussion(commentID);
     },
 
     newDiscussion: function() {

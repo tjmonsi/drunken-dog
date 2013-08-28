@@ -36,6 +36,7 @@ var embeddedObject = Class.extend({
 
         if (this.data.object_data.font_size!=null) this.css["font-size"] = this.data.object_data.font_size;
         if (this.data.object_data.width!=null) this.css.width = this.data.object_data.width;
+        if (this.data.object_data.height!=null) this.css.height = this.data.object_data.height;
         if (this.data.object_data.color!=null) this.css.color = this.data.object_data.color;
         if (this.data.object_data.background_color!=null) this.css['background-color'] = this.data.object_data.background_color;
 
@@ -200,7 +201,7 @@ var embeddedInput = embeddedObject.extend({
             }
 
             this.mcq_elements=null
-            this.mcqval = null;
+            //this.mcqval = null;
         }
 
         this.element.empty()
@@ -218,6 +219,25 @@ var embeddedInput = embeddedObject.extend({
     }
 })
 
+var embeddedCanvas = embeddedObject.extend({
+    init: function(parent, data) {
+        this._super(parent, data);
+        this.run();
+    },
+
+    run: function() {
+        this._super();
+    },
+
+    on_show: function() {
+        console.log("hello i am here");
+        vD.i(this.data.scene_id).addEmbeddedDrawing(this.data.object_data.layer);
+    },
+    on_hide: function() {
+        vD.i(this.data.scene_id).removeEmbeddedDrawing(this.data.object_data.layer.name);
+    }
+})
+
 var embeddedText_label = embeddedObject.extend({
     init: function(parent, data){
         this._super(parent, data);
@@ -229,6 +249,7 @@ var embeddedText_label = embeddedObject.extend({
         this.elementType = "div";
         this.classes.push('text_label');
         this.val = this.data.object_data.value;
+        this.val = replaceURLs(this.val);
         this.hide = true;
 
         if (!this.hide) this.on_show();
@@ -273,12 +294,14 @@ var embeddedButton = embeddedObject.extend({
     },
 
     on_show: function() {
-        this.button = new buttonClass(this.parent, this.data.object_data.value, this.id+this.added_id, $.proxy(this.callback, this))
-        this.element = this.button.element;
-        for (var class_i in this.classes) {
-            this.element.addClass(this.classes[class_i])
+        if (this.button==null) {
+            this.button = new buttonClass(this.parent, this.data.object_data.value, this.id+this.added_id, $.proxy(this.callback, this))
+            this.element = this.button.element;
+            for (var class_i in this.classes) {
+                this.element.addClass(this.classes[class_i])
+            }
+            this.element.css(this.css);
         }
-        this.element.css(this.css);
     },
 
     on_hide: function() {
@@ -337,7 +360,15 @@ var embeddedSubmit = embeddedButton.extend({
                     var input_value = obj.element.val();
                     obj.element.prop('disabled', true);
                     input_value = toFloat(toStringNum(input_value));
-                    correct = toFloat(toStringNum(correct));
+
+                    if ($.isArray(correct)) {
+                        for (var index in correct) {
+                            correct[index] = toFloat(toStringNum(correct[index]));
+                        }
+                    } else {
+                        correct = toFloat(toStringNum(correct));
+                    }
+
 
                 } else if (input_type == "mcq") {
 
@@ -347,33 +378,69 @@ var embeddedSubmit = embeddedButton.extend({
                         input_value = val.val();
                     }
 
-                    console.log(input_value)
-                    console.log(correct)
+                    //console.log(input_value)
+                    //console.log(correct)
                     //$('input[name='+obj.id+']:radio:checked')
 
+                } else if (input_type == "text") {
+                    var input_value = obj.element.val().toLowerCase();
+
+                    if ($.isArray(correct)) {
+                        for (var index in correct) {
+                            correct[index] = correct[index].toLowerCase();
+                        }
+                    } else {
+                        correct = correct.toLowerCase();
+                    }
+
                 }
 
+                if ($.isArray(correct)) {
+                    for (var index2 = 0; index2<correct.length; index2++) {
+                        //correct[index] = toFloat(toStringNum(correct[index]));
+                        var arraycorrect = false
+                        if (input_value==correct[index2]) {
+                            obj.rightPNG.removeClass('hide');
 
-                if (input_value!=correct) {
-                    correct_status = false;
-                    //console.log(obj);
-                    obj.wrongPNG.removeClass('hide');
-                    for (var key in this.data.object_data.wrong_1) {
-                        vD.i(this.data.object_data.wrong_1[key]).trigger();
+                            arraycorrect = true
+                            break;
+                        }
+                        if (!arraycorrect) {
+                            correct_status = false;
+                            //console.log(obj);
+                            obj.wrongPNG.removeClass('hide');
+
+                        }
+
                     }
+
                 } else {
-                    obj.rightPNG.removeClass('hide');
-                    for (var key in this.data.object_data.right_1) {
-                        vD.i(this.data.object_data.right_1[key]).trigger();
+                    if (input_value!=correct) {
+                        correct_status = false;
+                        //console.log(obj);
+                        obj.wrongPNG.removeClass('hide');
+
+                    } else {
+                        obj.rightPNG.removeClass('hide');
+
                     }
                 }
+
+
             }
 
             if (correct_status) {
+                for (var key in this.data.object_data.right_1) {
+                    vD.i(this.data.object_data.right_1[key]).trigger();
+                }
                 this.element.empty();
                 this.element.append(this.data.object_data.value_correct);
                 this.submit_status = 2;
             } else {
+                for (var key in this.data.object_data.wrong_1) {
+                    vD.i(this.data.object_data.wrong_1[key]).trigger();
+                }
+
                 this.element.empty();
                 this.element.append(this.data.object_data.value_wrong);
                 this.submit_status = 3;
