@@ -25,7 +25,7 @@ var dataModel = Class.extend({
                 if (vars.file!=null) {
                     file = "data/"+vars.file+".json";
                 } else {
-                    file = "data/iv_sample3.json"
+                    file = "data/myosin_actin1.json"
                 }
                 if (vars.debug2!=null) {
                     debug2 = vars.debug2
@@ -38,8 +38,8 @@ var dataModel = Class.extend({
                     var source_file = "data/"+vars.source_comments+".comments.json"
                     if (vars.user==null) vars.user = vars.source_comments
                 } else {
-                    var source_file = null
-                    if (vars.user==null) vars.user = "source_comments_"+vars.file
+                    var source_file = "data/source_comments_myosin_actin1.comments.json"
+                    //if (vars.user==null) vars.user = "source_comments_"+vars.file
                 }
 
 

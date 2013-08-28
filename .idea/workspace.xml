@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list id="4699f935-03e8-4d98-8175-49f3fa5f1909" name="Default" comment="" />
     <list default="true" id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/myosin_actin1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/button_class.js" afterPath="$PROJECT_DIR$/js/main_viewer/button_class.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_box.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/data.js" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" afterPath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main_viewer/general.css" afterPath="$PROJECT_DIR$/css/main_viewer/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/general_functions.js" afterPath="$PROJECT_DIR$/js/main_viewer/general_functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/iv_sample5.json" afterPath="$PROJECT_DIR$/data/iv_sample5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/ui.js" afterPath="$PROJECT_DIR$/js/main_viewer/ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" afterPath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
@@ -62,7 +50,7 @@
     <file path="/general_functions.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376751261103" ignored="false" />
     <file path="/base_class.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376747975963" ignored="false" />
     <file path="/console.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376815424489" ignored="false" />
-    <file path="/data.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377679740864" ignored="false" />
+    <file path="/data.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377706074912" ignored="false" />
     <file path="/test_mouse_movement.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376787432383" ignored="false" />
     <file path="/base_class.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377155061887" ignored="false" />
     <file path="/inheritance.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376794452509" ignored="false" />
@@ -106,26 +94,26 @@
                     </provider>
                   </entry>
                 </file>
-                <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+                <file leaf-file-name="data.js" pinned="false" current="true" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state line="240" column="57" selection-start="7348" selection-end="7348" vertical-scroll-proportion="0.0">
+                      <state line="41" column="22" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.6041667">
                         <folding>
-                          <element signature="e#8789#9803#0" expanded="false" />
-                          <element signature="e#12081#13467#0" expanded="false" />
-                          <element signature="e#13580#14985#0" expanded="false" />
-                          <element signature="e#15101#16352#0" expanded="false" />
-                          <element signature="e#16490#21394#0" expanded="false" />
-                          <element signature="e#21531#21988#0" expanded="false" />
+                          <element signature="e#8840#9854#0" expanded="false" />
+                          <element signature="e#12132#13518#0" expanded="false" />
+                          <element signature="e#13631#15036#0" expanded="false" />
+                          <element signature="e#15152#16403#0" expanded="false" />
+                          <element signature="e#16541#21445#0" expanded="false" />
+                          <element signature="e#21582#22039#0" expanded="false" />
                         </folding>
                       </state>
                     </provider>
                   </entry>
                 </file>
-                <file leaf-file-name="myosin_actin1.json" pinned="false" current="false" current-in-tab="true">
+                <file leaf-file-name="myosin_actin1.json" pinned="false" current="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/data/myosin_actin1.json">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state line="1393" column="28" selection-start="55380" selection-end="55380" vertical-scroll-proportion="1.5535715">
+                      <state line="1393" column="28" selection-start="55380" selection-end="55380" vertical-scroll-proportion="-54.375">
                         <folding>
                           <element signature="e#129#464#0" expanded="false" />
                           <element signature="e#506#1111#0" expanded="false" />
@@ -199,7 +187,7 @@
             </split-first>
             <split-second>
               <leaf>
-                <file leaf-file-name="embedded_objects.js" pinned="false" current="true" current-in-tab="true">
+                <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
                     <provider selected="true" editor-type-id="text-editor">
                       <state line="297" column="12" selection-start="8635" selection-end="8970" vertical-scroll-proportion="0.6597222">
@@ -459,7 +447,6 @@
         <option value="$PROJECT_DIR$/savefile.php" />
         <option value="$PROJECT_DIR$/data/iv_sample5.json" />
         <option value="$PROJECT_DIR$/js/main_viewer/ui.js" />
-        <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/general_functions.js" />
         <option value="$PROJECT_DIR$/css/main_viewer/general.css" />
         <option value="$PROJECT_DIR$/js/main_viewer/comment_box.js" />
@@ -470,6 +457,7 @@
         <option value="$PROJECT_DIR$/js/main_viewer/video_player.js" />
         <option value="$PROJECT_DIR$/data/myosin_actin1.json" />
         <option value="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
+        <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
       </list>
     </option>
   </component>
@@ -810,20 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="57" selection-start="7348" selection-end="7348" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#8789#9803#0" expanded="false" />
-            <element signature="e#12081#13467#0" expanded="false" />
-            <element signature="e#13580#14985#0" expanded="false" />
-            <element signature="e#15101#16352#0" expanded="false" />
-            <element signature="e#16490#21394#0" expanded="false" />
-            <element signature="e#21531#21988#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="33" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
@@ -1001,7 +975,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/myosin_actin1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1393" column="28" selection-start="55380" selection-end="55380" vertical-scroll-proportion="1.5535715">
+        <state line="1393" column="28" selection-start="55380" selection-end="55380" vertical-scroll-proportion="-54.375">
           <folding>
             <element signature="e#129#464#0" expanded="false" />
             <element signature="e#506#1111#0" expanded="false" />
@@ -1072,16 +1046,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="297" column="12" selection-start="8635" selection-end="8970" vertical-scroll-proportion="0.6597222">
+        <state line="418" column="47" selection-start="12566" selection-end="12566" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="22" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.6041667">
           <folding>
-            <element signature="e#437#2530#0" expanded="false" />
-            <element signature="e#2576#3174#0" expanded="false" />
-            <element signature="e#3219#6711#0" expanded="false" />
-            <element signature="e#6757#7188#0" expanded="false" />
-            <element signature="e#7238#8214#0" expanded="false" />
-            <element signature="e#9398#14569#0" expanded="false" />
-            <element signature="e#14613#14936#0" expanded="false" />
-            <element signature="e#14981#15743#0" expanded="false" />
+            <element signature="e#8840#9854#0" expanded="false" />
+            <element signature="e#12132#13518#0" expanded="false" />
+            <element signature="e#13631#15036#0" expanded="false" />
+            <element signature="e#15152#16403#0" expanded="false" />
+            <element signature="e#16541#21445#0" expanded="false" />
+            <element signature="e#21582#22039#0" expanded="false" />
           </folding>
         </state>
       </provider>
