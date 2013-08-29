@@ -310,6 +310,7 @@ var embeddedButton = embeddedObject.extend({
         this.button.close();
         this.element.remove();
         this.element = null;
+        this.button = null;
     },
 
     callback: function() {
@@ -517,10 +518,12 @@ var embeddedVideo = embeddedObject.extend({
     },
 
     on_show: function() {
-        this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
-        this.element.css(this.css);
-        this.video = new videoPlayer(this.element, this.data.object_data, this.data.object_data.width, false);
-        vD.i(this.video);
+        if (this.element==null) {
+            this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
+            this.element.css(this.css);
+            this.video = new videoPlayer(this.element, this.data.object_data, this.data.object_data.width, false);
+            vD.i(this.video);
+        }
     },
 
     on_hide: function() {
@@ -531,6 +534,34 @@ var embeddedVideo = embeddedObject.extend({
     }
 
 
+})
+
+var embeddedLinkbox = embeddedObject.extend({
+    init: function(parent, data) {
+        this._super(parent,data);
+        this.run();
+    },
+
+    run: function() {
+        this._super();
+        this.elementType = "div";
+        this.classes.push('linkbox');
+        this.action = this.object_data.action;
+        this.hide = true;
+
+    },
+
+    on_show: function() {
+        if (this.element==null) {
+
+        }
+    },
+
+    on_hide: function() {
+        if(this.element==null) return;
+        this.element.remove();
+        this.element = null;
+    }
 })
 
 

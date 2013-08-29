@@ -22,14 +22,25 @@ var actionObject = Class.extend({
                 vD.i(this.data.scene_id).seek(this.data.play);
             }
         }
-
+        console.log(this.id);
         if (this.data.pause) {
             vD.i(this.data.scene_id).pause();
+        }
+
+        for (var key in this.data.hide) {
+            vD.i(this.data.hide[key]).on_hide();
+            console.log(this.data.hide[key]);
+        }
+
+        for (var key in this.data.hide_all) {
+            vD.i(this.data.hide_all[key]).data.show=false;
+            vD.i(this.data.hide_all[key]).on_hide();
         }
 
         for (var key in this.data.show) {
             vD.i(this.data.show[key]).on_show();
             vD.i(this.data.show[key]).fromAction = true;
+            console.log(this.data.show[key]);
         }
 
         for (var key in this.data.show_all) {
@@ -38,14 +49,9 @@ var actionObject = Class.extend({
             vD.i(this.data.show_all[key]).fromAction = true;
         }
 
-        for (var key in this.data.hide) {
-            vD.i(this.data.hide[key]).on_hide();
-        }
 
-        for (var key in this.data.hide_all) {
-            vD.i(this.data.hide_all[key]).data.show=false;
-            vD.i(this.data.hide_all[key]).on_hide();
-        }
+
+
 
         for (var key in this.data.clear_val) {
             vD.i(this.data.clear_val[key]).element.val("")

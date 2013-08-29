@@ -1,0 +1,686 @@
+{
+	"name":"myosin_actin2.json",
+	"id": "myosin_actin2",
+	"start_scene": "video00001",
+	"data": {
+		"scene_objects":[
+            {
+                "id": "video00001",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": null,
+                "next": null,
+                "begin": 130.5,
+                "end": 562,
+                "object_data":{
+                    "id":"LiOfeSsjrB8"
+                }
+            }
+		],
+		"embedded_objects": [
+            {
+                "id": "form000001",
+                "type": "form",
+                "begin": 268.5,
+                "end": null,
+                "x": 0,
+                "y": 0,
+                "scene_id": "video00001",
+                "pause": true,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "Question Content for Energy",
+                    "submit": "submit0001",
+                    "input": ["Myosin1", "Actin1", "Tropomyosin1", "Troponin1"],
+                    "time_gate": true
+                }
+            },
+            {
+                "id": "Myosin1",
+                "type": "input",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 524,
+                "y": 96,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "input_box",
+                    "name": "input for answer",
+                    "value": "",
+                    "correct": "Myosin",
+                    "input_type": "text",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 137,
+                    "color": "#000000",
+                    "background_color": "#FFFFFF",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "Actin1",
+                "type": "input",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 715,
+                "y": 367,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "input_box",
+                    "name": "input for answer",
+                    "value": "",
+                    "correct": "Actin",
+                    "input_type": "text",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 117,
+                    "color": "#000000",
+                    "background_color": "#FFFFFF",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "Tropomyosin1",
+                "type": "input",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 585,
+                "y": 231,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "input_box",
+                    "name": "input for answer",
+                    "value": "",
+                    "correct": "Tropomyosin",
+                    "input_type": "text",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 245,
+                    "color": "#000000",
+                    "background_color": "#FFFFFF",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "Troponin1",
+                "type": "input",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 585,
+                "y": 458,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "input_box",
+                    "name": "input for answer",
+                    "value": "",
+                    "correct": "Troponin",
+                    "input_type": "text",
+                    "data_collection": null,
+                    "font_size": 30,
+                    "width": 209,
+                    "color": "#000000",
+                    "background_color": "#FFFFFF",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "submit0001",
+                "type": "submit",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 81,
+                "y": 173,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "Submit for question number 2",
+                    "value": "Submit Answer",
+                    "value_wrong": "Retry Answer",
+                    "value_correct": "Continue",
+                    "right_2": ["correct_submit1"],
+                    "right_1": [],
+                    "wrong_1": ["wrong_submit1"],
+                    "wrong_2": ["wrong_submit11"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "brs11",
+                "type": "button",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 201,
+                "y": 173,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "replay again for mcq",
+                    "value": "Replay this part",
+                    "action": ["action11"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "Question1FillBlack1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 41,
+                "y": 23,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "",
+                    "font_size": 30,
+                    "width": 277,
+                    "height": 205,
+                    "color": "#FFFFFF",
+                    "background_color": "#000000",
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 61,
+                "y": 103,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Review:<br/> Identify the parts",
+                    "font_size": 30,
+                    "width": 440,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "ArrowToTropoMyosin",
+                "type": "canvas",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 524,
+                "y": 96,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "arrow of enzyme",
+                    "layer":
+                    {
+                        "type":"line","strokeStyle":"#585","name":"ArrowToTropoMyosin","layer":"true","strokeWidth":3,"rounded":true,"visible":true,"x1":574,"y1":266,"data":{"video_id":"video00001"},"x2":573,"y2":267,"x3":572,"y3":267,"x4":571,"y4":268,"x5":558,"y5":277,"x6":555,"y6":281,"x7":555,"y7":282,"x8":553,"y8":282,"x9":553,"y9":283,"x10":553,"y10":284,"x11":552,"y11":284,"x12":552,"y12":287,"x13":551,"y13":287,"x14":551,"y14":288,"x15":550,"y15":288,"x16":550,"y16":290,"x17":548,"y17":290,"x18":548,"y18":291,"x19":547,"y19":292,"x20":546,"y20":293,"x21":546,"y21":294,"x22":545,"y22":295,"x23":544,"y23":296,"x24":543,"y24":297,"x25":541,"y25":302,"x26":538,"y26":304,"x27":538,"y27":306,"x28":537,"y28":307,"x29":536,"y29":307,"x30":535,"y30":310,"x31":534,"y31":312,"x32":533,"y32":313,"x33":533,"y33":314,"x34":532,"y34":314,"x35":532,"y35":315,"x36":532,"y36":316,"x37":532,"y37":317,"x38":532,"y38":318,"x39":531,"y39":321,"x40":528,"y40":322,"x41":528,"y41":323,"x42":527,"y42":325,"x43":526,"y43":327,"x44":525,"y44":331,"x45":525,"y45":332,"x46":525,"y46":333,"x47":524,"y47":335,"x48":523,"y48":336,"x49":523,"y49":337,"x50":523,"y50":338,"x51":523,"y51":340,"x52":522,"y52":340,"x53":522,"y53":341,"x54":522,"y54":342,"x55":521,"y55":344,"x56":521,"y56":345,"x57":520,"y57":346,"x58":520,"y58":347,"x59":520,"y59":348,"x60":520,"y60":350,"x61":520,"y61":351,"x62":518,"y62":352,"x63":518,"y63":353,"x64":518,"y64":354,"x65":518,"y65":355,"x66":518,"y66":356,"x67":518,"y67":357,"x68":517,"y68":357,"x69":516,"y69":357,"x70":515,"y70":357,"x71":514,"y71":356,"x72":514,"y72":356,"x73":513,"y73":356,"x74":513,"y74":355,"x75":513,"y75":354,"x76":513,"y76":352,"x77":513,"y77":351,"x78":513,"y78":350,"x79":513,"y79":348,"x80":512,"y80":348,"x81":512,"y81":347,"x82":512,"y82":345,"x83":511,"y83":344,"x84":511,"y84":343,"x85":511,"y85":342,"x86":511,"y86":341,"x87":511,"y87":340,"x88":511,"y88":338,"x89":511,"y89":337,"x90":510,"y90":337,"x91":511,"y91":337,"x92":512,"y92":337,"x93":513,"y93":337,"x94":513,"y94":338,"x95":514,"y95":338,"x96":515,"y96":338,"x97":515,"y97":340,"x98":517,"y98":340,"x99":518,"y99":340,"x100":518,"y100":341,"x101":520,"y101":341,"x102":521,"y102":341,"x103":522,"y103":342,"x104":523,"y104":342,"x105":524,"y105":343,"x106":525,"y106":343,"x107":525,"y107":344,"x108":525,"y108":344,"x109":525,"y109":344,"x110":526,"y110":344,"x111":527,"y111":345,"x112":528,"y112":345,"x113":528,"y113":346,"x114":530,"y114":346,"x115":531,"y115":346,"x116":530,"y116":346,"x117":528,"y117":347,"x118":527,"y118":347,"x119":527,"y119":347,"x120":525,"y120":347,"x121":525,"y121":348,"x122":523,"y122":348,"x123":523,"y123":348,"x124":523,"y124":350,"x125":522,"y125":350,"x126":521,"y126":350,"x127":521,"y127":351,"x128":520,"y128":351,"x129":518,"y129":351,"x130":518,"y130":352,"x131":517,"y131":354,"x132":516,"y132":356,"x133":515,"y133":356,"x134":514,"y134":356,"x135":513,"y135":355,"x136":513,"y136":355,"x137":512,"y137":353,"x138":512,"y138":351,"x139":512,"y139":350,"x140":511,"y140":348,"x141":511,"y141":347,"x142":511,"y142":346,"x143":511,"y143":346,"x144":511,"y144":345,"x145":511,"y145":344,"x146":511,"y146":343,"x147":511,"y147":342,"x148":512,"y148":342,"x149":514,"y149":342,"x150":515,"y150":343,"x151":516,"y151":343,"x152":517,"y152":343,"x153":518,"y153":344,"x154":520,"y154":344,"x155":520,"y155":345,"x156":522,"y156":345,"x157":523,"y157":345,"x158":523,"y158":346,"x159":523,"y159":346,"x160":524,"y160":346,"x161":524,"y161":347,"x162":522,"y162":347,"x163":522,"y163":347,"x164":520,"y164":347,"x165":518,"y165":347,"x166":518,"y166":348,"x167":517,"y167":348,"x168":516,"y168":348,"x169":515,"y169":350,"x170":514,"y170":350,"x171":514,"y171":351,"x172":513,"y172":351,"x173":513,"y173":348,"x174":513,"y174":347,"x175":513,"y175":346,"x176":513,"y176":345
+                    }
+                }
+            },
+
+            {
+                "id": "form000002",
+                "type": "form",
+                "begin": 322.83,
+                "end": null,
+                "x": 0,
+                "y": 0,
+                "scene_id": "video00001",
+                "pause": true,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "Question Content for Myosin and Actin",
+                    "submit": "submit0002",
+                    "input": ["mc00000001"],
+                    "time_gate": true
+                }
+            },
+            {
+                "id": "mc00000001",
+                "type": "input",
+                "begin": "inherit",
+                "end": null,
+                "x": 853,
+                "y": 195,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "mcq",
+                    "name": "MCQ 1 for Myosin and Actin",
+                    "value": [
+                        {"text": "Tropomyosin", "val": "1"},
+                        {"text": "Troponin", "val": "2"},
+                        {"text": "Actin itselft", "val": "3"},
+                        {"text": "Myosin", "val": "4"}
+                    ],
+                    "correct": "1",
+                    "input_type": "mcq",
+                    "data_collection": null,
+                    "font_size": 20,
+                    "width": 300,
+                    "color": "#FFFFFF",
+                    "background_color": "transparent",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "QuestionForMC1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 850,
+                "y": 93,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "What is the thing that directly blocks the Myosin from Crawling Actin?",
+                    "font_size": 20,
+                    "width": 370,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "submit0002",
+                "type": "submit",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 842,
+                "y": 426,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "Submit for question number 1",
+                    "value": "Submit Answer",
+                    "value_wrong": "Retry Answer",
+                    "value_correct": "Continue",
+                    "right_2": ["correct_mcq1"],
+                    "right_1": [],
+                    "wrong_1": ["wrong_mcq1"],
+                    "wrong_2": ["wrong_mcq2"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "button_replay_for_mcq1",
+                "type": "button",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 962,
+                "y": 426,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "replay again for mcq",
+                    "value": "Replay this part",
+                    "action": ["replay_for_mcq1"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "form000003",
+                "type": "form",
+                "begin": 499.5,
+                "end": null,
+                "x": 0,
+                "y": 0,
+                "scene_id": "video00001",
+                "pause": true,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "Question Content for Myosin and Actin",
+                    "submit": "submit0003",
+                    "input": ["mc00000003"],
+                    "time_gate": true
+                }
+            },
+            {
+                "id": "mc00000003",
+                "type": "input",
+                "begin": "inherit",
+                "end": null,
+                "x": 55,
+                "y": 387,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "sub_type": "mcq",
+                    "name": "MCQ 1 for Myosin and Actin",
+                    "value": [
+                        {"text": "High Calcium -> Actin is free to move", "val": "1"},
+                        {"text": "High Calcium -> Actin is blocked", "val": "2"},
+                        {"text": "Low Calcium -> Myosin is free to move", "val": "3"},
+                        {"text": "Low Calcium -> Myosin is blocked", "val": "4"}
+                    ],
+                    "correct": "3",
+                    "input_type": "mcq",
+                    "data_collection": null,
+                    "font_size": 20,
+                    "width": 600,
+                    "color": "#FFFFFF",
+                    "background_color": "transparent",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "Question1FillBlack2",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 71,
+                "y": 332,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "",
+                    "font_size": 30,
+                    "width": 1085,
+                    "height": 339,
+                    "color": "#FFFFFF",
+                    "background_color": "#000000",
+                    "draggable": false
+                }
+            },
+            {
+                "id": "QuestionForMC2",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 56,
+                "y": 333,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "Pick the statement that is true",
+                    "font_size": 20,
+                    "width": 370,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "submit0003",
+                "type": "submit",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 63,
+                "y": 500,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "Submit for question number 1",
+                    "value": "Submit Answer",
+                    "value_wrong": "Retry Answer",
+                    "value_correct": "Continue",
+                    "right_2": ["correct_mcq31"],
+                    "right_1": [],
+                    "wrong_1": ["wrong_mcq31"],
+                    "wrong_2": ["wrong_mcq32"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "button_replay_for_mcq3",
+                "type": "button",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 183,
+                "y": 500,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "replay again for mcq",
+                    "value": "Replay this part",
+                    "action": ["replay_for_mcq3"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            }
+
+		],
+
+        "actions" : [
+            {
+                "id": "correct_submit1",
+                "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "wrong_submit1",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["brs11"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "wrong_submit11",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": ["Myosin1", "Actin1", "Tropomyosin1", "Troponin1"],
+                "change_val": []
+            },
+            {
+                "id": "action11",
+                "name": "replay hint",
+                "play": 168,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "correct_mcq1",
+                "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq1",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["button_replay_for_mcq1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq2",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "replay_for_mcq1",
+                "name": "replay hint",
+                "play": 287.7,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "correct_mcq31",
+                "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq31",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["button_replay_for_mcq3"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq32",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "replay_for_mcq3",
+                "name": "replay hint",
+                "play": 399.2,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            }
+
+
+        ]
+		
+	}
+}
+

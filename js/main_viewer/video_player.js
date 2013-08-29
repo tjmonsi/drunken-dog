@@ -344,7 +344,7 @@ var videoPlayer = Class.extend({
         this.visualTimer.empty();
         var timer = this.player.getCurrentTime();
         var begin = this.data.begin;
-        var truetime = timer-begin;
+        var truetime = timer//-begin;
 
         var min = parseInt(truetime/60);
         var sec = truetime%60;

@@ -1,0 +1,176 @@
+{
+	"name":"myosin_actin1_other.json",
+	"id": "myosin_actin1_other",
+	"start_scene": "set1",
+	"data": {
+		"scene_objects":[
+            {
+                "id": "set1",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": null,
+                "next": "set2",
+                "begin": 0,
+                "end": 26.3,
+                "object_data":{
+                    "id":"zopoN2i7ALQ"
+                }
+            },
+            {
+                "id": "set2",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set1",
+                "next": "set3",
+                "object_data":{
+                    "type": "mcq",
+                    "q": "In this video, the author will help you understand that the two proteins (Myosin and Actin) can work together with ATP to produce ________.",
+                    "mc": [
+                        {"text": "Energy", "val": "1"},
+                        {"text": "Mechanical Motion", "val": "2"},
+                        {"text": "Fatty Acids", "val": "3"},
+                        {"text": "Polypeptides", "val": "4"}
+                    ],
+                    "ans": "2"
+                }
+            },
+            {
+                "id": "set3",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set2",
+                "next": "set4",
+                "begin": 26.3,
+                "end": 211.3,
+                "object_data":{
+                    "id":"zopoN2i7ALQ"
+                }
+            },
+            {
+                "id": "set4",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set3",
+                "next": "set5",
+                "object_data":{
+                    "type": "input",
+                    "q": "Fill in the blanks<br/>When (1)_________ binds to Myosin head, Myosin releases (2)__________.",
+                    "input": [
+                        {
+                            "id": "answer1",
+                            "type": "text",
+                            "ans": "atp",
+                            "label": "1)"
+                        },
+                        {
+                            "id": "answer2",
+                            "type": "text",
+                            "ans": "actin",
+                            "label": "2)"
+                        }
+
+                    ]
+
+                }
+            },
+            {
+                "id": "set5",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set4",
+                "next": "set6",
+                "begin": 211.3,
+                "end": 269.5,
+                "object_data":{
+                    "id":"zopoN2i7ALQ"
+                }
+            },
+            {
+                "id": "set6",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set5",
+                "next": "set7",
+                "object_data":{
+                    "type": "input",
+                    "q": "Fill in the blanks<br/>ATP = ADP + Pi + ____________",
+                    "input": [
+                        {
+                            "id": "answer3",
+                            "type": "text",
+                            "ans": "energy",
+                            "label": ""
+                        }
+
+
+                    ]
+                }
+            },
+            {
+                "id": "set7",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set6",
+                "next": "set8",
+                "begin": 269.5,
+                "end": 529.1,
+                "object_data":{
+                    "id":"zopoN2i7ALQ"
+                }
+            },
+            {
+                "id": "set8",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set7",
+                "next": "set9",
+                "object_data":{
+                    "type": "input",
+                    "q": "Please fill in the right order for the four steps involved in the process of converting chemical energy to mechanical energy in muscles (1 to 4)",
+                    "input": [
+                        {
+                            "id": "answer3",
+                            "type": "text",
+                            "ans": "3",
+                            "label": "Phosphate Group is released and Myosin pushes on Actin Filament"
+                        },
+                        {
+                            "id": "answer4",
+                            "type": "text",
+                            "ans": "1",
+                            "label": "ATP binds to Myosin ‘head’ and Myosin leaves Actin"
+                        },
+                        {
+                            "id": "answer5",
+                            "type": "text",
+                            "ans": "4",
+                            "label": "ADP is released"
+                        },
+                        {
+                            "id": "answer6",
+                            "type": "text",
+                            "ans": "2",
+                            "label": "ATP is hydrolysed to ADP and the energy released moulds Myosin into a high energy shape to attach to the next rung of Actin Filament"
+                        }
+
+
+                    ]
+                }
+            },
+            {
+                "id": "set9",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set7",
+                "next": null,
+                "begin": 529.1,
+                "end": 578,
+                "object_data":{
+                    "id":"zopoN2i7ALQ"
+                }
+            }
+		]
+
+		
+	}
+}

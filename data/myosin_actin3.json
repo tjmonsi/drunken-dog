@@ -1,0 +1,29 @@
+{
+	"name":"myosin_actin3.json",
+	"id": "myosin_actin3",
+	"start_scene": "video00001",
+	"data": {
+		"scene_objects":[
+            {
+                "id": "video00001",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": null,
+                "next": null,
+                "begin": 80.3,
+                "end": 791,
+                "object_data":{
+                    "id":"SauhB2fYQkM"
+                }
+            }
+		],
+		"embedded_objects": [
+
+		],
+
+        "actions" : [
+
+        ]
+		
+	}
+}

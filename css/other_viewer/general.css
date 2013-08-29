@@ -1,0 +1,39 @@
+#mainBody {
+    clear: both;
+}
+
+#Header {
+    width: 100%;
+    height: 50px;
+}
+
+#Navbar {
+    width: 100%;
+    height: 50px;
+}
+
+#Navbar div {
+    float: left;
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    margin-right: 0px;
+}
+
+#ContentArea {
+    width: 100%;
+}
+
+#Content {
+    width: 720px;
+    float: left;
+}
+
+#Sidebar {
+    width: 300px;
+    float: left;
+}
+
+#CommentArea {
+    width: 100%;
+}
