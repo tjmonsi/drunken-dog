@@ -1,3 +1,11 @@
+/**
+ * Created with JetBrains WebStorm.
+ * User: tjmonsi
+ * Date: 30/8/13
+ * Time: 9:24 AM
+ * To change this template use File | Settings | File Templates.
+ */
+
 "use strict";
 
 var dataModel = Class.extend({
@@ -28,7 +36,7 @@ var dataModel = Class.extend({
                 } else {
                     filename = "myosin_actin1"
                 }
-                file = "data/"+filename+".json"
+                file = "data/"+filename+"_other.json"
 
                 if (vars.debug2!=null) {
                     debug2 = vars.debug2
@@ -84,34 +92,13 @@ var dataModel = Class.extend({
 
 
 
-            //log("Loaded all data", 1);
+            log("Loaded all data", 1);
             //log(this.data, 2);
 
         } catch (e) {
             console.error(e.stack);
             log(e.stack.toString());
         }
-    },
-
-    createComments: function(dData) {
-
-        var discussion_trigger = {
-            "time": dData.time,
-            "id": dData.id,
-            "video_id": dData.video_id
-        }
-
-        var discussion_trigger_bar = {
-            "id": dData.id,
-            "video_id": dData.video_id,
-            "begin": dData.time,
-            "end": null
-        }
-
-        this.dt(dData.video_id, discussion_trigger);
-        this.i("mainTimeline").trigger_bars(discussion_trigger_bar, null, "#FF0000")
-        // create both discussionthreads and discussionpts
-        this.i(new discussionPt(this.i(dData.video_id).element, dData));
     },
 
     getURLVars: function() {
@@ -179,14 +166,14 @@ var dataModel = Class.extend({
             if (this.instance_set[id]!=null) {
                 return this.instance_set[id];
 
-            // if it doesn't exist (meaning id is free to connect to obj)
-            // and val is an object to be saved... then save
+                // if it doesn't exist (meaning id is free to connect to obj)
+                // and val is an object to be saved... then save
             } else if (obj!=null) {
                 this.instance_set[id] = obj;
                 return 1
 
-            // if obj doesn't exist
-            // then return null
+                // if obj doesn't exist
+                // then return null
             } else if (obj==null) {
                 return null;
             }
@@ -205,176 +192,25 @@ var dataModel = Class.extend({
         return this.instances(val, del);
     },
 
-    reset_triggers: function(video, val) {
-        if (video==null) throw new Error("There's no video id");
-        if (val==null) throw new Error("There's no time");
+    createComments: function(dData) {
 
-        var time = val.toString();
-
-        if (this.trigger_set[video]==null) return null;
-
-        var arr_set = [];
-
-        // return hashtable of objects for time
-        for (var k in this.trigger_set[video]) {
-
-            if (parseFloat(time)<= parseFloat(k)) {
-                arr_set.push(this.trigger_set[video][k])
-            }
-        }
-        //console.log(arr_set)
-
-        for (var i in arr_set) {
-            for (var j in arr_set[i]) {
-                var obj = arr_set[i][j];
-
-                if (vD.i(obj.id).fromAction) {
-                    vD.i(obj.id).fromAction = false;
-                } else {
-                    vD.i(obj.id).on_hide();
-                }
-
-                if (obj.retrig) {
-                    if (obj.type_trig=="end") {
-                        var begin = vD.i(obj.id).data.begin;
-                        if (time>begin) {
-                            //arr_set.push(this.trigger_set[video][begin.toString()])
-                            var newobj = this.trigger_set[video][begin.toString()][obj.id];
-                            newobj.triggered = false;
-                            this.triggers(video, newobj);
-                        }
-                    }
-                    obj.triggered=false;
-                    this.triggers(video, obj);
-                    //if (obj.id=="textlabel2") console.log(vD.trigger_set[video]);
-                }
-            }
+        /*var discussion_trigger = {
+            "time": dData.time,
+            "id": dData.id,
+            "video_id": dData.video_id
         }
 
-
-    },
-    triggers: function(video, val, del, val2) {
-        try {
-            var time = null;
-            var obj = null;
-
-            // checks if value is an object with id or if it is just an id
-            if (val.time!=null) {
-                time = val.time.toString();
-                obj = val;
-            } else {
-                time = val.toString();
-            }
-
-
-            // checks if 2nd value after delete is the object that we want to delete: used only for delete
-            // if obj doesn't exist, all objects will be deleted in that time
-            if (val2!=null) {
-                obj = val;
-            }
-
-            if (video==null) {
-                throw new Error ("video_id is needed to CRD object")
-                return;
-            }
-            // check if id is null... then throw error
-            if (time==null) {
-                throw new Error("time is needed to CRD object ")
-                return;
-            }
-
-            if ((!del) && (val2!=null)) {
-                throw new Error("val2 should be null");
-                return 6
-            }
-
-            // if del flag is true, delete object
-            if (del) {
-                if (this.trigger_set[video]!=null) {
-                    if (this.trigger_set[video][time]!=null) {
-                        if (obj!=null) {
-                            var id = obj.id;
-                            if (this.trigger_set[video][time][id]!=null) {
-                                this.trigger_set[video][time][id]=null;
-                                return 2;
-                            } else {
-                                return 3;
-                            }
-                        } else {
-                            for (var key in this.trigger_set[video][time]) {
-                                this.trigger_set[video][time][key]=null
-                            }
-                            this.trigger_set[video][time]=null;
-                            return 4;
-                        }
-                    } else {
-                        return 3;
-                    }
-                } else {
-                    return 3;
-                }
-
-            }
-
-            // catch val2... if val2 exists... object should be null for this operation
-            if (val2!=null) obj=null;
-
-            // search first
-
-
-            if (this.trigger_set[video]!=null) {
-                if (this.trigger_set[video][time]!=null) {
-                    if (obj!=null) {
-                        // if object exist... put it on the set
-                        var id = obj.id
-                        this.trigger_set[video][time][id]=obj;
-                        return 1;
-                    } else {
-
-                        return this.trigger_set[video][time];
-                    }
-                } else if (obj!=null) {
-                    // if object exist... put it on the set
-                    var id = obj.id;
-                    this.trigger_set[video][time] = {};
-                    this.trigger_set[video][time][id]=obj;
-                    return 1;
-                } else if (obj==null) {
-                    // there's no object... nothing to save
-                    //return null;
-                    // search first
-                    var arr_set = [];
-
-                    // return hashtable of objects for time
-                    for (var k in this.trigger_set[video]) {
-
-                        if (parseFloat(time)>= parseFloat(k)) {
-                            arr_set.push(this.trigger_set[video][k])
-                        }
-                    }
-                    //console.log(arr_set)
-                    return arr_set;
-                }
-            } else if (obj!=null) {
-                var id = obj.id;
-                this.trigger_set[video]={};
-                this.trigger_set[video][time] = {};
-                this.trigger_set[video][time][id]=obj;
-                return 1;
-            } else if (obj==null) {
-                // there's no object... nothing to save
-                return null;
-            }
-
-            // if something happened that these things didn't catch, throw error
-            throw new Error ("don't know what to do with triggers:\nval: "+val.toString()+" \ndel: "+del);
-
-        } catch (e) {
-            console.error(val)
-            console.error(e.stack);
-            log(e.stack.toString());
-            return;
+        var discussion_trigger_bar = {
+            "id": dData.id,
+            "video_id": dData.video_id,
+            "begin": dData.time,
+            "end": null
         }
+
+        this.dt(dData.video_id, discussion_trigger);
+        this.i("mainTimeline").trigger_bars(discussion_trigger_bar, null, "#FF0000")
+        // create both discussionthreads and discussionpts
+        this.i(new discussionPt(this.i(dData.video_id).element, dData)); */
     },
 
     comments: function(val, del){
@@ -642,7 +478,7 @@ var dataModel = Class.extend({
                         //console.log(time_trigger);
 
                         if ((t>=time_trigger-comment_time) && (t<time_trigger+comment_time+1)) {
-                        //if ((parseFloat(time)>= parseFloat(k)) {
+                            //if ((parseFloat(time)>= parseFloat(k)) {
                             arr_set.push(this.discussion_trigger_set[video][k])
                             //console.log(arr_set)
                         }
@@ -682,19 +518,11 @@ var dataModel = Class.extend({
         var discussions = this.discussion_set;
 
         var data = JSON.stringify({"comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
-        //console.log(data)
-
-        if (this.user.indexOf("source_comments")!=-1) var file =  "main_data/"+this.user+".comments.json"
-        else var file = this.user+".comments.json"
-
-        var res = $.post('savefile.php', {"data": data, "file": file});
+        console.log(data)
+        var res = $.post('savefile.php', {"data": data, "file": "other_data/"+this.user+".comments.json"});
 
         res.done(function(d) {
             console.log(d)
         })
-    },
-
-    saveLog: function () {
-
     }
 });

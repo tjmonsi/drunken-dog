@@ -76,7 +76,7 @@ var mainTimeline = Class.extend({
         //this.mainTimeline = new
 
         // this.element
-        log("main_Timeline created", 1);
+        //log("main_Timeline created", 1);
     },
 
     setupInteractionElement: function() {
@@ -295,6 +295,7 @@ var mainTimeline = Class.extend({
         start: function() {
             var target = vD.i(this.id.replace("_main_scrubber", ""));
             target.pause();
+            log("mainTimeline:start_scrub:"+this.id.split("_")[0])
         },
 
         drag: function() {
@@ -302,6 +303,7 @@ var mainTimeline = Class.extend({
         },
 
         stop: function() {
+            log("mainTimeline:stop_scrub:"+this.id.split("_")[0])
             var prevtarget = vD.i(this.id.replace("_main_scrubber", ""));
             var timeline = vD.i("mainTimeline");
             var posx = timeline.scrubber.position().left;
@@ -374,7 +376,7 @@ var mainTimeline = Class.extend({
         vD.i(obj.id).seek((true_time-prev_scene_length)+vD.i(obj.id).data.begin)
 
 
-
+        log("mainTimeline:timeline_click:"+this.id.split("_")[0])
 
     }
 

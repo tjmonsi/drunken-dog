@@ -26,18 +26,25 @@ var windowedElement = Class.extend({
         this.windowHandlerTitle.append(this.data.windowName);
 
         this.windowHandlerIcons =saveElement(this.windowHandler, "div", this.id+"_windowHandlerIcons", ['windowClassHandlerIcons']);
-        this.windowExit = new buttonIcon(this.windowHandlerIcons, 'ui-icon-circle-close', this.id+"_windowHandlerExit", "Exit", $.proxy(this.closeWindow, this));
+        this.windowExit = new buttonIcon(this.windowHandlerIcons, 'ui-icon-circle-close', this.id+"_windowHandlerExit", "Exit", $.proxy(this.closeFromWindow, this));
         this.windowExit.element.addClass('windowHandlerExitIcon');
 
         if (this.draggable) {
             // add draggable function here
+            this.window.draggable(this.scrubber_fx);
         }
 
         this.windowContent = saveElement(this.window, "div", this.id+"_windowContent", ["windowContent", this.pad]);
 
     },
 
+    closeFromWindow: function() {
+        log("windowedElement:closeWindow:"+this.id.split("_")[0])
+        this.closeWindow();
+    },
+
     closeWindow: function() {
+
         this.close();
 
         /*try {
@@ -51,6 +58,20 @@ var windowedElement = Class.extend({
         this.data.x = x;
         this.data.y = y;
         this.window.css({"left": this.data.x, "top": this.data.y});
+    },
+
+    scrubber_fx: {
+        containment: 'parent',
+        cursor: 'pointer',
+        start: function() {
+
+        },
+        drag: function(){
+
+        },
+        stop: function() {
+            log("windowedElement:moveWindow:"+this.id.split("_")[0])
+        }
     }
 });
 
@@ -107,10 +128,12 @@ var addNewDiscussion = windowedElement.extend({
         vD.i(this.data.video_id).clearAnnotations();
         vD.i(this.data.video_id).backToMode();
         this._super();
+
     },
 
     saveComment: function(data) {
         //console.log(data);
+        log("addNewDiscussion:saveComment:"+this.newCommentData.discussion_id+":"+data.id+":"+data.replyTo)
         var comment_id = data.id
 
         var discussion_data = {
@@ -200,7 +223,7 @@ var discussionOnVideo = windowedElement.extend({
             var comment = cData.comment;
             if ($.trim(comment)=="") comment = "&nbsp;";
 
-            commentEl.append(cData.commenter+" says:<br/>"+comment+"<hr/>");
+            commentEl.append("<b>"+cData.commenter+"</b> says:<br/>"+comment+"<hr/>");
             commentUser.append("Date made: "+cData.timeStamp.toString());
             commentAdditionalData.append("Number of replies: "+cData.comment_list.length);
 
@@ -242,8 +265,8 @@ var discussionOnVideo = windowedElement.extend({
     },
 
     addReply: function(last_commentID){
-
-        console.log(this.data.id)
+        log("discussionOnVideo:addReply:"+this.id.split("_")[0]+":"+last_commentID)
+        //console.log(this.data.id)
         this.newCommentData = {
             "video_id": this.data.video_id,
             "discussion_id": this.data.id.replace("_DiscussionOnVideo", "").replace("_discussionTrigger", ""),
@@ -262,8 +285,9 @@ var discussionOnVideo = windowedElement.extend({
     },
 
     seeDiscussion: function(commentID, discussionID) {
+        log("discussionOnVideo:seeDiscussion:"+this.id.split("_")[0]+":"+commentID)
         var cData = vD.c(commentID);
-        console.log(discussionID)
+        //console.log(discussionID)
         vD.i(discussionID.split("_")[0]+"_discussionArea").seeDiscussion(commentID);
     },
 
@@ -286,10 +310,10 @@ var discussionOnVideo = windowedElement.extend({
     },
 
     saveComment: function(data){
-
+        log("discussionOnVideo:saveComment:"+data.discussion_id+":"+data.id+":"+data.replyTo)
         vD.c(data);
-        console.log(data)
-        console.log(data.discussion_id)
+        //console.log(data)
+        //console.log(data.discussion_id)
         if (data.replyTo==null) {
             var obj = vD.d(data.discussion_id.replace("_discussionTrigger",""))
             obj.comment_list.push(data.id);
@@ -299,7 +323,7 @@ var discussionOnVideo = windowedElement.extend({
         } else {
             var obj = vD.c(data.replyTo)
             obj.comment_list.push(data.id);
-            console.log(obj);
+            //console.log(obj);
             vD.c(obj);
             // please add comment to discussionArea
             vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
@@ -318,4 +342,34 @@ var discussionOnVideo = windowedElement.extend({
         this._super();
     }
 
+})
+
+var commentVideo = windowedElement.extend({
+    init: function(parent, data){
+        this._super(parent, data);
+        //this.commentListElements = {};
+        this.run();
+    },
+
+    run: function() {
+        this._super();
+
+        if (this.video==null) {
+            //this.element = saveElement(this.windowContent, "div", this.id+"_enter");
+            //this.element.css(this.css);
+            //console.log(this.data.object_data);
+            this.video = new videoPlayer(this.windowContent, this.data.object_data, this.data.object_data.width, false);
+            vD.i(this.video);
+        }
+    },
+
+    closeWindow: function(){
+        if (this.video==null) return
+        this.video.close();
+        this.video = null;
+       // this.element.remove();
+        //this.element = null;
+        this._super();
+
+    }
 })

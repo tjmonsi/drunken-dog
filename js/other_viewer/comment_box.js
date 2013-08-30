@@ -1,8 +1,8 @@
 /**
  * Created with JetBrains WebStorm.
  * User: tjmonsi
- * Date: 20/8/13
- * Time: 10:07 PM
+ * Date: 30/8/13
+ * Time: 2:00 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -48,7 +48,7 @@ var commentBox = Class.extend({
         this.clearComment = new buttonClass(this.commentButtonArea, "Erase", this.id+"_clearComment", $.proxy(this.clearNewComment, this));
         this.submitComment = new buttonClass(this.commentButtonArea, "Submit", this.id+"_submitComment", $.proxy(this.submitNewComment, this));
         this.cancelComment = new buttonClass(this.commentButtonArea, "Cancel", this.id+"_cancelComment", $.proxy(this.cancelNewComment, this));
-        this.drawButton = new buttonClass(this.commentButtonArea, "Draw in Video", this.id+"_drawAnnotation", $.proxy(this.drawAnnotation, this));
+        //this.drawButton = new buttonClass(this.commentButtonArea, "Draw in Video", this.id+"_drawAnnotation", $.proxy(this.drawAnnotation, this));
     },
 
     clearCommentBox: function() {
@@ -106,16 +106,14 @@ var commentBox = Class.extend({
             "timeStamp": new Date(),
             "annotation_arr": this.annotation_arr,
             "replyTo": this.data.replyTo,
-            "comment_list": [],
-            "video_list": []
+            "comment_list": []
         }
         this.data.saveComment(data);
     },
 
     cancelNewComment: function(){
-        log("commentBox:cancelNewComment:"+this.data.discussion_id+":"+this.id.split("_")[0]+":"+this.data.replyTo)
         this.clearNewComment();
-        vD.i(this.data.video_id).clearAnnotations();
+        //vD.i(this.data.video_id).clearAnnotations();
         if (vD.i(this.data.video_id).interactionElement.mode == "draw") {
             vD.i(this.data.video_id).interactionElement.mode = vD.i(this.data.video_id).last_mode;
         }
@@ -123,21 +121,6 @@ var commentBox = Class.extend({
         this.data.closeWindow();
     },
 
-    drawAnnotation: function() {
-        if (this.annotation_flag) {
-            this.drawButton.update_color("black");
-            this.annotation_flag = false;
-            vD.i(this.data.video_id).endAnnotation();
-        } else {
-            var data = {
-                "id": this.id,
-                "discussion_id": this.data.discussion_id
-            }
-            vD.i(this.data.video_id).startAnnotation(data);
-            this.drawButton.update_color("white");
-            this.annotation_flag = true;
-        }
-    },
 
     saveAnnotation: function(obj) {
         this.annotation_arr.push(obj);

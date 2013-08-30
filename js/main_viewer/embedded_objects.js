@@ -151,7 +151,7 @@ var embeddedInput = embeddedObject.extend({
     },
 
     on_show: function() {
-        console.log(this.data)
+        //console.log(this.data)
         if (this.element!=null) return;
 
         if (this.data.object_data.sub_type=="input_box") {
@@ -160,7 +160,7 @@ var embeddedInput = embeddedObject.extend({
         } else if (this.data.object_data.sub_type=="mcq") {
             this.element = saveElement(this.parent, this.elementType, this.id, this.classes);
             this.mcq_elements = {};
-            console.log("enter")
+            //console.log("enter")
             for (var i in this.data.object_data.value) {
 
 
@@ -230,7 +230,7 @@ var embeddedCanvas = embeddedObject.extend({
     },
 
     on_show: function() {
-        console.log("hello i am here");
+        //console.log("hello i am here");
         vD.i(this.data.scene_id).addEmbeddedDrawing(this.data.object_data.layer);
     },
     on_hide: function() {
@@ -314,6 +314,7 @@ var embeddedButton = embeddedObject.extend({
     },
 
     callback: function() {
+        log("embeddedButton:did_trigger:"+this.id.split("_")[0])
         for (var key in this.data.object_data.action) {
             vD.i(this.data.object_data.action[key]).trigger();
         }
@@ -402,12 +403,13 @@ var embeddedSubmit = embeddedButton.extend({
                         var arraycorrect = false
                         if (input_value==correct[index2]) {
                             obj.rightPNG.removeClass('hide');
-
+                            log("embeddedSubmit:check_ans:"+this.data.parent.split("_")[0]+":"+":right:"+correct[index2]+":"+input_value)
                             arraycorrect = true
                             break;
                         }
                         if (!arraycorrect) {
                             correct_status = false;
+                            log("embeddedSubmit:check_ans:"+this.data.parent.split("_")[0]+":"+":wrong:"+correct[index2]+":"+input_value)
                             //console.log(obj);
                             obj.wrongPNG.removeClass('hide');
 
@@ -434,6 +436,7 @@ var embeddedSubmit = embeddedButton.extend({
                 for (var key in this.data.object_data.right_1) {
                     vD.i(this.data.object_data.right_1[key]).trigger();
                 }
+                log("embeddedSubmit:all_correct:"+this.data.parent.split("_")[0])
                 this.element.empty();
                 this.element.append(this.data.object_data.value_correct);
                 this.submit_status = 2;
@@ -441,7 +444,7 @@ var embeddedSubmit = embeddedButton.extend({
                 for (var key in this.data.object_data.wrong_1) {
                     vD.i(this.data.object_data.wrong_1[key]).trigger();
                 }
-
+                log("embeddedSubmit:some_wrong:"+this.data.parent.split("_")[0])
                 this.element.empty();
                 this.element.append(this.data.object_data.value_wrong);
                 this.submit_status = 3;
@@ -451,7 +454,7 @@ var embeddedSubmit = embeddedButton.extend({
             for (var key in this.data.object_data.right_2) {
                 vD.i(this.data.object_data.right_2[key]).trigger();
             }
-
+            log("embeddedSubmit:go_on_next:"+this.data.parent.split("_")[0])
             for (var i in arr) {
                 var obj = vD.i(arr[i]);
                 obj.wrongPNG.addClass('hide');
@@ -461,7 +464,7 @@ var embeddedSubmit = embeddedButton.extend({
             for (var key in this.data.object_data.wrong_2) {
                 vD.i(this.data.object_data.wrong_2[key]).trigger();
             }
-
+            log("embeddedSubmit:go_retry:"+this.data.parent.split("_")[0])
             this.element.empty();
             this.element.append(this.data.object_data.value);
 
@@ -529,6 +532,7 @@ var embeddedVideo = embeddedObject.extend({
     on_hide: function() {
         if (this.element==null) return
         this.video.close();
+        this.video = null;
         this.element.remove();
         this.element = null;
     }

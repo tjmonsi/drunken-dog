@@ -6,8 +6,13 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: "Arial";
-    font-size: 12px;
+    font-size: 14px;
     color: #ffffff;
+}
+
+b {
+    font-weight: bolder;
+    text-decoration: underline;
 }
 .pad20 {
     padding: 20px;
@@ -93,6 +98,20 @@ a:hover {
 .windowContent * {
     position: static;
 }
+
+.windowContent .playerContainer {
+    position: relative;
+}
+
+.windowContent .playerContainer div {
+    position: absolute;
+}
+
+.windowContent .playerContainer canvas {
+    position: absolute;
+}
+
+
 
 /* comment Box Elements */
 .commentBoxArea {
@@ -207,6 +226,7 @@ a:hover {
     padding: 4px 10px;
     -webkit-border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
 }
 .button.black {
     color: #ffffff;

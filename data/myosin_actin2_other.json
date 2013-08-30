@@ -1,0 +1,136 @@
+{
+	"name":"myosin_actin1_other.json",
+	"id": "myosin_actin1_other",
+	"start_scene": "set1",
+	"data": {
+		"scene_objects":[
+            {
+                "id": "set1",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": null,
+                "next": "set2",
+                "begin": 130.5,
+                "end": 268.5,
+                "object_data":{
+                    "id":"LiOfeSsjrB8"
+                }
+            },
+            {
+                "id": "set2",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set1",
+                "next": "set3",
+                "object_data":{
+                    "type": "input",
+                    "q": "Identify the parts:<br/><img src=\"images/question1_other.jpg\">",
+                    "input": [
+                        {
+                            "id": "answer1",
+                            "type": "text",
+                            "ans": "myosin",
+                            "label": "1)"
+
+                        },
+                        {
+                            "id": "answer2",
+                            "type": "text",
+                            "ans": "actin",
+                            "label": "2)"
+                        },
+                        {
+                            "id": "answer3",
+                            "type": "text",
+                            "ans": "troponin",
+                            "label": "3)"
+                        },
+                        {
+                            "id": "answer4",
+                            "type": "text",
+                            "ans": "tropomyosin",
+                            "label": "4)"
+                        }
+
+                    ]
+                }
+            },
+            {
+                "id": "set3",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set2",
+                "next": "set4",
+                "begin": 268.5,
+                "end": 322.83,
+                "object_data":{
+                    "id":"LiOfeSsjrB8"
+                }
+            },
+            {
+                "id": "set4",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set3",
+                "next": "set5",
+                "object_data":{
+                    "type": "mcq",
+                    "q": "What is the thing that directly blocks the Myosin from Crawling Actin?",
+                    "mc": [
+                        {"text": "Tropomyosin", "val": "1"},
+                        {"text": "Troponin", "val": "2"},
+                        {"text": "Actin itselft", "val": "3"},
+                        {"text": "Myosin", "val": "4"}
+                    ],
+                    "ans": "1"
+
+                }
+            },
+            {
+                "id": "set5",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set4",
+                "next": "set6",
+                "begin": 322.83,
+                "end": 499.5,
+                "object_data":{
+                    "id":"LiOfeSsjrB8"
+                }
+            },
+            {
+                "id": "set6",
+                "name": "myosin_actin_video",
+                "type": "quiz",
+                "prev": "set5",
+                "next": "set7",
+                "object_data":{
+                    "type": "mcq",
+                    "q": "Pick the statement that is true",
+                    "mc": [
+                        {"text": "High Calcium -> Actin is free to move", "val": "1"},
+                        {"text": "High Calcium -> Actin is blocked", "val": "2"},
+                        {"text": "Low Calcium -> Myosin is free to move", "val": "3"},
+                        {"text": "Low Calcium -> Myosin is blocked", "val": "4"}
+                    ],
+                    "ans": "3"
+
+                }
+            },
+            {
+                "id": "set7",
+                "name": "myosin_actin_video",
+                "type": "scene",
+                "prev": "set6",
+                "next": null,
+                "begin": 499.5,
+                "end": 562,
+                "object_data":{
+                    "id":"LiOfeSsjrB8"
+                }
+            }
+		]
+
+		
+	}
+}

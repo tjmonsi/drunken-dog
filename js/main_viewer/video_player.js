@@ -24,8 +24,10 @@
 function onYouTubePlayerReady(playerId) {
 
     //gets the videoID... It substracts videoPlayerID length, which is the global_id_length
-    var video_id = playerId.substring(0, playerId.length-global_id_length);
-    var video_Player_id = playerId.replace(video_id, "");
+    var video_id = playerId.split("%3A")[0];
+    //playerId.substring(0, playerId.length-global_id_length);
+    var video_Player_id = playerId.split("%3A")[1];
+    //playerId.replace(video_id, "");
 
     var pre_corrected_Id = playerId;
     for (var i; i<playerId.length; i++) {
@@ -62,7 +64,7 @@ var videoPlayer = Class.extend({
         this.sceneflag = sceneflag;
 
         this.currentTime = 0;
-        this.playerID = this.data.object_data.id+this.id;
+        this.playerID = this.data.object_data.id+":"+this.id;
         this.mouse_option = null;
         this.playerFlag = false;
         this.interval_set = {};
@@ -100,6 +102,8 @@ var videoPlayer = Class.extend({
 
         this.visible_objects = {};
 
+        this.comment_videos = {};
+
         this.run();
     },
 
@@ -113,12 +117,13 @@ var videoPlayer = Class.extend({
         this.createEssentials();
 
         if (this.sceneflag) this.on_back();
-        log("VideoPlayer: "+this.id+" created successfully", 1);
+        //log("VideoPlayer: "+this.id+" created successfully", 1);
     },
 
     // player states and what to do
     on_player_State_Change: function(event) {
         if (event=='1') {
+            log("videoPlayer:play:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
             this.playerFlag = true;
             this.timeline.timelength = this.data.end - this.data.begin;
             this.interval_set['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
@@ -132,6 +137,7 @@ var videoPlayer = Class.extend({
             this.on_trigger_pause = false;
 
         } else {
+            log("videoPlayer:pause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
             this.playerFlag = false;
             for (var key in this.interval_set) {
                 clearInterval(this.interval_set[key]);
@@ -177,7 +183,7 @@ var videoPlayer = Class.extend({
             }
             this.player.playVideo();
         } else {
-            log("Video: "+this.data.object_data.id+" for "+this.id+" is not yet loaded", 1);
+            //log("Video: "+this.data.object_data.id+" for "+this.id+" is not yet loaded", 1);
         }
     },
     pause: function() {
@@ -207,10 +213,12 @@ var videoPlayer = Class.extend({
         if (this.parent.hasClass("hide")) {
             for (var key in this.interval_sets) {
                 clearInterval(this.interval_sets[key]);
-                console.log(key);
+                //console.log(key);
             }
             return;
         }
+
+        this.removeVideoObjects();
 
         if ((this.player.getCurrentTime()-this.data.begin) >= this.currentTime) {
 
@@ -363,6 +371,23 @@ var videoPlayer = Class.extend({
 
         text = text+" = "+timer.toString();
         this.visualTimer.append(text);
+    },
+
+    // remove extra objects {
+    removeVideoObjects: function() {
+        // check visible comment videos and closes
+        if (this.comment_videos != {}) {
+
+            for (var i in this.comment_videos) {
+                if (vD.i(this.comment_videos[i])!=null) {
+                    vD.i(this.comment_videos[i]).close();
+                }
+
+                this.comment_videos[i]=null;
+            }
+
+        }
+        this.comment_videos = {}
     },
 
     // create element areas
@@ -560,7 +585,7 @@ var videoPlayer = Class.extend({
 
             // RC from Play and Pause to MenuPause
             this.contextMenu.on_show(event.x, event.y);
-
+            log("videoPlayer:right_click:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
             this.pause();
             return false;
         }
@@ -594,7 +619,7 @@ var videoPlayer = Class.extend({
                         this.fromPlay = false;
                     }
                 }
-
+                log("videoPlayer:on_mousedown:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
                 this.mouseDownTime = event.data.timeStamp;
                 this.on_bBoxCreate(event);
             } else {
@@ -665,6 +690,8 @@ var videoPlayer = Class.extend({
                             "bBox": bBox
                         }
                         console.log(bBox);
+                        log("videoPlayer:on_createNewComment:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
+
                         this.windowAddNewComment = new addNewDiscussion(this.element, data);
                         // LCLD from Play/Pause (Normal) to CommentPause
                         this.last_mode = this.interactionElement.switchMode("addNewComment")
@@ -697,6 +724,7 @@ var videoPlayer = Class.extend({
     on_click: function(event) {
         if (event.target.id==this.element.attr('id')) {
             // SC/LC and Comment from MenuPause to Pause or CommentPause
+            log("videoPlayer:cancelComment:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
             this.contextMenu.on_hide();
             this.openedComment();
             if (this.on_trigger_pause) this.last_mode = this.interactionElement.switchMode("trigger_pause");
@@ -708,6 +736,7 @@ var videoPlayer = Class.extend({
     // CommentPause
     on_new_comment_right_click: function(event) {
         if (event.target.id==this.element.attr('id')) {
+            log("videoPlayer:right_click:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
             // RC from CommentPause
             this.closeAddNewComment();
             // to MenuPause
@@ -729,6 +758,7 @@ var videoPlayer = Class.extend({
                     xDR: event.x,
                     yDR: event.y
                 }
+                log("videoPlayer:on_mousedown:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
                 this.contextMenu.on_hide();
             }
         } catch (e) {
@@ -779,7 +809,7 @@ var videoPlayer = Class.extend({
             if ((bBox.width >= minBoundingBoxVal) && (bBox.height >= minBoundingBoxVal)) {
                 // add comment
                 this.closeAddNewComment();
-                console.log("hello");
+                //console.log("hello");
                 var data = {
                     "id": this.id+"_addNewCommentThread",
                     "video_id": this.id,
@@ -792,6 +822,7 @@ var videoPlayer = Class.extend({
                     "bBox": bBox
                 }
                 console.log(bBox);
+                log("videoPlayer:on_createNewComment:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
                 this.windowAddNewComment = new addNewDiscussion(this.element, data);
                 // LCLD from CommentPause to CommentPause
                 this.last_mode = this.interactionElement.switchMode("addNewComment")
@@ -834,6 +865,7 @@ var videoPlayer = Class.extend({
     // Trigger_Pause_Menu
     on_trigger_click: function(event) {
         if (event.target.id==this.element.attr('id')) {
+            log("videoPlayer:cancelComment:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
             this.contextMenu.on_hide();
             this.closeAddNewComment();
             this.openedComment();
@@ -946,6 +978,7 @@ var videoPlayer = Class.extend({
     },
 
     startAnnotation: function(data){
+        log("videoPlayer:startAnnotation:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+data.discussion_id+":"+data.id+":"+this.player.getCurrentTime())
         this.annotation_id = data.id;
         this.discussion_id = data.discussion_id;
         // StartDraw from CommentPause to DrawPause
@@ -980,7 +1013,7 @@ var videoPlayer = Class.extend({
             this.drawingObject['x'+(val)]=this.drawing_pts[i].x
             this.drawingObject['y'+(val)]=this.drawing_pts[i].y
         }
-
+        log("videoPlayer:startDrawing:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.discussion_id+":"+this.annotation_id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
         this.canvas.addLayer(this.drawingObject).drawLayers();
 
     },
@@ -999,6 +1032,7 @@ var videoPlayer = Class.extend({
     on_drawStop: function(event) {
         if (this.drawingObject!=null) {
             console.log(JSON.stringify(this.drawingObject))
+            log("videoPlayer:endDrawing:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.discussion_id+":"+this.annotation_id+":"+event.x+":"+event.y+":"+this.player.getCurrentTime())
             vD.a(this.drawingObject);
             vD.i(this.annotation_id).saveAnnotation(this.drawingObject.name);
         }
@@ -1013,10 +1047,10 @@ var videoPlayer = Class.extend({
                 "discussion_id": obj.data.discussion_id,
                 "type": "annotation"
             }
-            console.log(newobj)
+            //console.log(newobj)
             this.visible_objects[newobj.id]=newobj;
             this.canvas.addLayer(obj).drawLayers();
-            console.log(obj)
+            //console.log(obj)
             //this.canvas.addLayerToGroup(obj.name, "commentAnnotation")
         }
     },
@@ -1055,6 +1089,7 @@ var videoPlayer = Class.extend({
 
     },
     endAnnotation: function(){
+        log("videoPlayer:endAnnotation:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.discussion_id+":"+this.annotation_id+":"+this.player.getCurrentTime())
         // DoneDraw from DrawPause to lastMode
         this.interactionElement.switchMode(this.last_mode);
         this.canvas.data({"visible_flag": false});
@@ -1113,6 +1148,7 @@ var videoPlayer = Class.extend({
             "time": this.player.getCurrentTime(),
             "pad": "pad20"
         }
+        log("videoPlayer:on_createNewComment:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+x+":"+y+":"+this.player.getCurrentTime())
         this.contextMenu.on_hide();
         this.windowAddNewComment = new addNewDiscussion(this.element, data);
         // CommentPick from MenuPause to CommentPause

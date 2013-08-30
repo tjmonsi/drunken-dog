@@ -131,6 +131,8 @@ var discussionPt = Class.extend({
         this.bBoxUI = this.interactionBBox.element;
 
         this.discussionBoxArea.element.css({"background-color": "#BBBBBB", "color": "#000000"});
+
+        log("discussionPt:on_showbBox:"+this.id.split("_")[0])
     },
 
     setupInteractionBBox: function() {
@@ -169,6 +171,7 @@ var discussionPt = Class.extend({
     },
 
     on_expand: function() {
+        log("discussionPt:on_expand:"+this.id.split("_")[0])
         this.changeOpacity(1);
         this.triggered = true;
         this.interactionBBox.switchMode("expand");
@@ -198,7 +201,7 @@ var discussionPt = Class.extend({
         if (this.interactionElement!=null) this.interactionElement.switchMode("normal");
         vD.i(this.data.video_id).openedComment(this, true);
         if (this.discussionWindow!=null) {
-            console.log(this.discussionWindow)
+           // console.log(this.discussionWindow)
             if (this.discussionWindow.closeWindow) this.discussionWindow.closeWindow();
             this.discussionWindow = null;
         }
@@ -247,7 +250,7 @@ var discussionBoxArea = Class.extend({
         this.interactionElementList = {};
         this.commentListElements = {};
 
-        console.log(this.id);
+       // console.log(this.id);
         //this.on_show();
     },
 
@@ -355,7 +358,7 @@ var discussionBoxArea = Class.extend({
 
         this.interactionElementList[id] = new interactionExistingElement(this.commentListElements[id],interactionElementListData);
 
-        console.log(this.interactionElementList)
+        //console.log(this.interactionElementList)
         //vD.i(this.interactionElementList[id]);
 
         this.commentListElements[id+"_commentEl"] = saveElement(
@@ -389,7 +392,7 @@ var discussionBoxArea = Class.extend({
         var comment = cData.comment;
         if ($.trim(comment)=="") comment = "&nbsp;";
 
-        commentEl.append(cData.commenter+" says:<br/><br/><br/>"+comment+"<br/><br/><hr/>");
+        commentEl.append("<b>"+cData.commenter+"</b> says:<br/><br/><br/>"+comment+"<br/><br/><hr/>");
         commentUser.append("Date made: "+cData.timeStamp.toString());
         commentAdditionalData.append("Number of replies: "+cData.comment_list.length);
 
@@ -481,17 +484,18 @@ var discussionBoxArea = Class.extend({
     },
 
     on_mouseenter: function(event) {
-        console.log("this is enter");
+        //console.log("this is enter");
         //console.log(this.id.split("_")[0]+"_discussionTrigger")
         //console.log(vD.i(this.id.split("_")[0]+"_discussionTrigger"))
         //console.log(this.id);
         vD.i(this.id.split("_")[0]+"_discussionTrigger").on_showbBox();
         this.element.css({"background-color": "#999999", "color": "#000000"})
         //vD.i()
+        log("discussionBoxArea:on_mouseenter:"+this.id.split("_")[0])
     },
 
     on_mouseleave: function(event) {
-        console.log("this is leave");
+        //console.log("this is leave");
 
         if (this.newCommentInput!=null) {
             if (this.newCommentInput.annotation_flag) {
@@ -508,9 +512,9 @@ var discussionBoxArea = Class.extend({
     },
 
     on_mouseenterComment: function(event) {
-        console.log("comment enter")
-        console.log(event.target.id);
-
+        //console.log("comment enter")
+        //console.log(event.target.id);
+        log("discussionBoxArea:on_mouseenterComment:"+this.id.split("_")[0])
         var comment_id = event.target.id.split("_")[0]
 
         this.drawAnnotation(comment_id)
@@ -520,20 +524,33 @@ var discussionBoxArea = Class.extend({
         //console.log(this.commentListElements[event.target.id.split("_")[0]].css("background-color"));
         this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "#FFFFFF"});
 
+        vD.i(this.data.video_id).removeVideoObjects()
+
+        var cData = vD.c(comment_id);
+        if (cData.video_list!=null) {
+            for (var i in cData.video_list) {
+                if (vD.i(this.data.video_id).comment_videos[cData.video_list[i].id]==null) {
+                    vD.i(this.data.video_id).comment_videos[cData.video_list[i].id] = cData.video_list[i].id;
+                    vD.i(new commentVideo(vD.i(this.data.video_id).element, cData.video_list[i]))
+                }
+            }
+        }
+
     },
 
     drawAnnotation: function (comment_id, flag) {
-        console.log(comment_id)
+       // console.log(comment_id)
         var cData = vD.c(comment_id);
         if (cData==null) return;
         //console.log(cData);
         if (cData.replyTo) this.drawAnnotation(cData.replyTo);
         vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr, true);
+        //log("discussionBoxArea:drawAnnotation:"+this.id.split("_")[0])
     },
 
     on_mouseleaveComment: function(event) {
-        console.log("comment left")
-        console.log(event.target.id);
+        //console.log("comment left")
+        //console.log(event.target.id);
 
         if (this.newCommentInput!=null) {
             if (this.newCommentInput.annotation_flag) {
@@ -543,6 +560,7 @@ var discussionBoxArea = Class.extend({
         var cData = vD.c(event.target.id.split("_")[0]);
         var color = "transparent";
 
+        if (cData!=null)
         if (cData.commenter == vD.user) color = "#009900";
 
         this.commentListElements[event.target.id.split("_")[0]].css({"background-color": color});
@@ -550,9 +568,10 @@ var discussionBoxArea = Class.extend({
     },
 
     on_clickComment: function( event) {
-        console.log("comment clicked")
-        console.log(event.target.id.split("_")[0]);
-        console.log(vD.i(this.data.video_id).discussionArea.scrollTop());
+        log("discussionBoxArea:on_clickComment:"+this.id.split("_")[0])
+        //console.log("comment clicked")
+       // console.log(event.target.id.split("_")[0]);
+        //console.log(vD.i(this.data.video_id).discussionArea.scrollTop());
         var current_top = vD.i(this.data.video_id).discussionArea.scrollTop()
         var comment_y = this.commentListElements[event.target.id.split("_")[0]].offset().top;
         var disc_y = vD.i(this.data.video_id).discussionArea.offset().top;
@@ -561,9 +580,9 @@ var discussionBoxArea = Class.extend({
         var dData = vD.d(cData.discussion_id);
         vD.i(dData.video_id).seek(dData.time, true);
 
-        console.log(comment_y);
-        console.log(disc_y);
-        console.log(comment_y-disc_y)
+        //console.log(comment_y);
+        //console.log(disc_y);
+        //console.log(comment_y-disc_y)
         //console.log(this.commentListElements[event.target.id.split("_")[0]].position().top-210);
         //var posy = this.commentListElements[event.target.id.split("_")[0]].position().top-210
         //if (posy>10) vD.i(this.data.video_id).discussionArea.animate({"scrollTop" : this.commentListElements[event.target.id.split("_")[0]].position().top-200})
@@ -600,7 +619,8 @@ var discussionBoxArea = Class.extend({
 
     addReply: function(last_commentID, element){
         //console.log(data);
-        console.log(this.data.id)
+        //console.log(this.data.id)
+        log("discussionBoxArea:addReply:"+this.id.split("_")[0]+":"+last_commentID)
         this.newCommentData = {
             "video_id": this.data.video_id,
             "discussion_id": this.data.id.replace("_DiscussionOnVideo", "").replace("_discussionTrigger", ""),
@@ -640,7 +660,7 @@ var discussionBoxArea = Class.extend({
     },
 
     saveComment: function(data){
-
+        log("discussionBoxArea:saveComment:"+data.discussion_id+":"+data.id+":"+data.replyTo)
         vD.c(data);
         //console.log(data)
         //console.log(data.discussion_id)
@@ -653,7 +673,7 @@ var discussionBoxArea = Class.extend({
         } else {
             var obj = vD.c(data.replyTo)
             obj.comment_list.push(data.id);
-            console.log(obj);
+            //console.log(obj);
             vD.c(obj);
             // please add comment to discussionArea
             vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
@@ -678,6 +698,7 @@ var discussionBoxArea = Class.extend({
     },
 
     seeDiscussion: function(comment_id) {
+        log("discussionBoxArea:seeDiscussion:"+this.id.split("_")[0]+":"+comment_id)
         var cData = vD.c(comment_id);
         //var replyToCData = vD.c(cData.replyTo)
 

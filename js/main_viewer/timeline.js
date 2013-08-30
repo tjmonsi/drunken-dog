@@ -20,7 +20,7 @@ var timeLine = Class.extend({
         this.timelength = 0;
         this.truetime = 0;
 
-        console.log(this.parent)
+        //console.log(this.parent)
         this.width = this.data.width
         this.posy = this.data.height;
         this.height = 10;
@@ -37,7 +37,7 @@ var timeLine = Class.extend({
 
 
 
-        log("Timeline: "+this.id+" created successfully", 1);
+        //log("Timeline: "+this.id+" created successfully", 1);
     },
 
     createMouseInteractions: function() {

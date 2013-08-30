@@ -44,7 +44,7 @@ var interactionElement = Class.extend({
     switchMode: function(mode) {
         var mode2 = this.mode;
         this.mode = mode
-        console.log("new:"+mode+", last:"+mode2);
+        //console.log("new:"+mode+", last:"+mode2);
         return mode2;
     },
 
@@ -96,6 +96,7 @@ var interactionElement = Class.extend({
 
     on_click: function(e) {
         // catches right click
+
         if (e.button==2) return;
         var event = this.consolidateEvent(e, this.data.on_click.data);
 

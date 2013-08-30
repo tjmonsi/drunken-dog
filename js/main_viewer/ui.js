@@ -59,7 +59,7 @@ var viewerUI = Class.extend({
                 vD.i(new actionObject(this.element,obj));
             }
 
-            console.log(vD.discussion_set);
+            //console.log(vD.discussion_set);
             for (var i in vD.discussion_set) {
                 vD.createComments(vD.discussion_set[i]);
             }
