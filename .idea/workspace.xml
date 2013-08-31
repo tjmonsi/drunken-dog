@@ -5,10 +5,7 @@
     <list id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="" />
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
-    <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/extra_config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" afterPath="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
-    </list>
+    <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="" />
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.html" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377880111085" ignored="false" />
@@ -202,7 +199,7 @@
       <file leaf-file-name="extra_config.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/extra_config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.13024601">
+            <state line="9" column="0" selection-start="165" selection-end="260" vertical-scroll-proportion="0.06512301">
               <folding />
             </state>
           </provider>
@@ -707,19 +704,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/extra_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.13024601">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="33" selection-start="198" selection-end="198" vertical-scroll-proportion="-5.625">
           <folding>
             <element signature="e#6#163#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/extra_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="165" selection-end="260" vertical-scroll-proportion="0.06512301">
+          <folding />
         </state>
       </provider>
     </entry>
