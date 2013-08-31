@@ -116,12 +116,13 @@ var videoPlayer = Class.extend({
         this.createEssentials();
 
         if (this.sceneflag) this.on_back();
-        log("VideoPlayer: "+this.id+" created successfully", 1);
+        //log("VideoPlayer: "+this.id+" created successfully", 1);
     },
 
     // player states and what to do
     on_player_State_Change: function(event) {
         if (event=='1') {
+            log("videoPlayer:play:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
             this.playerFlag = true;
             this.timeline.timelength = this.data.end - this.data.begin;
             this.interval_set['checkposition'] = setInterval($.proxy(this.checkposition, this), 250);
@@ -180,10 +181,12 @@ var videoPlayer = Class.extend({
             }
             this.player.playVideo();
         } else {
-            log("Video: "+this.data.object_data.id+" for "+this.id+" is not yet loaded", 1);
+            //log("Video: "+this.data.object_data.id+" for "+this.id+" is not yet loaded", 1);
         }
     },
     pause: function() {
+        if (this.loaded)
+            if (this.playerFlag) log("videoPlayer:pause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
         this.player.pauseVideo();
     },
     seek: function(seconds, pauseflag) {
@@ -192,6 +195,8 @@ var videoPlayer = Class.extend({
         if (pauseflag) {
             this.player.playVideo();
             this.player.pauseVideo();
+            if (this.loaded)
+                if (this.playerFlag) log("videoPlayer:seekPause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
         } else {
             this.player.playVideo();
         }
@@ -210,7 +215,7 @@ var videoPlayer = Class.extend({
         if (this.parent.hasClass("hide")) {
             for (var key in this.interval_sets) {
                 clearInterval(this.interval_sets[key]);
-                console.log(key);
+                //console.log(key);
             }
             return;
         }
@@ -430,7 +435,7 @@ var videoPlayer = Class.extend({
     },
 
     on_click: function() {
-        console.log(this.playerFlag)
+        //console.log(this.playerFlag)
         if (this.playerFlag) {
             this.pause();
         } else {

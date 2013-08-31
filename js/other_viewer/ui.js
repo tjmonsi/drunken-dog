@@ -20,7 +20,8 @@ var viewerUI = Class.extend({
     run: function() {
         try {
 
-            console.log(vD);
+            //console.log(vD);
+            //console.log(vD);
 
             var total = vD.data.data.scene_objects.length
 
@@ -102,10 +103,12 @@ var navBarObj = Class.extend({
     },
 
     on_mouseenter: function() {
+        log("navBarObj:on_mouseenter:"+this.id.split("_")[0])
         this.element.css({"background-color": "orange"});
     },
 
     on_mouseleave: function() {
+
         if (this.activated) {
             this.element.css({"background-color": "green"})
         } else {
@@ -115,7 +118,8 @@ var navBarObj = Class.extend({
     },
 
     on_click: function() {
-        console.log(this.id)
+        log("navBarObj:on_click:"+this.id.split("_")[0])
+        //console.log(this.id)
         vD.i(vUI.activated+"_navbar").activate(false);
         this.activate(true);
         vUI.activated = this.id.split("_")[0]
@@ -126,9 +130,11 @@ var navBarObj = Class.extend({
 
         this.activated = flag;
         if (this.activated) {
+            log("navBarObj:showSet:"+this.id.split("_")[0])
             this.element.css({"background-color": "green"});
             vD.i(this.id.split("_")[0]+"_content").on_show();
         } else {
+            log("navBarObj:hideSet:"+this.id.split("_")[0])
             this.element.css({"background-color": "#666666"})
             vD.i(this.id.split("_")[0]+"_content").on_hide();
         }
@@ -176,7 +182,7 @@ var sceneObj = Class.extend({
     },
 
     on_show: function() {
-        console.log(this.parent)
+        //console.log(this.parent)
         if (this.element == null) {
             this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
             this.element.css(this.css);
@@ -222,6 +228,7 @@ var sceneObj = Class.extend({
     },
 
     on_next: function() {
+        log("sceneObj:on_next:"+this.id.split("_")[0])
         if (this.data.next!=null) {
             vD.i(vUI.activated+"_navbar").activate(false);
             vD.i(this.data.next+"_navbar").activate(true);
@@ -230,6 +237,7 @@ var sceneObj = Class.extend({
     },
 
     on_prev: function() {
+        log("sceneObj:on_prev:"+this.id.split("_")[0])
         if (this.data.prev!=null) {
             vD.i(vUI.activated+"_navbar").activate(false);
             vD.i(this.data.prev+"_navbar").activate(true);
@@ -247,7 +255,7 @@ var quizObj = Class.extend({
         this.id = this.data.id+"_content";
 
         vD.i(this);
-        console.log(this.id)
+        //console.log(this.id)
         this.run();
     },
 
@@ -283,7 +291,7 @@ var quizObj = Class.extend({
     on_show: function() {
         //console.log(this.parent)
         this.submit_status = 1;
-        console.log("quizObj")
+        //console.log("quizObj")
         if (this.element == null) {
             $('#Sidebar').empty();
             this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
@@ -427,8 +435,8 @@ var quizObj = Class.extend({
                 if (val.length>0) {
                      input_value = val.val();
                 }
-                console.log(this.data.object_data.ans);
-                console.log(input_value);
+                //console.log(this.data.object_data.ans);
+                //console.log(input_value);
                 if (input_value!=this.data.object_data.ans) {
                     correct_status=false;
                     this.wrongPNG.removeClass('hide');
@@ -459,17 +467,19 @@ var quizObj = Class.extend({
             }
 
             if (correct_status) {
+                log("quizObj:allCorrect:"+this.id.split("_")[0])
                 this.submitElement.empty();
                 this.submitElement.append("Continue");
                 this.submit_status = 2
             } else {
+                log("quizObj:someWrong:"+this.id.split("_")[0])
                 this.submitElement.empty();
                 this.submitElement.append("Retry");
                 this.submit_status = 3
             }
 
         } else if (this.submit_status == 2) {
-
+            log("quizObj:Continue:"+this.id.split("_")[0])
             if (this.data.next!=null) {
                 vD.i(vUI.activated+"_navbar").activate(false);
                 vD.i(this.data.next+"_navbar").activate(true);
@@ -477,7 +487,7 @@ var quizObj = Class.extend({
             }
 
         } else if (this.submit_status == 3) {
-
+            log("quizObj:Retry:"+this.id.split("_")[0])
             if (this.data.object_data.type=="mcq") {
 
                 this.wrongPNG.addClass('hide');
@@ -498,6 +508,7 @@ var quizObj = Class.extend({
     },
 
     on_next: function() {
+        log("quizObj:on_next:"+this.id.split("_")[0])
         if (this.data.next!=null) {
             vD.i(vUI.activated+"_navbar").activate(false);
             vD.i(this.data.next+"_navbar").activate(true);
@@ -506,6 +517,7 @@ var quizObj = Class.extend({
     },
 
     on_prev: function() {
+        log("quizObj:on_prev:"+this.id.split("_")[0])
         if (this.data.prev!=null) {
             vD.i(vUI.activated+"_navbar").activate(false);
             vD.i(this.data.prev+"_navbar").activate(true);
@@ -523,7 +535,7 @@ var commentThread = Class.extend({
         this.interactionElementList = {};
         this.commentListElements = {};
         vD.i(this);
-        console.log(this.id);
+        //console.log(this.id);
         this.on_show();
         //this.on_show();
     },
@@ -632,7 +644,7 @@ var commentThread = Class.extend({
 
         this.interactionElementList[id] = new interactionExistingElement(this.commentListElements[id],interactionElementListData);
 
-        console.log(this.interactionElementList)
+        //console.log(this.interactionElementList)
         //vD.i(this.interactionElementList[id]);
 
         this.commentListElements[id+"_commentEl"] = saveElement(
@@ -758,7 +770,8 @@ var commentThread = Class.extend({
     },
 
     on_mouseenter: function(event) {
-        console.log("this is enter");
+        log("commentThread:on_mouseenter:"+this.id.split("_")[0])
+        //console.log("this is enter");
         //console.log(this.id.split("_")[0]+"_discussionTrigger")
         //console.log(vD.i(this.id.split("_")[0]+"_discussionTrigger"))
         //console.log(this.id);
@@ -768,8 +781,8 @@ var commentThread = Class.extend({
     },
 
     on_mouseleave: function(event) {
-        console.log("this is leave");
-
+        //console.log("this is leave");
+        log("commentThread:on_mouseleave:"+this.id.split("_")[0])
         if (this.newCommentInput!=null) {
             if (this.newCommentInput.annotation_flag) {
                 return;
@@ -785,11 +798,11 @@ var commentThread = Class.extend({
     },
 
     on_mouseenterComment: function(event) {
-        console.log("comment enter")
-        console.log(event.target.id);
-
+        //console.log("comment enter")
+       // console.log(event.target.id);
+        //log("discussionBoxArea:on_mouseenterComment:"+this.id.split("_")[0])
         var comment_id = event.target.id.split("_")[0]
-
+        log("commentThread:on_mouseenterComment:"+this.id.split("_")[0]+":"+comment_id)
         //this.drawAnnotation(comment_id)
         // draw annotations
         //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);
@@ -809,8 +822,8 @@ var commentThread = Class.extend({
     },
 
     on_mouseleaveComment: function(event) {
-        console.log("comment left")
-        console.log(event.target.id);
+        //console.log("comment left")
+        //console.log(event.target.id);
 
         if (this.newCommentInput!=null) {
             if (this.newCommentInput.annotation_flag) {
@@ -827,8 +840,9 @@ var commentThread = Class.extend({
     },
 
     on_clickComment: function( event) {
-        console.log("comment clicked")
-        console.log(event.target.id.split("_")[0]);
+        log("commentThread:on_clickComment:"+this.id.split("_")[0])
+        //console.log("comment clicked")
+        //console.log(event.target.id.split("_")[0]);
         //console.log(vD.i(this.data.video_id).discussionArea.scrollTop());
         //ar current_top = vD.i(this.data.video_id).discussionArea.scrollTop()
         //var comment_y = this.commentListElements[event.target.id.split("_")[0]].offset().top;
@@ -876,8 +890,9 @@ var commentThread = Class.extend({
     },
 
     addReply: function(last_commentID, element){
+        log("commentThread:addReply:"+this.id.split("_")[0]+":"+last_commentID)
         //console.log(data);
-        console.log(this.data.id)
+        //console.log(this.data.id)
         this.newCommentData = {
             "video_id": this.data.video_id,
             "discussion_id": this.data.id.replace("_DiscussionOnVideo", "").replace("_discussionTrigger", ""),
@@ -917,7 +932,7 @@ var commentThread = Class.extend({
     },
 
     saveComment: function(data){
-
+        log("commentThread:saveComment:"+data.discussion_id+":"+data.id+":"+data.replyTo)
         vD.c(data);
         //console.log(data)
         //console.log(data.discussion_id)
@@ -931,7 +946,7 @@ var commentThread = Class.extend({
         } else {
             var obj = vD.c(data.replyTo)
             obj.comment_list.push(data.id);
-            console.log(obj);
+            //console.log(obj);
             vD.c(obj);
             // please add comment to discussionArea
             vD.i(data.discussion_id.replace("_discussionTrigger", "")+"_discussionArea").updateCommentThread(data.id)
@@ -956,6 +971,7 @@ var commentThread = Class.extend({
     },
 
     seeDiscussion: function(comment_id) {
+        log("commentThread:seeDiscussion:"+this.id.split("_")[0]+":"+comment_id)
         var cData = vD.c(comment_id);
         //var replyToCData = vD.c(cData.replyTo)
 

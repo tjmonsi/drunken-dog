@@ -112,6 +112,7 @@ var commentBox = Class.extend({
     },
 
     cancelNewComment: function(){
+        log("commentBox:cancelNewComment:"+this.data.discussion_id+":"+this.id.split("_")[0]+":"+this.data.replyTo)
         this.clearNewComment();
         //vD.i(this.data.video_id).clearAnnotations();
         if (vD.i(this.data.video_id).interactionElement.mode == "draw") {

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../js/jquery-2.0.2.min.js"></script>
+</head>
+<body>
+HELLO
+<div>
+    <iframe id="myiframe" src="https://docs.google.com/forms/d/1hyX-TRX98NHLo96csXES-qYDW5Sq9hwMU3ijx25ACTU/viewform?embedded=true&entry.1587106328=user1" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+<script>
+    var x= false
+
+    $('#myiframe').one('load', function(){
+
+        console.log('loaded');
+
+    })
+
+
+</script>
+</div>
+
+
+</body>
+</html>

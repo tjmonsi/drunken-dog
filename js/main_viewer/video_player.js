@@ -137,7 +137,7 @@ var videoPlayer = Class.extend({
             this.on_trigger_pause = false;
 
         } else {
-            log("videoPlayer:pause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
+            //if (this.loaded)
             this.playerFlag = false;
             for (var key in this.interval_set) {
                 clearInterval(this.interval_set[key]);
@@ -187,6 +187,8 @@ var videoPlayer = Class.extend({
         }
     },
     pause: function() {
+        if (this.loaded)
+        if (this.playerFlag) log("videoPlayer:pause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
         this.player.pauseVideo();
     },
     seek: function(seconds, pauseflag) {
@@ -195,6 +197,8 @@ var videoPlayer = Class.extend({
         if (pauseflag) {
             this.player.playVideo();
             this.player.pauseVideo();
+            if (this.loaded)
+            if (this.playerFlag) log("videoPlayer:seekPause:"+this.id.split("_")[0]+":"+this.data.object_data.id+":"+this.player.getCurrentTime())
         } else {
             this.player.playVideo();
         }
@@ -208,7 +212,7 @@ var videoPlayer = Class.extend({
 
     // On interval when playing
     checkposition: function() {
-
+        //try {
         // checks if this parent is hidden
         if (this.parent.hasClass("hide")) {
             for (var key in this.interval_sets) {
@@ -1157,6 +1161,7 @@ var videoPlayer = Class.extend({
     },
     contextMenuDebug: function(event) {
         console.log(vD);
+        console.log(log_data);
     },
 
     generalError: function(e) {

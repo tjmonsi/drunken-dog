@@ -514,9 +514,9 @@ var discussionBoxArea = Class.extend({
     on_mouseenterComment: function(event) {
         //console.log("comment enter")
         //console.log(event.target.id);
-        log("discussionBoxArea:on_mouseenterComment:"+this.id.split("_")[0])
-        var comment_id = event.target.id.split("_")[0]
 
+        var comment_id = event.target.id.split("_")[0]
+        log("discussionBoxArea:on_mouseenterComment:"+this.id.split("_")[0]+":"+comment_id)
         this.drawAnnotation(comment_id)
         // draw annotations
         //vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr);

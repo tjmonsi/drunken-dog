@@ -681,17 +681,17 @@ var dataModel = Class.extend({
         var annotations = this.annotation_set;
         var discussions = this.discussion_set;
 
-        var data = JSON.stringify({"comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
+        var data = JSON.stringify({"id": vD.user, "comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
         //console.log(data)
 
-        if (this.user.indexOf("source_comments")!=-1) var file =  "main_data/"+this.user+".comments.json"
-        else var file = this.user+".comments.json"
-
-        var res = $.post('savefile.php', {"data": data, "file": file});
+        /*if (this.user.indexOf("source_comments")!=-1) var file =  "main_data/"+this.user+".comments.json"
+        else var file = this.user+".comments.json"*/
+        saveComment(data);
+        /*var res = $.post('savefile.php', {"data": data, "file": file});
 
         res.done(function(d) {
             console.log(d)
-        })
+        })*/
     },
 
     saveLog: function () {

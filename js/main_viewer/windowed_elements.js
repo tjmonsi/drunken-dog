@@ -365,6 +365,8 @@ var commentVideo = windowedElement.extend({
 
     closeWindow: function(){
         if (this.video==null) return
+        this.video.pause();
+
         this.video.close();
         this.video = null;
        // this.element.remove();

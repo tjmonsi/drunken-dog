@@ -43,7 +43,7 @@ var mainVideoPlayer = Class.extend({
             this.mainTimeline = new mainTimeline(this.element, "mainTimeline");
             vD.i(this.mainTimeline);
 
-            log("Main Video Player is created", 1);
+            //log("Main Video Player is created", 1);
 
         } catch (e) {
             console.error(e.stack);

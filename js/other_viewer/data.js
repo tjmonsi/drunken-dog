@@ -92,7 +92,7 @@ var dataModel = Class.extend({
 
 
 
-            log("Loaded all data", 1);
+            //log("Loaded all data", 1);
             //log(this.data, 2);
 
         } catch (e) {
@@ -516,13 +516,15 @@ var dataModel = Class.extend({
         var comments = this.comment_set;
         var annotations = this.annotation_set;
         var discussions = this.discussion_set;
+        var data = JSON.stringify({"id": vD.user, "comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
 
-        var data = JSON.stringify({"comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
+        saveComment(data);
+        /*var data = JSON.stringify({"comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
         console.log(data)
         var res = $.post('savefile.php', {"data": data, "file": "other_data/"+this.user+".comments.json"});
 
         res.done(function(d) {
             console.log(d)
-        })
+        })*/
     }
 });

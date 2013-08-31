@@ -13,7 +13,9 @@ var win_height = 0;
 var comment_time = 3;
 var bodyclick = false;
 var scrollData = {};
-
+var showBInterval = null;
+var showBIntervalTime = 1000*60 // *60*10;
+var doneButton = null
 
 var run = function(){
 
@@ -22,11 +24,55 @@ var run = function(){
 
     // create new dataModel
     vD = new dataModel(root, "vData");
-
+    log("otherInterface:start:"+vD.user);
     vUI = new viewerUI(root, "vUI");
 
     addScroll(root);
 
+    var exitsign = saveElement(root, "div", "exitSign");
+    exitsign.css({"top":10, "left":20, "position": "absolute", "color": "#000000", "font-weight": "bold"});
+    exitsign.append("Click on the button: 'Finish Learning' when you are done learning. Button will appear after 10 minutes")
+    doneButton = new buttonClass(exitsign, "Finish Learning", "doneButton", finish);
+    doneButton.element.addClass('hide');
+    doneButton.element.css({"position": "static"});
+    var res = $.post('returntime.php');
+    res.done(function(d){
+        showBInterval = setInterval(showDone, showBIntervalTime*parseFloat(d));
+    });
+
+}
+
+var finish = function() {
+    log("otherInterface:end:"+vD.user);
+    vD.saveData();
+    saveLog();
+    window.location.href = "post_test_start.php";
+}
+
+var showDone = function() {
+    doneButton.element.removeClass('hide');
+    clearInterval(showBInterval);
+    showBInterval = null;
+}
+
+var saveComment = function(data) {
+    console.log(data);
+    var res = $.post('saveToMongo.php', {"data": data, "type": "comments"});
+
+    res.done(function(d){
+        console.log(d);
+    })
+}
+
+var saveLog = function() {
+    var data = JSON.stringify({"id": vD.user,"log": log_data});
+    console.log(data);
+
+    var res = $.post('saveToMongo.php', {"data": data, "type": "logs"});
+
+    res.done(function(d){
+        console.log(d);
+    })
 }
 
 var addScroll = function(body) {
