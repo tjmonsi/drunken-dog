@@ -6,47 +6,8 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/activateuser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/catcher.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/closeIframe.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/connect_to_mongo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demograph.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/endall.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/endeval.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/endeval_start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/endlast.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/endsession.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/env.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/getpostData.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysql.start.config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post_eval.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post_eval_start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post_test.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post_test_start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pre_test.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pre_test_start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/process.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/returntime.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saveToMongo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/starttest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/testingembed.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/tests.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/comment_box.js" afterPath="$PROJECT_DIR$/js/other_viewer/comment_box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/data.js" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/data.js" afterPath="$PROJECT_DIR$/js/other_viewer/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/init.js" afterPath="$PROJECT_DIR$/js/main_viewer/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/init.js" afterPath="$PROJECT_DIR$/js/other_viewer/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/main_video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/main_video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/ui.js" afterPath="$PROJECT_DIR$/js/other_viewer/ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/other_viewer/video_player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" afterPath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/extra_config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" afterPath="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,7 +72,7 @@
     <file path="/other_viewer.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377842673777" ignored="false" />
     <file path="/myosin_actin2_other.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377846774182" ignored="false" />
     <file path="/mysql.start.config.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377880854310" ignored="false" />
-    <file path="/testsend_to_mongodb.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377930724541" ignored="false" />
+    <file path="/testsend_to_mongodb.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377979391595" ignored="false" />
     <file path="/a.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377883750642" ignored="false" />
     <file path="/connect_to_mongo.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377974168405" ignored="false" />
     <file path="/testingembed.html" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377935560491" ignored="false" />
@@ -119,7 +80,7 @@
     <file path="/tests.html" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377971470660" ignored="false" />
     <file path="/activateuser.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377957359147" ignored="false" />
     <file path="/getpostData.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377954917262" ignored="false" />
-    <file path="/config.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377974440313" ignored="false" />
+    <file path="/config.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377983644748" ignored="false" />
     <file path="/process.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377974244552" ignored="false" />
     <file path="/index.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377957816629" ignored="false" />
     <file path="/start.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377975391737" ignored="false" />
@@ -178,15 +139,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="demograph.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demograph.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="27" selection-start="2403" selection-end="2403" vertical-scroll-proportion="-22.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pre_test_start.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pre_test_start.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -198,30 +150,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pre_test.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pre_test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding>
-                <element signature="e#6#164#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="button_class.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main_viewer/button_class.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starttest.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="starttest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starttest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="10" selection-start="506" selection-end="506" vertical-scroll-proportion="0.3243243">
+            <state line="30" column="12" selection-start="664" selection-end="664" vertical-scroll-proportion="-5.632653">
               <folding>
                 <element signature="e#6#164#0" expanded="true" />
               </folding>
@@ -247,19 +179,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="endsession.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/endsession.php">
+      <file leaf-file-name="testsend_to_mongodb.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testbed/testsend_to_mongodb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="9" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-40.666668">
+            <state line="50" column="0" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-5.6666665">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="3" selection-start="378" selection-end="378" vertical-scroll-proportion="-10.0">
+            <state line="9" column="33" selection-start="198" selection-end="198" vertical-scroll-proportion="-5.625">
+              <folding>
+                <element signature="e#6#163#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extra_config.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/extra_config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.13024601">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="endsession.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/endsession.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="9" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-40.666668">
               <folding />
             </state>
           </provider>
@@ -272,6 +224,15 @@
               <folding>
                 <element signature="e#6#162#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/process.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -294,9 +255,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/php/config.php" />
-        <option value="$PROJECT_DIR$/demograph.php" />
-        <option value="$PROJECT_DIR$/endeval.php" />
         <option value="$PROJECT_DIR$/post_eval.php" />
         <option value="$PROJECT_DIR$/post_test.php" />
         <option value="$PROJECT_DIR$/pre_test.php" />
@@ -310,6 +268,9 @@
         <option value="$PROJECT_DIR$/pre_test_start.php" />
         <option value="$PROJECT_DIR$/endall.php" />
         <option value="$PROJECT_DIR$/starttest.php" />
+        <option value="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
+        <option value="$PROJECT_DIR$/php/extra_config.php" />
+        <option value="$PROJECT_DIR$/php/config.php" />
       </list>
     </option>
   </component>
@@ -363,6 +324,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testbed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,6 +419,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
@@ -609,27 +599,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/endlast.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.53781515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post_eval_start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="9" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.31792718">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post_test_start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="9" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.40336135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testbed/catcher.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="19" selection-start="182" selection-end="182" vertical-scroll-proportion="-5.0">
@@ -643,13 +612,6 @@
           <folding>
             <element signature="e#6#164#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,9 +686,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/starttest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="10" selection-start="506" selection-end="506" vertical-scroll-proportion="0.3243243">
+        <state line="30" column="12" selection-start="664" selection-end="664" vertical-scroll-proportion="-5.632653">
           <folding>
             <element signature="e#6#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testbed/testsend_to_mongodb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-5.6666665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/extra_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.13024601">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="198" selection-end="198" vertical-scroll-proportion="-5.625">
+          <folding>
+            <element signature="e#6#163#0" expanded="true" />
           </folding>
         </state>
       </provider>

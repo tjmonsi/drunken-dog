@@ -48,6 +48,7 @@ catch(MongoConnectionException $e)
     die("Failed to connect to database ".$e->getMessage());
 }
 //echo "all working fine";
+
 echo $collection;
 $cursor = $collection->find();
 
