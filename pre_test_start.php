@@ -68,7 +68,9 @@ $env = $_COOKIE["env"];
     <div id="centerForm">
         <form method="post" action="pre_test.php">
             <div id="text1">
-                The test will start... your Ref# will be <? echo $ref; ?> and Sys# will be <? echo $env; ?><br/><br/>
+                The test will start... 
+                <br/>Ref# <?php echo $ref; ?> 
+                <br/>Sys# <?php echo $env; ?><br/><br/>
 
                 We will start by doing a pre-test. This test measures your knowledge about the topic you will learn later.
                 <br/>Don't worry if you don't know anything yet. We just want to know how much you know about the topic.<br/>

@@ -92,15 +92,15 @@ require_once('php/config.php');
 <div id="centerCenter">
     <div id="centerForm">
         <div id="ref">
-            REF# <? echo $ref; ?><br/>
-            SYS# <? echo $env; ?><br/>
+            REF# <?php echo $ref; ?><br/>
+            SYS# <?php echo $env; ?><br/>
         </div>
-        <iframe id="myiframe" src="<?echo $src;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe id="myiframe" src="<?php echo $src;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div>
             <form id="myform" method="post" action="post_eval_start.php">
                 Please submit the Google form in the embedded form before clicking in the start button below
                 Start Button will appear after 5 minutes...
-                <input id="submitButton" type="submit" class="hide" value="Start Interface Evaluation <? echo $trial?>"/>
+                <input id="submitButton" type="submit" class="hide" value="Start Interface Evaluation <?php echo $trial?>"/>
             </form>
         </div>
     </div>
@@ -108,7 +108,7 @@ require_once('php/config.php');
 </div>
 <script>
     var x = null;
-    var min = <?echo $pretestTime; ?>;
+    var min = <?php echo $pretestTime; ?>;
     var time = 1000*60*min;
     var run = function() {
         x = setInterval(showButton, time);

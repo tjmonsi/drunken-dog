@@ -67,7 +67,8 @@ $env = $_COOKIE["env"];
     <div id="centerForm">
         <form method="post" action="endeval.php">
             <div id="text1">
-                This is the Last Questionnaire... your Ref# will be <? echo $ref; ?><br/><br/>
+                This is the Last Questionnaire... <br/>Ref# <?php echo $ref; ?> 
+                <br/><br/>
 
                 We want to know your preferred choice of interface for learning and why.<br/>
                 Please answer the questions as honestly as possible.<br/>

@@ -69,9 +69,9 @@ $ref = $_COOKIE["user"];
 <div id="centerCenter">
     <div id="centerForm">
         <div id="ref">
-            REF#<? echo $ref; ?>
+            REF#<?php echo $ref; ?>
         </div>
-        <iframe id="myiframe" src="https://docs.google.com/forms/d/1hyX-TRX98NHLo96csXES-qYDW5Sq9hwMU3ijx25ACTU/viewform?embedded=true&entry.1587106328=<?echo $ref;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe id="myiframe" src="https://docs.google.com/forms/d/1hyX-TRX98NHLo96csXES-qYDW5Sq9hwMU3ijx25ACTU/viewform?embedded=true&entry.1587106328=<?php echo $ref;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div>
             <form id="myform" method="post" action="starttest.php">
                 Please submit the Google form in the embedded form before clicking in the start button below
@@ -84,7 +84,7 @@ $ref = $_COOKIE["user"];
 </div>
 <script>
     var x = null;
-    var min = <?echo $demographTime ?>;
+    var min = <?php echo $demographTime ?>;
     var time = 1000*60*min;
     var run = function() {
         x = setInterval(showButton, time);

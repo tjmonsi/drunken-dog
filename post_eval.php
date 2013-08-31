@@ -81,15 +81,15 @@ require_once('php/config.php');
 <div id="centerCenter">
     <div id="centerForm">
         <div id="ref">
-            REF# <? echo $ref; ?><br/>
-            SYS# <? echo $env; ?><br/>
+            REF# <?php echo $ref; ?><br/>
+            SYS# <?php echo $env; ?><br/>
         </div>
-        <iframe id="myiframe" src="https://docs.google.com/forms/d/1-tEJQck5SBTBohABmnNnk4Yyl3-GFHRoJ9rySv3L6PE/viewform?entry.1808686863=<?echo $ref;?>&entry.590515155=<?echo $env;?>&embedded=true" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe id="myiframe" src="https://docs.google.com/forms/d/1-tEJQck5SBTBohABmnNnk4Yyl3-GFHRoJ9rySv3L6PE/viewform?entry.1808686863=<?php echo $ref;?>&entry.590515155=<?php echo $env;?>&embedded=true" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div>
             <form id="myform" method="post" action="endsession.php">
                 Please submit the Google form in the embedded form before clicking in the start button below
                 Start Button will appear after 5 minutes...
-                <input id="submitButton" type="submit" class="hide" value="End Interface Evaluation <? echo $trial?>"/>
+                <input id="submitButton" type="submit" class="hide" value="End Interface Evaluation <?php echo $trial?>"/>
             </form>
         </div>
     </div>
@@ -97,7 +97,7 @@ require_once('php/config.php');
 </div>
 <script>
     var x = null;
-    var min = <?echo $pretestTime; ?>;
+    var min = <?php echo $pretestTime; ?>;
     var time = 1000*60*min;
     var run = function() {
         x = setInterval(showButton, time);

@@ -63,7 +63,8 @@ body {
     <div id="centerForm">
     <form method="post" action="demograph.php">
         <div id="text1">
-            The test will start... your Ref# will be <? echo $ref; ?><br/><br/>
+            The test will start... 
+            <br/>Ref#: <?php echo $ref; ?><br/><br/>
 
             We will start by asking information to better understand you, the user, who will test two interfaces that uses interactive videos for learning.<br/>
             <br/>If you have questions, please feel free to ask the investigator for this experiment run.

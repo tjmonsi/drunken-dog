@@ -69,7 +69,9 @@ $env = $_COOKIE["env"];
     <div id="centerForm">
         <form method="post" action="post_test.php">
             <div id="text1">
-                Another test will be done after using the interface... your Ref# will be <? echo $ref; ?> and Sys# will be <? echo $env; ?><br/><br/>
+                Another test will be done after using the interface...
+                <br/>Ref# <?php echo $ref; ?> 
+                <br/>Sys# <?php echo $env; ?><br/><br/>
 
                 We will start a post-test. This test measures your knowledge about the topic you have learned.
                 <br/>Please answer the questions based on what you have understood and learned from the previous video.<br/>

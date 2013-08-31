@@ -67,7 +67,9 @@ $env = $_COOKIE["env"];
     <div id="centerForm">
         <form method="post" action="post_eval.php">
             <div id="text1">
-                This is the Post-Evaluation of the System... your Ref# will be <? echo $ref; ?> and Sys# will be <? echo $env; ?><br/><br/>
+                This is the Post-Evaluation of the System... 
+                <br/>Ref# <?php echo $ref; ?> 
+                <br/>Sys# <?php echo $env; ?><br/><br/>
 
                 We want to know your thoughts while you are using the learning interface that you have just used.
                 <br/>Please answer the questions based on what you have experienced to be true from the interface you have used.<br/>

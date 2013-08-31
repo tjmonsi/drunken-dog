@@ -19,6 +19,7 @@ foreach ( $_COOKIE as $key => $value )
 
 if (!empty($_GET)){
     $message = $_GET['message'];
+
 }
 
 ?>
@@ -67,10 +68,11 @@ body {
     <div id="centerForm">
     <form method="post" action="process.php">
         <div id="text1">
-    To start the test, please write your user number here...
+            To start the test, please write your user number here...
         </div>
         <div>
-            <?
+            
+            <?php
                 if ($message!=null) {
                     echo $message;
                 }

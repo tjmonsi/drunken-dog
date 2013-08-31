@@ -85,7 +85,7 @@ if (strcmp($trial, "1")==0) {
         <form method="post" action="starttest.php">
             <div id="text1">
 
-                <? echo $message; ?>
+                <?php echo $message; ?>
                 <br/><br/>
                 You are free to start anytime by clicking at the button below.<br/>
                 <br/>If you have questions, please feel free to ask the investigator for this experiment run.
