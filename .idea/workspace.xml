@@ -5,7 +5,9 @@
     <list id="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" name="add comments" comment="" />
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
-    <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="" />
+    <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.html" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377880111085" ignored="false" />
@@ -139,7 +141,7 @@
       <file leaf-file-name="pre_test_start.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pre_test_start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="44" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-42.5">
+            <state line="70" column="39" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-42.5">
               <folding>
                 <element signature="e#6#164#0" expanded="true" />
               </folding>
@@ -161,16 +163,7 @@
       <file leaf-file-name="endeval.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/endeval.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="27" selection-start="2832" selection-end="2832" vertical-scroll-proportion="-23.791666">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="endeval_start.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/endeval_start.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="9" selection-start="1264" selection-end="1264" vertical-scroll-proportion="-33.125">
+            <state line="109" column="27" selection-start="2849" selection-end="2849" vertical-scroll-proportion="-24.416666">
               <folding />
             </state>
           </provider>
@@ -196,10 +189,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extra_config.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="extra_config.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/extra_config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="165" selection-end="260" vertical-scroll-proportion="0.06512301">
+            <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="-3.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="3" selection-start="378" selection-end="378" vertical-scroll-proportion="-0.62952244">
               <folding />
             </state>
           </provider>
@@ -208,7 +210,7 @@
       <file leaf-file-name="endsession.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/endsession.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="9" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-40.666668">
+            <state line="77" column="0" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-40.666668">
               <folding />
             </state>
           </provider>
@@ -335,6 +337,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="testbed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prototype1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -612,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="378" selection-end="378" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/button_class.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -644,14 +653,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/endeval_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="9" selection-start="1264" selection-end="1264" vertical-scroll-proportion="-33.125">
+        <state line="60" column="0" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-33.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/endeval.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="27" selection-start="2832" selection-end="2832" vertical-scroll-proportion="-23.791666">
+        <state line="109" column="27" selection-start="2849" selection-end="2849" vertical-scroll-proportion="-24.416666">
           <folding />
         </state>
       </provider>
@@ -667,7 +676,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pre_test_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="44" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-42.5">
+        <state line="70" column="39" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-42.5">
           <folding>
             <element signature="e#6#164#0" expanded="true" />
           </folding>
@@ -676,7 +685,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/endsession.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="9" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-40.666668">
+        <state line="77" column="0" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-40.666668">
           <folding />
         </state>
       </provider>
@@ -715,7 +724,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/extra_config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="165" selection-end="260" vertical-scroll-proportion="0.06512301">
+        <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="378" selection-end="378" vertical-scroll-proportion="-0.62952244">
           <folding />
         </state>
       </provider>
