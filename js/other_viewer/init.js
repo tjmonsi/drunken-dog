@@ -57,7 +57,7 @@ var showDone = function() {
 
 var saveComment = function(data) {
     console.log(data);
-    var res = $.post('saveToMongo.php', {"data": data, "type": "comments"});
+    var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "comments_others"});
 
     res.done(function(d){
         console.log(d);
@@ -65,10 +65,10 @@ var saveComment = function(data) {
 }
 
 var saveLog = function() {
-    var data = JSON.stringify({"id": vD.user,"log": log_data});
+    var data = JSON.stringify({"id": vD.user,"log_other_viewer": log_data});
     console.log(data);
 
-    var res = $.post('saveToMongo.php', {"data": data, "type": "logs"});
+    var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "logs"});
 
     res.done(function(d){
         console.log(d);

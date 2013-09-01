@@ -68,7 +68,7 @@ var saveComment = function(data) {
 }
 
 var saveLog = function() {
-    var data = JSON.stringify({"id": vD.user,"log": log_data});
+    var data = JSON.stringify({"id": vD.user,"log_main_viewer": log_data});
     console.log(data);
 
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "logs"});
