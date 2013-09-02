@@ -45,6 +45,12 @@ var dataModel = Class.extend({
                     //if (vars.user==null) vars.user = "source_comments_"+vars.file
                 }
 
+                if (vars.debug!=null) {
+                    this.debug = vars.debug;
+                } else {
+                    this.debug = false;
+                }
+
 
                 if (vars.user!=null) {
                     this.user = vars.user
@@ -683,15 +689,27 @@ var dataModel = Class.extend({
 
         var data = JSON.stringify({"id": vD.user, "comment_set": comments, "annotation_set": annotations, "discussion_set": discussions});
         //console.log(data)
+        if (this.debug) {
+            if (this.user.indexOf("source_comments")!=-1) var file =  "main_data/"+this.user+".comments.json"
+            else var file = this.user+".comments.json"
 
+            var res = $.post('savefile.php', {"data": data, "file": file});
+
+             res.done(function(d) {
+             console.log(d)
+             })
+        } else {
+            saveComment(data);
+        }
         /*if (this.user.indexOf("source_comments")!=-1) var file =  "main_data/"+this.user+".comments.json"
         else var file = this.user+".comments.json"*/
-        saveComment(data);
+
         /*var res = $.post('savefile.php', {"data": data, "file": file});
 
         res.done(function(d) {
             console.log(d)
         })*/
+
     },
 
     saveLog: function () {

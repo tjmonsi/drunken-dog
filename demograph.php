@@ -12,6 +12,7 @@ if (!isset($_COOKIE["user"])){
     header("Location: index.php?message=".$message);
     exit;
 }
+setcookie("trial", "0", time()+(3600*3));
 $ref = $_COOKIE["user"];
 ?>
 <!DOCTYPE html>

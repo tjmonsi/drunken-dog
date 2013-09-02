@@ -29,8 +29,10 @@ require_once('php/config.php');
 
 if (strcmp($trial, "1")==0) {
     $src = "https://docs.google.com/forms/d/1PS6UYceSmYRkmF2smrF5fYYrZBPwdRai4-ndJJfLzxw/viewform?entry.840788360=".$ref."&entry.1557043302=".$env."&embedded=true";
+    $file = "myosin_actin1";
 } elseif (strcmp($trial, "2")==0) {
     $src = "https://docs.google.com/forms/d/1VF48vTohfOWKc7oBWZ2rIWPwmOKGPknWObXetvT1ixk/viewform?entry.2054494146=".$ref."&entry.1212956983=".$env."&embedded=true";
+    $file = "myosin_actin2";
 } else {
     $message = $trial." There's no trial parameter for this test...";
     header("Location: index.php?message=".$message);
@@ -97,7 +99,7 @@ if (strcmp($trial, "1")==0) {
         </div>
         <iframe id="myiframe" src="<?php echo $src;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div>
-            <form id="myform" method="post" action="env.php?user=<?php echo $ref;?>">
+            <form id="myform" method="post" action="env.php?user=<?php echo $ref;?>&file=<?php echo $file;?>">
                 Please submit the Google form in the embedded form before clicking in the start button below
                 Start Button will appear after 5 minutes...
                 <input id="submitButton" type="submit" class="hide" value="Start Learning"/>

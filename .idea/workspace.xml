@@ -6,9 +6,11 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/init.js" afterPath="$PROJECT_DIR$/js/main_viewer/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/init.js" afterPath="$PROJECT_DIR$/js/other_viewer/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveToMongo.php" afterPath="$PROJECT_DIR$/saveToMongo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/config.php" afterPath="$PROJECT_DIR$/php/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/data.js" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demograph.php" afterPath="$PROJECT_DIR$/demograph.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_test.php" afterPath="$PROJECT_DIR$/pre_test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/starttest.php" afterPath="$PROJECT_DIR$/starttest.php" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +55,7 @@
     <file path="/general_functions.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376751261103" ignored="false" />
     <file path="/base_class.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376747975963" ignored="false" />
     <file path="/console.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376815424489" ignored="false" />
-    <file path="/data.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377966063564" ignored="false" />
+    <file path="/data.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378113679185" ignored="false" />
     <file path="/test_mouse_movement.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376787432383" ignored="false" />
     <file path="/base_class.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377155061887" ignored="false" />
     <file path="/inheritance.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376794452509" ignored="false" />
@@ -88,7 +90,7 @@
     <file path="/demograph.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377974486231" ignored="false" />
     <file path="/starttest.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377977438180" ignored="false" />
     <file path="/pre_test_start.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377975798569" ignored="false" />
-    <file path="/pre_test.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377963958060" ignored="false" />
+    <file path="/pre_test.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378092186284" ignored="false" />
     <file path="/env.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377967707538" ignored="false" />
     <file path="/returntime.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377969501218" ignored="false" />
     <file path="/post_test_start.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377974987149" ignored="false" />
@@ -140,55 +142,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="pre_test.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pre_test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="26" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-10.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="env.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/env.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_test_start.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/post_test_start.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.22696011">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="starttest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starttest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="12" selection-start="664" selection-end="664" vertical-scroll-proportion="-0.625">
+            <state line="42" column="0" selection-start="910" selection-end="954" vertical-scroll-proportion="-11.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testsend_to_mongodb.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testbed/testsend_to_mongodb.php">
+      <file leaf-file-name="demograph.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demograph.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.0">
+            <state line="14" column="21" selection-start="354" selection-end="354" vertical-scroll-proportion="-8.75">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/config.php">
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="33" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="693" column="54" selection-start="22308" selection-end="22308" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#77#388#0" expanded="false" />
+                <element signature="e#2891#3489#0" expanded="false" />
+                <element signature="e#3519#3852#0" expanded="false" />
+                <element signature="e#3888#4373#0" expanded="false" />
+                <element signature="e#4410#6223#0" expanded="false" />
+                <element signature="e#6343#7900#0" expanded="false" />
+                <element signature="e#7948#12328#0" expanded="false" />
+                <element signature="e#12363#13749#0" expanded="false" />
+                <element signature="e#13862#15267#0" expanded="false" />
+                <element signature="e#15383#16634#0" expanded="false" />
+                <element signature="e#16772#21676#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extra_config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/extra_config.php">
+      <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="7" selection-start="1131" selection-end="1131" vertical-scroll-proportion="-11.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="120" selection-start="1556" selection-end="1559" vertical-scroll-proportion="0.4394141">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -203,19 +235,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="43" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="process.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/process.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -239,22 +262,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/start.php" />
-        <option value="$PROJECT_DIR$/post_test_start.php" />
         <option value="$PROJECT_DIR$/post_eval_start.php" />
         <option value="$PROJECT_DIR$/endsession.php" />
         <option value="$PROJECT_DIR$/endeval_start.php" />
         <option value="$PROJECT_DIR$/testbed/catcher.php" />
         <option value="$PROJECT_DIR$/pre_test_start.php" />
         <option value="$PROJECT_DIR$/endall.php" />
-        <option value="$PROJECT_DIR$/starttest.php" />
         <option value="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
         <option value="$PROJECT_DIR$/php/extra_config.php" />
-        <option value="$PROJECT_DIR$/php/config.php" />
         <option value="$PROJECT_DIR$/saveToMongo.php" />
         <option value="$PROJECT_DIR$/js/other_viewer/init.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/init.js" />
+        <option value="$PROJECT_DIR$/pre_test.php" />
+        <option value="$PROJECT_DIR$/starttest.php" />
+        <option value="$PROJECT_DIR$/demograph.php" />
+        <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
+        <option value="$PROJECT_DIR$/php/config.php" />
       </list>
     </option>
   </component>
@@ -583,69 +606,20 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/endeval.php">
+    <entry file="file://$PROJECT_DIR$/saveToMongo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="27" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.0">
+        <state line="28" column="125" selection-start="829" selection-end="829" vertical-scroll-proportion="0.56">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/endall.php">
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre_test_start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="39" selection-start="1382" selection-end="1390" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/endsession.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="0" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testbed/testsend_to_mongodb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/extra_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="83" selection-start="9152" selection-end="9227" vertical-scroll-proportion="0.024752475">
+        <state line="53" column="120" selection-start="1556" selection-end="1559" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -657,39 +631,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starttest.php">
+    <entry file="file://$PROJECT_DIR$/pre_test_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="12" selection-start="664" selection-end="664" vertical-scroll-proportion="-0.625">
+        <state line="70" column="39" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-14.416667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saveToMongo.php">
+    <entry file="file://$PROJECT_DIR$/post_test_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="125" selection-start="829" selection-end="829" vertical-scroll-proportion="0.56">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
+    <entry file="file://$PROJECT_DIR$/other_viewer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="379" column="0" selection-start="12162" selection-end="12162" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#77#388#0" expanded="false" />
-            <element signature="e#411#2683#0" expanded="false" />
-            <element signature="e#2722#3320#0" expanded="false" />
-            <element signature="e#3350#3683#0" expanded="false" />
-            <element signature="e#3719#4204#0" expanded="false" />
-            <element signature="e#4241#6054#0" expanded="false" />
-            <element signature="e#6174#7731#0" expanded="false" />
-            <element signature="e#7779#12159#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="167" selection-end="187" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -701,9 +659,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
+    <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="120" selection-start="1556" selection-end="1559" vertical-scroll-proportion="0.4394141">
+        <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="167" selection-end="187" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre_test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="26" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starttest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="910" selection-end="954" vertical-scroll-proportion="-11.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demograph.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="21" selection-start="354" selection-end="354" vertical-scroll-proportion="-8.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="693" column="54" selection-start="22308" selection-end="22308" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#77#388#0" expanded="false" />
+            <element signature="e#2891#3489#0" expanded="false" />
+            <element signature="e#3519#3852#0" expanded="false" />
+            <element signature="e#3888#4373#0" expanded="false" />
+            <element signature="e#4410#6223#0" expanded="false" />
+            <element signature="e#6343#7900#0" expanded="false" />
+            <element signature="e#7948#12328#0" expanded="false" />
+            <element signature="e#12363#13749#0" expanded="false" />
+            <element signature="e#13862#15267#0" expanded="false" />
+            <element signature="e#15383#16634#0" expanded="false" />
+            <element signature="e#16772#21676#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.22696011">
           <folding />
         </state>
       </provider>

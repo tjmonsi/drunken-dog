@@ -28,6 +28,9 @@ if (isset($_COOKIE["trial"])){
         exit;
     } elseif (strcmp($_COOKIE["trial"],"1")==0) {
         $trial = "2";
+    } elseif (strcmp($_COOKIE["trial"],"0")==0) {
+            $trial = "1";
+
     } else {
         $message = $_COOKIE["trial"]." Something is wrong with the interface";
         header("Location: index.php?message=".$message);

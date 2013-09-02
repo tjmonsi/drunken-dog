@@ -11,8 +11,8 @@ require_once('extra_config.php');
 $db = "drunken_dog_1";
 
 
-$demographTime = (float)(1.0/60);
-$pretestTime = (float)(1.0/60);
-$posttestTime = (float)(1.0/60);
+$demographTime = (float)(3);
+$pretestTime = (float)(5);
+$posttestTime = (float)(5);
 
-$envtime = (float)(1.0/60);
+$envtime = (float)(7);
