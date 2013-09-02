@@ -21,8 +21,12 @@ $res = updateOne($col, $pk_key, $pk_val, $data);
 
 if ($res==0) {
     echo "Success, wrote ($somecontent) to MongoDB";
+
+    insert($dbase->selectCollection('systemlog'), 'id', rand(0, 100), array("string"=>"Success of some kind", "data"=>$data));
+
 } else {
     echo "Something went wrong";
+    insert($dbase->selectCollection('systemlog'), 'id', rand(0, 100), array("string"=>"Something went wrong", "data"=>$data));
 }
 // Let's make sure the file exists and is writable first.
 /*if (is_writable($filename)) {

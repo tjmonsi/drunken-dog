@@ -45,11 +45,19 @@ var run = function(){
 
 }
 
+var this_is_end = false;
+
 var finish = function() {
+    doneButton.element.addClass('hide');
+
+    var exitloading = saveElement($("body"), "div", "exitLoading");
+    exitloading.css({"top": 150, "left": 150, "text-align": "center !important", "padding-top": 300, "padding-left": 300, "font-wieght": "bold", "z-index": 20000, "right": 150, "bottom": 150, "background-color": "#DDDDDD", "color": "black", "position": "absolute"});
+    exitloading.append("Please wait while we record the results");
+
+
     log("inVNCBLE:end:"+vD.user);
+    this_is_end = true;
     vD.saveData();
-    saveLog();
-    window.location.href = "post_test_start.php";
 }
 
 var showDone = function() {
@@ -63,18 +71,22 @@ var saveComment = function(data) {
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "comments"});
 
     res.done(function(d){
-        console.log(d);
+        //console.log(d);
+        if (this_is_end) {
+            saveLog();
+        }
+        //console.log(d);
     })
 }
 
 var saveLog = function() {
-    var data = JSON.stringify({"id": vD.user,"log_main_viewer": log_data});
+    var data = JSON.stringify({"id": vD.user, "logMainViewer": log_data});
     console.log(data);
-
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "logs"});
 
     res.done(function(d){
-        console.log(d);
+        //console.log(d);
+        window.location.href = "post_test_start.php";
     })
 }
 
