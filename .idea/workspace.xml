@@ -6,11 +6,14 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/backup/source_comments_myosin_actin1.comments.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/backup/source_comments_myosin_actin2.comments.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/config.php" afterPath="$PROJECT_DIR$/php/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/data.js" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demograph.php" afterPath="$PROJECT_DIR$/demograph.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_test.php" afterPath="$PROJECT_DIR$/pre_test.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/starttest.php" afterPath="$PROJECT_DIR$/starttest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" afterPath="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +23,7 @@
     <file path="/ui.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377846807995" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
-    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377999658694" ignored="false" />
+    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378223198937" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376982467891" ignored="false" />
     <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
@@ -33,7 +36,7 @@
     <file path="/viewer_general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376557578524" ignored="false" />
     <file path="/viewer_ids.css" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375661869108" ignored="false" />
     <file path="/viewer_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375423810768" ignored="false" />
-    <file path="/video_player.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377944961392" ignored="false" />
+    <file path="/video_player.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378224600798" ignored="false" />
     <file path="/test_bed.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376362899993" ignored="false" />
     <file path="/iv_sample2.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377235036505" ignored="false" />
     <file path="/general_functions.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377682851347" ignored="false" />
@@ -55,7 +58,7 @@
     <file path="/general_functions.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376751261103" ignored="false" />
     <file path="/base_class.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376747975963" ignored="false" />
     <file path="/console.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376815424489" ignored="false" />
-    <file path="/data.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378113679185" ignored="false" />
+    <file path="/data.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378216634300" ignored="false" />
     <file path="/test_mouse_movement.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376787432383" ignored="false" />
     <file path="/base_class.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377155061887" ignored="false" />
     <file path="/inheritance.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376794452509" ignored="false" />
@@ -66,7 +69,7 @@
     <file path="/action_object.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377745833410" ignored="false" />
     <file path="/windowed_elements.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377944999962" ignored="false" />
     <file path="/comment_box.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377853958253" ignored="false" />
-    <file path="/comment_pt.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377873979146" ignored="false" />
+    <file path="/comment_pt.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378224106351" ignored="false" />
     <file path="/iv_sample4.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377245787128" ignored="false" />
     <file path="/myosin_actin1.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377746417791" ignored="false" />
     <file path="/source_comments_myosin_actin1.comments.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377869265642" ignored="false" />
@@ -117,81 +120,51 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="saveToMongo.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/saveToMongo.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="28" column="125" selection-start="829" selection-end="829" vertical-scroll-proportion="0.56">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="invicble1" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pre_test.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pre_test.php">
+      <file leaf-file-name="video_player.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="26" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-10.625">
+            <state line="1063" column="36" selection-start="39583" selection-end="39583" vertical-scroll-proportion="0.38659793">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="env.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/env.php">
+      <file leaf-file-name="source_comments_myosin_actin1.comments.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post_test_start.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/post_test_start.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.22696011">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starttest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/starttest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="910" selection-end="954" vertical-scroll-proportion="-11.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demograph.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demograph.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="21" selection-start="354" selection-end="354" vertical-scroll-proportion="-8.75">
-              <folding />
+            <state line="13045" column="52" selection-start="343139" selection-end="343139" vertical-scroll-proportion="-0.625">
+              <folding>
+                <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
+                <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
+                <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
+                <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,20 +172,8 @@
       <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="693" column="54" selection-start="22308" selection-end="22308" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#77#388#0" expanded="false" />
-                <element signature="e#2891#3489#0" expanded="false" />
-                <element signature="e#3519#3852#0" expanded="false" />
-                <element signature="e#3888#4373#0" expanded="false" />
-                <element signature="e#4410#6223#0" expanded="false" />
-                <element signature="e#6343#7900#0" expanded="false" />
-                <element signature="e#7948#12328#0" expanded="false" />
-                <element signature="e#12363#13749#0" expanded="false" />
-                <element signature="e#13862#15267#0" expanded="false" />
-                <element signature="e#15383#16634#0" expanded="false" />
-                <element signature="e#16772#21676#0" expanded="false" />
-              </folding>
+            <state line="48" column="17" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -220,25 +181,16 @@
       <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="32" column="52" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general_functions.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
+      <file leaf-file-name="comment_pt.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="36" selection-start="167" selection-end="187" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0">
+            <state line="423" column="57" selection-start="14528" selection-end="14528" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -262,9 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/post_eval_start.php" />
-        <option value="$PROJECT_DIR$/endsession.php" />
-        <option value="$PROJECT_DIR$/endeval_start.php" />
         <option value="$PROJECT_DIR$/testbed/catcher.php" />
         <option value="$PROJECT_DIR$/pre_test_start.php" />
         <option value="$PROJECT_DIR$/endall.php" />
@@ -276,8 +225,11 @@
         <option value="$PROJECT_DIR$/pre_test.php" />
         <option value="$PROJECT_DIR$/starttest.php" />
         <option value="$PROJECT_DIR$/demograph.php" />
-        <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
         <option value="$PROJECT_DIR$/php/config.php" />
+        <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
+        <option value="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" />
+        <option value="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
+        <option value="$PROJECT_DIR$/js/main_viewer/video_player.js" />
       </list>
     </option>
   </component>
@@ -316,7 +268,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,39 +296,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="other_viewer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,37 +318,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invicble1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Configurable.PHP" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php5.4.10/bin" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/backup" />
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="023b610e-c12a-4261-82d8-d1a11316600a">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/backup" />
       <recent name="$PROJECT_DIR$/php" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/data" />
@@ -442,19 +360,12 @@
       <recent name="$PROJECT_DIR$/css/viewer" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.testsend_to_mongodb.php">
+  <component name="RunManager">
     <configuration default="false" name="testsend_to_mongodb.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/testbed/testsend_to_mongodb.php">
       <RunnerSettings RunnerId="PhpRunner" />
       <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
@@ -464,14 +375,7 @@
       </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="PHP Script.testsend_to_mongodb.php" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.testsend_to_mongodb.php" />
-      </list>
-    </recent_temporary>
+    <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
@@ -525,14 +429,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22668579" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23006351" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17039801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -540,6 +443,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.047263682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -610,58 +514,41 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saveToMongo.php">
+    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="125" selection-start="829" selection-end="829" vertical-scroll-proportion="0.56">
-          <folding />
+        <state line="17" column="5" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
+            <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="120" selection-start="1556" selection-end="1559" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="7" selection-start="1131" selection-end="1131" vertical-scroll-proportion="-11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre_test_start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="39" selection-start="1382" selection-end="1390" vertical-scroll-proportion="-14.416667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post_test_start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/other_viewer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="43" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0">
+        <state line="45" column="44" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -673,63 +560,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="0" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="43" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="167" selection-end="187" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/env.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="26" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-10.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/starttest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="910" selection-end="954" vertical-scroll-proportion="-11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demograph.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="21" selection-start="354" selection-end="354" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="693" column="54" selection-start="22308" selection-end="22308" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#77#388#0" expanded="false" />
-            <element signature="e#2891#3489#0" expanded="false" />
-            <element signature="e#3519#3852#0" expanded="false" />
-            <element signature="e#3888#4373#0" expanded="false" />
-            <element signature="e#4410#6223#0" expanded="false" />
-            <element signature="e#6343#7900#0" expanded="false" />
-            <element signature="e#7948#12328#0" expanded="false" />
-            <element signature="e#12363#13749#0" expanded="false" />
-            <element signature="e#13862#15267#0" expanded="false" />
-            <element signature="e#15383#16634#0" expanded="false" />
-            <element signature="e#16772#21676#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="6" column="36" selection-start="167" selection-end="187" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.22696011">
+        <state line="14" column="24" selection-start="277" selection-end="277" vertical-scroll-proportion="-5.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/backup/source_comments_myosin_actin1.comments.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/backup/source_comments_myosin_actin2.comments.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin2.comments.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="17" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13045" column="52" selection-start="343139" selection-end="343139" vertical-scroll-proportion="-0.625">
+          <folding>
+            <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
+            <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
+            <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
+            <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="52" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="423" column="57" selection-start="14528" selection-end="14528" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1063" column="36" selection-start="39583" selection-end="39583" vertical-scroll-proportion="0.38659793">
           <folding />
         </state>
       </provider>

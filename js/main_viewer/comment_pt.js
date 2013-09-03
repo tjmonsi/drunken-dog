@@ -132,7 +132,25 @@ var discussionPt = Class.extend({
 
         this.discussionBoxArea.element.css({"background-color": "#BBBBBB", "color": "#000000"});
 
-        log("discussionPt:on_showbBox:"+this.id.split("_")[0])
+        log("discussionPt:on_showbBox:"+this.id.split("_")[0]);
+
+        //console.log(this.data);
+        for (var i in this.data.comment_list) {
+            this.drawAnnotation(this.data.comment_list[i]);
+            //this.discussionBoxArea.on_mouseenterComment({"target": {"id": this.data.comment_list[i]}});
+        }
+
+
+    },
+
+    drawAnnotation: function (comment_id, flag) {
+        // console.log(comment_id)
+        var cData = vD.c(comment_id);
+        if (cData==null) return;
+        //console.log(cData);
+        if (cData.replyTo) this.drawAnnotation(cData.replyTo);
+        vD.i(this.data.video_id).drawAnnotations(cData.annotation_arr, true);
+        //log("discussionBoxArea:drawAnnotation:"+this.id.split("_")[0])
     },
 
     setupInteractionBBox: function() {
@@ -150,7 +168,7 @@ var discussionPt = Class.extend({
     },
 
     on_hidebBox: function() {
-
+        vD.i(this.data.video_id).clearAnnotations();
         if (this.discussionBoxArea.newCommentInput!=null) {
             if (this.discussionBoxArea.newCommentInput.annotation_flag) {
                 return;
@@ -171,6 +189,7 @@ var discussionPt = Class.extend({
     },
 
     on_expand: function() {
+        vD.i(this.data.video_id).clearAnnotations();
         log("discussionPt:on_expand:"+this.id.split("_")[0])
         this.changeOpacity(1);
         this.triggered = true;
@@ -197,6 +216,7 @@ var discussionPt = Class.extend({
     },
 
     on_collapse: function() {
+        vD.i(this.data.video_id).clearAnnotations();
         if (this.interactionBBox!=null) this.interactionBBox.switchMode("normal");
         if (this.interactionElement!=null) this.interactionElement.switchMode("normal");
         vD.i(this.data.video_id).openedComment(this, true);
@@ -210,6 +230,7 @@ var discussionPt = Class.extend({
     },
 
     on_closeWindow: function() {
+
         if (this.interactionBBox!=null) this.interactionBBox.switchMode("normal");
         this.interactionElement.switchMode("normal");
         vD.i(this.data.video_id).openedComment(this, true);
@@ -392,7 +413,21 @@ var discussionBoxArea = Class.extend({
         var comment = cData.comment;
         if ($.trim(comment)=="") comment = "&nbsp;";
 
-        commentEl.append("<b>"+cData.commenter+"</b> says:<br/><br/><br/>"+comment+"<br/><br/><hr/>");
+        commentEl.append("<b>"+cData.commenter+"</b> says:<br/><br/><br/>"+comment+"<br/><br/>");
+
+        if (cData.video_list!=null) {
+            if (cData.video_list.length!=0) {
+                commentEl.append("Video List:<br/>");
+                for (var video_i in cData.video_list) {
+                    var vid = cData.video_list[video_i].object_data.object_data.id;
+                    var vidbeg =  cData.video_list[video_i].object_data.begin;
+                    commentEl.append('<a target="_blank" href="http://www.youtube.com/watch?v='+vid+'&t='+vidbeg+'">http://www.youtube.com/watch?v='+vid+'</a>');
+                }
+                commentEl.append("<br/><br/><hr/>");
+            }
+
+        }
+
         commentUser.append("Date made: "+cData.timeStamp.toString());
         commentAdditionalData.append("Number of replies: "+cData.comment_list.length);
 

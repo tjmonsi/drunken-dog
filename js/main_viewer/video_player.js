@@ -148,7 +148,7 @@ var videoPlayer = Class.extend({
         if (event=='5') {
             this.loaded = true;
             this.timeline.timelength = this.data.end-this.data.begin;
-            //this.checktrigger();
+            this.checktrigger();
             this.updateTimer();
             this.checkposition();
         }
@@ -1007,7 +1007,8 @@ var videoPlayer = Class.extend({
             "data": {
                 "video_id": this.data.id,
                 "comment_id": this.annotation_id,
-                "discussion_id":this.discussion_id
+                "discussion_id":this.discussion_id,
+                "type": "annotation"
             }
         }
         //this.canvas.addLayerToGroup(drawing_id, "commentAnnotation");
@@ -1052,19 +1053,40 @@ var videoPlayer = Class.extend({
                 "type": "annotation"
             }
             //console.log(newobj)
-            this.visible_objects[newobj.id]=newobj;
+            //this.visible_objects[newobj.id]=newobj;
             this.canvas.addLayer(obj).drawLayers();
             //console.log(obj)
             //this.canvas.addLayerToGroup(obj.name, "commentAnnotation")
         }
     },
     clearAnnotations: function() {
-        //this.canvas.removeLayers();
-        //this.canvas.clearCanvas();
+        this.canvas.removeLayers();
+        this.canvas.clearCanvas();
         //console.log("clearing");
         //console.log(this.visible_objects)
         //console.log(this.canvas.getLayers())
-        for (var i in this.visible_objects) {
+
+        /*var arr = this.canvas.getLayers();
+
+        for (var i in arr){
+            if (((arr[i].data.comment_id!=null) && (arr[i].data.discussion_id!=null)) || (arr[i].data.type!=null)) {
+                console.log(arr[i].name)
+                //this.canvas.removeLayer(arr[i].name)
+            }
+            //console.log(arr[i].data);
+        }
+
+        this.canvas.drawLayers();
+
+        var arr = this.canvas.getLayers();
+
+        for (var i in arr){
+
+            console.log(arr[i].data);
+        } */
+
+
+        /*for (var i in this.visible_objects) {
             if (this.visible_objects[i]!=null)
             if (this.visible_objects[i].type=="annotation") {
                 this.canvas.removeLayer(this.visible_objects[i].id).drawLayers();
@@ -1073,7 +1095,7 @@ var videoPlayer = Class.extend({
             }
 
 
-        }
+        }*/
 
 
         //this.canvas.clearCanvas();

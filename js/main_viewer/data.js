@@ -33,9 +33,6 @@ var dataModel = Class.extend({
                 if (vars.debug2!=null) {
                     debug2 = vars.debug2
                 }
-                if (vars.debug!=null) {
-                    debug = vars.debug
-                }
 
                 if (vars.source_comments!=null) {
                     var source_file = "data/"+vars.source_comments+".comments.json"
