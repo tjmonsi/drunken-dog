@@ -48,7 +48,7 @@ var finish = function() {
     doneButton.element.addClass('hide');
 
     var exitloading = saveElement($("body"), "div", "exitLoading");
-    exitloading.css({"top": 20, "left": 20, "text-align": "center", "padding-top": 300, "z-index": 20000, "width": exitloading.width()-40, "height": 20, "position": "absolute"});
+    exitloading.css({"top": 150, "left": 150, "text-align": "center !important", "padding-top": 300, "padding-left": 300, "font-weight": "bold", "z-index": 20000, "right": 150, "bottom": 150, "background-color": "#DDDDDD", "color": "black", "position": "absolute"});
     exitloading.append("Please wait while we record the results");
 
     log("otherInterface:end:"+vD.user);
