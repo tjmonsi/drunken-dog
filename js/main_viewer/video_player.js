@@ -342,7 +342,7 @@ var videoPlayer = Class.extend({
                 for (var i in discussion_arr) {
                     for (var k in discussion_arr[i]) {
                         if (this.discussion_pts[k]==null) {
-                            console.log(k);
+                            //console.log(k);
                             vD.i(k+"_discussionTrigger").on_show();
                             this.discussion_pts[k]=discussion_arr[i][k];
                             //console.log("revived "+k);
