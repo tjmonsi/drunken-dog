@@ -550,19 +550,85 @@ var embeddedLinkbox = embeddedObject.extend({
         this._super();
         this.elementType = "div";
         this.classes.push('linkbox');
-        this.action = this.object_data.action;
+        //this.action = this.object_data.action;
         this.hide = true;
 
     },
 
     on_show: function() {
         if (this.element==null) {
-
+            this.interactionElementData = {
+                "id": this.id+"_area",
+                "defaultMode": "normal",
+                "class": ["linkbox_area"],
+                "default_return_val": true,
+                "css": {
+                    "top": this.data.y,
+                    "left": this.data.x,
+                    "width": this.data.object_data.width,
+                    "height": this.data.object_data.height
+                },
+                "on_click": {},
+                "right_click": {},
+                "on_mousedown": {},
+                "on_mousemove": {},
+                "on_mouseup": {},
+                "on_mouseenter": {},
+                "on_mouseleave": {}
+            }
+            this.click_flag = false;
+            this.setupInteractionElement();
+            this.interactionElement = new interactionElement(this.parent, this.interactionElementData);
+            vD.i(this.interactionElement);
+            this.element = this.interactionElement.element;
+            this.element.css({"border": "1px solid"});
+            this.element.css({"border-color": this.data.object_data.border_color});
+            this.element.css({"opacity":0.5});
         }
+    },
+
+    setupInteractionElement: function() {
+        this.interactionElementData.on_mouseenter.normal = $.proxy(this.on_mouseenter, this);
+        this.interactionElementData.on_mouseleave.normal = $.proxy(this.on_mouseleave, this);
+        this.interactionElementData.on_click.normal = $.proxy(this.on_click, this);
+    },
+
+    on_mouseenter: function(event) {
+        for (var key in this.data.object_data.mouseenter) {
+            vD.i(this.data.object_data.mouseenter[key]).trigger();
+        }
+        this.element.css({"opacity":1});
+    },
+
+    on_mouseleave: function(event){
+        for (var key in this.data.object_data.mouseleave) {
+            vD.i(this.data.object_data.mouseleave[key]).trigger();
+        }
+        this.element.css({"opacity":.5});
+    },
+
+    on_click: function(event){
+
+        if (this.click_flag) {
+            for (var key in this.data.object_data.click_hide) {
+                vD.i(this.data.object_data.click_hide[key]).trigger();
+            }
+            vD.i(this.data.scene_id).play();
+            this.click_flag = false
+        } else {
+            for (var key in this.data.object_data.click_show) {
+                vD.i(this.data.object_data.click_show[key]).trigger();
+            }
+            vD.i(this.data.scene_id).pause();
+            this.click_flag = true
+        }
+
     },
 
     on_hide: function() {
         if(this.element==null) return;
+        this.interactionElement.close();
+        this.interactionElement = null;
         this.element.remove();
         this.element = null;
     }

@@ -1,0 +1,25 @@
+{
+    "id": "overlink1",
+    "type": "linkbox",
+    "begin": 275.8,
+    "end": 323.7,
+    "x": 264,
+    "y": 585,
+    "scene_id": "video00001",
+    "pause": false,
+    "show": true,
+    "parent": null,
+    "retrig": true,
+    "object_data": {
+        "name": "MCQ 1 Question for Myosin and Actin",
+        "mouseenter": ["TextActinMyosin"],
+        "mouseleave": ["TextActinMyosin"],
+        "click_show": ["VideoActinMyosin"],
+        "click_hide": ["VideoActinMyosin"],
+        "height": 63,
+        "width": 497,
+        "border_color": "white",
+        "draggable": false,
+        "on_element": true
+    }
+}

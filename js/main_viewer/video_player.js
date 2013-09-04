@@ -156,6 +156,8 @@ var videoPlayer = Class.extend({
 
     on_player_Error: function(event) {
         console.error(event);
+        //this.player.loadVideoById(this.data.object_data.id, this.data.begin);
+        //this.player.setPlaybackQuality("default");
     },
     on_show: function() {
         this.playerContainer.css('z-index', 11000);

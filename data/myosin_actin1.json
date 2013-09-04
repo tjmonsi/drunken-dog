@@ -92,6 +92,50 @@
                 }
             },
             {
+                "id": "correct1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 37,
+                "y": 568,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "Yes. That is correct! Later on the video will show you how it is done.",
+                    "font_size": 20,
+                    "width": 370,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "wrongtext1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 37,
+                "y": 568,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "You can retry your answer... or replay a part of the video to remember the text.",
+                    "font_size": 20,
+                    "width": 370,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
                 "id": "submit0001",
                 "type": "submit",
                 "begin": "inherit",
@@ -109,7 +153,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_mcq1"],
-                    "right_1": [],
+                    "right_1": ["correct_mcq2"],
                     "wrong_1": ["wrong_mcq1"],
                     "wrong_2": ["wrong_mcq2"],
                     "draggable": false,
@@ -136,6 +180,154 @@
                     "on_element": true
                 }
             },
+
+            {
+                "id": "atp1",
+                "type": "canvas",
+                "begin": 133.5,
+                "end": 150,
+                "x": 744,
+                "y": 118,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "layer": {
+                        "type":"line","strokeStyle":"#B12700","name":"atp1thatisround","layer":"true","strokeWidth":4,"rounded":true,"visible":true,"x1":1095,"y1":341,"data":{"video_id":"video00001"},"x2":1095,"y2":340,"x3":1094,"y3":340,"x4":1093,"y4":340,"x5":1092,"y5":340,"x6":1092,"y6":338,"x7":1091,"y7":337,"x8":1090,"y8":336,"x9":1088,"y9":336,"x10":1086,"y10":335,"x11":1085,"y11":334,"x12":1084,"y12":334,"x13":1083,"y13":334,"x14":1082,"y14":334,"x15":1081,"y15":334,"x16":1080,"y16":334,"x17":1077,"y17":334,"x18":1075,"y18":335,"x19":1074,"y19":335,"x20":1073,"y20":336,"x21":1072,"y21":336,"x22":1071,"y22":336,"x23":1071,"y23":337,"x24":1070,"y24":337,"x25":1068,"y25":338,"x26":1066,"y26":340,"x27":1064,"y27":340,"x28":1062,"y28":342,"x29":1054,"y29":346,"x30":1051,"y30":348,"x31":1050,"y31":350,"x32":1047,"y32":351,"x33":1046,"y33":352,"x34":1046,"y34":353,"x35":1044,"y35":354,"x36":1043,"y36":356,"x37":1040,"y37":360,"x38":1038,"y38":362,"x39":1036,"y39":365,"x40":1036,"y40":367,"x41":1036,"y41":368,"x42":1036,"y42":370,"x43":1036,"y43":371,"x44":1036,"y44":372,"x45":1036,"y45":373,"x46":1036,"y46":374,"x47":1036,"y47":377,"x48":1038,"y48":378,"x49":1040,"y49":381,"x50":1040,"y50":382,"x51":1041,"y51":383,"x52":1042,"y52":384,"x53":1043,"y53":384,"x54":1044,"y54":384,"x55":1045,"y55":385,"x56":1045,"y56":385,"x57":1046,"y57":385,"x58":1047,"y58":385,"x59":1048,"y59":385,"x60":1050,"y60":385,"x61":1052,"y61":386,"x62":1053,"y62":387,"x63":1054,"y63":388,"x64":1056,"y64":388,"x65":1057,"y65":388,"x66":1058,"y66":388,"x67":1058,"y67":388,"x68":1060,"y68":388,"x69":1061,"y69":388,"x70":1064,"y70":388,"x71":1066,"y71":388,"x72":1068,"y72":387,"x73":1071,"y73":387,"x74":1072,"y74":387,"x75":1074,"y75":386,"x76":1075,"y76":386,"x77":1075,"y77":385,"x78":1080,"y78":384,"x79":1082,"y79":382,"x80":1085,"y80":378,"x81":1090,"y81":376,"x82":1094,"y82":373,"x83":1096,"y83":372,"x84":1100,"y84":370,"x85":1103,"y85":366,"x86":1106,"y86":363,"x87":1108,"y87":362,"x88":1110,"y88":358,"x89":1110,"y89":357,"x90":1110,"y90":356,"x91":1110,"y91":352,"x92":1110,"y92":350,"x93":1108,"y93":347,"x94":1107,"y94":345,"x95":1106,"y95":343,"x96":1104,"y96":343,"x97":1102,"y97":342,"x98":1100,"y98":341,"x99":1097,"y99":341,"x100":1094,"y100":340,"x101":1093,"y101":338,"x102":1091,"y102":338,"x103":1090,"y103":337,"x104":1088,"y104":337,"x105":1088,"y105":336,"x106":1086,"y106":336,"x107":1085,"y107":336
+                    }
+                }
+            },
+            {
+                "id": "atp21",
+                "type": "canvas",
+                "begin": 133.5,
+                "end": 150,
+                "x": 744,
+                "y": 118,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data":{ "layer":{
+                "type":"line","strokeStyle":"#B12700","name":"atp21line","layer":"true","strokeWidth":4,"rounded":true,"visible":true,"x1":846,"y1":263,"data":{"video_id":"video00001"},"x2":847,"y2":265,"x3":853,"y3":272,"x4":856,"y4":274,"x5":858,"y5":276,"x6":861,"y6":281,"x7":863,"y7":284,"x8":865,"y8":285,"x9":867,"y9":287,"x10":868,"y10":287,"x11":868,"y11":288,"x12":871,"y12":288,"x13":872,"y13":292,"x14":874,"y14":294,"x15":878,"y15":297,"x16":881,"y16":300,"x17":883,"y17":301,"x18":886,"y18":304,"x19":890,"y19":306,"x20":893,"y20":308,"x21":898,"y21":312,"x22":901,"y22":313,"x23":902,"y23":314,"x24":903,"y24":315,"x25":905,"y25":316,"x26":911,"y26":320,"x27":914,"y27":322,"x28":917,"y28":324,"x29":920,"y29":325,"x30":921,"y30":326,"x31":922,"y31":326,"x32":923,"y32":327,"x33":925,"y33":328,"x34":928,"y34":330,"x35":936,"y35":333,"x36":941,"y36":336,"x37":942,"y37":337,"x38":944,"y38":337,"x39":948,"y39":340,"x40":952,"y40":341,"x41":956,"y41":342,"x42":966,"y42":345,"x43":974,"y43":350,"x44":983,"y44":353,"x45":990,"y45":355,"x46":993,"y46":356,"x47":995,"y47":357,"x48":996,"y48":357,"x49":997,"y49":357,"x50":1001,"y50":358,"x51":1002,"y51":360,"x52":1003,"y52":360,"x53":1004,"y53":360,"x54":1005,"y54":360,"x55":1005,"y55":361,"x56":1006,"y56":361,"x57":1007,"y57":361,"x58":1007,"y58":361,"x59":1008,"y59":361,"x60":1010,"y60":361,"x61":1011,"y61":361,"x62":1011,"y62":360,"x63":1012,"y63":360,"x64":1013,"y64":360
+                } }
+            },
+            {
+                "id": "atp31",
+                "type": "canvas",
+                "begin": 133.5,
+                "end": 150,
+                "x": 744,
+                "y": 118,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data":
+                { "layer": {
+                    "type":"line","strokeStyle":"#B12700","name":"atp31","layer":"true","strokeWidth":4,"rounded":true,"visible":true,"x1":1013,"y1":360,"data":{"video_id":"video00001"},"x2":1012,"y2":360,"x3":1007,"y3":357,"x4":1004,"y4":354,"x5":1003,"y5":353,"x6":1002,"y6":353,"x7":1001,"y7":353,"x8":1001,"y8":352,"x9":1000,"y9":351,"x10":998,"y10":350,"x11":998,"y11":350,"x12":998,"y12":348,"x13":997,"y13":347,"x14":996,"y14":346,"x15":995,"y15":346,"x16":995,"y16":345,"x17":994,"y17":347,"x18":994,"y18":352,"x19":994,"y19":357,"x20":993,"y20":362,"x21":993,"y21":364,"x22":993,"y22":365,"x23":993,"y23":366,"x24":993,"y24":368,"x25":993,"y25":370,"x26":993,"y26":372,"x27":994,"y27":372,"x28":995,"y28":372,"x29":996,"y29":372,"x30":997,"y30":371,"x31":1000,"y31":371,"x32":1001,"y32":371,"x33":1001,"y33":370,"x34":1002,"y34":370,"x35":1002,"y35":368,"x36":1003,"y36":368,"x37":1003,"y37":368,"x38":1003,"y38":367,"x39":1004,"y39":367,"x40":1004,"y40":366,"x41":1005,"y41":365,"x42":1005,"y42":364,"x43":1006,"y43":364,"x44":1006,"y44":363,"x45":1006,"y45":362,"x46":1007,"y46":362,"x47":1007,"y47":361,"x48":1006,"y48":361,"x49":1005,"y49":360,"x50":1003,"y50":360,"x51":1003,"y51":358,"x52":1002,"y52":358,"x53":1001,"y53":358,"x54":1000,"y54":357,"x55":998,"y55":357,"x56":997,"y56":357,"x57":997,"y57":356,"x58":997,"y58":355,"x59":996,"y59":353,"x60":995,"y60":352,"x61":994,"y61":352,"x62":994,"y62":356,"x63":995,"y63":362,"x64":995,"y64":366,"x65":996,"y65":370,"x66":997,"y66":371,"x67":998,"y67":371,"x68":1000,"y68":371,"x69":1000,"y69":370,"x70":1001,"y70":370,"x71":1001,"y71":368,"x72":1001,"y72":367,"x73":1001,"y73":366,"x74":1003,"y74":366,"x75":1003,"y75":363,"x76":1003,"y76":362,"x77":1003,"y77":361,"x78":1003,"y78":360,"x79":1002,"y79":360,"x80":1001,"y80":360,"x81":1001,"y81":358,"x82":1000,"y82":358,"x83":998,"y83":356,"x84":998,"y84":354,"x85":998,"y85":353,"x86":998,"y86":352,"x87":998,"y87":351,"x88":997,"y88":351,"x89":996,"y89":351,"x90":996,"y90":350,"x91":996,"y91":352,"x92":996,"y92":354,"x93":997,"y93":357,"x94":997,"y94":358,"x95":997,"y95":360,"x96":997,"y96":361,"x97":997,"y97":361,"x98":997,"y98":362,"x99":998,"y99":363,"x100":998,"y100":365,"x101":998,"y101":366,"x102":1000,"y102":366,"x103":1001,"y103":366,"x104":1002,"y104":366,"x105":1003,"y105":366,"x106":1004,"y106":365,"x107":1005,"y107":364,"x108":1005,"y108":363,"x109":1006,"y109":363,"x110":1006,"y110":361,"x111":1006,"y111":360,"x112":1005,"y112":360,"x113":1004,"y113":360,"x114":1004,"y114":358,"x115":1002,"y115":358,"x116":1002,"y116":357,"x117":1001,"y117":357,"x118":1000,"y118":357,"x119":998,"y119":356,"x120":997,"y120":356,"x121":997,"y121":355
+                } }
+            },
+            {
+                "id": "atplabel",
+                "type": "text_label",
+                "begin": 133.5,
+                "end": 150,
+                "x": 734,
+                "y": 231,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "This is an ATP",
+                    "font_size": 25,
+                    "width": null,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+
+            {
+                "id": "overlink1",
+                "type": "linkbox",
+                "begin": 471.4,
+                "end": 491,
+                "x": 264,
+                "y": 585,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextActin"],
+                    "mouseleave": ["hidetextActin"],
+                    "click_show": ["showvideoActin"],
+                    "click_hide": ["hidevideoActin"],
+                    "height": 63,
+                    "width": 339,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "TextActinMyosin",
+                "type": "text_label",
+                "begin": 471.4,
+                "end": 491,
+                "x": 264,
+                "y": 658,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "Click here to show a cool animation of how Myosin pushes on the Actin",
+                    "font_size": 20,
+                    "width": null,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "VideoActinMyosin",
+                "type": "video",
+                "begin": 471.4,
+                "end": 491,
+                "x": 632,
+                "y": 33,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "id": "subvidpl15",
+                    "name": "subvideo for question number 4",
+                    "begin": 630,
+                    "end": 662,
+                    "width": 460,
+                    "object_data": {
+                        "id":"jqy0i1KXUO4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
 
             {
                 "id": "whyenzyme1",
@@ -422,7 +614,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_input1"],
-                    "right_1": [],
+                    "right_1": ["correct_input11"],
                     "wrong_1": ["wrong_input1"],
                     "wrong_2": ["wrong_input11"],
                     "draggable": false,
@@ -469,6 +661,98 @@
                     "color": "#FFFFFF",
                     "background_color": null,
                     "draggable": false
+                }
+            },
+            {
+                "id": "Question2FillBlack",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 326,
+                "y": 463,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "",
+                    "font_size": 30,
+                    "width": 121,
+                    "height": 57,
+                    "color": "#FFFFFF",
+                    "background_color": "#000000",
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question2WrongText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 72,
+                "y": 600,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Hint: What is this thing that binds to the Myosin head, which makes the Myosin coils and releases what?",
+                    "font_size": 25,
+                    "width": 493,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question2RightText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 72,
+                "y": 600,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Great! Here's a fun video analogy you can watch to explain how ATP makes the Myosin 'coils' and releases the Actin. <br/>Click on Continue to continue watching the video",
+                    "font_size": 20,
+                    "width": 600,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question2coolvideo",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 682,
+                "y": 245,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl11",
+                    "name": "subvideo for question number 4",
+                    "begin": 664,
+                    "end": 686,
+                    "width": 560,
+                    "object_data": {
+                        "id":"jqy0i1KXUO4"
+                    },
+                    "draggable": false,
+                    "on_element": true
                 }
             },
 
@@ -536,7 +820,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_submit3"],
-                    "right_1": [],
+                    "right_1": ["correct_submit31"],
                     "wrong_1": ["wrong_submit3"],
                     "wrong_2": ["wrong_submit31"],
                     "draggable": false,
@@ -605,6 +889,75 @@
                     "color": "#FFFFFF",
                     "background_color": null,
                     "draggable": false
+                }
+            },
+            {
+                "id": "Question3WrongText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 305,
+                "y": 475,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Maybe the word hydrolizing makes you dizzy... <br/>You might want to play the cool subvideo above about hydrolizing and how it will help you answer this question...<br/>Or maybe you just ant to replay a part of the video",
+                    "font_size": 25,
+                    "width": 493,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question3RightText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 305,
+                "y": 475,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Cool! This is how energy is made! You might want to see more how hydrolizing helps in releasing energy from ATP in the subvideo above",
+                    "font_size": 25,
+                    "width": 493,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question3coolvideo",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 622,
+                "y": 8,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl13",
+                    "name": "subvideo for question number 4",
+                    "begin": 143.6,
+                    "end": 206.5,
+                    "width": 480,
+                    "object_data": {
+                        "id":"00jbG_cfGuQ"
+                    },
+                    "draggable": false,
+                    "on_element": true
                 }
             },
 
@@ -1226,6 +1579,60 @@
 
         "actions" : [
             {
+                "id": "showtextActin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["TextActinMyosin"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidetextActin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["TextActinMyosin"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "showvideoActin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["VideoActinMyosin"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidevideoActin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["VideoActinMyosin"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+
+            {
                 "id": "correct_mcq1",
                 "name": "This is right",
                 "play": "current",
@@ -1238,6 +1645,59 @@
                 "clear_val": [],
                 "change_val": []
             },
+            {
+                "id": "correct_mcq2",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["correct1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq1",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": ["button_replay_for_mcq1", "wrongtext1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "wrong_mcq2",
+                "name": "This is wrong",
+                "play": null,
+                "pause": false,
+                "scene_id": null,
+                "show": [],
+                "show_all": [],
+                "hide": ["wrongtext1"],
+                "hide_all": [],
+                "clear_val": null,
+                "change_val": []
+            },
+            {
+                "id": "replay_for_mcq1",
+                "name": "replay hint",
+                "play": 2,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
             {
                 "id": "correct_input1",
                 "name": "This is right",
@@ -1252,16 +1712,16 @@
                 "change_val": []
             },
             {
-                "id": "wrong_mcq1",
-                "name": "This is wrong",
+                "id": "correct_input11",
+                "name": "This is right",
                 "play": null,
                 "pause": false,
-                "scene_id": null,
-                "show": ["button_replay_for_mcq1"],
+                "scene_id": "video00001",
+                "show": ["Question2RightText", "Question2coolvideo"],
                 "show_all": [],
-                "hide": [],
+                "hide": ["Question2WrongText"],
                 "hide_all": [],
-                "clear_val": null,
+                "clear_val": [],
                 "change_val": []
             },
             {
@@ -1270,20 +1730,7 @@
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_submit2"],
-                "show_all": [],
-                "hide": [],
-                "hide_all": [],
-                "clear_val": null,
-                "change_val": []
-            },
-            {
-                "id": "wrong_mcq2",
-                "name": "This is wrong",
-                "play": null,
-                "pause": false,
-                "scene_id": null,
-                "show": [],
+                "show": ["button_replay_for_submit2", "Question2WrongText"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -1304,19 +1751,6 @@
                 "change_val": []
             },
             {
-                "id": "replay_for_mcq1",
-                "name": "replay hint",
-                "play": 2,
-                "pause": false,
-                "scene_id": "video00001",
-                "show": [],
-                "show_all": [],
-                "hide": [],
-                "hide_all": [],
-                "clear_val": [],
-                "change_val": []
-            },
-            {
                 "id": "replay_for_submit2",
                 "name": "replay hint",
                 "play": 192,
@@ -1329,6 +1763,7 @@
                 "clear_val": [],
                 "change_val": []
             },
+
             {
                 "id": "correct_submit3",
                 "name": "This is right",
@@ -1343,12 +1778,25 @@
                 "change_val": []
             },
             {
+                "id": "correct_submit31",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["Question3RightText", "Question3coolvideo"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
                 "id": "wrong_submit3",
                 "name": "This is wrong",
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_submit3"],
+                "show": ["button_replay_for_submit3", "Question3RightText", "Question3coolvideo"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -1363,7 +1811,7 @@
                 "scene_id": null,
                 "show": [],
                 "show_all": [],
-                "hide": [],
+                "hide": ["Question3RightText"],
                 "hide_all": [],
                 "clear_val": ["inputEnergy1"],
                 "change_val": []
@@ -1381,6 +1829,7 @@
                 "clear_val": [],
                 "change_val": []
             },
+
             {
                 "id": "correct_submit4",
                 "name": "This is right",

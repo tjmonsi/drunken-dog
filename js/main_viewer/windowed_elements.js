@@ -289,6 +289,8 @@ var discussionOnVideo = windowedElement.extend({
         var cData = vD.c(commentID);
         //console.log(discussionID)
         vD.i(discussionID.split("_")[0]+"_discussionArea").seeDiscussion(commentID);
+        this.closeWindow(true);
+
     },
 
     newDiscussion: function() {
@@ -333,13 +335,19 @@ var discussionOnVideo = windowedElement.extend({
         this.closeWindow();
     },
 
-    closeWindow: function(){
+    closeWindow: function(flag){
         //console.log(this.data.id);
+        if (!flag) {
+            this.normalClose();
+        }
+        this._super();
+    },
+
+    normalClose: function() {
         vD.i(this.data.video_id).clearAnnotations();
         vD.i(this.data.video_id).backToMode();
         vD.i(this.id.split("_")[0]+"_discussionTrigger").on_hidebBox();
         vD.i(this.data.id.replace("_DiscussionOnVideo", "")).on_closeWindow();
-        this._super();
     }
 
 })
@@ -359,6 +367,7 @@ var commentVideo = windowedElement.extend({
             //this.element.css(this.css);
             //console.log(this.data.object_data);
             this.video = new videoPlayer(this.windowContent, this.data.object_data, this.data.object_data.width, false);
+            this.video.objectLayer.remove();
             vD.i(this.video);
         }
     },

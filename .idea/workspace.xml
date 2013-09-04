@@ -6,13 +6,13 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/backup/source_comments_myosin_actin1.comments.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/backup/source_comments_myosin_actin2.comments.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testbed/test.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" afterPath="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/config.php" afterPath="$PROJECT_DIR$/php/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/data.js" afterPath="$PROJECT_DIR$/js/main_viewer/data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" afterPath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/myosin_actin1.json" afterPath="$PROJECT_DIR$/data/myosin_actin1.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" afterPath="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/video_player.js" afterPath="$PROJECT_DIR$/js/main_viewer/video_player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" afterPath="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="invicble1.iws" />
@@ -23,7 +23,7 @@
     <file path="/ui.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377846807995" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
-    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378223198937" ignored="false" />
+    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378223156423" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376982467891" ignored="false" />
     <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
@@ -36,12 +36,12 @@
     <file path="/viewer_general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376557578524" ignored="false" />
     <file path="/viewer_ids.css" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375661869108" ignored="false" />
     <file path="/viewer_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375423810768" ignored="false" />
-    <file path="/video_player.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378224600798" ignored="false" />
+    <file path="/video_player.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378266582648" ignored="false" />
     <file path="/test_bed.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376362899993" ignored="false" />
     <file path="/iv_sample2.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377235036505" ignored="false" />
     <file path="/general_functions.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377682851347" ignored="false" />
     <file path="/test.html" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375441612054" ignored="false" />
-    <file path="/embedded_objects.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377874502530" ignored="false" />
+    <file path="/embedded_objects.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378269351321" ignored="false" />
     <file path="/general.css" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377869750817" ignored="false" />
     <file path="/actions_objects.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375761264803" ignored="false" />
     <file path="/video_player_timeline.js" changelist="82b5aa94-60de-49e9-8339-39ec2f22e523" time="1375634415802" ignored="false" />
@@ -67,11 +67,11 @@
     <file path="/button_class.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377690719294" ignored="false" />
     <file path="/contextmenu.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376964100899" ignored="false" />
     <file path="/action_object.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377745833410" ignored="false" />
-    <file path="/windowed_elements.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377944999962" ignored="false" />
+    <file path="/windowed_elements.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378263534029" ignored="false" />
     <file path="/comment_box.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377853958253" ignored="false" />
-    <file path="/comment_pt.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378224106351" ignored="false" />
+    <file path="/comment_pt.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378229170098" ignored="false" />
     <file path="/iv_sample4.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377245787128" ignored="false" />
-    <file path="/myosin_actin1.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377746417791" ignored="false" />
+    <file path="/myosin_actin1.json" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378270271955" ignored="false" />
     <file path="/source_comments_myosin_actin1.comments.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377869265642" ignored="false" />
     <file path="/myosin_actin2.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377759389312" ignored="false" />
     <file path="/myosin_actin1_other.json" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377766189756" ignored="false" />
@@ -126,44 +126,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="video_player.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="video_player.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1063" column="36" selection-start="39583" selection-end="39583" vertical-scroll-proportion="0.38659793">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="source_comments_myosin_actin1.comments.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13045" column="52" selection-start="343139" selection-end="343139" vertical-scroll-proportion="-0.625">
+            <state line="177" column="6" selection-start="5834" selection-end="5834" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
-                <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
-                <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
-                <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
+                <element signature="e#3638#4996#0" expanded="false" />
+                <element signature="e#5232#5477#0" expanded="false" />
+                <element signature="e#5503#5833#0" expanded="false" />
+                <element signature="e#5856#6235#0" expanded="false" />
+                <element signature="e#6259#6464#0" expanded="false" />
+                <element signature="e#6505#7018#0" expanded="false" />
+                <element signature="e#7055#7109#0" expanded="false" />
+                <element signature="e#7174#9080#0" expanded="false" />
+                <element signature="e#9111#12189#0" expanded="false" />
+                <element signature="e#12219#12869#0" expanded="false" />
+                <element signature="e#12937#13324#0" expanded="false" />
+                <element signature="e#13708#14516#0" expanded="false" />
+                <element signature="e#14549#15206#0" expanded="false" />
+                <element signature="e#15236#15430#0" expanded="false" />
+                <element signature="e#15801#15993#0" expanded="false" />
+                <element signature="e#16032#17156#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -178,11 +161,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="embedded_objects.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="52" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="620" column="13" selection-start="19354" selection-end="19354" vertical-scroll-proportion="0.5574534">
+              <folding>
+                <element signature="e#196#2532#0" expanded="false" />
+                <element signature="e#2576#3174#0" expanded="false" />
+                <element signature="e#3219#6715#0" expanded="false" />
+                <element signature="e#6761#7194#0" expanded="false" />
+                <element signature="e#8266#9451#0" expanded="false" />
+                <element signature="e#15299#15622#0" expanded="false" />
+                <element signature="e#15667#16516#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,7 +181,67 @@
       <file leaf-file-name="comment_pt.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="423" column="57" selection-start="14528" selection-end="14528" vertical-scroll-proportion="0.0">
+            <state line="423" column="176" selection-start="14647" selection-end="14647" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myosin_actin1.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/myosin_actin1.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="276" column="32" selection-start="15893" selection-end="15893" vertical-scroll-proportion="-4.9591837">
+              <folding>
+                <element signature="e#506#1111#0" expanded="false" />
+                <element signature="e#1125#2326#0" expanded="false" />
+                <element signature="e#3237#4045#0" expanded="false" />
+                <element signature="e#4059#4879#0" expanded="false" />
+                <element signature="e#4893#5814#0" expanded="false" />
+                <element signature="e#5828#6512#0" expanded="false" />
+                <element signature="e#6527#9416#0" expanded="false" />
+                <element signature="e#9430#11296#0" expanded="false" />
+                <element signature="e#11310#14428#0" expanded="false" />
+                <element signature="e#14442#15146#0" expanded="false" />
+                <element signature="e#18387#20458#0" expanded="false" />
+                <element signature="e#20472#21161#0" expanded="false" />
+                <element signature="e#21175#23083#0" expanded="false" />
+                <element signature="e#23097#23789#0" expanded="false" />
+                <element signature="e#23803#24496#0" expanded="false" />
+                <element signature="e#24510#25332#0" expanded="false" />
+                <element signature="e#25346#26038#0" expanded="false" />
+                <element signature="e#26052#31583#0" expanded="false" />
+                <element signature="e#31598#32215#0" expanded="false" />
+                <element signature="e#32229#33162#0" expanded="false" />
+                <element signature="e#33176#34114#0" expanded="false" />
+                <element signature="e#37309#38133#0" expanded="false" />
+                <element signature="e#38147#39037#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action_object.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/action_object.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="12" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testbed/test.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="611" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="windowed_elements.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="369" column="44" selection-start="12745" selection-end="12745" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -214,11 +265,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/testbed/catcher.php" />
-        <option value="$PROJECT_DIR$/pre_test_start.php" />
-        <option value="$PROJECT_DIR$/endall.php" />
-        <option value="$PROJECT_DIR$/testbed/testsend_to_mongodb.php" />
-        <option value="$PROJECT_DIR$/php/extra_config.php" />
         <option value="$PROJECT_DIR$/saveToMongo.php" />
         <option value="$PROJECT_DIR$/js/other_viewer/init.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/init.js" />
@@ -229,7 +275,12 @@
         <option value="$PROJECT_DIR$/js/main_viewer/data.js" />
         <option value="$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json" />
         <option value="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
+        <option value="$PROJECT_DIR$/js/main_viewer/windowed_elements.js" />
         <option value="$PROJECT_DIR$/js/main_viewer/video_player.js" />
+        <option value="$PROJECT_DIR$/testbed/test.json" />
+        <option value="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
+        <option value="$PROJECT_DIR$/js/main_viewer/action_object.js" />
+        <option value="$PROJECT_DIR$/data/myosin_actin1.json" />
       </list>
     </option>
   </component>
@@ -239,8 +290,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -268,6 +320,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -283,6 +336,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invicble1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testbed" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,30 +387,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="Configurable.PHP" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="Configurable.PHP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data/backup" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="023b610e-c12a-4261-82d8-d1a11316600a">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -368,6 +423,13 @@
       <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
@@ -375,7 +437,9 @@
       </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.testsend_to_mongodb.php" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
@@ -429,13 +493,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23006351" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23027259" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17039801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -443,7 +508,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.047263682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -514,64 +578,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
-            <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="44" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="0" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="43" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/other_viewer/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="45" selection-start="856" selection-end="869" vertical-scroll-proportion="0.0" />
@@ -609,56 +615,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13045" column="52" selection-start="343139" selection-end="343139" vertical-scroll-proportion="-0.625">
-          <folding>
-            <marker date="1378223924000" expanded="true" signature="342420:362548" placeholder="{...}" />
-            <marker date="1378223924000" expanded="true" signature="344638:345211" placeholder="{&quot;id&quot;: &quot;60rIZzjGQIIxGIcYlJPu&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="345073:345175" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="345273:345505" placeholder="{&quot;id&quot;: &quot;yEvaBelCB2wJZH9xeL3F&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="345899:346234" placeholder="{&quot;id&quot;: &quot;X4w0HAmffNrrce6gpNZM&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="346297:346771" placeholder="{&quot;id&quot;: &quot;j7W15gvSTUpSYYMZq4MY&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="346535:346637" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="346714:346741" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="346836:347839" placeholder="{&quot;id&quot;: &quot;jd4GCVPyjCoWTnv9AIWT&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="347086:347749" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="347891:349200" placeholder="{&quot;id&quot;: &quot;6FO3ozUQeC8szkEpxnOr&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="348047:348964" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="349059:349124" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="349263:352351" placeholder="{&quot;id&quot;: &quot;TSK3PSkb6X5rYTilsolN&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="349501:352195" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="352414:357120" placeholder="{&quot;id&quot;: &quot;hFQxXRBzFukXw8u30HqS&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="352652:356884" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="356979:357044" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="357183:361362" placeholder="{&quot;id&quot;: &quot;PnhiGcJOJ3K8dVRfNJDf&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="357421:360969" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="361438:362204" placeholder="{&quot;id&quot;: &quot;oHT2dUK06AYH6UQ5AUIH&quot;...}" />
-            <marker date="1378223924000" expanded="true" signature="361623:361984" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="362086:362140" placeholder="[...]" />
-            <marker date="1378223924000" expanded="true" signature="362227:362542" placeholder="{&quot;id&quot;: &quot;rmTeXZtxUR5eQo11my4A&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="52" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
+        <state line="423" column="176" selection-start="14647" selection-end="14647" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
+    <entry file="file://$PROJECT_DIR$/testbed/test.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="423" column="57" selection-start="14528" selection-end="14528" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="611" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/source_comments_myosin_actin1.comments.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17144" column="29" selection-start="452313" selection-end="452313" vertical-scroll-proportion="0.93064517">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1063" column="36" selection-start="39583" selection-end="39583" vertical-scroll-proportion="0.38659793">
+        <state line="177" column="6" selection-start="5834" selection-end="5834" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3638#4996#0" expanded="false" />
+            <element signature="e#5232#5477#0" expanded="false" />
+            <element signature="e#5503#5833#0" expanded="false" />
+            <element signature="e#5856#6235#0" expanded="false" />
+            <element signature="e#6259#6464#0" expanded="false" />
+            <element signature="e#6505#7018#0" expanded="false" />
+            <element signature="e#7055#7109#0" expanded="false" />
+            <element signature="e#7174#9080#0" expanded="false" />
+            <element signature="e#9111#12189#0" expanded="false" />
+            <element signature="e#12219#12869#0" expanded="false" />
+            <element signature="e#12937#13324#0" expanded="false" />
+            <element signature="e#13708#14516#0" expanded="false" />
+            <element signature="e#14549#15206#0" expanded="false" />
+            <element signature="e#15236#15430#0" expanded="false" />
+            <element signature="e#15801#15993#0" expanded="false" />
+            <element signature="e#16032#17156#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="810" column="0" selection-start="14826" selection-end="14826" vertical-scroll-proportion="0.33229813">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/action_object.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="12" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="369" column="44" selection-start="12745" selection-end="12745" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/myosin_actin1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="276" column="32" selection-start="15893" selection-end="15893" vertical-scroll-proportion="-4.9591837">
+          <folding>
+            <element signature="e#506#1111#0" expanded="false" />
+            <element signature="e#1125#2326#0" expanded="false" />
+            <element signature="e#3237#4045#0" expanded="false" />
+            <element signature="e#4059#4879#0" expanded="false" />
+            <element signature="e#4893#5814#0" expanded="false" />
+            <element signature="e#5828#6512#0" expanded="false" />
+            <element signature="e#6527#9416#0" expanded="false" />
+            <element signature="e#9430#11296#0" expanded="false" />
+            <element signature="e#11310#14428#0" expanded="false" />
+            <element signature="e#14442#15146#0" expanded="false" />
+            <element signature="e#18387#20458#0" expanded="false" />
+            <element signature="e#20472#21161#0" expanded="false" />
+            <element signature="e#21175#23083#0" expanded="false" />
+            <element signature="e#23097#23789#0" expanded="false" />
+            <element signature="e#23803#24496#0" expanded="false" />
+            <element signature="e#24510#25332#0" expanded="false" />
+            <element signature="e#25346#26038#0" expanded="false" />
+            <element signature="e#26052#31583#0" expanded="false" />
+            <element signature="e#31598#32215#0" expanded="false" />
+            <element signature="e#32229#33162#0" expanded="false" />
+            <element signature="e#33176#34114#0" expanded="false" />
+            <element signature="e#37309#38133#0" expanded="false" />
+            <element signature="e#38147#39037#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="620" column="13" selection-start="19354" selection-end="19354" vertical-scroll-proportion="0.5574534">
+          <folding>
+            <element signature="e#196#2532#0" expanded="false" />
+            <element signature="e#2576#3174#0" expanded="false" />
+            <element signature="e#3219#6715#0" expanded="false" />
+            <element signature="e#6761#7194#0" expanded="false" />
+            <element signature="e#8266#9451#0" expanded="false" />
+            <element signature="e#15299#15622#0" expanded="false" />
+            <element signature="e#15667#16516#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

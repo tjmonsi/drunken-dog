@@ -421,7 +421,7 @@ var discussionBoxArea = Class.extend({
                 for (var video_i in cData.video_list) {
                     var vid = cData.video_list[video_i].object_data.object_data.id;
                     var vidbeg =  cData.video_list[video_i].object_data.begin;
-                    commentEl.append('<a target="_blank" href="http://www.youtube.com/watch?v='+vid+'&t='+vidbeg+'">http://www.youtube.com/watch?v='+vid+'</a>');
+                    commentEl.append('<a target="_blank" href="http://www.youtube.com/watch?v='+vid+'&t='+vidbeg+'">http://www.youtube.com/watch?v='+vid+'&t='+vidbeg+'</a><br/>');
                 }
                 commentEl.append("<br/><br/><hr/>");
             }
