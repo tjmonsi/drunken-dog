@@ -559,7 +559,7 @@ var discussionBoxArea = Class.extend({
         //console.log(this.commentListElements[event.target.id.split("_")[0]].css("background-color"));
         this.commentListElements[event.target.id.split("_")[0]].css({"background-color": "#FFFFFF"});
 
-        vD.i(this.data.video_id).removeVideoObjects()
+        vD.i(this.data.video_id).removeVideoObjects();
 
         var cData = vD.c(comment_id);
         if (cData.video_list!=null) {
@@ -574,7 +574,7 @@ var discussionBoxArea = Class.extend({
     },
 
     drawAnnotation: function (comment_id, flag) {
-       // console.log(comment_id)
+        //console.log(comment_id)
         var cData = vD.c(comment_id);
         if (cData==null) return;
         //console.log(cData);
@@ -622,6 +622,16 @@ var discussionBoxArea = Class.extend({
         //var posy = this.commentListElements[event.target.id.split("_")[0]].position().top-210
         //if (posy>10) vD.i(this.data.video_id).discussionArea.animate({"scrollTop" : this.commentListElements[event.target.id.split("_")[0]].position().top-200})
         vD.i(this.data.video_id).discussionArea.animate({"scrollTop": comment_y-disc_y-210+current_top});
+
+        var cData = vD.c(comment_id);
+        if (cData.video_list!=null) {
+            for (var i in cData.video_list) {
+                if (vD.i(this.data.video_id).comment_videos[cData.video_list[i].id]==null) {
+                    vD.i(this.data.video_id).comment_videos[cData.video_list[i].id] = cData.video_list[i].id;
+                    vD.i(new commentVideo(vD.i(this.data.video_id).element, cData.video_list[i]))
+                }
+            }
+        }
     },
 
     updateCommentThread: function(comment_id) {

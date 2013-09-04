@@ -19,6 +19,220 @@
 		],
 		"embedded_objects": [
             {
+                "id": "overlink3",
+                "type": "linkbox",
+                "begin": 409.44,
+                "end": 435.5,
+                "x": 57,
+                "y": 463,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextCal1"],
+                    "mouseleave": ["hidetextCal1"],
+                    "click_show": ["showvideoCal1"],
+                    "click_hide": ["hidevideoCal1"],
+                    "height": 58,
+                    "width": 240,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "TextCalcium2",
+                "type": "text_label",
+                "begin":  409.44,
+                "end": 435.5,
+                "x": 56,
+                "y": 530,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "Click here for an animation of how Calcium is used for muscle contraction",
+                    "font_size": 20,
+                    "width": 600,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "VideoCalcium1",
+                "type": "video",
+                "begin": 409.44,
+                "end": 435.5,
+                "x": 627,
+                "y": 92,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "id": "subvidpl35",
+                    "name": "subvideo for question number 4",
+                    "begin": 0,
+                    "end": 52,
+                    "width": 460,
+                    "object_data": {
+                        "id":"CepeYFvqmk4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
+
+            {
+                "id": "overlink1",
+                "type": "linkbox",
+                "begin": 379.7,
+                "end": 399,
+                "x": 187,
+                "y": 518,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextCal"],
+                    "mouseleave": ["hidetextCal"],
+                    "click_show": ["showvideoCal"],
+                    "click_hide": ["hidevideoCal"],
+                    "height": 108,
+                    "width": 98,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlink2",
+                "type": "linkbox",
+                "begin": 384.5,
+                "end": 399,
+                "x": 156,
+                "y": 190,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextCal"],
+                    "mouseleave": ["hidetextCal"],
+                    "click_show": ["showvideoCal"],
+                    "click_hide": ["hidevideoCal"],
+                    "height": 70,
+                    "width": 67,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "TextCalcium1",
+                "type": "text_label",
+                "begin":  379.7,
+                "end": 399,
+                "x": 298,
+                "y": 551,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "Click here for an animation of how Calcium is used for muscle contraction",
+                    "font_size": 20,
+                    "width": 750,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "VideoCalcium",
+                "type": "video",
+                "begin": 379.7,
+                "end": 399,
+                "x": 627,
+                "y": 92,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "id": "subvidpl25",
+                    "name": "subvideo for question number 4",
+                    "begin": 502,
+                    "end": 519,
+                    "width": 460,
+                    "object_data": {
+                        "id":"jqy0i1KXUO4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
+            {
+                "id": "buttonforFF",
+                "type": "button",
+                "begin": 173.5,
+                "end": 227,
+                "x": 61,
+                "y": 515,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "replay again for mcq",
+                    "value": "Skip to After Drawing",
+                    "action": ["skip11"],
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "textforFF",
+                "type": "text_label",
+                "begin": 173.5,
+                "end": 227,
+                "x": 61,
+                "y": 466,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "You can Skip this drawing...",
+                    "font_size": 30,
+                    "width": 442,
+                    "color": "#FFFFFF",
+                    "draggable": false
+                }
+            },
+
+            {
                 "id": "form000001",
                 "type": "form",
                 "begin": 268.5,
@@ -163,7 +377,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_submit1"],
-                    "right_1": [],
+                    "right_1": ["correct_submit11"],
                     "wrong_1": ["wrong_submit1"],
                     "wrong_2": ["wrong_submit11"],
                     "draggable": false,
@@ -255,6 +469,299 @@
                     }
                 }
             },
+            {
+                "id": "Question1CorrectText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 703,
+                "y": 57,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "Great! You have identified the parts! Here is an analogy video of what Troponins and Tropomyosins are in relation to Actin and Myosin",
+                    "font_size": 20,
+                    "width": 512,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question1WrongText",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 703,
+                "y": 57,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000001",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "You can retry again or replay the part of this session to review.",
+                    "font_size": 20,
+                    "width": 512,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "Question1coolvideo",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 25,
+                "y": 230,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl13",
+                    "name": "subvideo for question number 4",
+                    "begin": 518,
+                    "end": 553.5,
+                    "width": 460,
+                    "object_data": {
+                        "id":"jqy0i1KXUO4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
+            {
+                "id": "overlinkTroponin",
+                "type": "linkbox",
+                "begin": 255.6,
+                "end": 267.5,
+                "x": 50,
+                "y": 144,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 61,
+                    "width": 205,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlinkTroponin1",
+                "type": "linkbox",
+                "begin": 261.6,
+                "end": 267.5,
+                "x": 81,
+                "y": 311,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 55,
+                    "width": 62,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlinkTroponin2",
+                "type": "linkbox",
+                "begin": 263.6,
+                "end": 267.5,
+                "x": 171,
+                "y": 391,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 49,
+                    "width": 55,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlinkTroponin3",
+                "type": "linkbox",
+                "begin": 265,
+                "end": 267.5,
+                "x": 243,
+                "y": 326,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 45,
+                    "width": 55,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlinkTroponin4",
+                "type": "linkbox",
+                "begin": 265.6,
+                "end": 267.5,
+                "x": 336,
+                "y": 395,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 50,
+                    "width": 47,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlinkTroponin5",
+                "type": "linkbox",
+                "begin": 266.6,
+                "end": 267.5,
+                "x": 426,
+                "y": 321,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": ["showtextTroponin"],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
+                    "height": 40,
+                    "width": 45,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
+            {
+                "id": "TextTroponin1",
+                "type": "text_label",
+                "begin": 255.6,
+                "end": 267.5,
+                "x": 54,
+                "y": 481,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "One might ask: How does Troponin bind to Actin and Tropomyosin? <br/>Quick answer is that Troponin is a complex that has 3-parts: <br/>1. The one that binds to Calcium ions which we call Troponin - C. (We will know why we need this later)<br/>2. The one that connects to Actin which we call Troponin - I <br/> 3. And the one that connects to Tropomyosin, which we call Troponin - T<br/><br/>You can click here to check out the links and play a subvideo that talks about it",
+                    "font_size": 20,
+                    "width": 1000,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "TextTroponin2",
+                "type": "text_label",
+                "begin": 255.6,
+                "end": 267.5,
+                "x": 727,
+                "y": 364,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "Links:<br/>Overview: http://en.wikipedia.org/wiki/Troponin <br/>Troponin-C: http://en.wikipedia.org/wiki/Troponin_C <br/>Troponin-I: http://en.wikipedia.org/wiki/Troponin_I <br/>Troponin-T: http://en.wikipedia.org/wiki/Troponin_T",
+                    "font_size": 20,
+                    "width": 525,
+                    "color": "#FFFFFF",
+                    "background_color": "#000000",
+                    "on_element": true,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "videoTroponin1",
+                "type": "video",
+                "begin": 255.6,
+                "end": 267.5,
+                "x": 736,
+                "y": 40,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "id": "subvidpl90",
+                    "name": "subvideo for question number 4",
+                    "begin": 320,
+                    "end": 417,
+                    "width": 480,
+                    "autoplay": true,
+                    "object_data": {
+                        "id":"vv6WBeqw2Nc"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
 
             {
                 "id": "form000002",
@@ -321,7 +828,7 @@
                 "retrig": "inherit",
                 "object_data": {
                     "name": "MCQ 1 Question for Myosin and Actin",
-                    "value": "What is the thing that directly blocks the Myosin from Crawling Actin?",
+                    "value": "What is the thing that directly blocks the Myosin from crawling Actin?",
                     "font_size": 20,
                     "width": 370,
                     "color": "#FFFFFF",
@@ -330,12 +837,83 @@
                 }
             },
             {
+                "id": "RightForMC1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 847,
+                "y": 376,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "This is right! Myosin is being blocked by the Tropomyosin.<br/> Tropomyosin blocks the Myosin binding-sites in the Actin so that Myosin will not bind with the Actin. <br/>Here's a video that will tell you how it works...",
+                    "font_size": 20,
+                    "width": 390,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "WrongForMC1",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 847,
+                "y": 376,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "You can replay the part what's blocking the Myosin from binding with the Actin...",
+                    "font_size": 20,
+                    "width": 390,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "videoTroponin21",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 67,
+                "y": 246,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl95",
+                    "name": "subvideo for question number 4",
+                    "begin": 70,
+                    "end": 106,
+                    "width": 480,
+                    "autoplay": true,
+                    "object_data": {
+                        "id":"CepeYFvqmk4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+
+            {
                 "id": "submit0002",
                 "type": "submit",
                 "begin": "inherit",
                 "end": "inherit",
                 "x": 842,
-                "y": 426,
+                "y": 308,
                 "scene_id": "inherit",
                 "pause": "inherit",
                 "show": "inherit",
@@ -347,7 +925,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_mcq1"],
-                    "right_1": [],
+                    "right_1": ["correct_mcq11"],
                     "wrong_1": ["wrong_mcq1"],
                     "wrong_2": ["wrong_mcq2"],
                     "draggable": false,
@@ -360,7 +938,7 @@
                 "begin": "inherit",
                 "end": "inherit",
                 "x": 962,
-                "y": 426,
+                "y": 308,
                 "scene_id": "inherit",
                 "pause": "inherit",
                 "show": false,
@@ -410,12 +988,12 @@
                     "sub_type": "mcq",
                     "name": "MCQ 1 for Myosin and Actin",
                     "value": [
-                        {"text": "High Calcium -> Actin is free to move", "val": "1"},
-                        {"text": "High Calcium -> Actin is blocked", "val": "2"},
+                        {"text": "High Calcium -> Tropomyosin is free to move", "val": "1"},
+                        {"text": "High Calcium -> Tropomyosin is blocked", "val": "2"},
                         {"text": "Low Calcium -> Myosin is free to move", "val": "3"},
                         {"text": "Low Calcium -> Myosin is blocked", "val": "4"}
                     ],
-                    "correct": "3",
+                    "correct": "4",
                     "input_type": "mcq",
                     "data_collection": null,
                     "font_size": 20,
@@ -472,6 +1050,76 @@
                 }
             },
             {
+                "id": "RightForMC2",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 56,
+                "y": 552,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "Cool! Low Calcium ions would result to Troponin moving back the Tropomyosin to its blocking position. Thus, the amount of calcium ions determine the contraction and relaxation of the muscle. As show in the video on the right...",
+                    "font_size": 20,
+                    "width": 450,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "WrongForMC2",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 56,
+                "y": 552,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000003",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "value": "Let's review! Calcium ions bind to Troponin to move a protein away. If that protein moves away, then some protein is free to bind with another protein, making it free to do a power stroke...<br/>You can repeat the part of the video to learn more...",
+                    "font_size": 20,
+                    "width": 450,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
+            },
+            {
+                "id": "videoTroponin31",
+                "type": "video",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 594,
+                "y": 227,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": false,
+                "parent": "form000002",
+                "retrig": "inherit",
+                "object_data": {
+                    "id": "subvidpl95",
+                    "name": "subvideo for question number 4",
+                    "begin": 97,
+                    "end": 120,
+                    "width": 480,
+                    "autoplay": true,
+                    "object_data": {
+                        "id":"CepeYFvqmk4"
+                    },
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
                 "id": "submit0003",
                 "type": "submit",
                 "begin": "inherit",
@@ -489,7 +1137,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_mcq31"],
-                    "right_1": [],
+                    "right_1": ["correct_mcq32"],
                     "wrong_1": ["wrong_mcq31"],
                     "wrong_2": ["wrong_mcq32"],
                     "draggable": false,
@@ -515,6 +1163,29 @@
                     "draggable": false,
                     "on_element": true
                 }
+            },
+
+            {
+                "id": "TextTropo3",
+                "type": "text_label",
+                "begin": 295.5,
+                "end": 304.5,
+                "x": 315,
+                "y": 63,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": true,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "whyenzyme1",
+                    "value": "blocks the Myosin",
+                    "font_size": 30,
+                    "width": 300,
+                    "color": "#FFFFFF",
+                    "background_color": "#000000",
+                    "draggable": false
+                }
             }
 
 		],
@@ -534,12 +1205,25 @@
                 "change_val": []
             },
             {
+                "id": "correct_submit11",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["Question1CorrectText", "Question1coolvideo"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
                 "id": "wrong_submit1",
                 "name": "This is wrong",
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["brs11"],
+                "show": ["brs11", "Question1WrongText"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -554,7 +1238,7 @@
                 "scene_id": null,
                 "show": [],
                 "show_all": [],
-                "hide": [],
+                "hide": ["Question1WrongText"],
                 "hide_all": [],
                 "clear_val": ["Myosin1", "Actin1", "Tropomyosin1", "Troponin1"],
                 "change_val": []
@@ -587,12 +1271,25 @@
                 "change_val": []
             },
             {
+                "id": "correct_mcq11",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["videoTroponin21", "RightForMC1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
                 "id": "wrong_mcq1",
                 "name": "This is wrong",
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_mcq1"],
+                "show": ["button_replay_for_mcq1", "WrongForMC1"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -607,7 +1304,7 @@
                 "scene_id": null,
                 "show": [],
                 "show_all": [],
-                "hide": [],
+                "hide": ["WrongForMC1"],
                 "hide_all": [],
                 "clear_val": null,
                 "change_val": []
@@ -640,12 +1337,25 @@
                 "change_val": []
             },
             {
+                "id": "correct_mcq32",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["RightForMC2", "videoTroponin31"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
                 "id": "wrong_mcq31",
                 "name": "This is wrong",
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_mcq3"],
+                "show": ["button_replay_for_mcq3", "WrongForMC2"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -660,7 +1370,7 @@
                 "scene_id": null,
                 "show": [],
                 "show_all": [],
-                "hide": [],
+                "hide": ["WrongForMC2"],
                 "hide_all": [],
                 "clear_val": null,
                 "change_val": []
@@ -674,6 +1384,183 @@
                 "show": [],
                 "show_all": [],
                 "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "skip11",
+                "name": "replay hint",
+                "play": 227.5,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "showtextCal",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["TextCalcium1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidetextCal",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["TextCalcium1"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "showvideoCal",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["VideoCalcium"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidevideoCal",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["VideoCalcium"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+
+            {
+                "id": "showtextCal1",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["TextCalcium2"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidetextCal1",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["TextCalcium2"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "showvideoCal1",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["VideoCalcium1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidevideoCal1",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["VideoCalcium1"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "showtextTroponin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["TextTroponin1"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidetextTroponin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["TextTroponin1"],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+
+            {
+                "id": "showvideoTroponin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["videoTroponin1", "TextTroponin2"],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "hidevideoTroponin",
+                "name": "This is right",
+                "play": null,
+                "pause": false,
+                "scene_id": "video00001",
+                "show": [],
+                "show_all": [],
+                "hide": ["videoTroponin1", "TextTroponin2"],
                 "hide_all": [],
                 "clear_val": [],
                 "change_val": []

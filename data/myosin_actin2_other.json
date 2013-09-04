@@ -75,7 +75,7 @@
                 "next": "set5",
                 "object_data":{
                     "type": "mcq",
-                    "q": "What is the thing that directly blocks the Myosin from Crawling Actin?",
+                    "q": "What is the thing that directly blocks the Myosin from crawling Actin?",
                     "mc": [
                         {"text": "Tropomyosin", "val": "1"},
                         {"text": "Troponin", "val": "2"},
@@ -108,12 +108,12 @@
                     "type": "mcq",
                     "q": "Pick the statement that is true",
                     "mc": [
-                        {"text": "High Calcium -> Actin is free to move", "val": "1"},
-                        {"text": "High Calcium -> Actin is blocked", "val": "2"},
+                        {"text": "High Calcium -> Tropomyosin is free to move", "val": "1"},
+                        {"text": "High Calcium -> Tropomyosin is blocked", "val": "2"},
                         {"text": "Low Calcium -> Myosin is free to move", "val": "3"},
                         {"text": "Low Calcium -> Myosin is blocked", "val": "4"}
                     ],
-                    "ans": "3"
+                    "ans": "4"
 
                 }
             },

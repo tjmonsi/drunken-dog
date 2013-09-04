@@ -117,6 +117,8 @@ var videoPlayer = Class.extend({
         this.createEssentials();
 
         if (this.sceneflag) this.on_back();
+
+
         //log("VideoPlayer: "+this.id+" created successfully", 1);
     },
 
@@ -136,6 +138,11 @@ var videoPlayer = Class.extend({
             this.openedComment();
             this.on_trigger_pause = false;
 
+            //if (this.data.playrate!=null) {
+                //console.log(this.player.getAvailablePlaybackRates());
+                //this.player.setPlaybackRate(this.data.playrate);
+            //}
+
         } else {
             //if (this.loaded)
             this.playerFlag = false;
@@ -151,6 +158,12 @@ var videoPlayer = Class.extend({
             this.checktrigger();
             this.updateTimer();
             this.checkposition();
+            if (this.data.autoplay!=null) {
+                if (this.data.autoplay) {
+                    this.play();
+                }
+            }
+
         }
     },
 
@@ -278,79 +291,101 @@ var videoPlayer = Class.extend({
         }
     },
     checktrigger: function() {
-        var time = this.player.getCurrentTime();
-        //console.log(time);
-        var trigger_arr = vD.triggers(this.id, time);
-        //console.log(trigger_arr);
-        for (var i in trigger_arr) {
-            for (var key in trigger_arr[i]) {
+        try {
+            var time = this.player.getCurrentTime();
+            //console.log(time);
+            var trigger_arr = vD.triggers(this.id, time);
+            //console.log(trigger_arr);
+            for (var i in trigger_arr) {
+                for (var key in trigger_arr[i]) {
 
-                var obj = trigger_arr[i][key];
-                if (obj.triggered==false) {
-                    //console.log("1:"+obj.id)
-                    if (obj.type_trig=="begin") {
-                        if (vD.i(obj.id).data.show) {
-                            //console.log("2:"+obj.id)
-                            vD.i(obj.id).on_show();
-                            obj.triggered=true;
-                        }
-
-                        if (vD.i(obj.id).data.pause) {
-                            if ((time>=obj.time) && (time-0.5)<=obj.time) {
-                                this.pause();
-                                this.last_mode = this.interactionElement.switchMode("trigger_pause")
-                                this.on_trigger_pause = true;
-                                //add timegate here
-                                //if (vD)
+                    var obj = trigger_arr[i][key];
+                    if (obj.triggered==false) {
+                        //console.log("1:"+obj.id)
+                        if (obj.type_trig=="begin") {
+                            if (vD.i(obj.id).data.show) {
+                                //console.log("2:"+obj.id)
+                                vD.i(obj.id).on_show();
+                                obj.triggered=true;
                             }
-                            obj.triggered=true;
+
+                            if (vD.i(obj.id).data.pause) {
+                                if ((time>=obj.time) && (time-0.5)<=obj.time) {
+                                    this.pause();
+                                    this.last_mode = this.interactionElement.switchMode("trigger_pause")
+                                    this.on_trigger_pause = true;
+                                    //add timegate here
+                                    //if (vD)
+                                }
+                                obj.triggered=true;
+                            }
+                        } else if (obj.type_trig=="end") {
+                            //console.log("3:"+obj.id);
+                            vD.i(obj.id).on_hide();
+                            //console.log(obj);
+                            //this.play();
+                            //obj.triggered=true;
                         }
-                    } else if (obj.type_trig=="end") {
-                        //console.log("3:"+obj.id);
-                        vD.i(obj.id).on_hide();
-                        //console.log(obj);
-                        //this.play();
-                        //obj.triggered=true;
+                        vD.triggers(this.id, obj);
                     }
-                    vD.triggers(this.id, obj);
-                }
 
 
-                //trigger_arr[i][key] = obj;
+                    //trigger_arr[i][key] = obj;
 
-            }
-        }
-
-        var discussion_arr = vD.dt(this.id, time);
-        //console.log(discussion_arr)
-        for (var i in discussion_arr) {
-            for (var k in discussion_arr[i]) {
-                if (this.discussion_pts[k]==null) {
-                    vD.i(k+"_discussionTrigger").on_show();
-                    this.discussion_pts[k]=discussion_arr[i][k];
-                    //console.log("revived "+k);
-                    //console.log(this.discussion_pts[k])
                 }
             }
-            //console.log(discussion_arr[j].id)
-            //vD.i(discussion_arr[j].id+"_discussionTrigger").on_show();
-            //this.discussion_pts[discussion_arr[j].id]=discussion_arr[j];
-        }
 
-        for (var k in this.discussion_pts) {
-            if (this.discussion_pts[k]==null) continue;
-            if ((time<this.discussion_pts[k].time-comment_time) || (time>this.discussion_pts[k].time+comment_time+1)) {
-                vD.i(this.discussion_pts[k].id+"_discussionTrigger").on_hide();
+            var discussion_arr = vD.dt(this.id, time);
 
-                for (var i in this.visible_objects) {
-                    if (this.visible_objects[i]!=null)
-                    if (this.visible_objects[i].discussion_id == this.discussion_pts[k].id) {
-                        this.removeEmbeddedDrawing(i);
+            if( Object.prototype.toString.call( discussion_arr ) === '[object Array]' ) {
+                //alert( 'Array!' );
+                for (var i in discussion_arr) {
+                    for (var k in discussion_arr[i]) {
+                        if (this.discussion_pts[k]==null) {
+                            console.log(k);
+                            vD.i(k+"_discussionTrigger").on_show();
+                            this.discussion_pts[k]=discussion_arr[i][k];
+                            //console.log("revived "+k);
+                            //console.log(this.discussion_pts[k])
+                        }
+                    }
+                    //console.log(discussion_arr[j].id)
+                    //vD.i(discussion_arr[j].id+"_discussionTrigger").on_show();
+                    //this.discussion_pts[discussion_arr[j].id]=discussion_arr[j];
+                }
+            } else {
+                for (var k in discussion_arr) {
+                    if (this.discussion_pts[k]==null) {
+                        console.log(k);
+                        vD.i(k+"_discussionTrigger").on_show();
+                        this.discussion_pts[k]=discussion_arr[k];
+                        //console.log("revived "+k);
+                        //console.log(this.discussion_pts[k])
                     }
                 }
-                //console.log("killed "+k);
-                this.discussion_pts[k]=null;
             }
+
+            //console.log(discussion_arr)
+
+
+            for (var k in this.discussion_pts) {
+                if (this.discussion_pts[k]==null) continue;
+                if ((time<this.discussion_pts[k].time-comment_time) || (time>this.discussion_pts[k].time+comment_time+1)) {
+                    vD.i(this.discussion_pts[k].id+"_discussionTrigger").on_hide();
+
+                    for (var i in this.visible_objects) {
+                        if (this.visible_objects[i]!=null)
+                        if (this.visible_objects[i].discussion_id == this.discussion_pts[k].id) {
+                            this.removeEmbeddedDrawing(i);
+                        }
+                    }
+                    //console.log("killed "+k);
+                    this.discussion_pts[k]=null;
+                }
+            }
+        } catch (e) {
+            console.error(e.stack);
+
         }
 
     },
@@ -381,12 +416,15 @@ var videoPlayer = Class.extend({
 
     // remove extra objects {
     removeVideoObjects: function() {
+        //console.log(this.id);
         // check visible comment videos and closes
         if (this.comment_videos != {}) {
 
             for (var i in this.comment_videos) {
                 if (vD.i(this.comment_videos[i])!=null) {
-                    vD.i(this.comment_videos[i]).close();
+                    //console.log(vD.i(this.comment_videos[i]));
+                    if (vD.i(this.comment_videos[i]) != null)
+                    vD.i(this.comment_videos[i]).closeWindow();
                 }
 
                 this.comment_videos[i]=null;
@@ -1192,5 +1230,14 @@ var videoPlayer = Class.extend({
         console.error(e.stack);
         console.log(vD);
         log(e.stack.toString());
+    },
+
+    close: function() {
+        for (var key in this.interval_set) {
+            clearInterval(this.interval_set[key]);
+            this.interval_set[key]=null;
+        }
+        this._super();
+
     }
 })

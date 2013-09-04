@@ -367,7 +367,9 @@ var commentVideo = windowedElement.extend({
             //this.element.css(this.css);
             //console.log(this.data.object_data);
             this.video = new videoPlayer(this.windowContent, this.data.object_data, this.data.object_data.width, false);
-            this.video.objectLayer.remove();
+            this.video.objectLayer.css({"position": "absolute", "display": "none"});
+            this.video.canvas.css({"position": "absolute", "display": "none"});
+            this.video.discussionArea.css({"position": "absolute", "display": "none"});
             vD.i(this.video);
         }
     },

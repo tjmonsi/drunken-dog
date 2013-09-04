@@ -114,7 +114,7 @@
                 }
             },
             {
-                "id": "wrongtext1",
+                "id": "wrong1",
                 "type": "text_label",
                 "begin": "inherit",
                 "end": "inherit",
@@ -1106,7 +1106,7 @@
                     "value_wrong": "Retry Answer",
                     "value_correct": "Continue",
                     "right_2": ["correct_submit4"],
-                    "right_1": [],
+                    "right_1": ["correct_submit41"],
                     "wrong_1": ["wrong_submit4"],
                     "wrong_2": ["wrong_submit41"],
                     "draggable": false,
@@ -1282,7 +1282,7 @@
                 "y": 43,
                 "scene_id": "inherit",
                 "pause": "inherit",
-                "show": "inherit",
+                "show": false,
                 "parent": "form000004",
                 "retrig": "inherit",
                 "object_data": {
@@ -1574,6 +1574,28 @@
                     "draggable": false,
                     "on_element": true
                 }
+            },
+            {
+                "id": "Correct4",
+                "type": "text_label",
+                "begin": "inherit",
+                "end": "inherit",
+                "x": 652,
+                "y": 364,
+                "scene_id": "inherit",
+                "pause": "inherit",
+                "show": "inherit",
+                "parent": "form000004",
+                "retrig": "inherit",
+                "object_data": {
+                    "name": "ATPtext1",
+                    "value": "You got everything correct! Good job!<br/> These are the four steps in making muscles contract.",
+                    "font_size": 30,
+                    "width": 539,
+                    "color": "#FFFFFF",
+                    "background_color": null,
+                    "draggable": false
+                }
             }
 		],
 
@@ -1664,7 +1686,7 @@
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_mcq1", "wrongtext1"],
+                "show": ["button_replay_for_mcq1", "wrong1"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -1679,7 +1701,7 @@
                 "scene_id": null,
                 "show": [],
                 "show_all": [],
-                "hide": ["wrongtext1"],
+                "hide": ["wrong1"],
                 "hide_all": [],
                 "clear_val": null,
                 "change_val": []
@@ -1796,7 +1818,7 @@
                 "play": null,
                 "pause": false,
                 "scene_id": null,
-                "show": ["button_replay_for_submit3", "Question3RightText", "Question3coolvideo"],
+                "show": ["button_replay_for_submit3", "Question3WrongText", "Question3coolvideo"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -1837,6 +1859,19 @@
                 "pause": false,
                 "scene_id": "video00001",
                 "show": [],
+                "show_all": [],
+                "hide": [],
+                "hide_all": [],
+                "clear_val": [],
+                "change_val": []
+            },
+            {
+                "id": "correct_submit41",
+                "name": "This is right",
+                "play": "current",
+                "pause": false,
+                "scene_id": "video00001",
+                "show": ["Correct4"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],

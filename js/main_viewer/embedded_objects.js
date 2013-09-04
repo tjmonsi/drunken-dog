@@ -263,9 +263,9 @@ var embeddedText_label = embeddedObject.extend({
             this.element.append(this.val);
         }
         /*try {
-            if (this.id=="textlabel2") throw new Error("Hey show!");
+            throw new Error("Hey show!");
         } catch(e) {
-
+            console.log(this.data);
             console.log(e.stack)
         }*/
     },
@@ -584,6 +584,11 @@ var embeddedLinkbox = embeddedObject.extend({
             this.element.css({"border": "1px solid"});
             this.element.css({"border-color": this.data.object_data.border_color});
             this.element.css({"opacity":0.5});
+            this.elementText = saveElement(this.parent, "div", this.id+"_hoverhelp");
+            this.elementText.append("Hover your mouse in the box");
+            this.elementText.css({"top": this.data.y+this.data.object_data.height, "left": this.data.x, "font-size": 12, "color": this.data.object_data.border_color});
+            this.elementText.css({"opacity": 0.5})
+
         }
     },
 
@@ -598,6 +603,7 @@ var embeddedLinkbox = embeddedObject.extend({
             vD.i(this.data.object_data.mouseenter[key]).trigger();
         }
         this.element.css({"opacity":1});
+        this.elementText.css({"opacity": 0})
     },
 
     on_mouseleave: function(event){
@@ -605,6 +611,7 @@ var embeddedLinkbox = embeddedObject.extend({
             vD.i(this.data.object_data.mouseleave[key]).trigger();
         }
         this.element.css({"opacity":.5});
+        this.elementText.css({"opacity": 0.5})
     },
 
     on_click: function(event){
@@ -629,6 +636,8 @@ var embeddedLinkbox = embeddedObject.extend({
         if(this.element==null) return;
         this.interactionElement.close();
         this.interactionElement = null;
+        this.elementText.remove();
+        this.elementText = null;
         this.element.remove();
         this.element = null;
     }

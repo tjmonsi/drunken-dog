@@ -67,10 +67,11 @@ var showDone = function() {
 }
 
 var saveComment = function(data) {
-    console.log(data);
+    //console.log(data);
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "comments"});
-
+    console.log(res);
     res.done(function(d){
+        console.log("Data has been saved at saveToMongo");
         //console.log(d);
         if (this_is_end) {
             saveLog();
