@@ -25,7 +25,14 @@ if (!isset($_COOKIE["trial"])){
 $ref = $_COOKIE["user"];
 $env = $_COOKIE["env"];
 $trial = $_COOKIE["trial"];
+$test = $_COOKIE["test"];
 require_once('php/config.php');
+
+if (strcmp($test,"ab")==0) {
+    $src = "https://docs.google.com/forms/d/1Jv5pGOIy2zL5LQ7Cy3US8O5BSYhsYmvKE5YA8cZW9gA/viewform?entry.2017249879=".$ref."&embedded=true";
+} elseif (strcmp($test,"ba")==0) {
+    $src = "https://docs.google.com/forms/d/1-Owyj6YrIJBNmVmSH0zJgFRGU4B6wiOwrfslFrvOPak/viewform?entry.2017249879=".$ref."&embedded=true";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,14 +89,14 @@ require_once('php/config.php');
     <div id="centerForm">
         <div id="ref">
             REF# <?php echo $ref; ?><br/>
-            SYS# <?php echo $env; ?><br/>
+
         </div>
-        <iframe id="myiframe" src="https://docs.google.com/forms/d/1-Owyj6YrIJBNmVmSH0zJgFRGU4B6wiOwrfslFrvOPak/viewform?entry.2017249879=<?php echo $ref;?>&embedded=true" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe id="myiframe" src="<?php echo $src;?>" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div>
             <form id="myform" method="post" action="endall.php">
                 Please submit the Google form in the embedded form before clicking in the start button below
                 Start Button will appear after 5 minutes...
-                <input id="submitButton" type="submit" class="hide" value="End Interface Evaluation <?php echo $trial?>"/>
+                <input id="submitButton" type="submit" class="hide" value="End Interface Evaluation <?php echo $trial;?>"/>
             </form>
         </div>
     </div>

@@ -32,7 +32,7 @@ if (check($col, 'id', $user)) {
         $res = updateOne($col, 'id', $user, $newd);
         if ($res==0) {
             setcookie("user", $user, time()+(3600*3));
-            setcookie("test", $data["test"]);
+            setcookie("test", $data["test"], time()+(3600*3));
             header("Location: start.php");
             exit;
         } else {
