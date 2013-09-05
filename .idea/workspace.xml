@@ -6,7 +6,8 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" afterPath="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/endlast.php" afterPath="$PROJECT_DIR$/endlast.php" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,6 +102,7 @@
     <file path="/catcher.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377975482889" ignored="false" />
     <file path="/endall.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1377976480142" ignored="false" />
     <file path="/source_comments_myosin_actin2.comments.json" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378302648673" ignored="false" />
+    <file path="/resest.php" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378369985263" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,24 +122,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="endeval.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/endeval.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="27" selection-start="2847" selection-end="2847" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main_viewer/init.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="264" selection-start="1459" selection-end="1703" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -156,10 +140,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="embedded_objects.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="embedded_objects.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="529" column="87" selection-start="16539" selection-end="16539" vertical-scroll-proportion="0.7635783">
+            <state line="509" column="34" selection-start="15745" selection-end="15745" vertical-scroll-proportion="-28.72">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="endlast.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/endlast.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-5.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resest.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="1" selection-start="356" selection-end="356" vertical-scroll-proportion="0.384">
+              <folding>
+                <element signature="e#6#162#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/process.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="42" selection-start="988" selection-end="1018" vertical-scroll-proportion="-16.25">
               <folding />
             </state>
           </provider>
@@ -169,15 +182,6 @@
         <entry file="file://$PROJECT_DIR$/js/main_viewer/windowed_elements.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="371" column="87" selection-start="12713" selection-end="12953" vertical-scroll-proportion="-12.2">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comment_box.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/other_viewer/comment_box.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -228,8 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/testbed/test.json" />
-        <option value="$PROJECT_DIR$/js/main_viewer/action_object.js" />
         <option value="$PROJECT_DIR$/data/myosin_actin1.json" />
         <option value="$PROJECT_DIR$/data/myosin_actin2_other.json" />
         <option value="$PROJECT_DIR$/js/main_viewer/comment_pt.js" />
@@ -244,6 +246,8 @@
         <option value="$PROJECT_DIR$/js/other_viewer/init.js" />
         <option value="$PROJECT_DIR$/data/myosin_actin2.json" />
         <option value="$PROJECT_DIR$/js/main_viewer/embedded_objects.js" />
+        <option value="$PROJECT_DIR$/endlast.php" />
+        <option value="$PROJECT_DIR$/resest.php" />
       </list>
     </option>
   </component>
@@ -255,7 +259,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="820" />
+    <option name="height" value="818" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -488,7 +492,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="820" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="818" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -573,25 +577,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/main_viewer/video_player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="55" selection-start="12048" selection-end="12048" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/env.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="165" selection-start="724" selection-end="885" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/starttest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="28" selection-start="1057" selection-end="1085" vertical-scroll-proportion="0.43548387" />
@@ -676,8 +661,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/embedded_objects.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="529" column="87" selection-start="16539" selection-end="16539" vertical-scroll-proportion="0.7635783">
+        <state line="509" column="34" selection-start="15745" selection-end="15745" vertical-scroll-proportion="-28.72">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/endlast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="42" selection-start="988" selection-end="1018" vertical-scroll-proportion="-16.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="1" selection-start="356" selection-end="356" vertical-scroll-proportion="0.384">
+          <folding>
+            <element signature="e#6#162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

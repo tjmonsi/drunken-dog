@@ -7,14 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $message = null;
-$past = time() - 3600*3;
-foreach ( $_COOKIE as $key => $value )
-{
-    $value = '';
-    setcookie( $key, $value, $past );
-    setcookie( $key, $value, $past, '/' );
-    unset($_COOKIE[$key]);
-}
+
 
 ?>
 <!DOCTYPE html>
