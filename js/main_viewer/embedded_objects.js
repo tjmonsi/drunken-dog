@@ -525,6 +525,9 @@ var embeddedVideo = embeddedObject.extend({
             this.element = saveElement(this.parent, this.elementType, this.id, this.classes, this.attr);
             this.element.css(this.css);
             this.video = new videoPlayer(this.element, this.data.object_data, this.data.object_data.width, false);
+            this.video.objectLayer.css({"position": "absolute", "display": "none"});
+            this.video.canvas.css({"position": "absolute", "display": "none"});
+            this.video.discussionArea.css({"position": "absolute", "display": "none"});
             vD.i(this.video);
         }
     },
