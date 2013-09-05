@@ -18,6 +18,7 @@
             }
 		],
 		"embedded_objects": [
+
             {
                 "id": "overlink40",
                 "type": "linkbox",
@@ -758,6 +759,31 @@
                     "click_hide": ["hidevideoTroponin", "hidetextTroponin"],
                     "height": 40,
                     "width": 45,
+                    "border_color": "white",
+                    "draggable": false,
+                    "on_element": true
+                }
+            },
+            {
+                "id": "overlink56",
+                "type": "linkbox",
+                "begin": 255.6,
+                "end": 267.5,
+                "x": 170,
+                "y": 592,
+                "scene_id": "video00001",
+                "pause": false,
+                "show": false,
+                "parent": null,
+                "retrig": true,
+                "object_data": {
+                    "name": "MCQ 1 Question for Myosin and Actin",
+                    "mouseenter": [],
+                    "mouseleave": [],
+                    "click_show": ["showvideoTroponin"],
+                    "click_hide": ["hidevideoTroponin"],
+                    "height": 40,
+                    "width": 51,
                     "border_color": "white",
                     "draggable": false,
                     "on_element": true
@@ -1594,7 +1620,7 @@
                 "play": null,
                 "pause": false,
                 "scene_id": "video00001",
-                "show": ["TextTroponin1"],
+                "show": ["TextTroponin1", "overlink56"],
                 "show_all": [],
                 "hide": [],
                 "hide_all": [],
@@ -1609,7 +1635,7 @@
                 "scene_id": "video00001",
                 "show": [],
                 "show_all": [],
-                "hide": ["TextTroponin1"],
+                "hide": ["TextTroponin1", "overlink56"],
                 "hide_all": [],
                 "clear_val": [],
                 "change_val": []
