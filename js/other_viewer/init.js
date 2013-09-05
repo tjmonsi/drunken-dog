@@ -67,10 +67,11 @@ var showDone = function() {
 
 
 var saveComment = function(data) {
-    console.log(data);
+    //console.log(data);
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "comments_others"});
 
     res.done(function(d){
+        console.log("comment saved at saveToMongo.php")
         if (this_is_end){
             saveLog();
         }
@@ -80,11 +81,12 @@ var saveComment = function(data) {
 
 var saveLog = function() {
     var data = JSON.stringify({"id": vD.user, "logOtherViewer": log_data});
-    console.log(data);
+    //console.log(data);
 
     var res = $.post('saveToMongo.php', {"pk_key": "id", "pk_val": vD.user, "data": data, "type": "logs"});
 
     res.done(function(d){
+        console.log("log saved at saveToMongo.php")
         window.location.href = "post_test_start.php";
     })
 }

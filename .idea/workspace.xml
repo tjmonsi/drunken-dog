@@ -6,7 +6,7 @@
     <list id="334d9f35-af6e-499b-af6b-c2581989604b" name="Add the other elements" comment="" />
     <list id="fa1e6a72-3418-4e3a-a950-beb6134c84bf" name="check for vData.add_instances" comment="" />
     <list default="true" id="5b8affaa-e670-4740-a69f-069a6451f30a" name="Add logs" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/ui.js" afterPath="$PROJECT_DIR$/js/other_viewer/ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/other_viewer/init.js" afterPath="$PROJECT_DIR$/js/other_viewer/init.js" />
     </list>
     <ignored path="invicble1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,13 +16,13 @@
     <file path="/ui.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1377846807995" ignored="false" />
     <file path="/loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040393054" ignored="false" />
     <file path="/basic.json" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372040358254" ignored="false" />
-    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378348984590" ignored="false" />
+    <file path="/Dummy.txt" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378349577480" ignored="false" />
     <file path="/video.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1372147767336" ignored="false" />
     <file path="/timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376982467891" ignored="false" />
     <file path="/toolkit_UI.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1374223413125" ignored="false" />
     <file path="/viewer_function_loader.js" changelist="4699f935-03e8-4d98-8175-49f3fa5f1909" time="1375418090243" ignored="false" />
     <file path="/video_player_main_timeline.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1375753258805" ignored="false" />
-    <file path="/init.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378313166982" ignored="false" />
+    <file path="/init.js" changelist="5b8affaa-e670-4740-a69f-069a6451f30a" time="1378349630296" ignored="false" />
     <file path="/data_model.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376455734446" ignored="false" />
     <file path="/main_video_player.js" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376889229646" ignored="false" />
     <file path="/viewer.html" changelist="852e781f-5ed6-45dd-ba2a-fe5998f8e7c3" time="1376361907331" ignored="false" />
@@ -156,10 +156,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="init.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="264" selection-start="1644" selection-end="1644" vertical-scroll-proportion="0.0">
+            <state line="88" column="24" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.78101075">
               <folding />
             </state>
           </provider>
@@ -177,7 +177,7 @@
       <file leaf-file-name="ui.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/other_viewer/ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="682" column="0" selection-start="22940" selection-end="22940" vertical-scroll-proportion="-15.52">
+            <state line="682" column="0" selection-start="22940" selection-end="22940" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,16 +186,16 @@
       <file leaf-file-name="other_viewer.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/other_viewer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment_pt.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="comment_pt.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="419" column="53" selection-start="14251" selection-end="14251" vertical-scroll-proportion="0.4775641">
+            <state line="441" column="62" selection-start="15314" selection-end="15314" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -242,8 +242,8 @@
         <option value="$PROJECT_DIR$/endeval.php" />
         <option value="$PROJECT_DIR$/php/config.php" />
         <option value="$PROJECT_DIR$/js/main_viewer/init.js" />
-        <option value="$PROJECT_DIR$/js/other_viewer/init.js" />
         <option value="$PROJECT_DIR$/js/other_viewer/ui.js" />
+        <option value="$PROJECT_DIR$/js/other_viewer/init.js" />
       </list>
     </option>
   </component>
@@ -255,7 +255,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="818" />
+    <option name="height" value="822" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -283,7 +283,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -382,18 +381,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="Configurable.PHP" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="Configurable.PHP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data/backup" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -488,14 +488,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="818" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23385939" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2374462" sideWeight="0.9527363" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17039801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -580,9 +580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/endeval_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/process.php">
@@ -642,23 +640,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="264" selection-start="1644" selection-end="1644" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/other_viewer/comment_box.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/other_viewer/ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="682" column="0" selection-start="22940" selection-end="22940" vertical-scroll-proportion="-15.52">
           <folding />
         </state>
       </provider>
@@ -672,7 +656,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_viewer/comment_pt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="419" column="53" selection-start="14251" selection-end="14251" vertical-scroll-proportion="0.4775641">
+        <state line="441" column="62" selection-start="15314" selection-end="15314" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/other_viewer/ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="682" column="0" selection-start="22940" selection-end="22940" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/other_viewer/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="24" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.78101075">
           <folding />
         </state>
       </provider>
