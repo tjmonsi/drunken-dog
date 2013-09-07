@@ -623,7 +623,7 @@ var dataModel = Class.extend({
 
 
 
-                    this.other_data_array.significant_interaction += 1;
+                    //this.other_data_array.significant_interaction += 1;
 
                 } else if (interactionType == "hideSet") {
 
