@@ -7,6 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-$username = "tjmonsi_drunken";
-$pwd = "drunken_machine";
-$host = "ds041178.mongolab.com:41178";
+$username = "";
+$pwd = "";
+$host = "";
